@@ -8,6 +8,7 @@ from the retracted node until nothing changes. Nothing is ever deleted.
 from __future__ import annotations
 
 import json
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 
@@ -406,16 +407,51 @@ class Engine:
         return [DecisionChange(r[0], "unchanged", before[r[0]].as_dict(), before[r[0]].as_dict())
                 for r in rows if r[0] not in changed and r[0] in before]
 
-    def _record_event(self, event_id: str, kind: str, adv: Advisory, at: str, result: EventResult):
+    # ------------------------------------------------------------------ corrections
+
+    def correct(self, node_id: str, reason: str, by: str = "person:admin", at: str | None = None) -> EventResult:
+        """A person says a belief (or an advisory) is wrong: retract it and everything resting only on it."""
+        node = self.node(node_id)
+        if node is None:
+            raise KeyError(node_id)
+        if node["kind"] not in ("Advisory", "Exposure", "Judgment"):
+            raise ValueError(f"only advisories, exposures and judgments can be corrected, not {node['kind']}")
+        at = at or now()
+        n = self.q("MATCH (e:Event {kind: 'correction'}) RETURN count(e)")[0][0] + 1
+        event_id = f"event:correction:{n}"
+        self.q("MERGE (p:Agent:Node {id: $id}) SET p.name = $name, p.person = true", {"id": by, "name": by.split(":")[-1]})
+        before = self._decision_states()
+        self.q("MATCH (n:Node {id: $id}) SET n.corrected = true, n.corrected_reason = $r", {"id": node_id, "r": reason})
+        result = EventResult(event_id, "correction")
+        result.waves = self.retract([node_id], at, retraction_id=f"retraction:{event_id}", trigger=event_id,
+                                    reason=reason, by=by)
+        self.q("MATCH (a:Agent {id: $by}), (r:Retraction {id: $rid}) MERGE (a)-[:WROTE]->(r)",
+               {"by": by, "rid": f"retraction:{event_id}"})
+        self._recompute_decisions()
+        result.changes = self._diff(before, self._decision_states(), retraction=True)
+        if result.waves:
+            result.changes += self._touched_but_unchanged(result, before)
+        seq = (self.q("MATCH (e:Event) RETURN max(e.seq)")[0][0] or 0) + 1
         changes = [{"decision": c.decision, "change": c.change, "before": c.before, "after": c.after}
                    for c in result.changes]
-        seq = (self.q("MATCH (e:Event) RETURN max(e.seq)")[0][0] or 0) + 1
         self.q("""MERGE (e:Event:Node {id: $id})
-                  SET e.seq = $seq, e.kind = $kind, e.advisory = $adv, e.at = $at, e.processed_at = $processed,
-                      e.changes = $changes, e.waves = $waves""",
-               {"id": event_id, "seq": seq, "kind": kind, "adv": adv.id, "at": at, "processed": now(),
+                  SET e.seq = $seq, e.kind = 'correction', e.at = $at, e.processed_at = $at, e.target = $target,
+                      e.reason = $reason, e.by = $by, e.changes = $changes, e.waves = $waves""",
+               {"id": event_id, "seq": seq, "at": at, "target": node_id, "reason": reason, "by": by,
                 "changes": json.dumps(changes), "waves": json.dumps(result.waves)})
-        self.q("MATCH (e:Event {id: $e}), (a:Advisory {id: $a}) MERGE (e)-[:ABOUT]->(a)", {"e": event_id, "a": adv.id})
+        self._record_changes(event_id, at, result)
+        return result
+
+    def what_if(self, node_id: str, reason: str = "what if this were wrong?") -> EventResult:
+        """Simulate a correction on a copy of the graph; the live graph is never written."""
+        scratch = f"{self.graph_name}__whatif_{uuid.uuid4().hex[:8]}"
+        self.db.connection.execute_command("GRAPH.COPY", self.graph_name, scratch)
+        try:
+            return Engine(graph_name=scratch, db=self.db).correct(node_id, reason, by="person:what-if")
+        finally:
+            self.db.select_graph(scratch).delete()
+
+    def _record_changes(self, event_id: str, at: str, result: EventResult):
         for c in result.changes:
             self.q("""MATCH (e:Event {id: $e}), (d:Decision {id: $d})
                       MERGE (e)-[x:CHANGED]->(d)
@@ -426,6 +462,18 @@ class Engine:
                     "after": c.after.get("urgency") if c.after.get("status") == "held" else None,
                     "eb": len((c.before or {}).get("evidence") or []) if c.before and c.before.get("status") == "held" else 0,
                     "ea": len(c.after.get("evidence") or []) if c.after.get("status") == "held" else 0})
+
+    def _record_event(self, event_id: str, kind: str, adv: Advisory, at: str, result: EventResult):
+        changes = [{"decision": c.decision, "change": c.change, "before": c.before, "after": c.after}
+                   for c in result.changes]
+        seq = (self.q("MATCH (e:Event) RETURN max(e.seq)")[0][0] or 0) + 1
+        self.q("""MERGE (e:Event:Node {id: $id})
+                  SET e.seq = $seq, e.kind = $kind, e.advisory = $adv, e.at = $at, e.processed_at = $processed,
+                      e.changes = $changes, e.waves = $waves""",
+               {"id": event_id, "seq": seq, "kind": kind, "adv": adv.id, "at": at, "processed": now(),
+                "changes": json.dumps(changes), "waves": json.dumps(result.waves)})
+        self.q("MATCH (e:Event {id: $e}), (a:Advisory {id: $a}) MERGE (e)-[:ABOUT]->(a)", {"e": event_id, "a": adv.id})
+        self._record_changes(event_id, at, result)
 
     def history(self, decision: str) -> list[dict]:
         """Every event that changed a decision, oldest first."""

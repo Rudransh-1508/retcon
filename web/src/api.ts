@@ -15,7 +15,11 @@ export type WhyNode = {
 }
 export type WhySupport = { id: string; kind: string; status: string; by: string | null; premises: WhyNode[]; [key: string]: unknown }
 export type Change = { decision: string; change: string; before: Record<string, unknown> | null; after: Record<string, unknown> }
-export type Event = { id: string; kind: string; at: string; advisory: string; summary: string; severity: string; changes: Change[] }
+export type Event = {
+  id: string; kind: string; at: string; advisory: string | null; summary: string | null; severity: string | null
+  changes: Change[]; target?: string | null; reason?: string | null; by?: string | null
+  classification?: string | null; rationale?: string | null
+}
 
 async function get<T>(path: string): Promise<T> {
   const res = await fetch(path)
@@ -23,9 +27,25 @@ async function get<T>(path: string): Promise<T> {
   return res.json()
 }
 
+export type Simulation = { event: string; waves: string[][]; changes: Change[] }
+
+export const passphrase = {
+  get: () => { try { return sessionStorage.getItem('retcon-admin') ?? '' } catch { return '' } },
+  set: (v: string) => { try { if (v) sessionStorage.setItem('retcon-admin', v); else sessionStorage.removeItem('retcon-admin') } catch { /* ignore */ } },
+}
+
 export const api = {
   projects: () => get<Project[]>('/api/projects'),
   decisions: () => get<Decision[]>('/api/decisions'),
   why: (id: string) => get<WhyNode>(`/api/why?id=${encodeURIComponent(id)}`),
   events: () => get<Event[]>('/api/events'),
+  whatIf: (id: string) => get<Simulation>(`/api/whatif?id=${encodeURIComponent(id)}`),
+  correct: async (id: string, reason: string): Promise<Simulation> => {
+    const res = await fetch('/api/correct', {
+      method: 'POST', headers: { 'content-type': 'application/json', 'x-retcon-passphrase': passphrase.get() },
+      body: JSON.stringify({ id, reason }),
+    })
+    if (!res.ok) throw new Error(res.status === 403 ? 'Admin passphrase required.' : `${res.status} ${await res.text()}`)
+    return res.json()
+  },
 }

@@ -121,10 +121,11 @@ class Reconciler:
         rows = self.engine.q("""MATCH (e:Event)-[x:CHANGED]->(:Decision {id: $id}) WHERE coalesce(e.seq, 0) > $seq
                                 OPTIONAL MATCH (e)-[:TRIGGERED]->(r:Retraction)
                                 RETURN e.kind, e.advisory, x.change, x.before, x.after, x.at, r.classification,
-                                       r.rationale ORDER BY e.seq""",
+                                       r.rationale, e.target, e.reason, e.by ORDER BY e.seq""",
                              {"id": d["id"], "seq": acted_seq})
         return [{"kind": r[0], "advisory": r[1], "change": r[2], "before": r[3], "after": r[4], "at": r[5],
-                 "classification": r[6], "rationale": r[7]} for r in rows]
+                 "classification": r[6], "rationale": r[7], "target": r[8], "reason": r[9], "by": r[10]}
+                for r in rows]
 
     def _advisories(self, decision_id: str) -> list[dict]:
         rows = self.engine.q("""MATCH (:Decision {id: $id})<-[:SUPPORTS]-(:Support)-[:PREMISE]->(e:Exposure)

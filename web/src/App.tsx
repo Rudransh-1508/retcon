@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { api, type Decision, type Project } from './api'
+import { api, passphrase, type Decision, type Project } from './api'
 import { Why } from './Why'
 import { Timeline } from './Timeline'
 import { Urgency } from './bits'
@@ -13,11 +13,13 @@ export default function App() {
   const [view, setView] = useState<View>(() => (new URLSearchParams(location.search).get('view') as View) || 'decisions')
   const [error, setError] = useState<string | null>(null)
 
+  const [reload, setReload] = useState(0)
+  const [admin, setAdmin] = useState(() => passphrase.get() !== '')
   useEffect(() => {
     Promise.all([api.projects(), api.decisions()])
       .then(([p, d]) => { setProjects(p); setDecisions(d) })
       .catch((e) => setError(String(e)))
-  }, [])
+  }, [reload])
 
   useEffect(() => {
     const url = new URL(location.href)
@@ -54,6 +56,7 @@ export default function App() {
               onClick={() => setView(id)}>{label}</button>
           ))}
         </nav>
+        <AdminToggle admin={admin} onChange={setAdmin} />
       </header>
 
       {error && <div className="error">Could not load data: {error}</div>}
@@ -102,11 +105,24 @@ export default function App() {
 
         {selected && (
           <section className="why-panel" aria-label="Why">
-            <Why key={selected} id={selected} onClose={() => setSelected(null)} onOpen={setSelected} />
+            <Why key={`${selected}:${admin}`} id={selected} onClose={() => setSelected(null)} onOpen={setSelected} onChanged={() => setReload((n) => n + 1)} />
           </section>
         )}
       </main>
     </div>
+  )
+}
+
+function AdminToggle({ admin, onChange }: { admin: boolean; onChange: (v: boolean) => void }) {
+  const [open, setOpen] = useState(false)
+  const [value, setValue] = useState('')
+  if (admin) return <button className="ghost small" onClick={() => { passphrase.set(''); onChange(false) }}>Admin on · sign out</button>
+  if (!open) return <button className="ghost small" onClick={() => setOpen(true)}>Admin</button>
+  return (
+    <form className="admin-form" onSubmit={(e) => { e.preventDefault(); passphrase.set(value); onChange(value !== ''); setOpen(false) }}>
+      <input type="password" value={value} onChange={(e) => setValue(e.target.value)} placeholder="Passphrase" aria-label="Admin passphrase" autoFocus />
+      <button className="ghost small" type="submit">Enter</button>
+    </form>
   )
 }
 

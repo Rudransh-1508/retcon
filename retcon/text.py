@@ -80,6 +80,9 @@ class TemplateWriter:
                           f"on {str(h['at'])[:10]}"
                           + (f". Auditor ({h['classification'].replace('_', ' ')}): {h['rationale']}"
                              if h.get("rationale") else "") for h in reasons)
+        because += "".join(f"\n- {str(h.get('by') or 'a person').split(':')[-1]} corrected `{h['target']}`: "
+                           f"{h.get('reason') or 'marked as wrong'}"
+                           for h in ctx.get("new_history", []) if h["kind"] == "correction")
         n = len(held_advisories(ctx))
         if change == "cancel":
             return (f"**Retcon: cancelled.** No advisory behind this upgrade still holds, so it is no longer needed."

@@ -20,8 +20,8 @@ export function Timeline({ onOpen }: { onOpen: (id: string) => void }) {
   }, [])
 
   const shown = useMemo(() => (events ?? []).filter((e) => {
-    if (filter === 'withdrawals') return e.kind === 'withdrawn'
-    if (filter === 'significant') return e.kind === 'withdrawn' || e.changes.some((c) => c.change !== 'updated')
+    if (filter === 'withdrawals') return e.kind !== 'published'
+    if (filter === 'significant') return e.kind !== 'published' || e.changes.some((c) => c.change !== 'updated')
     return true
   }), [events, filter])
 
@@ -46,10 +46,20 @@ export function Timeline({ onOpen }: { onOpen: (id: string) => void }) {
             <div className="event-body">
               <div className="event-head">
                 <span className={`event-kind ${e.kind}`}>{e.kind}</span>
-                <a href={`https://github.com/advisories/${e.advisory}`} target="_blank" rel="noreferrer" className="mono">{e.advisory}</a>
+                {e.advisory ? (
+                  <a href={`https://github.com/advisories/${e.advisory}`} target="_blank" rel="noreferrer" className="mono">{e.advisory}</a>
+                ) : (
+                  <code className="event-target">{e.target}</code>
+                )}
                 <Severity value={e.severity} />
               </div>
-              <div className="event-summary">{e.summary}</div>
+              <div className="event-summary">
+                {e.kind === 'correction' ? `${(e.by ?? 'a person').split(':').pop()}: ${e.reason ?? ''}` : e.summary}
+              </div>
+              {e.rationale && (
+                <div className="auditor"><span className="kind kind-auditor">Auditor</span>
+                  <b>{String(e.classification ?? '').replace('_', ' ')}</b> {e.rationale}</div>
+              )}
               {e.changes.length > 0 && (
                 <ul className="event-changes">
                   {e.changes.map((c) => {

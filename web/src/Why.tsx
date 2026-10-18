@@ -1,15 +1,22 @@
-import { useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 import { api, type WhyNode, type WhySupport } from './api'
 import { Severity, Urgency } from './bits'
 import { date } from './format'
+import { WhatIf } from './WhatIf'
 
-export function Why({ id, onClose, onOpen }: { id: string; onClose: () => void; onOpen: (id: string) => void }) {
+const Ask = createContext<(id: string) => void>(() => {})
+
+export function Why({ id, onClose, onOpen, onChanged }: {
+  id: string; onClose: () => void; onOpen: (id: string) => void; onChanged: () => void
+}) {
   const [tree, setTree] = useState<WhyNode | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [whatIf, setWhatIf] = useState<string | null>(null)
+  const [version, setVersion] = useState(0)
 
   useEffect(() => {
     api.why(id).then(setTree).catch((e) => setError(String(e)))
-  }, [id])
+  }, [id, version])
 
   return (
     <div className="why">
@@ -19,8 +26,12 @@ export function Why({ id, onClose, onOpen }: { id: string; onClose: () => void; 
       </div>
       {error && <div className="error">{error}</div>}
       {!tree && !error && <div className="muted">Loading…</div>}
+      {whatIf && (
+        <WhatIf key={whatIf} target={whatIf} onClose={() => setWhatIf(null)} onOpen={onOpen}
+          onDone={() => { setVersion((v) => v + 1); onChanged() }} />
+      )}
       {tree && (
-        <>
+        <Ask.Provider value={setWhatIf}>
           <Headline node={tree} />
           {Array.isArray(tree.history) && tree.history.length > 0 && <History items={tree.history as HistoryItem[]} />}
           {Array.isArray(tree.judgments) && tree.judgments.length > 0 && (
@@ -32,7 +43,7 @@ export function Why({ id, onClose, onOpen }: { id: string; onClose: () => void; 
           <div className="tree">
             <NodeCard node={tree} root onOpen={onOpen} />
           </div>
-        </>
+        </Ask.Provider>
       )}
     </div>
   )
@@ -102,6 +113,7 @@ function NodeCard({ node, root, onOpen }: { node: WhyNode; root?: boolean; onOpe
         <span className={`kind kind-${node.kind.toLowerCase()}`}>{node.kind}</span>
         <NodeTitle node={node} onOpen={onOpen} />
         <span className={`status ${retracted ? 'off' : 'on'}`}>{retracted ? 'retracted' : 'held'}</span>
+        {!retracted && ['Advisory', 'Exposure', 'Judgment'].includes(node.kind) && <AskButton id={node.id} />}
       </div>
       {retracted && node.retracted_by.length > 0 && (
         <div className="retraction-note">
@@ -142,6 +154,11 @@ function SupportRow({ support, onOpen }: { support: WhySupport; onOpen: (id: str
   )
 }
 
+function AskButton({ id }: { id: string }) {
+  const ask = useContext(Ask)
+  return <button className="ask" onClick={() => ask(id)} title="Simulate retracting this belief">What if wrong?</button>
+}
+
 const VERDICT_LABEL: Record<string, string> = {
   exploitable: 'exploitable here', not_reachable: 'not reachable here', unknown: 'unclear',
 }
@@ -169,8 +186,10 @@ function JudgmentCard({ node }: { node: WhyNode }) {
           )}
         </span>
         <span className={`status ${retracted ? 'off' : 'on'}`}>{retracted ? 'retracted' : 'held'}</span>
+        {!retracted && <AskButton id={node.id} />}
       </div>
-      {retracted && <div className="retraction-note">Retracted {date(node.retracted_by[0]?.at)}: the advisory it judged was withdrawn</div>}
+      {retracted && <div className="retraction-note">Retracted {date(node.retracted_by[0]?.at)}: {
+        node.corrected ? `corrected by a person (${String(node.corrected_reason ?? '')})` : 'the advisory it judged was withdrawn'}</div>}
     </div>
   )
 }
