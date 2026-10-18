@@ -1,26 +1,21 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/Rudransh-1508/retcon/main/web/public/icon.svg" alt="Retcon logo" width="72" height="72">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/header/graph.svg?title=Retcon&subtitle=Agent%20memory%20that%20can%20take%20things%20back&width=920&height=200&mode=dark&bg=0b1311&accent=3fd3b0&titleColor=e6eeea&subtitleColor=97a8a1&align=center&font=space-grotesk">
+  <img alt="Retcon: agent memory that can take things back" src="https://shieldcn.dev/header/graph.svg?title=Retcon&subtitle=Agent%20memory%20that%20can%20take%20things%20back&width=920&height=200&mode=light&bg=f3f5f2&accent=0a7058&titleColor=12201b&subtitleColor=55655f&align=center&font=space-grotesk" width="100%">
+</picture>
 
-# Retcon
+[![Stars](https://shieldcn.dev/github/Rudransh-1508/retcon/stars.svg)](https://github.com/Rudransh-1508/retcon/stargazers) [![Last commit](https://shieldcn.dev/github/Rudransh-1508/retcon/last-commit.svg)](https://github.com/Rudransh-1508/retcon/commits/main) [![Issues](https://shieldcn.dev/github/Rudransh-1508/retcon/issues.svg)](https://github.com/Rudransh-1508/retcon/issues) ![Hackathon](https://shieldcn.dev/badge/Built%20for-FalkorDB%20Graph%20Hacks.svg)
 
-**Agent memory that can take things back.**
+![Withdrawn advisories](https://shieldcn.dev/badge/advisories%20withdrawn-635-bb1d5c.svg) ![Withdrawn for other reasons](https://shieldcn.dev/badge/not%20duplicates-131-bb1d5c.svg) ![Events replayed](https://shieldcn.dev/badge/real%20events%20replayed-568-0a7058.svg) ![Worker](https://shieldcn.dev/badge/worker-every%2010%20min.svg?logo=githubactions)
 
-[![Stars](https://shieldcn.dev/github/Rudransh-1508/retcon/stars.svg)](https://github.com/Rudransh-1508/retcon/stargazers)
-[![Last commit](https://shieldcn.dev/github/Rudransh-1508/retcon/last-commit.svg)](https://github.com/Rudransh-1508/retcon/commits/main)
-[![Issues](https://shieldcn.dev/github/Rudransh-1508/retcon/issues.svg)](https://github.com/Rudransh-1508/retcon/issues)
-[![Live](https://shieldcn.dev/badge/Live-retcon--kappa.vercel.app.svg)](https://retcon-kappa.vercel.app)
-
-[![FalkorDB](https://shieldcn.dev/badge/FalkorDB-graph%20memory.svg)](https://www.falkordb.com/)
-[![Python](https://shieldcn.dev/badge/Python-3.12.svg?logo=python)](https://www.python.org/)
-[![Next.js](https://shieldcn.dev/badge/Next.js-16.svg?logo=nextdotjs)](https://nextjs.org/)
-[![MCP](https://shieldcn.dev/badge/MCP-server.svg)](#use-retcon-from-your-own-agent-mcp)
-
-[Live app](https://retcon-kappa.vercel.app) · [Real pull requests](https://github.com/Rudransh-1508/retcon-target-gladys/pulls?q=is%3Apr) · [Glossary](CONTEXT.md) · [Spec and tickets](https://github.com/Rudransh-1508/retcon/issues/1)
+[![Live app](https://shieldcn.dev/badge/Live%20app-open-0a7058.svg?variant=branded)](https://retcon-kappa.vercel.app) [![Real PRs](https://shieldcn.dev/badge/Real%20PRs-on%20GitHub.svg?logo=github&variant=secondary)](https://github.com/Rudransh-1508/retcon-target-gladys/pulls?q=is%3Apr) [![Problem](https://shieldcn.dev/badge/The-problem.svg?variant=secondary)](#the-problem) [![How it works](https://shieldcn.dev/badge/How%20it-works.svg?variant=secondary)](#how-it-works) [![Architecture](https://shieldcn.dev/badge/System-architecture.svg?variant=secondary)](#architecture) [![Try it](https://shieldcn.dev/badge/Try-it.svg?variant=secondary)](#try-it) [![MCP](https://shieldcn.dev/badge/Use%20over-MCP.svg?logo=modelcontextprotocol&variant=secondary)](#use-retcon-from-your-own-agent-mcp) [![Data model](https://shieldcn.dev/badge/Data%20model-Cypher.svg?variant=secondary)](#graph-data-model-and-the-queries-retcon-depends-on) [![Run locally](https://shieldcn.dev/badge/Run-locally.svg?logo=docker&variant=secondary)](#running-locally)
 
 </div>
 
 Retcon is a team of LLM agents whose shared memory is a [FalkorDB](https://www.falkordb.com/) graph in which every belief and every decision records what supports it. It watches real security advisories for real open-source projects and turns them into real GitHub pull requests. When an advisory is withdrawn, or a person corrects a belief, Retcon revises exactly the work that rested on it, and nothing more.
+
+![Python](https://shieldcn.dev/badge/Python-3.12.svg?logo=python) ![FastAPI](https://shieldcn.dev/badge/FastAPI-API.svg?logo=fastapi) ![Next.js](https://shieldcn.dev/badge/Next.js-16.svg?logo=nextdotjs) ![Tailwind](https://shieldcn.dev/badge/Tailwind-4.svg?logo=tailwindcss) ![three.js](https://shieldcn.dev/badge/three.js-3D%20graph.svg?logo=threedotjs) ![Vercel](https://shieldcn.dev/badge/Vercel-hosting.svg?logo=vercel) ![MCP](https://shieldcn.dev/badge/MCP-server.svg?logo=modelcontextprotocol) ![FalkorDB](https://shieldcn.dev/badge/FalkorDB-graph%20memory.svg) ![Groq](https://shieldcn.dev/badge/Groq-gpt--oss--120b.svg)
 
 > [!IMPORTANT]
 > What holds and what is retracted is decided by the graph, never by an LLM. Agents write beliefs, and the engine rejects any belief that does not name its support.
@@ -40,22 +35,36 @@ Teams act on advisories fast: hotfixes, upgrade PRs, blocked releases. When a cl
 Every Exposure, Judgment and Decision is **held only while at least one of its Supports holds**, and a Support holds only while **all of its premises** are held. This is a truth maintenance system ([Doyle, 1979](https://doi.org/10.1016/0004-3702(79)90008-0)) on a graph database.
 
 ```mermaid
-flowchart LR
-  A[Advisory] -- premise --> S1((Support: affects))
-  S1 -- supports --> E[Exposure<br/>project + package@version]
-  E -- premise --> S2((Support: resolves))
-  S2 -- supports --> D[Decision<br/>project + package<br/>urgency P0..P3]
-  A -- premise --> S3((Support: judged))
-  E -- premise --> S3
-  S3 -- supports --> J[Judgment<br/>by Triage]
-  J -- adjusts --> D
-  D -- premise --> S4((Support: planned))
-  A -- premise --> S4
-  S4 -- supports --> P[Plan<br/>by Planner]
-  P -- caused --> X[Action<br/>real PR, comment, label, close]
-  W[Event: withdrawn or correction] -- triggered --> R[Retraction<br/>explained by Auditor]
-  R -- retracted, by wave --> A
+flowchart TB
+  W["<b>Event</b><br/>withdrawal or correction"] -->|triggered| R["<b>Retraction</b><br/>explained by the Auditor"]
+  R ==>|"retracted, wave by wave"| A["<b>Advisory</b><br/>an outside claim"]
+
+  A -->|premise| S1(("Support<br/>affects"))
+  S1 -->|supports| E["<b>Exposure</b><br/>project + package@version"]
+  E --> S2(("Support<br/>resolves"))
+  S2 --> D["<b>Decision</b><br/>upgrade, urgency P0 to P3"]
+  A --> S3(("Support<br/>judged"))
+  E --> S3
+  S3 --> J["<b>Judgment</b><br/>by Triage"]
+  J -.->|adjusts| D
+  D --> S4(("Support<br/>planned"))
+  A --> S4
+  S4 --> P["<b>Plan</b><br/>by the Planner"]
+  P -->|caused| X["<b>Action</b><br/>real PR, comment, label or close"]
+
+  classDef ev fill:#ffe3ee,stroke:#bb1d5c,color:#12201b
+  classDef sup fill:#12201b,stroke:#3fd3b0,stroke-width:2px,color:#f3f5f2
+  classDef bel fill:#e6f7f2,stroke:#0a7058,color:#0b1311
+  classDef act fill:#3fd3b0,stroke:#0a7058,color:#0b1311,stroke-width:2px
+  classDef ret fill:#bb1d5c,stroke:#bb1d5c,color:#ffffff
+  class A ev
+  class S1,S2,S3,S4 sup
+  class E,J,D,P bel
+  class X act
+  class W,R ret
 ```
+
+<sub>**Legend:** pink is outside evidence, black circles are Supports (the reasons), green boxes are beliefs, and the bright green box is the real-world action. Solid arrows run from a premise through a Support to what it supports; the dotted arrow is a Judgment adjusting a Decision.</sub>
 
 When an advisory is withdrawn, the retraction travels forward wave by wave and every decision it reaches gets one **outcome**:
 
@@ -160,16 +169,62 @@ RETURN d.id, collect(DISTINCT [a.evidence, a.rank, s.fix, a.id])
 
 ## Architecture
 
-All free tier.
+Everything runs on free tiers.
 
-| Piece | Where |
-|---|---|
-| Graph | FalkorDB Cloud. The graph can always be rebuilt from the feed, so a restart of the free instance is harmless. |
-| Worker | A scheduled GitHub Actions workflow (every 10 minutes, plus manual `run` and `reset`). |
-| API and UI | Vercel: FastAPI serverless functions, and a Next.js static export in `web/` (landing page at `/`, console at `/app`, 3D graph in three.js). |
-| LLMs | Groq, with a key pool, rotation, backoff and a fallback model. |
-| Advisory feed | The public OSV bucket: the npm archive on rebuild, the modified-id index after that. OSV's query API omits withdrawn advisories, so it is not used. |
-| GitHub | A fine-grained token limited to the two target repositories. |
+```mermaid
+flowchart TB
+  OSV[("<b>OSV advisory feed</b><br/>npm archive, then modified ids")]
+
+  subgraph CORE["Retcon core (Python)"]
+    direction TB
+    WRK["<b>Worker</b><br/>GitHub Actions, every 10 minutes"]
+    ENG["<b>Truth maintenance engine</b><br/>retract, recompute, why"]
+    AGS["<b>Four agents</b> on Groq gpt-oss-120b<br/>Triage, Planner, Fixer, Auditor"]
+    WRK --> ENG
+    AGS <-->|"read memory, write beliefs"| ENG
+  end
+
+  DB[("<b>FalkorDB Cloud</b><br/>the shared memory")]
+  TGT["<b>Target repositories</b><br/>snapshot copies of Gladys and wiredoor"]
+
+  subgraph VER["Vercel"]
+    direction TB
+    API["<b>FastAPI</b><br/>/api and /mcp"]
+    WEB["<b>Next.js</b><br/>landing page and 3D console"]
+    API --> WEB
+  end
+
+  USER(["You, or any MCP agent"])
+
+  OSV -->|"advisories and withdrawals"| WRK
+  ENG <-->|"beliefs, supports, retractions"| DB
+  ENG ==>|"opens, rewrites and closes real PRs"| TGT
+  DB --> API
+  WEB --> USER
+  API -->|"MCP tools"| USER
+
+  classDef data fill:#f3f5f2,stroke:#97a8a1,color:#12201b
+  classDef core fill:#ffffff,stroke:#12201b,color:#12201b
+  classDef agent fill:#e6f7f2,stroke:#0a7058,color:#0b1311
+  classDef db fill:#3fd3b0,stroke:#0a7058,color:#0b1311,stroke-width:2px
+  classDef out fill:#12201b,stroke:#3fd3b0,stroke-width:2px,color:#f3f5f2
+  classDef pr fill:#ffe3ee,stroke:#bb1d5c,color:#12201b
+  class OSV data
+  class TGT pr
+  class WRK,ENG core
+  class AGS agent
+  class DB db
+  class API,WEB,USER out
+  style CORE fill:#f3f5f2,stroke:#d9e0dc,color:#12201b
+  style VER fill:#f3f5f2,stroke:#d9e0dc,color:#12201b
+```
+
+- **Graph:** FalkorDB Cloud. The graph can always be rebuilt from the feed, so a restart of the free instance is harmless.
+- **Worker:** a scheduled GitHub Actions workflow, every 10 minutes, plus manual `run` and `reset`.
+- **Advisory feed:** the public OSV bucket (the npm archive on rebuild, the modified-id index after that). OSV's query API omits withdrawn advisories, so it is not used.
+- **LLMs:** Groq, with a key pool, rotation, backoff and a fallback model.
+- **API and UI:** FastAPI serverless functions plus a Next.js static export in `web/` (landing page at `/`, console at `/app`, 3D graph in three.js), all on Vercel.
+- **GitHub:** a fine-grained token limited to the two target repositories.
 
 ## Running locally
 
