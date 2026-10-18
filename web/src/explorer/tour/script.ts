@@ -70,7 +70,7 @@ export const STEPS: Step[] = [
   {
     id: 'filter',
     title: 'Narrow the list',
-    body: 'P0 is the most urgent: a critical advisory still holds the upgrade. Filters only narrow the list; they never change anything.',
+    body: 'P0 is the most urgent: the upgrade rests on a critical advisory that still holds. Filters only narrow the list; they never change anything.',
     action: 'Click P0.',
     target: 'urgency-p0',
     view: 'decisions',
@@ -109,7 +109,7 @@ export const STEPS: Step[] = [
   {
     id: 'what-if',
     title: 'Ask what if',
-    body: 'What if wrong? simulates retracting one belief, on a copy of the memory. It writes nothing, so it is always safe to press.',
+    body: 'The What if wrong? button simulates retracting one belief, on a copy of the memory. It writes nothing, so it is always safe to press.',
     action: 'Click What if wrong? on an advisory.',
     target: 'what-if',
     view: 'decisions',
@@ -119,7 +119,7 @@ export const STEPS: Step[] = [
   {
     id: 'what-if-result',
     title: 'What would change',
-    body: 'The result lists which decisions would be cancelled, downgraded or left unchanged, and the beliefs that would fall pulse magenta on the plates. The project owner can then retract it for real from Admin; the tour never does.',
+    body: 'The result lists which decisions would be cancelled, downgraded or left unchanged. On the plates, every belief that would fall pulses magenta. The project owner can retract it for real from Admin; the tour never does.',
     action: 'Close the What-if.',
     target: 'whatif-result',
     view: 'decisions',
@@ -161,7 +161,7 @@ export const STEPS: Step[] = [
   {
     id: 'pick',
     title: 'Follow one belief',
-    body: 'Clicking a belief keeps its whole chain lit, what it rests on and what rests on it, and fades the rest. Links that skip a plate stay hidden until something is selected. The card that appears offers Why? and What if wrong?',
+    body: 'Clicking a belief keeps its whole chain lit (what it rests on and what rests on it) and fades the rest. Links that skip a plate stay hidden until something is selected. The card that appears offers Why? and What if wrong?',
     action: 'Click any belief.',
     target: 'graph-canvas',
     view: 'graph',
@@ -171,7 +171,7 @@ export const STEPS: Step[] = [
   {
     id: 'replay',
     title: 'Replay a withdrawal',
-    body: 'Pick a real withdrawal to watch it travel up: a magenta pulse on the advisory, then each belief that rested only on it dims, until it reaches the decisions it changed.',
+    body: 'Pick a real withdrawal and watch it travel up: a magenta pulse on the advisory, then the beliefs that rested only on it dim, plate by plate, up to the decisions it changed.',
     action: 'Choose a withdrawal to replay.',
     target: 'replay',
     view: 'graph',
