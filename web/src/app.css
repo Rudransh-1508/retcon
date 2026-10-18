@@ -177,3 +177,6 @@
 .verdict.not_reachable { color: var(--held); }
 .verdict.unknown { color: var(--muted); }
 .evidence { margin-right: 10px; }
+.auditor { margin-top: 6px; padding: 6px 8px; border-radius: 6px; background: var(--panel-2); color: var(--text); }
+.auditor .kind { margin-right: 6px; }
+.kind-auditor { color: var(--accent); }

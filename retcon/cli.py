@@ -74,12 +74,17 @@ def main():
         engine.delete_graph()
     elif args.cmd == "run":
         import logging
+        from . import config
         from . import worker
         from .github import RealGitHub
         logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(message)s")
         from . import config
         gh = RealGitHub()
         engine.triage = triage_agent()
+        if config.groq_keys():
+            from .auditor import AuditorAgent
+            from .llm import GroqLLM
+            engine.auditor = AuditorAgent(GroqLLM())
         act = not args.dry_run and all(gh.can_write(repo) for repo in config.TARGET_REPOS)
         if not act and not args.dry_run:
             logging.warning("GitHub token cannot write to the target repos: updating the graph only")

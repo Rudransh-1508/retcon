@@ -4,7 +4,10 @@ export type Decision = {
   pr_url: string | null; mode: string | null
 }
 export type Project = { id: string; repo: string; snapshot_sha: string; snapshot_date: string; open_decisions: number }
-export type RetractedBy = { id: string; at: string; reason: string; trigger: string; wave: number }
+export type RetractedBy = {
+  id: string; at: string; reason: string; trigger: string; wave: number
+  classification?: string | null; rationale?: string | null; original?: string | null
+}
 export type WhyNode = {
   id: string; kind: string; status?: string; [key: string]: unknown
   retracted_by: RetractedBy[]

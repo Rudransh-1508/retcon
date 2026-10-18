@@ -107,6 +107,13 @@ function NodeCard({ node, root, onOpen }: { node: WhyNode; root?: boolean; onOpe
         <div className="retraction-note">
           Retracted {date(node.retracted_by[0].at)}
           {node.kind === 'Advisory' ? ': withdrawn by its publisher' : ': its support was retracted'}
+          {node.kind === 'Advisory' && node.retracted_by[0].rationale && (
+            <div className="auditor">
+              <span className="kind kind-auditor">Auditor</span>
+              <b>{String(node.retracted_by[0].classification ?? '').replace('_', ' ')}</b>
+              {' '}{node.retracted_by[0].rationale}
+            </div>
+          )}
         </div>
       )}
       {supports.length > 0 && (

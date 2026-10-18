@@ -119,9 +119,12 @@ class Reconciler:
     def _new_history(self, d: dict) -> list[dict]:
         acted_seq = d.get("acted_seq") or 0
         rows = self.engine.q("""MATCH (e:Event)-[x:CHANGED]->(:Decision {id: $id}) WHERE coalesce(e.seq, 0) > $seq
-                                RETURN e.kind, e.advisory, x.change, x.before, x.after, x.at ORDER BY e.seq""",
+                                OPTIONAL MATCH (e)-[:TRIGGERED]->(r:Retraction)
+                                RETURN e.kind, e.advisory, x.change, x.before, x.after, x.at, r.classification,
+                                       r.rationale ORDER BY e.seq""",
                              {"id": d["id"], "seq": acted_seq})
-        return [{"kind": r[0], "advisory": r[1], "change": r[2], "before": r[3], "after": r[4], "at": r[5]} for r in rows]
+        return [{"kind": r[0], "advisory": r[1], "change": r[2], "before": r[3], "after": r[4], "at": r[5],
+                 "classification": r[6], "rationale": r[7]} for r in rows]
 
     def _advisories(self, decision_id: str) -> list[dict]:
         rows = self.engine.q("""MATCH (:Decision {id: $id})<-[:SUPPORTS]-(:Support)-[:PREMISE]->(e:Exposure)

@@ -77,7 +77,9 @@ class TemplateWriter:
         d = ctx["decision"]
         reasons = [h for h in ctx.get("new_history", []) if h["kind"] == "withdrawn"]
         because = "".join(f"\n- [{h['advisory']}](https://github.com/advisories/{h['advisory']}) was withdrawn "
-                          f"on {str(h['at'])[:10]}" for h in reasons)
+                          f"on {str(h['at'])[:10]}"
+                          + (f". Auditor ({h['classification'].replace('_', ' ')}): {h['rationale']}"
+                             if h.get("rationale") else "") for h in reasons)
         n = len(held_advisories(ctx))
         if change == "cancel":
             return (f"**Retcon: cancelled.** No advisory behind this upgrade still holds, so it is no longer needed."

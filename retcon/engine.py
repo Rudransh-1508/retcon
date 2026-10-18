@@ -80,8 +80,8 @@ def urgency_rank(urgency: str | None) -> int:
 
 
 class Engine:
-    def __init__(self, graph_name: str | None = None, db: FalkorDB | None = None, triage=None):
-        self.triage = triage
+    def __init__(self, graph_name: str | None = None, db: FalkorDB | None = None, triage=None, auditor=None):
+        self.triage, self.auditor = triage, auditor
         self.db = db or FalkorDB(**config.falkordb_settings())
         self.graph_name = graph_name or config.env("RETCON_GRAPH", "retcon")
         self.g = self.db.select_graph(self.graph_name)
@@ -288,9 +288,26 @@ class Engine:
             self._publish(adv, at, event_id)
         result = EventResult(event_id, "withdrawn")
         self.q("""MATCH (a:Advisory {id: $id}) SET a.withdrawn = $at""", {"id": adv.id, "at": at})
-        result.waves = self.retract([adv.id], at, retraction_id=f"retraction:{event_id}", trigger=event_id,
-                                    reason=adv.summary)
+        rid = f"retraction:{event_id}"
+        result.waves = self.retract([adv.id], at, retraction_id=rid, trigger=event_id, reason=adv.summary)
+        if self.auditor:
+            self._audit(adv, rid)
         return result
+
+    def _audit(self, adv: Advisory, rid: str):
+        dup = self.q("MATCH (:Advisory {id: $id})-[:DUPLICATE_OF]->(o:Advisory) RETURN o.id", {"id": adv.id})
+        audit = self.auditor.audit(adv.raw, dup[0][0] if dup else None)
+        if audit is None:
+            return
+        self._ensure_agent(self.auditor.agent_id, self.auditor.name)
+        self.q("""MATCH (r:Retraction {id: $rid}), (a:Agent {id: $agent})
+                  SET r.classification = $cls, r.rationale = $why, r.original = $orig
+                  MERGE (a)-[:WROTE]->(r)""",
+               {"rid": rid, "agent": self.auditor.agent_id, "cls": audit["classification"],
+                "why": audit["rationale"], "orig": audit["original"]})
+        if audit["original"] and audit["original"] != adv.id:
+            self.q("""MATCH (a:Advisory {id: $a}), (o:Advisory {id: $o}) WHERE NOT (a)-[:DUPLICATE_OF]->(o)
+                      MERGE (a)-[:DUPLICATE_OF]->(o)""", {"a": adv.id, "o": audit["original"]})
 
     # ------------------------------------------------------------------ truth maintenance
 
@@ -457,8 +474,10 @@ class Engine:
             return None
         node.pop("details", None)
         retractions = self.q("""MATCH (r:Retraction)-[x:RETRACTED]->(n:Node {id: $id})
-                                RETURN r.id, r.at, r.reason, r.trigger, x.wave""", {"id": node_id})
-        node["retracted_by"] = [{"id": r[0], "at": r[1], "reason": r[2], "trigger": r[3], "wave": r[4]}
+                                RETURN r.id, r.at, r.reason, r.trigger, x.wave, r.classification, r.rationale,
+                                       r.original, r.by""", {"id": node_id})
+        node["retracted_by"] = [{"id": r[0], "at": r[1], "reason": r[2], "trigger": r[3], "wave": r[4],
+                                 "classification": r[5], "rationale": r[6], "original": r[7], "by": r[8]}
                                 for r in retractions]
         if node["kind"] == "Decision":
             node["history"] = self.history(node_id)
