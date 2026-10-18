@@ -42,6 +42,13 @@ export function TourCard({ step, index, total, target, onNext, onBack, onSkipTou
   // A diagram step moves on only once every part of the diagram has been clicked (Skip step always works).
   const [explored, setExplored] = useState(!step.diagram)
 
+  // The spotlight follows its target every frame; the card only moves when the target has moved well away, so it
+  // stays still for something that drifts (the orbiting agents) and still follows a scroll or a new view.
+  const [anchor, setAnchor] = useState<Target['box']>(null)
+  const box = target.box
+  const far = !box || !anchor || Math.abs(box.x - anchor.x) > 48 || Math.abs(box.y - anchor.y) > 48 || Math.abs(box.w - anchor.w) > 48
+  if (far && (box?.x !== anchor?.x || box?.y !== anchor?.y)) setAnchor(box)
+
   // A step whose target never appeared is explained in place, with a Next button, instead of waiting forever.
   const degraded = !!step.target && (target.missing || target.failed)
   const handsOn = step.done !== 'next' && !degraded
@@ -88,7 +95,7 @@ export function TourCard({ step, index, total, target, onNext, onBack, onSkipTou
       className={cn('fixed z-[70] rounded-2xl border border-line bg-paper p-5 text-ink shadow-[0_24px_60px_-20px_rgb(0_0_0/0.55)] outline-none',
         // On a phone the card must leave the highlighted control visible; with no target it can use the screen.
         phone ? cn('overflow-y-auto', step.target ? 'max-h-[60dvh]' : 'max-h-[85dvh]') : step.diagram ? 'w-[min(32rem,calc(100vw-24px))]' : 'w-[min(26rem,calc(100vw-24px))]')}
-      style={place(target.box, size, phone)}
+      style={place(anchor, size, phone)}
       initial={reduce ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={reduce ? { duration: 0 } : { duration: 0.25, ease }}>
       <div className="flex items-center gap-3">
         <p className="font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-held">Tour {'·'} {index + 1} of {total}</p>

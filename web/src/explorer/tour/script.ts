@@ -1,4 +1,5 @@
 import type { TourSignal } from './signals'
+import type { TargetName } from './useTarget'
 
 export type View = 'decisions' | 'graph' | 'agents' | 'timeline'
 
@@ -12,8 +13,9 @@ export type Step = {
   body: string
   /** One imperative line, for steps the visitor completes by acting. */
   action?: string
-  /** The `data-tour` marker of the control to highlight. Without one the card sits in the middle of the page. */
-  target?: string
+  /** The `data-tour` marker of the control to highlight, or several in priority order (the first shown wins).
+   *  Without one the card sits in the middle of the page. */
+  target?: TargetName
   /** The view this step needs; the tour switches to it on entry, and again when going back. */
   view?: View
   /** Whether the Why panel must be shut, or open on the first Decision, for this step; the tour sees to it on entry. */
@@ -168,9 +170,28 @@ export const STEPS: Step[] = [
     done: { signal: 'replay-started' },
   },
   {
+    id: 'agents',
+    title: 'Four agents, one memory',
+    body: 'Each agent writes beliefs into the memory and names what they rest on. Triage judges exploitability from the code, the Planner chooses what to do on GitHub, the Fixer writes the pull requests and comments, and the Auditor explains every withdrawal. Still holding is the share of an agent\'s entries that no retraction or newer plan has replaced.',
+    action: 'Click Agents, then click the Auditor.',
+    // The Auditor once the Agents view is showing; until then, the Agents tab.
+    target: ['agent-auditor', 'tab-agents'],
+    why: 'closed',
+    done: { signal: 'agent-selected' },
+  },
+  {
+    id: 'timeline',
+    title: 'What happened, in order',
+    body: 'The Timeline lists every withdrawal and correction, newest first. Each one carries the Auditor\'s explanation and chips that open the decisions it changed.',
+    action: 'Click Timeline.',
+    target: 'tab-timeline',
+    why: 'closed',
+    done: { signal: 'view-changed', detail: 'timeline' },
+  },
+  {
     id: 'finish',
     title: 'You know your way around',
-    body: 'Admin is for the project owner, who can retract a belief for real; the tour never needs it. Replay this tour any time from the Tour button. To ask Retcon from your own agent, add it over MCP:',
+    body: 'Admin, top right, is for the project owner, who can retract a belief for real; the tour never needs it. Replay this tour any time from the Tour button beside it. To ask Retcon from your own agent, add it over MCP:',
     target: 'tour-button',
     why: 'closed',
     code: MCP_COMMAND,

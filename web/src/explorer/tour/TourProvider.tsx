@@ -6,7 +6,7 @@ import { STEPS, type Step, type View } from './script'
 import { listen } from './signals'
 import { Spotlight } from './Spotlight'
 import { TourCard } from './TourCard'
-import { targetSelector, useTarget } from './useTarget'
+import { findTarget, useTarget, type TargetName } from './useTarget'
 
 type Status = 'idle' | 'running' | 'done'
 type Tour = { status: Status; index: number; step: Step | null; start: () => void }
@@ -107,13 +107,13 @@ function TourLayer({ step, index, onNext, onBack, onSkipTour }: {
 const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
 /** Tab moves between the card and the highlighted control only, as the dim layer does for the pointer. */
-function useFocusLoop(target: string | undefined) {
+function useFocusLoop(target: TargetName | undefined) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== 'Tab') return
       const card = document.querySelector<HTMLElement>('[data-tour-layer="card"]')
       if (!card) return
-      const spot = target ? [...document.querySelectorAll<HTMLElement>(targetSelector(target))].find((el) => el.getClientRects().length > 0) ?? null : null
+      const spot = target ? findTarget(target)?.el ?? null : null
       const inside = (el: HTMLElement) => [...el.querySelectorAll<HTMLElement>(FOCUSABLE)].filter((x) => x.getClientRects().length > 0)
       const order = [...(spot ? (spot.matches(FOCUSABLE) ? [spot, ...inside(spot)] : inside(spot)) : []), ...inside(card)]
       if (order.length === 0) return
