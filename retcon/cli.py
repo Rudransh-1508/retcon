@@ -44,6 +44,17 @@ def reconciler(engine: Engine, gh=None):
     return Reconciler(engine, gh or RealGitHub(), writer=writer)
 
 
+def triage_agent():
+    """Triage over shallow clones of the target repositories, when Groq keys are configured."""
+    from . import config, projects
+    from .llm import GroqLLM
+    from .triage import CodeSearch, TriageAgent, clone
+    if not config.groq_keys():
+        return None
+    cache = ROOT / ".cache" / "targets"
+    return TriageAgent(GroqLLM(), {p.id: CodeSearch(clone(p.repo, cache / p.id)) for p in projects.PROJECTS})
+
+
 def main():
     parser = argparse.ArgumentParser(prog="retcon")
     sub = parser.add_subparsers(dest="cmd", required=True)
@@ -68,6 +79,7 @@ def main():
         logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(message)s")
         from . import config
         gh = RealGitHub()
+        engine.triage = triage_agent()
         act = not args.dry_run and all(gh.can_write(repo) for repo in config.TARGET_REPOS)
         if not act and not args.dry_run:
             logging.warning("GitHub token cannot write to the target repos: updating the graph only")

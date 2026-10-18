@@ -4,3 +4,4 @@ web/node_modules
 tests
 .pytest_cache
 **/__pycache__
+.cache

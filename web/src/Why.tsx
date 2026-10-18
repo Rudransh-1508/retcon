@@ -23,6 +23,12 @@ export function Why({ id, onClose, onOpen }: { id: string; onClose: () => void; 
         <>
           <Headline node={tree} />
           {Array.isArray(tree.history) && tree.history.length > 0 && <History items={tree.history as HistoryItem[]} />}
+          {Array.isArray(tree.judgments) && tree.judgments.length > 0 && (
+            <div className="judgments">
+              <h3>Triage judgments</h3>
+              {(tree.judgments as WhyNode[]).map((j) => <JudgmentCard key={j.id} node={j} />)}
+            </div>
+          )}
           <div className="tree">
             <NodeCard node={tree} root onOpen={onOpen} />
           </div>
@@ -129,6 +135,39 @@ function SupportRow({ support, onOpen }: { support: WhySupport; onOpen: (id: str
   )
 }
 
+const VERDICT_LABEL: Record<string, string> = {
+  exploitable: 'exploitable here', not_reachable: 'not reachable here', unknown: 'unclear',
+}
+
+function JudgmentCard({ node }: { node: WhyNode }) {
+  const retracted = node.status === 'retracted'
+  let evidence: { file: string; line: number }[] = []
+  try { evidence = JSON.parse(String(node.evidence ?? '[]')) } catch { evidence = [] }
+  return (
+    <div className={`node judgment ${retracted ? 'retracted' : ''}`}>
+      <div className="node-head">
+        <span className="kind kind-judgment">Judgment</span>
+        <span className="node-title">
+          <span className={`verdict ${String(node.verdict)}`}>{VERDICT_LABEL[String(node.verdict)] ?? String(node.verdict)}</span>
+          <span className="muted">on</span>
+          <a href={`https://github.com/advisories/${String(node.advisory)}`} target="_blank" rel="noreferrer" className="mono">{String(node.advisory)}</a>
+          <span className="summary">{String(node.rationale ?? '')}</span>
+          {evidence.length > 0 && (
+            <span className="summary">
+              {evidence.map((e) => (
+                <a key={`${e.file}:${e.line}`} className="mono evidence" target="_blank" rel="noreferrer"
+                  href={`https://github.com/${String(node.repo)}/blob/main/${e.file}#L${e.line}`}>{e.file}:{e.line}</a>
+              ))}
+            </span>
+          )}
+        </span>
+        <span className={`status ${retracted ? 'off' : 'on'}`}>{retracted ? 'retracted' : 'held'}</span>
+      </div>
+      {retracted && <div className="retraction-note">Retracted {date(node.retracted_by[0]?.at)}: the advisory it judged was withdrawn</div>}
+    </div>
+  )
+}
+
 function NodeTitle({ node, onOpen }: { node: WhyNode; onOpen: (id: string) => void }) {
   switch (node.kind) {
     case 'Advisory':
@@ -156,6 +195,13 @@ function NodeTitle({ node, onOpen }: { node: WhyNode; onOpen: (id: string) => vo
         <span className="node-title">
           <button className="link" onClick={() => onOpen(node.id)}>{String(node.package)}</button>
           <span className="muted">in {String(node.project)}</span>
+        </span>
+      )
+    case 'Judgment':
+      return (
+        <span className="node-title">
+          <span className={`verdict ${String(node.verdict)}`}>{VERDICT_LABEL[String(node.verdict)] ?? String(node.verdict)}</span>
+          <span className="summary">{String(node.rationale ?? '')}</span>
         </span>
       )
     default:

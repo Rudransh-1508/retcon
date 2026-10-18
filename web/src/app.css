@@ -168,3 +168,12 @@
 .chip.change-downgrade { border-color: var(--held); }
 .chip.change-new, .chip.change-escalate { border-color: var(--p1); }
 @media (max-width: 520px) { .event { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+
+.judgments { display: grid; gap: 6px; margin-bottom: 14px; }
+.judgments h3, .why h3 { margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.kind-judgment { color: var(--held); }
+.verdict { font-weight: 600; font-size: 12.5px; }
+.verdict.exploitable { color: var(--p0); }
+.verdict.not_reachable { color: var(--held); }
+.verdict.unknown { color: var(--muted); }
+.evidence { margin-right: 10px; }

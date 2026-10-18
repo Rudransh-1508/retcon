@@ -80,7 +80,8 @@ def urgency_rank(urgency: str | None) -> int:
 
 
 class Engine:
-    def __init__(self, graph_name: str | None = None, db: FalkorDB | None = None):
+    def __init__(self, graph_name: str | None = None, db: FalkorDB | None = None, triage=None):
+        self.triage = triage
         self.db = db or FalkorDB(**config.falkordb_settings())
         self.graph_name = graph_name or config.env("RETCON_GRAPH", "retcon")
         self.g = self.db.select_graph(self.graph_name)
@@ -226,9 +227,10 @@ class Engine:
                    {"a": adv.id, "b": evidence})
         rows = self.q("""MATCH (p:Project)-[d:DEPENDS_ON]->(v:PackageVersion)
                          WHERE v.ecosystem = $eco AND v.name IN $names
-                         RETURN p.id, v.id, v.name, v.version""",
+                         RETURN p.id, v.id, v.name, v.version, d.direct""",
                       {"eco": ECOSYSTEM, "names": sorted(adv.packages(ECOSYSTEM))})
-        for project, vid, name, version in rows:
+        judge = []
+        for project, vid, name, version, direct in rows:
             fix = adv.fix_for(ECOSYSTEM, name, version)
             if fix is None:
                 continue
@@ -241,7 +243,24 @@ class Engine:
             self.write_belief("Decision", did, {"project": project, "package": name, "action": "upgrade"},
                               [{"id": f"support:resolves:{eid}", "kind": "resolves", "premises": [eid]}],
                               by=SYSTEM_AGENT, at=at, links=[("IN", project)])
+            if self.triage and self.triage.wants(adv.rank, bool(direct), project):
+                judge.append((project, name, version, eid, did))
+        for project, name, version, eid, did in judge:
+            self._triage(adv, project, name, version, eid, did, at)
         return EventResult(event_id, "published")
+
+    def _triage(self, adv: Advisory, project: str, name: str, version: str, eid: str, did: str, at: str):
+        judgment = self.triage.judge(project, name, version, adv.raw)
+        if judgment is None:
+            return
+        self._ensure_agent(self.triage.agent_id, self.triage.name)
+        jid = f"judgment:triage:{project}:{name}@{version}:{adv.id}"
+        self.write_belief("Judgment", jid,
+                          {"project": project, "package": name, "version": version, "advisory": adv.id,
+                           "verdict": judgment["verdict"], "rationale": judgment["rationale"],
+                           "evidence": json.dumps(judgment["evidence"]), "usages": judgment["usages"]},
+                          [{"id": f"support:judged:{jid}", "kind": "judged", "premises": [adv.id, eid]}],
+                          by=self.triage.agent_id, at=at, links=[("ADJUSTS", did)])
 
     def _evidence_key(self, adv: Advisory) -> str:
         """Aliased advisories are one piece of evidence: reuse the key of an already known alias."""
@@ -318,9 +337,14 @@ class Engine:
                                -[:PREMISE]->(e:Exposure {status: 'held'})<-[:SUPPORTS]-(s:Support {status: 'held'})
                                -[:PREMISE]->(a:Advisory {status: 'held'})
                          RETURN d.id, collect(DISTINCT [a.evidence, a.rank, s.fix, a.id])""")
+        # A held Triage judgment moves its advisory's weight by one level for this decision:
+        # exploitable here raises it, not reachable here lowers it. The decision takes the highest result.
+        adjust = {(did, aid): {"exploitable": 1, "not_reachable": -1}.get(verdict, 0)
+                  for did, aid, verdict in self.q("""MATCH (j:Judgment {status: 'held'})-[:ADJUSTS]->(d:Decision)
+                                                     RETURN d.id, j.advisory, j.verdict""")}
         for did, items in rows:
             evidence = sorted({e for e, _, _, _ in items})
-            top = max(rank for _, rank, _, _ in items)
+            top = max(max(1, min(4, rank + adjust.get((did, aid), 0))) for _, rank, _, aid in items)
             # A linked duplicate or alias is the same evidence as its original: the original's ranges decide.
             fixes = [fix for e, _, fix, aid in items if e == aid] or [fix for _, _, fix, _ in items]
             target = semver.max_version(fixes)
@@ -439,6 +463,11 @@ class Engine:
         if node["kind"] == "Decision":
             node["history"] = self.history(node_id)
             node["actions"] = self.actions(node_id)
+            node["judgments"] = [self.why(r[0], 1) for r in self.q(
+                "MATCH (j:Judgment)-[:ADJUSTS]->(:Decision {id: $id}) RETURN j.id ORDER BY j.id", {"id": node_id})]
+        if node["kind"] == "Judgment":
+            repo = self.q("MATCH (p:Project {id: $p}) RETURN p.repo", {"p": node.get("project")})
+            node["repo"] = repo[0][0] if repo else None
         if node["kind"] == "Exposure":
             dep = self.q("""MATCH (e:Exposure {id: $id})-[:OF]->(v:PackageVersion)<-[d:DEPENDS_ON]-(p:Project)
                             WHERE p.id = e.project RETURN d.direct, d.paths, d.dev""", {"id": node_id})
