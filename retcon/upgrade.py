@@ -18,7 +18,7 @@ from .semver import NO_FIX
 
 
 @dataclass
-class PlanItem:
+class UpgradeItem:
     version: str
     fix: str
     direct: bool
@@ -43,11 +43,11 @@ def _bump(spec: str, fix: str) -> str:
 
 
 def build(package_json: str, lockfile: str, package_json_path: str, lockfile_path: str, name: str,
-          plan: list[PlanItem], regenerate: bool = True) -> Upgrade:
+          items: list[UpgradeItem], regenerate: bool = True) -> Upgrade:
     pkg = json.loads(package_json)
     notes: list[str] = []
     overrides = dict(pkg.get("overrides") or {})
-    for item in plan:
+    for item in items:
         if item.fix == NO_FIX:
             notes.append(f"{name}@{item.version} has no fixed release yet; nothing to change for it.")
             continue

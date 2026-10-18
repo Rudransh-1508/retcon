@@ -20,7 +20,7 @@ from .lockfile import read as read_lockfile
 
 ECOSYSTEM = "npm"
 SYSTEM_AGENT = "agent:retcon"
-BELIEF_LABELS = ("Exposure", "Judgment", "Decision")
+BELIEF_LABELS = ("Exposure", "Judgment", "Decision", "Plan")
 URGENCY_BY_RANK = {4: "P0", 3: "P1", 2: "P2", 1: "P3"}
 
 
@@ -95,7 +95,7 @@ class Engine:
 
     def _ensure_indexes(self):
         existing = {(row[0], tuple(row[1])) for row in self.q("CALL db.indexes() YIELD label, properties")}
-        for label in ("Project", "PackageVersion", "Advisory", "Exposure", "Judgment", "Decision",
+        for label in ("Project", "PackageVersion", "Advisory", "Exposure", "Judgment", "Decision", "Plan",
                       "Support", "Event", "Retraction", "Agent", "Action", "Belief", "Node"):
             if (label, ("id",)) not in existing:
                 self.q(f"CREATE INDEX FOR (n:{label}) ON (n.id)")
@@ -486,13 +486,44 @@ class Engine:
         return [{"event": r[0], "kind": r[1], "advisory": r[2], "at": r[3], "change": r[4], "before": r[5],
                  "after": r[6], "evidence_before": r[7], "evidence_after": r[8]} for r in rows]
 
-    def record_action(self, decision: str, kind: str, url: str, at: str):
-        """Record a real change made on GitHub because of a decision."""
+    def record_action(self, decision: str, kind: str, url: str, at: str, plan: str | None = None):
+        """Record a real change made on GitHub because of a decision (and the plan that chose it)."""
         seq = self.q("MATCH (a:Action) RETURN count(a)")[0][0] + 1
+        aid = f"action:{seq}:{decision}"
         self.q("""MATCH (d:Decision {id: $d})
-                  CREATE (a:Action:Node {id: $id, kind: $kind, url: $url, at: $at})
+                  CREATE (a:Action:Node {id: $id, kind: $kind, url: $url, at: $at, plan: $plan})
                   CREATE (d)-[:CAUSED]->(a)""",
-               {"d": decision, "id": f"action:{seq}:{decision}", "kind": kind, "url": url, "at": at})
+               {"d": decision, "id": aid, "kind": kind, "url": url, "at": at, "plan": plan})
+        if plan:
+            self.q("MATCH (p:Plan {id: $p}), (a:Action {id: $a}) MERGE (p)-[:CAUSED]->(a)", {"p": plan, "a": aid})
+
+    def write_plan(self, decision: str, action: str, rationale: str, point: str, allowed: list[str], agent,
+                   premises: list[str], at: str | None = None) -> str:
+        """Record an agent's choice of action as a Plan resting on what it saw; earlier plans are superseded."""
+        at = at or now()
+        self._ensure_agent(agent.agent_id, getattr(agent, "name", None) or agent.by)
+        n = self.q("MATCH (p:Plan)-[:FOR]->(:Decision {id: $d}) RETURN count(p)", {"d": decision})[0][0] + 1
+        pid = f"plan:{decision.removeprefix('decision:')}:{n}"
+        self.q("""MATCH (p:Plan {status: 'held'})-[:FOR]->(:Decision {id: $d})
+                  SET p.status = 'superseded', p.superseded_at = $at""", {"d": decision, "at": at})
+        project = self.q("MATCH (d:Decision {id: $d}) RETURN d.project", {"d": decision})[0][0]
+        self.write_belief("Plan", pid, {"project": project, "decision": decision, "action": action,
+                                        "rationale": rationale, "point": point, "allowed": allowed, "seq": n},
+                          [{"id": f"support:planned:{pid}", "kind": "planned", "premises": premises}],
+                          by=agent.agent_id, at=at, links=[("FOR", decision)])
+        self.q("""MATCH (p:Plan {id: $p}) SET p.status = 'held'
+                  WITH p MATCH (d:Decision {id: $d}) SET d.plan_id = $p""", {"p": pid, "d": decision})
+        return pid
+
+    def plans(self, decision: str) -> list[dict]:
+        rows = self.q("""MATCH (p:Plan)-[:FOR]->(:Decision {id: $d})
+                         OPTIONAL MATCH (a:Agent)-[:WROTE]->(:Support)-[:SUPPORTS]->(p)
+                         OPTIONAL MATCH (p)-[:CAUSED]->(x:Action)
+                         RETURN p.id, p.action, p.rationale, p.point, p.status, p.created_at, a.name, collect(x.url),
+                                p.seq AS seq
+                         ORDER BY seq""", {"d": decision})
+        return [{"id": r[0], "action": r[1], "rationale": r[2], "point": r[3], "status": r[4], "at": r[5],
+                 "by": r[6], "actions": [u for u in r[7] if u]} for r in rows]
 
     def actions(self, decision: str) -> list[dict]:
         rows = self.q("""MATCH (:Decision {id: $d})-[:CAUSED]->(a:Action) RETURN a.kind, a.url, a.at ORDER BY a.at, a.id""",
@@ -532,6 +563,7 @@ class Engine:
         if node["kind"] == "Decision":
             node["history"] = self.history(node_id)
             node["actions"] = self.actions(node_id)
+            node["plans"] = self.plans(node_id)
             node["judgments"] = [self.why(r[0], 1) for r in self.q(
                 "MATCH (j:Judgment)-[:ADJUSTS]->(:Decision {id: $id}) RETURN j.id ORDER BY j.id", {"id": node_id})]
         if node["kind"] == "Judgment":

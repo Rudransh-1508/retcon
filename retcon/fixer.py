@@ -29,7 +29,7 @@ class FixerWriter(TemplateWriter):
         try:
             out = self.llm.json(SYSTEM, f"{task}\nReply as {{\"{field}\": \"...\"}}.\n\nFacts:\n"
                                         + json.dumps(facts, indent=1, default=str)[:6000])
-            text = str(out.get(field, "")).strip().replace("—", "-")
+            text = str(out.get(field, "")).strip().replace("\u2014", "-")
             return text or None
         except LLMError as e:
             log.warning("Fixer fell back to templates: %s", e)

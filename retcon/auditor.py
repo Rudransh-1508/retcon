@@ -52,4 +52,4 @@ class AuditorAgent:
         if not (isinstance(original, str) and re.fullmatch(r"GHSA(-[23456789cfghjmpqrvwx]{4}){3}", original)):
             original = duplicate_of
         return {"classification": cls, "original": original,
-                "rationale": str(out.get("rationale", "")).replace("—", "-")[:500]}
+                "rationale": str(out.get("rationale", "")).replace("\u2014", "-")[:500]}

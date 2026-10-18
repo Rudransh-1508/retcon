@@ -66,6 +66,9 @@ class TemplateWriter:
             lead = (f"Retcon no longer recommends this upgrade: every advisory behind it was withdrawn. "
                     "Nothing in this pull request is needed any more.")
         notes = "".join(f"\n> {note}" for note in ctx.get("upgrade_notes", []))
+        plan = ctx.get("plan")
+        if plan and plan.get("rationale"):
+            notes += f"\n\n**{plan['by']}:** {plan['rationale']}"
         body = (f"{lead}\n{notes}\n\n{advisory_table(ctx)}\n\n"
                 f"**Why?** The full chain of support, including anything retracted, is at {ctx['ui']}\n\n"
                 "<sub>Opened by Retcon. This pull request is rewritten whenever the advisories behind it change, "
@@ -74,6 +77,14 @@ class TemplateWriter:
         return title, body
 
     def comment(self, change: str, ctx: dict, last: tuple | None) -> str:
+        text = self._comment(change, ctx, last)
+        plan = ctx.get("plan")
+        if plan and plan.get("rationale") and change != "cancel":
+            head, sep, tail = text.partition("\n\nTrail:")
+            text = f"{head}\n\n**{plan['by']}:** {plan['rationale']}{sep}{tail}"
+        return text
+
+    def _comment(self, change: str, ctx: dict, last: tuple | None) -> str:
         d = ctx["decision"]
         reasons = [h for h in ctx.get("new_history", []) if h["kind"] == "withdrawn"]
         because = "".join(f"\n- [{h['advisory']}](https://github.com/advisories/{h['advisory']}) was withdrawn "

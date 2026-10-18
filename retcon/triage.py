@@ -114,6 +114,6 @@ class TriageAgent:
         verdict = out.get("verdict") if out.get("verdict") in VERDICTS else "unknown"
         cited = [e for e in out.get("evidence") or [] if isinstance(e, dict)
                  and any(u.file == e.get("file") and u.line == e.get("line") for u in usages)]
-        return {"verdict": verdict, "rationale": str(out.get("rationale", "")).replace("—", "-")[:600],
+        return {"verdict": verdict, "rationale": str(out.get("rationale", "")).replace("\u2014", "-")[:600],
                 "evidence": cited or [{"file": u.file, "line": u.line} for u in usages[:3]],
                 "usages": len(usages)}

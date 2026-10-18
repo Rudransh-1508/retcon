@@ -60,13 +60,30 @@ A real change on GitHub caused by a decision: an issue, a pull request, a commen
 **Outcome**:
 What a retraction does to a decision: Cancel (no support left), Downgrade (supports left, lower urgency), or Unchanged.
 
+**Decision point**:
+A moment when a Decision needs a Plan: new (first held), escalate (urgency rose while only reported), downgrade, replan (the current Plan was retracted), or reheld (a cancelled Decision is supported again). A Cancel is not a decision point: cancelled work is always closed.
+
+**Plan**:
+An agent's choice of what to do on GitHub about one Decision at a decision point, resting on the Decision and the advisories it saw; retracted when they are, superseded by the next Plan.
+_Avoid_: action plan, strategy
+
+**Upgrade item**:
+One vulnerable installed version of a package and the version that fixes it, as used to build an upgrade.
+_Avoid_: plan item
+
 ## Agents
 
 **Triage**:
 The agent that reads an advisory and a project's code and records judgments about whether an exposure is exploitable.
 
+**Planner**:
+The agent that makes Plans, choosing only among the actions allowed at the decision point.
+
+**Policy**:
+The fixed planner used when no LLM is available: P0 and P1 get pull requests, the rest go to the report.
+
 **Fixer**:
-The agent that turns decisions into actions and writes their text.
+The agent that writes the prose of actions: pull request descriptions and comments.
 
 **Auditor**:
-The agent that interprets each withdrawal (real retraction, duplicate, or alias) and records why a retraction happened.
+The agent that interprets each withdrawal (real retraction, duplicate, alias, or scope change) and records why a retraction happened.
