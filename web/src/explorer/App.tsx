@@ -4,7 +4,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { AnimatePresence, m } from 'framer-motion'
-import { Bot, History, LayoutList, Lock, LockOpen, Network, type LucideIcon } from 'lucide-react'
+import { Bot, Compass, History, LayoutList, Lock, LockOpen, Network, type LucideIcon } from 'lucide-react'
 import { api, passphrase } from './api'
 import { invalidate, useResource } from './data'
 import { useUrlParam } from './useUrlParam'
@@ -14,6 +14,7 @@ import { Decisions } from './views/Decisions'
 import { Timeline } from './views/Timeline'
 import { Skeleton } from './ui/States'
 import { WhySheet } from './why/WhySheet'
+import { TourProvider, useTour } from './tour/TourProvider'
 import { LogoMark } from '@/components/site/Logo'
 import { ease } from '@/components/site/motion'
 import { Button } from '@/components/ui/button'
@@ -60,6 +61,7 @@ export default function App() {
   const onChanged = () => { invalidate('decisions'); invalidate('projects'); projects.reload(); decisions.reload() }
 
   return (
+    <TourProvider ready={decisions.data !== null} failed={!!decisions.error && decisions.data === null} onView={setView}>
     <div className="min-h-dvh">
       <a href="#console" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-md focus:bg-ink focus:px-3 focus:py-2 focus:text-on-ink">Skip to content</a>
       <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-md">
@@ -70,7 +72,10 @@ export default function App() {
             <span className="hidden rounded-full bg-ink/6 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground sm:inline">console</span>
           </Link>
           <NavPills view={view} onChange={setView} />
-          <AdminButton admin={admin} onChange={setAdmin} />
+          <div className="flex items-center gap-2">
+            <TourButton />
+            <AdminButton admin={admin} onChange={setAdmin} />
+          </div>
         </div>
       </header>
 
@@ -93,6 +98,17 @@ export default function App() {
       <MobileDock view={view} onChange={setView} />
       <WhySheet key={String(admin)} id={why || null} decisions={decisions.data} onClose={() => setWhy('')} onOpen={setWhy} onChanged={onChanged} />
     </div>
+    </TourProvider>
+  )
+}
+
+function TourButton() {
+  const tour = useTour()
+  return (
+    <Button variant="outline" size="sm" className="rounded-full border-line" data-tour="tour-button"
+      onClick={tour.start} aria-label="Take the tour">
+      <Compass /><span className="hidden sm:inline">Tour</span>
+    </Button>
   )
 }
 

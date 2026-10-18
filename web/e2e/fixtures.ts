@@ -70,8 +70,11 @@ export async function axe(page: Page) {
   return violations.map((v) => ({ id: v.id, impact: v.impact, help: v.help, nodes: v.nodes.map((n) => `${n.target.join(' ')}: ${n.failureSummary ?? ''}`) }))
 }
 
-export const test = base.extend<{ api: RecordedApi }>({
-  api: [async ({ page, baseURL }, use) => {
+export const test = base.extend<{ api: RecordedApi; tourSeen: boolean }>({
+  // Most tests are about the console, not the first-visit tour, so by default the browser has already seen it.
+  tourSeen: [true, { option: true }],
+  api: [async ({ page, baseURL, tourSeen }, use) => {
+    if (tourSeen) await page.addInitScript(() => { try { localStorage.setItem('retcon-tour', 'done') } catch { /* blocked */ } })
     const api = new RecordedApi()
     const origin = new URL(baseURL!).origin
     // Nothing leaves the machine: /api comes from the recordings and any other host is refused.
