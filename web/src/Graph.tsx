@@ -93,11 +93,28 @@ export function Graph({ projects, onOpen }: { projects: Project[]; onOpen: (id: 
   }, [data])
 
   async function replay(eventId: string) {
-    const c = cy.current
-    if (!c) return
     setPlaying(eventId)
     const ev = await api.event(eventId)
+    await ripple(ev.waves, false)
+    setPlaying(null)
+  }
+
+  async function simulate(nodeId: string) {
+    setPlaying(nodeId)
+    try {
+      const sim = await api.whatIf(nodeId)
+      await ripple(sim.waves, true)
+    } catch (e) {
+      setError(String(e))
+    }
+    setPlaying(null)
+  }
+
+  async function ripple(waves: string[][], restore: boolean) {
+    const c = cy.current
+    if (!c) return
     c.elements().removeClass('faded rippling')
+    const ev = { waves }
     const select = (id: string) => c.nodes(`[id = "${CSS.escape(id)}"]`).union(c.edges().filter((e) => e.data('support') === id))
     const touched = ev.waves.flat().map(select)
     touched.forEach((els) => els.removeClass('retracted').addClass('held'))
@@ -117,7 +134,13 @@ export function Graph({ projects, onOpen }: { projects: Project[]; onOpen: (id: 
     }
     await new Promise((r) => setTimeout(r, 900))
     c.elements().removeClass('faded')
-    setPlaying(null)
+    if (restore) {
+      // a what-if writes nothing: put every touched element back the way the live graph has it
+      touched.forEach((els) => els.forEach((el) => {
+        el.removeClass('retracted held')
+        el.addClass(el.data('status') === 'retracted' ? 'retracted' : 'held')
+      }))
+    }
   }
 
   return (
@@ -142,7 +165,7 @@ export function Graph({ projects, onOpen }: { projects: Project[]; onOpen: (id: 
             </option>
           ))}
         </select>
-        {playing && <span className="muted">Replaying…</span>}
+        {playing && <span className="muted">{playing.startsWith('event:') ? 'Replaying…' : 'Simulating…'}</span>}
         <span className="legend">
           <i className="dot advisory" /> advisory <i className="dot exposure" /> exposure
           <i className="dot judgment" /> judgment <i className="dot decision" /> decision
@@ -155,7 +178,10 @@ export function Graph({ projects, onOpen }: { projects: Project[]; onOpen: (id: 
           <span className={`kind kind-${picked.kind.toLowerCase()}`}>{picked.kind}</span>
           <code>{picked.id}</code>
           <span className={`status ${picked.status === 'held' ? 'on' : 'off'}`}>{picked.status}</span>
-          <button className="link" onClick={() => onOpen(picked.kind === 'Decision' ? picked.id : picked.id)}>Why?</button>
+          <button className="link" onClick={() => onOpen(picked.id)}>Why?</button>
+          {picked.status === 'held' && ['Advisory', 'Exposure', 'Judgment'].includes(picked.kind) && (
+            <button className="ask" disabled={!!playing} onClick={() => simulate(picked.id)}>What if wrong?</button>
+          )}
         </div>
       )}
     </section>
