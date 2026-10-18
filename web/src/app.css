@@ -209,3 +209,24 @@
 .event-kind.correction { background: var(--accent); color: #fff; }
 .event-target { font-size: 12px; overflow-wrap: anywhere; }
 .event .auditor { font-size: 12.5px; }
+
+.graph { position: relative; }
+.graph-head { flex-wrap: wrap; }
+.graph-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-bottom: 10px; font-size: 13px; }
+.graph-tools select {
+  border: 1px solid var(--line); background: var(--panel); color: var(--text); border-radius: 6px; padding: 4px 8px;
+  font: inherit; max-width: 100%;
+}
+.legend { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; color: var(--muted); margin-left: auto; font-size: 12px; }
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-left: 6px; }
+.dot.advisory { background: var(--p1); }
+.dot.exposure { background: var(--accent); border-radius: 2px; }
+.dot.judgment { background: var(--held); transform: rotate(45deg); border-radius: 1px; }
+.dot.decision { background: var(--p0); width: 11px; height: 11px; }
+.graph-canvas { height: min(68vh, 720px); min-height: 380px; border-radius: 8px; background: var(--panel-2); }
+.graph-picked {
+  position: absolute; left: 24px; bottom: 24px; right: 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; box-shadow: var(--shadow);
+}
+.graph-picked code { overflow-wrap: anywhere; font-size: 12px; }
+.layout.has-why .graph-canvas { height: min(60vh, 640px); }

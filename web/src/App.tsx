@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { api, passphrase, type Decision, type Project } from './api'
 import { Why } from './Why'
 import { Timeline } from './Timeline'
+import { Graph } from './Graph'
 import { Urgency } from './bits'
 import './app.css'
 
@@ -63,6 +64,7 @@ export default function App() {
 
       <main className={`layout ${selected ? 'has-why' : ''}`}>
         {view === 'timeline' && <Timeline onOpen={setSelected} />}
+        {view === 'graph' && <Graph projects={projects} onOpen={setSelected} />}
         {view === 'decisions' && <section className="decisions panel" aria-label="Decisions">
           <div className="section-head">
             <h2>Decisions</h2>
@@ -126,8 +128,8 @@ function AdminToggle({ admin, onChange }: { admin: boolean; onChange: (v: boolea
   )
 }
 
-type View = 'decisions' | 'timeline'
-const VIEWS: [View, string][] = [['decisions', 'Decisions'], ['timeline', 'Timeline']]
+type View = 'decisions' | 'graph' | 'timeline'
+const VIEWS: [View, string][] = [['decisions', 'Decisions'], ['graph', 'Graph'], ['timeline', 'Timeline']]
 
 function byUrgency(a: Decision, b: Decision) {
   const rank = (d: Decision) => (d.status === 'retracted' ? 9 : Number((d.urgency ?? 'P9').slice(1)))

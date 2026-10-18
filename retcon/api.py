@@ -97,3 +97,41 @@ def correct(body: Correction, x_retcon_passphrase: str = Header(default="")):
         raise HTTPException(404, f"no node {body.id}")
     except ValueError as e:
         raise HTTPException(400, str(e))
+
+
+@app.get("/api/graph")
+def graph(project: str):
+    """A project's beliefs: advisories, exposures, judgments and decisions, with supports as edges."""
+    e = engine()
+    nodes = {}
+    for nid, kind, status, label, extra in e.q(
+            """MATCH (n:Belief {project: $p})
+               RETURN n.id, labels(n), n.status, coalesce(n.package, n.id),
+                      CASE WHEN n:Decision THEN n.urgency WHEN n:Judgment THEN n.verdict ELSE n.version END""",
+            {"p": project}):
+        kind = next(k for k in kind if k not in ("Node", "Belief"))
+        nodes[nid] = {"id": nid, "kind": kind, "status": status, "label": label, "extra": extra}
+    edges = []
+    for sid, sstatus, premise, pkind, pstatus, plabel, psev, target in e.q(
+            """MATCH (s:Support)-[:SUPPORTS]->(t:Belief {project: $p}), (s)-[:PREMISE]->(pr:Node)
+               RETURN s.id, s.status, pr.id, labels(pr), pr.status, coalesce(pr.package, pr.id), pr.severity, t.id""",
+            {"p": project}):
+        if premise not in nodes:
+            pkind = next(k for k in pkind if k not in ("Node", "Belief"))
+            nodes[premise] = {"id": premise, "kind": pkind, "status": pstatus, "label": plabel, "extra": psev}
+        edges.append({"id": f"{sid}>{premise}", "support": sid, "source": premise, "target": target, "status": sstatus})
+    for jid, did in e.q("MATCH (j:Judgment {project: $p})-[:ADJUSTS]->(d:Decision) RETURN j.id, d.id", {"p": project}):
+        edges.append({"id": f"adjusts:{jid}", "support": None, "source": jid, "target": did, "status": "held",
+                      "kind": "adjusts"})
+    return {"nodes": list(nodes.values()), "edges": edges}
+
+
+@app.get("/api/event")
+def event(id: str):
+    rows = engine().q("MATCH (e:Event {id: $id}) RETURN e.kind, e.at, e.advisory, e.target, e.waves, e.changes",
+                      {"id": id})
+    if not rows:
+        raise HTTPException(404, f"no event {id}")
+    kind, at, advisory, target, waves, changes = rows[0]
+    return {"id": id, "kind": kind, "at": at, "advisory": advisory, "target": target,
+            "waves": json.loads(waves or "[]"), "changes": json.loads(changes or "[]")}

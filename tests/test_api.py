@@ -35,3 +35,21 @@ def test_what_if_is_public_and_correct_needs_the_passphrase(engine, monkeypatch)
     ok = c.post("/api/correct", json=body, headers={"x-retcon-passphrase": "correct horse"})
     assert ok.status_code == 200 and ok.json()["changes"][0]["change"] == "cancel"
     assert engine.node("decision:wiredoor:form-data")["status"] == "retracted"
+
+
+def test_graph_returns_beliefs_with_supports_as_edges(engine, monkeypatch):
+    from tests.conftest import withdrawn
+    add(engine, "wiredoor")
+    engine.process_event(published("GHSA-pj86-cfqh-vqx6"))
+    engine.process_event(withdrawn("GHSA-pj86-cfqh-vqx6"))
+    c = client(engine, monkeypatch)
+    g = c.get("/api/graph", params={"project": "wiredoor"}).json()
+    kinds = {n["id"]: n["kind"] for n in g["nodes"]}
+    assert kinds["GHSA-pj86-cfqh-vqx6"] == "Advisory"
+    assert kinds["exposure:wiredoor:express@4.21.2"] == "Exposure"
+    assert kinds["decision:wiredoor:express"] == "Decision"
+    assert {(e["source"], e["target"]) for e in g["edges"]} == {
+        ("GHSA-pj86-cfqh-vqx6", "exposure:wiredoor:express@4.21.2"),
+        ("exposure:wiredoor:express@4.21.2", "decision:wiredoor:express")}
+    ev = c.get("/api/event", params={"id": "event:withdrawn:GHSA-pj86-cfqh-vqx6"}).json()
+    assert ev["waves"][0] == ["GHSA-pj86-cfqh-vqx6"]
