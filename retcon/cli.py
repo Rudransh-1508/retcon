@@ -38,12 +38,18 @@ def main():
     sub = parser.add_subparsers(dest="cmd", required=True)
     sub.add_parser("seed-fixtures")
     sub.add_parser("wipe")
+    sub.add_parser("reconcile")
     args = parser.parse_args()
     engine = Engine()
     if args.cmd == "seed-fixtures":
         seed_fixtures(engine)
     elif args.cmd == "wipe":
         engine.delete_graph()
+    elif args.cmd == "reconcile":
+        from .actions import Reconciler
+        from .github import RealGitHub
+        for done in Reconciler(engine, RealGitHub()).reconcile():
+            print(done.kind, done.decision, done.url)
 
 
 if __name__ == "__main__":

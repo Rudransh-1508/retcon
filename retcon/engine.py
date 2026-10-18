@@ -201,6 +201,8 @@ class Engine:
             raise ValueError(f"unknown event kind {kind}")
         self._recompute_decisions()
         result.changes = self._diff(before, self._decision_states(), retraction=(kind == "withdrawn"))
+        if result.waves:
+            result.changes += self._touched_but_unchanged(result, before)
         self._record_event(event_id, kind, adv, at, result)
         return result
 
@@ -215,7 +217,11 @@ class Engine:
                 "severity": adv.severity, "rank": adv.rank, "aliases": adv.aliases, "published": adv.published,
                 "evidence": evidence, "duplicate": adv.is_duplicate,
                 "url": f"https://github.com/advisories/{adv.id}"})
-        if evidence != adv.id:
+        duplicate_of, self._pending_duplicate = getattr(self, "_pending_duplicate", None), None
+        if duplicate_of:
+            self.q("MATCH (a:Advisory {id: $a}), (b:Advisory {id: $b}) MERGE (a)-[:DUPLICATE_OF]->(b)",
+                   {"a": adv.id, "b": duplicate_of})
+        elif evidence != adv.id:
             self.q("MATCH (a:Advisory {id: $a}), (b:Advisory {id: $b}) MERGE (a)-[:ALIAS_OF]->(b)",
                    {"a": adv.id, "b": evidence})
         rows = self.q("""MATCH (p:Project)-[d:DEPENDS_ON]->(v:PackageVersion)
@@ -243,7 +249,18 @@ class Engine:
         rows = self.q("""MATCH (a:Advisory) WHERE a.id <> $id AND
                            (a.id IN $names OR any(x IN a.aliases WHERE x IN $names))
                          RETURN a.evidence LIMIT 1""", {"id": adv.id, "names": names})
-        return rows[0][0] if rows else adv.id
+        if rows:
+            return rows[0][0]
+        if adv.is_duplicate:
+            # "Duplicate Advisory: <original summary>": the original is the same evidence.
+            original = adv.summary.split(":", 1)[1].strip().lower()
+            rows = self.q("""MATCH (a:Advisory) WHERE a.id <> $id AND toLower(a.summary) = $summary
+                               AND NOT coalesce(a.duplicate, false)
+                             RETURN a.id, a.evidence LIMIT 1""", {"id": adv.id, "summary": original})
+            if rows:
+                self._pending_duplicate = rows[0][0]
+                return rows[0][1]
+        return adv.id
 
     def _withdraw(self, adv: Advisory, at: str, event_id: str) -> EventResult:
         exists = self.q("MATCH (a:Advisory {id: $id}) RETURN a.status", {"id": adv.id})
@@ -300,11 +317,13 @@ class Engine:
         rows = self.q("""MATCH (d:Decision {status: 'held'})<-[:SUPPORTS]-(:Support {status: 'held'})
                                -[:PREMISE]->(e:Exposure {status: 'held'})<-[:SUPPORTS]-(s:Support {status: 'held'})
                                -[:PREMISE]->(a:Advisory {status: 'held'})
-                         RETURN d.id, collect(DISTINCT [a.evidence, a.rank, s.fix])""")
+                         RETURN d.id, collect(DISTINCT [a.evidence, a.rank, s.fix, a.id])""")
         for did, items in rows:
-            evidence = sorted({e for e, _, _ in items})
-            top = max(rank for _, rank, _ in items)
-            target = semver.max_version([fix for _, _, fix in items])
+            evidence = sorted({e for e, _, _, _ in items})
+            top = max(rank for _, rank, _, _ in items)
+            # A linked duplicate or alias is the same evidence as its original: the original's ranges decide.
+            fixes = [fix for e, _, fix, aid in items if e == aid] or [fix for _, _, fix, _ in items]
+            target = semver.max_version(fixes)
             self.q("""MATCH (d:Decision {id: $id})
                       SET d.urgency = $urgency, d.target = $target, d.evidence = $evidence""",
                    {"id": did, "urgency": URGENCY_BY_RANK[top], "target": target, "evidence": evidence})
@@ -337,13 +356,23 @@ class Engine:
             changes.append(DecisionChange(did, change, old.as_dict(), new.as_dict()))
         return changes
 
+    def _touched_but_unchanged(self, result: EventResult, before: dict[str, DecisionState]) -> list[DecisionChange]:
+        """Decisions downstream of a retracted support whose state did not change at all."""
+        retracted = [n for wave in result.waves for n in wave if n.startswith("support:")]
+        rows = self.q("""MATCH (s:Support)-[:SUPPORTS]->(:Exposure)<-[:PREMISE]-(:Support)-[:SUPPORTS]->(d:Decision)
+                         WHERE s.id IN $ids AND d.status = 'held' RETURN DISTINCT d.id""", {"ids": retracted})
+        changed = {c.decision for c in result.changes}
+        return [DecisionChange(r[0], "unchanged", before[r[0]].as_dict(), before[r[0]].as_dict())
+                for r in rows if r[0] not in changed and r[0] in before]
+
     def _record_event(self, event_id: str, kind: str, adv: Advisory, at: str, result: EventResult):
         changes = [{"decision": c.decision, "change": c.change, "before": c.before, "after": c.after}
                    for c in result.changes]
+        seq = (self.q("MATCH (e:Event) RETURN max(e.seq)")[0][0] or 0) + 1
         self.q("""MERGE (e:Event:Node {id: $id})
-                  SET e.kind = $kind, e.advisory = $adv, e.at = $at, e.processed_at = $processed,
+                  SET e.seq = $seq, e.kind = $kind, e.advisory = $adv, e.at = $at, e.processed_at = $processed,
                       e.changes = $changes, e.waves = $waves""",
-               {"id": event_id, "kind": kind, "adv": adv.id, "at": at, "processed": now(),
+               {"id": event_id, "seq": seq, "kind": kind, "adv": adv.id, "at": at, "processed": now(),
                 "changes": json.dumps(changes), "waves": json.dumps(result.waves)})
         self.q("MATCH (e:Event {id: $e}), (a:Advisory {id: $a}) MERGE (e)-[:ABOUT]->(a)", {"e": event_id, "a": adv.id})
         for c in result.changes:
@@ -366,14 +395,28 @@ class Engine:
         return [{"event": r[0], "kind": r[1], "advisory": r[2], "at": r[3], "change": r[4], "before": r[5],
                  "after": r[6], "evidence_before": r[7], "evidence_after": r[8]} for r in rows]
 
+    def record_action(self, decision: str, kind: str, url: str, at: str):
+        """Record a real change made on GitHub because of a decision."""
+        seq = self.q("MATCH (a:Action) RETURN count(a)")[0][0] + 1
+        self.q("""MATCH (d:Decision {id: $d})
+                  CREATE (a:Action:Node {id: $id, kind: $kind, url: $url, at: $at})
+                  CREATE (d)-[:CAUSED]->(a)""",
+               {"d": decision, "id": f"action:{seq}:{decision}", "kind": kind, "url": url, "at": at})
+
+    def actions(self, decision: str) -> list[dict]:
+        rows = self.q("""MATCH (:Decision {id: $d})-[:CAUSED]->(a:Action) RETURN a.kind, a.url, a.at ORDER BY a.at, a.id""",
+                      {"d": decision})
+        return [{"kind": r[0], "url": r[1], "at": r[2]} for r in rows]
+
     # ------------------------------------------------------------------ reads
 
     def decisions(self, project: str | None = None) -> list[dict]:
         rows = self.q("""MATCH (d:Decision) WHERE $project IS NULL OR d.project = $project
-                         RETURN d.id, d.project, d.package, d.status, d.urgency, d.target, d.evidence
+                         RETURN d.id, d.project, d.package, d.status, d.urgency, d.target, d.evidence, d.pr_url,
+                                d.acted_mode
                          ORDER BY d.project, d.package""", {"project": project})
         return [{"id": r[0], "project": r[1], "package": r[2], "status": r[3], "urgency": r[4],
-                 "target": r[5], "evidence": r[6] or []} for r in rows]
+                 "target": r[5], "evidence": r[6] or [], "pr_url": r[7], "mode": r[8]} for r in rows]
 
     def node(self, node_id: str) -> dict | None:
         rows = self.q("MATCH (n:Node {id: $id}) RETURN labels(n), properties(n)", {"id": node_id})
@@ -395,6 +438,7 @@ class Engine:
                                 for r in retractions]
         if node["kind"] == "Decision":
             node["history"] = self.history(node_id)
+            node["actions"] = self.actions(node_id)
         if node["kind"] == "Exposure":
             dep = self.q("""MATCH (e:Exposure {id: $id})-[:OF]->(v:PackageVersion)<-[d:DEPENDS_ON]-(p:Project)
                             WHERE p.id = e.project RETURN d.direct, d.paths, d.dev""", {"id": node_id})
