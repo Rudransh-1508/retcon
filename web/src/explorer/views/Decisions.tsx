@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button'
 import { ease } from '@/components/site/motion'
 import { cn } from '@/lib/utils'
 import { plural } from '../format'
+import { emit } from '../tour/signals'
 
 type UrgencyFilter = 'all' | 'P0' | 'P1' | 'P2' | 'P3'
 
@@ -23,7 +24,8 @@ export function Decisions({ projects, decisions, error, selected, onOpen, projec
   projects: Project[]; decisions: Decision[] | null; error: string | null; selected: string | null
   onOpen: (id: string) => void; project: string; onProject: (p: string) => void
 }) {
-  const [urgency, setUrgency] = useState<UrgencyFilter>('all')
+  const [urgency, setUrgencyState] = useState<UrgencyFilter>('all')
+  const setUrgency = (u: UrgencyFilter) => { setUrgencyState(u); emit('filter-changed', u) }
   const [query, setQuery] = useState('')
   const [showCancelled, setShowCancelled] = useState(true)
 
@@ -65,7 +67,7 @@ export function Decisions({ projects, decisions, error, selected, onOpen, projec
 
       {error && <ErrorNote>Could not load data: {error}</ErrorNote>}
 
-      <ul className="grid grid-cols-2 gap-3 lg:grid-cols-4" aria-label="Summary">
+      <ul className="grid grid-cols-2 gap-3 lg:grid-cols-4" aria-label="Summary" data-tour="summary">
         {stats.map((s, i) => (
           <m.li key={s.label} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.05 * i, ease }}>
             <StatTile stat={s} loading={decisions === null} />
@@ -78,7 +80,7 @@ export function Decisions({ projects, decisions, error, selected, onOpen, projec
           <Segmented label="Project" value={project} onValueChange={onProject}
             options={[{ value: 'all', label: 'All' }, ...projects.map((p) => ({ value: p.id, label: p.id }))]} />
           <Segmented label="Urgency" value={urgency} onValueChange={setUrgency}
-            options={(['all', 'P0', 'P1', 'P2', 'P3'] as UrgencyFilter[]).map((u) => ({ value: u, label: u === 'all' ? 'Any' : u, count: counts(u) }))} />
+            options={(['all', 'P0', 'P1', 'P2', 'P3'] as UrgencyFilter[]).map((u) => ({ value: u, label: u === 'all' ? 'Any' : u, count: counts(u), tour: `urgency-${u.toLowerCase()}` }))} />
         </div>
         <div className="flex items-center gap-3">
           <label className="relative block min-w-0 flex-1 lg:w-60 lg:flex-none">
@@ -111,7 +113,7 @@ export function Decisions({ projects, decisions, error, selected, onOpen, projec
         </Empty>
       )}
 
-      {groups.map(({ project: p, items }) => (
+      {groups.map(({ project: p, items }, g) => (
         <section key={p.id} aria-label={p.id}>
           <div className="mb-3 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
             <a href={`https://github.com/${p.repo}`} target="_blank" rel="noreferrer"
@@ -122,7 +124,7 @@ export function Decisions({ projects, decisions, error, selected, onOpen, projec
           </div>
           <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {items.map((d, i) => (
-              <li key={d.id} className="[perspective:1100px]"><DecisionCard decision={d} index={i} active={selected === d.id} onOpen={onOpen} /></li>
+              <li key={d.id} className="[perspective:1100px]"><DecisionCard decision={d} index={i} active={selected === d.id} onOpen={onOpen} first={g === 0 && i === 0} /></li>
             ))}
           </ul>
         </section>
@@ -162,12 +164,12 @@ function CountUp({ value }: { value: number }) {
 
 // ---- decision card --------------------------------------------------------------------------------------------
 
-function DecisionCard({ decision: d, index, active, onOpen }: { decision: Decision; index: number; active: boolean; onOpen: (id: string) => void }) {
+function DecisionCard({ decision: d, index, active, onOpen, first }: { decision: Decision; index: number; active: boolean; onOpen: (id: string) => void; first: boolean }) {
   const held = d.status === 'held'
   const prNumber = d.pr_url?.split('/').pop()
   return (
     <m.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '0px 0px -6% 0px' }}
-      transition={{ duration: 0.45, delay: (index % 6) * 0.04, ease }} className="h-full">
+      transition={{ duration: 0.45, delay: (index % 6) * 0.04, ease }} className="h-full" data-tour={first ? 'first-decision' : undefined}>
       <TiltCard className={cn('h-full', active && 'border-held ring-2 ring-held/25', !held && 'bg-panel/60')}>
         <button type="button" onClick={() => onOpen(d.id)} className="absolute inset-0 z-0 rounded-xl"
           aria-label={`Why: upgrade ${d.package} in ${d.project}`} />
