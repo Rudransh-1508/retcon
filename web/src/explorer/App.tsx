@@ -10,7 +10,7 @@ import { invalidate, useResource } from './data'
 import { useUrlParam } from './useUrlParam'
 import { usePointerGlow } from './ui/Glow'
 import { Agents } from './views/Agents'
-import { Decisions } from './views/Decisions'
+import { Decisions, firstDecision } from './views/Decisions'
 import { Timeline } from './views/Timeline'
 import { Skeleton } from './ui/States'
 import { WhySheet } from './why/WhySheet'
@@ -68,7 +68,10 @@ export default function App() {
   const onChanged = () => { invalidate('decisions'); invalidate('projects'); projects.reload(); decisions.reload() }
 
   return (
-    <TourProvider ready={decisions.data !== null} failed={!!decisions.error && decisions.data === null} onView={setView} onCloseWhy={() => setWhy('')}>
+    <TourProvider ready={decisions.data !== null} failed={!!decisions.error && decisions.data === null} onView={setView}
+      // The tour opening or closing the panel is not something the visitor did, so it sends no signal.
+      onCloseWhy={() => setWhyParam('')}
+      onOpenWhy={() => { const d = !why && firstDecision(projects.data ?? [], decisions.data ?? []); if (d) setWhyParam(d.id) }}>
     <div className="min-h-dvh">
       <a href="#console" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-md focus:bg-ink focus:px-3 focus:py-2 focus:text-on-ink">Skip to content</a>
       <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-md">

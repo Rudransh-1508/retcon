@@ -13,13 +13,19 @@ import { SupportStack } from './SupportStack'
 import { WhatIf } from './WhatIf'
 import { ease } from '@/components/site/motion'
 import { cn } from '@/lib/utils'
+import { emit } from '../tour/signals'
 
 const Ask = createContext<(id: string) => void>(() => {})
 const ASKABLE = ['Advisory', 'Exposure', 'Judgment']
 
 export function Why({ id, preview, onOpen, onChanged }: { id: string; preview?: Decision; onOpen: (id: string) => void; onChanged: () => void }) {
   const { data: tree, error, reload } = useResource(`why:${id}`, () => api.why(id))
-  const [whatIf, setWhatIf] = useState<string | null>(null)
+  const [whatIf, setWhatIfState] = useState<string | null>(null)
+  const setWhatIf = (target: string | null) => {
+    setWhatIfState(target)
+    if (target) emit('whatif-opened', target)
+    else emit('whatif-closed')
+  }
   const [ghost, setGhost] = useState<Set<string>>(new Set())
 
   if (error && !tree) return <ErrorNote>{error}</ErrorNote>
@@ -50,7 +56,7 @@ export function Why({ id, preview, onOpen, onChanged }: { id: string; preview?: 
         )}
 
         {plans.length > 0 && (
-          <Section title="Planner">
+          <Section title="Planner" tour="planner">
             {plans.map((p) => <PlanCard key={p.id} plan={p} />)}
           </Section>
         )}
@@ -68,9 +74,9 @@ export function Why({ id, preview, onOpen, onChanged }: { id: string; preview?: 
   )
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({ title, tour, children }: { title: string; tour?: string; children: React.ReactNode }) {
   return (
-    <section>
+    <section data-tour={tour}>
       <h3 className="mb-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">{title}</h3>
       <div className="grid gap-2">{children}</div>
     </section>
@@ -200,7 +206,7 @@ function NodeCard({ node, root, onOpen, depth }: { node: WhyNode; root?: boolean
         <KindChip kind={node.kind} className="mt-0.5" />
         <div className={cn('min-w-0 flex-1 text-sm', retracted && 'text-muted-foreground')}><NodeTitle node={node} onOpen={onOpen} /></div>
         <StatusPill held={!retracted} />
-        {!retracted && ASKABLE.includes(node.kind) && <AskButton id={node.id} />}
+        {!retracted && ASKABLE.includes(node.kind) && <AskButton id={node.id} tour={node.kind === 'Advisory' ? 'what-if' : undefined} />}
       </div>
       {retracted && node.retracted_by.length > 0 && (
         <div className="mt-2 rounded-lg bg-retract/8 px-2.5 py-2 text-[13px] text-retract">
@@ -249,10 +255,10 @@ function SupportRow({ support, onOpen, depth }: { support: WhySupport; onOpen: (
   )
 }
 
-function AskButton({ id }: { id: string }) {
+function AskButton({ id, tour }: { id: string; tour?: string }) {
   const ask = useContext(Ask)
   return (
-    <button type="button" onClick={() => ask(id)} title="Simulate retracting this belief"
+    <button type="button" onClick={() => ask(id)} title="Simulate retracting this belief" data-tour={tour}
       className="inline-flex h-7 items-center gap-1 rounded-full border border-retract/40 px-2.5 text-xs font-medium text-retract transition-colors hover:bg-retract/10">
       <FlaskConical className="size-3" aria-hidden="true" />What if wrong?
     </button>

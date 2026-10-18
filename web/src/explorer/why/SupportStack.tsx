@@ -5,6 +5,7 @@ import { m, useMotionValue, useReducedMotion, useSpring, useTransform } from 'fr
 import type { WhyNode } from '../api'
 import { ease } from '@/components/site/motion'
 import { cn } from '@/lib/utils'
+import { emit } from '../tour/signals'
 
 const ORDER = ['Plan', 'Decision', 'Judgment', 'Exposure', 'Advisory'] as const
 const GAP = 38
@@ -56,7 +57,9 @@ export function SupportStack({ tree, ghost }: { tree: WhyNode; ghost?: Set<strin
         px.set((e.clientX - r.left) / r.width - 0.5)
         py.set((e.clientY - r.top) / r.height - 0.5)
       }}
+      onPointerEnter={() => emit('chain-hovered')}
       onPointerLeave={() => { px.set(0); py.set(0) }}
+      data-tour="support-stack"
       role="img"
       aria-label={`Chain of support: ${[...levels].reverse().map((k) => `${beliefs.get(k)!.length} ${k.toLowerCase()}`).join(', ')}`}
     >

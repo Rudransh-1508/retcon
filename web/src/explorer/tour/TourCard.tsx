@@ -43,7 +43,7 @@ export function TourCard({ step, index, total, target, onNext, onBack, onSkipTou
   const [explored, setExplored] = useState(!step.diagram)
 
   // A step whose target never appeared is explained in place, with a Next button, instead of waiting forever.
-  const degraded = !!step.target && target.missing
+  const degraded = !!step.target && (target.missing || target.failed)
   const handsOn = step.done !== 'next' && !degraded
   const ids = { title: `tour-title-${step.id}`, body: `tour-body-${step.id}` }
 
@@ -60,7 +60,8 @@ export function TourCard({ step, index, total, target, onNext, onBack, onSkipTou
 
   useLayoutEffect(() => {
     if (!card.current) return
-    const ro = new ResizeObserver(([e]) => setSize({ w: e.contentRect.width, h: e.contentRect.height }))
+    // The border box, not contentRect: the card's padding counts when placing it clear of the target.
+    const ro = new ResizeObserver(([e]) => { const r = e.target.getBoundingClientRect(); setSize({ w: r.width, h: r.height }) })
     ro.observe(card.current)
     return () => ro.disconnect()
   }, [])
@@ -117,7 +118,8 @@ export function TourCard({ step, index, total, target, onNext, onBack, onSkipTou
       )}
 
       <p role="status" aria-live="polite" className="mt-2 text-xs text-muted-foreground empty:hidden">
-        {degraded ? 'That part of the page did not appear, so here is what it would show. Press Next to carry on.'
+        {degraded && target.failed ? 'That part of the page could not load just now, so here is what it would show. Press Next to carry on.'
+          : degraded ? 'That part of the page did not appear, so here is what it would show. Press Next to carry on.'
           : step.target && target.waiting ? 'Waiting for this part of the page to load. You can skip this step.' : ''}
       </p>
 

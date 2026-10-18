@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { test as base, expect, type Page, type Route } from '@playwright/test'
+import { test as base, expect, type Locator, type Page, type Route } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
 
 const DIR = join(__dirname, 'recordings')
@@ -59,6 +59,25 @@ export async function withoutWebGL(page: Page) {
       return (original as (...a: unknown[]) => unknown).call(this, kind, ...rest)
     } as typeof original
   })
+}
+
+/**
+ * Wait until an element has stopped moving. The tour scrolls each highlighted control into view smoothly, and a
+ * click that lands mid-scroll would make Playwright's own scrolling fight it.
+ */
+export async function settled(locator: Locator) {
+  await locator.evaluate((el) => new Promise<void>((done) => {
+    let last = '', same = 0
+    const tick = () => {
+      const r = el.getBoundingClientRect()
+      const key = `${Math.round(r.x)},${Math.round(r.y)}`
+      same = key === last ? same + 1 : 0
+      last = key
+      if (same >= 5) done(); else requestAnimationFrame(tick)
+    }
+    tick()
+  }))
+  return locator
 }
 
 /** From the welcome card, skip every step until the finish card shows. Independent of how many steps there are. */
