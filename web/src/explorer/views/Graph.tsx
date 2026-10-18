@@ -15,6 +15,7 @@ import { ease } from '@/components/site/motion'
 import { GraphScene, type Palette, type Picked } from '../graph/scene'
 import { LEVELS } from '../graph/layout'
 import { useUrlParam } from '../useUrlParam'
+import { emit } from '../tour/signals'
 
 const PLATE_NOTE: Record<string, string> = {
   Plan: 'what the Planner chose',
@@ -51,7 +52,10 @@ export function Graph({ projects, onOpen }: { projects: Project[]; onOpen: (id: 
   const host = useRef<HTMLDivElement>(null)
   const scene = useRef<GraphScene | null>(null)
   const alive = useRef(true)
-  const [picked, setPicked] = useState<Picked | null>(null)
+  const [picked, setPickedState] = useState<Picked | null>(null)
+  const setPicked = useCallback((node: Picked | null) => { setPickedState(node); if (node) emit('belief-picked', node.id) }, [])
+  // A drag of more than a few pixels on the canvas is an orbit, as far as the tour is concerned.
+  const drag = useRef<{ x: number; y: number; sent: boolean } | null>(null)
   const [hover, setHover] = useState<(Picked & { x: number; y: number; width: number }) | null>(null)
   const [playing, setPlaying] = useState<string | null>(null)
   const [spin, setSpin] = useState(() => !window.matchMedia('(prefers-reduced-motion: reduce)').matches)
@@ -77,7 +81,7 @@ export function Graph({ projects, onOpen }: { projects: Project[]; onOpen: (id: 
     scene.current = s
     if (process.env.NODE_ENV === 'development') (window as unknown as { __retconScene?: GraphScene }).__retconScene = s  // for end-to-end checks
     return () => { s.dispose(); scene.current = null }
-  }, [data, scheme])
+  }, [data, scheme, setPicked])
 
   const retractions = useMemo(() => (events ?? []).filter((e) => e.kind !== 'published' && e.changes.some((c) => c.decision.includes(`:${active}:`))), [events, active])
 
@@ -89,7 +93,8 @@ export function Graph({ projects, onOpen }: { projects: Project[]; onOpen: (id: 
     if (alive.current) setPlaying(null)
   }, [])
 
-  const replay = (eventId: string) => run('Replaying', async (s) => {
+  const replay = (eventId: string) => { emit('replay-started', eventId); return play(eventId) }
+  const play = (eventId: string) => run('Replaying', async (s) => {
     const ev = await api.event(eventId)
     await s.playWaves(ev.waves, false, () => !alive.current)
   })
@@ -113,7 +118,7 @@ export function Graph({ projects, onOpen }: { projects: Project[]; onOpen: (id: 
 
       <div className="flex flex-wrap items-center gap-3">
         <label htmlFor="replay" className="text-sm text-muted-foreground">Replay a retraction</label>
-        <select id="replay" disabled={!!playing || retractions.length === 0} value="" onChange={(e) => e.target.value && void replay(e.target.value)}
+        <select id="replay" data-tour="replay" disabled={!!playing || retractions.length === 0} value="" onChange={(e) => e.target.value && void replay(e.target.value)}
           className="h-10 min-w-0 max-w-full rounded-full border border-line bg-panel px-4 text-sm disabled:opacity-50">
           <option value="">{retractions.length ? 'Choose an event…' : 'No retractions yet'}</option>
           {retractions.map((e) => (
@@ -134,9 +139,21 @@ export function Graph({ projects, onOpen }: { projects: Project[]; onOpen: (id: 
       </div>
 
       {error && <ErrorNote>{error}</ErrorNote>}
-      {failure && <ErrorNote>The 3D view could not start: {failure} The Decisions and Agents views show the same data as lists.</ErrorNote>}
+      {failure && (
+        <div data-tour-failed="graph-canvas replay">
+          <ErrorNote>The 3D view could not start: {failure} The Decisions and Agents views show the same data as lists.</ErrorNote>
+        </div>
+      )}
 
-      <div className="relative overflow-hidden rounded-3xl border border-line bg-panel/40">
+      <div className="relative overflow-hidden rounded-3xl border border-line bg-panel/40" data-tour="graph-canvas"
+        onPointerDown={(e) => { drag.current = { x: e.clientX, y: e.clientY, sent: false } }}
+        onPointerMove={(e) => {
+          const d = drag.current
+          if (!d || d.sent || !e.buttons || Math.hypot(e.clientX - d.x, e.clientY - d.y) < 8) return
+          d.sent = true
+          emit('graph-orbited')
+        }}
+        onPointerUp={() => { drag.current = null }}>
         <div ref={host} className="h-[68dvh] min-h-[440px] w-full cursor-grab active:cursor-grabbing" role="img"
           aria-label={`3D graph of ${active}: ${data ? `${data.nodes.length} beliefs on ${LEVELS.length} plates` : 'loading'}. Drag to orbit, scroll to zoom.`} />
         {!data && !error && <Skeleton className="absolute inset-0 rounded-none" />}
@@ -158,7 +175,7 @@ export function Graph({ projects, onOpen }: { projects: Project[]; onOpen: (id: 
 
         <AnimatePresence>
           {hover && !picked && (
-            <m.div key="tip" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.12 }}
+            <m.div key="tip" role="tooltip" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.12 }}
               className="pointer-events-none absolute z-10 max-w-60 -translate-y-full rounded-lg border border-line bg-paper px-2.5 py-1.5 text-xs shadow-lg"
               style={{ left: Math.max(8, Math.min(hover.x + 12, hover.width - 200)), top: hover.y - 10 }}>
               <div className="flex items-center gap-1.5"><KindChip kind={hover.kind} /><span className="font-medium">{hover.label}</span></div>
