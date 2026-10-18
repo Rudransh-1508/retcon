@@ -89,6 +89,7 @@ export function Graph({ projects, onOpen }: { projects: Project[]; onOpen: (id: 
       if (evt.target === instance) { instance.elements().removeClass('faded'); setPicked(null) }
     })
     cy.current = instance
+    if (import.meta.env.DEV) (window as unknown as { __retconCy?: Core }).__retconCy = instance  // for E2E checks
     return () => { instance.destroy(); cy.current = null }
   }, [data])
 
