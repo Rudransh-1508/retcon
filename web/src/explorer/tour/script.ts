@@ -16,8 +16,8 @@ export type Step = {
   target?: string
   /** The view this step needs; the tour switches to it on entry, and again when going back. */
   view?: View
-  /** 'closed': the Why panel must be shut for this step, so the tour closes it on entry. */
-  why?: 'closed'
+  /** Whether the Why panel must be shut, or open on the first Decision, for this step; the tour sees to it on entry. */
+  why?: 'open' | 'closed'
   done: Done
   /** Label of the button that moves on from a 'next' step. */
   cta?: string
@@ -82,6 +82,50 @@ export const STEPS: Step[] = [
     view: 'decisions',
     why: 'closed',
     done: { signal: 'why-opened' },
+  },
+  {
+    id: 'chain',
+    title: 'The chain of support',
+    body: 'These plates are the beliefs this decision rests on, one plate per kind, with advisories at the bottom. A green square still holds; a magenta one has been retracted.',
+    action: 'Move your pointer over the plates.',
+    target: 'support-stack',
+    why: 'open',
+    done: { signal: 'chain-hovered' },
+  },
+  {
+    id: 'planner',
+    title: 'What the Planner decided',
+    body: 'The Planner recorded what it chose to do on GitHub and why: open a pull request now, or only list the upgrade in a report. Below it, the history lists every change to this decision and the advisory behind it.',
+    target: 'planner',
+    why: 'open',
+    done: 'next',
+  },
+  {
+    id: 'what-if',
+    title: 'Ask what if',
+    body: 'What if wrong? simulates retracting one belief, on a copy of the memory. It writes nothing, so it is always safe to press.',
+    action: 'Click What if wrong? on an advisory.',
+    target: 'what-if',
+    why: 'open',
+    done: { signal: 'whatif-opened' },
+  },
+  {
+    id: 'what-if-result',
+    title: 'What would change',
+    body: 'The result lists which decisions would be cancelled, downgraded or left unchanged, and the beliefs that would fall pulse magenta on the plates. The project owner can then retract it for real from Admin; the tour never does.',
+    action: 'Close the What-if.',
+    target: 'whatif-result',
+    why: 'open',
+    done: { signal: 'whatif-closed' },
+  },
+  {
+    id: 'close-why',
+    title: 'Back to the list',
+    body: 'Everything in this panel comes from the memory, and every belief in it links to what it rests on.',
+    action: 'Close the panel.',
+    target: 'why-close',
+    why: 'open',
+    done: { signal: 'why-closed' },
   },
   {
     id: 'finish',
