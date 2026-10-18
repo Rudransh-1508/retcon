@@ -1,5 +1,5 @@
 import type { Page } from '@playwright/test'
-import { test, expect, manifest } from './fixtures'
+import { test, expect, manifest, skipToFinish } from './fixtures'
 
 // These tests are about a browser that has never seen the tour.
 test.use({ tourSeen: false })
@@ -11,9 +11,10 @@ const firstDecision = (page: Page) => page.getByRole('button', { name: /^Why: up
 test('A first visit starts the tour, and finishing it is remembered', async ({ page }) => {
   await page.goto('/app')
   await expect(card(page)).toBeVisible()
-  await expect(card(page)).toContainText('1 of 2')
-  await card(page).getByRole('button', { name: 'Start' }).click()
-  await expect(finish(page)).toContainText('2 of 2')
+  await expect(card(page)).toContainText(/1 of (\d+)/)
+  const total = (await card(page).textContent())!.match(/1 of (\d+)/)![1]
+  await skipToFinish(page)
+  await expect(finish(page)).toContainText(`${total} of ${total}`)
   await finish(page).getByRole('button', { name: 'Finish' }).click()
   await expect(finish(page)).toBeHidden()
   expect(await page.evaluate(() => localStorage.getItem('retcon-tour'))).toBe('done')
@@ -74,17 +75,17 @@ test('The forced-start parameter starts the tour after it was finished, then lea
 
 test('The Tour button replays the tour from the welcome card', async ({ page }) => {
   await page.goto('/app')
-  await card(page).getByRole('button', { name: 'Start' }).click()
+  await skipToFinish(page)
   await finish(page).getByRole('button', { name: 'Finish' }).click()
 
   await page.getByRole('button', { name: 'Take the tour' }).click()
   await expect(card(page)).toBeVisible()
-  await expect(card(page)).toContainText('1 of 2')
+  await expect(card(page)).toContainText(/1 of \d+/)
 })
 
 test('The finish step points at the Tour button', async ({ page }) => {
   await page.goto('/app')
-  await card(page).getByRole('button', { name: 'Start' }).click()
+  await skipToFinish(page)
   await expect(finish(page)).toContainText('claude mcp add --transport http retcon')
   // The highlighted control stays usable through the dim layer.
   await page.getByRole('button', { name: 'Take the tour' }).click()
@@ -98,7 +99,7 @@ test('Each step takes focus and the page behind the dim layer cannot be clicked'
   await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2)
   await expect(page.getByRole('dialog', { name: 'Why' })).toHaveCount(0)
 
-  await card(page).getByRole('button', { name: 'Start' }).click()
+  await skipToFinish(page)
   await expect(finish(page)).toBeFocused()
   // Tab stays between the card and the highlighted control.
   for (let i = 0; i < 6; i++) {

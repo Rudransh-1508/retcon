@@ -61,6 +61,20 @@ export async function withoutWebGL(page: Page) {
   })
 }
 
+/** From the welcome card, skip every step until the finish card shows. Independent of how many steps there are. */
+export async function skipToFinish(page: Page) {
+  await page.getByRole('dialog', { name: 'Welcome to Retcon' }).getByRole('button', { name: 'Start' }).click()
+  const finish = page.getByRole('dialog', { name: 'You know your way around' })
+  for (let i = 0; i < 40 && !(await finish.isVisible()); i++) {
+    const card = page.locator('[data-tour-layer="card"]')
+    const title = await card.getByRole('heading').textContent()
+    await card.getByRole('button', { name: /^(Skip step|Next)$/ }).first().click()
+    await expect(card.getByRole('heading')).not.toHaveText(title ?? '')
+  }
+  await expect(finish).toBeVisible()
+  return finish
+}
+
 /** Accessibility violations (WCAG 2.1 A and AA), once entrance animations have finished. */
 export async function axe(page: Page) {
   // Reduced motion keeps opacity fades, and text halfway through one fails contrast. Endless loops are fine.
