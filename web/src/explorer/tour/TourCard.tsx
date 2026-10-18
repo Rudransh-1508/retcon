@@ -15,7 +15,11 @@ const MARGIN = 12
 
 /** Where the card goes: beside the target on wide screens, a bottom card on phones, centred with no target. */
 function place(target: Target['box'], size: { w: number; h: number }, phone: boolean): CSSProperties {
-  if (phone) return { left: MARGIN, right: MARGIN, bottom: `calc(${MARGIN}px + env(safe-area-inset-bottom))` }
+  if (phone) {
+    // A bottom card, unless the target is pinned low on the screen (the phone dock): then the card goes on top.
+    if (target && target.y + target.h / 2 > window.innerHeight / 2) return { left: MARGIN, right: MARGIN, top: `calc(${MARGIN}px + env(safe-area-inset-top))` }
+    return { left: MARGIN, right: MARGIN, bottom: `calc(${MARGIN}px + env(safe-area-inset-bottom))` }
+  }
   const vw = window.innerWidth, vh = window.innerHeight
   if (!target) return { left: Math.max(MARGIN, (vw - size.w) / 2), top: Math.max(MARGIN, (vh - size.h) / 2) }
   const clampX = (x: number) => Math.min(Math.max(MARGIN, x), vw - size.w - MARGIN)

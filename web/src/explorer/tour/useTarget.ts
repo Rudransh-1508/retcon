@@ -49,7 +49,11 @@ export function useTarget(target: TargetName | undefined, timeoutMs = 25_000): T
       const box = r ? { x: r.left, y: r.top, w: r.width, h: r.height } : null
       if (el && box && scrolled !== found.name) {
         scrolled = found.name
-        if (box.y < 72 || box.y + box.h > window.innerHeight - 24) el.scrollIntoView({ block: 'center', behavior: reduce ? 'auto' : 'smooth' })
+        // On a phone the card takes the bottom of the screen, so the highlight goes to the top of its scroller.
+        const phone = window.innerWidth < 640
+        if (phone ? box.y < 64 || box.y + box.h > window.innerHeight * 0.4 : box.y < 72 || box.y + box.h > window.innerHeight - 24) {
+          el.scrollIntoView({ block: phone ? 'start' : 'center', behavior: reduce ? 'auto' : 'smooth' })
+        }
       }
       const elapsed = performance.now() - started
       const failed = names.some((n) => document.querySelector(`[data-tour-failed~="${n}"]`))
