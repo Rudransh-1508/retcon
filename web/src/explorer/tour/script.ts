@@ -21,6 +21,8 @@ export type Step = {
   cta?: string
   /** A command to show and copy, for the finish step. */
   code?: string
+  /** The interactive words diagram; its step moves on only once every part of it has been clicked. */
+  diagram?: 'beliefs' | 'outcomes'
 }
 
 export const MCP_COMMAND = 'claude mcp add --transport http retcon https://retcon-kappa.vercel.app/mcp'
@@ -33,6 +35,22 @@ export const STEPS: Step[] = [
     action: 'This tour takes about two minutes, and you do each step yourself.',
     done: 'next',
     cta: 'Start',
+  },
+  {
+    id: 'beliefs',
+    title: 'Five kinds of belief',
+    body: 'Everything Retcon knows is a belief, and each belief rests on the ones below it. That chain of support is what lets Retcon take things back.',
+    action: 'Click each plate, from the bottom up.',
+    diagram: 'beliefs',
+    done: 'next',
+  },
+  {
+    id: 'outcomes',
+    title: 'What a retraction does',
+    body: 'When an advisory is withdrawn, Retcon retracts it and everything that rested only on it, then re-checks each decision above. Every decision gets one of three outcomes.',
+    action: 'Click each outcome to see which plates change.',
+    diagram: 'outcomes',
+    done: 'next',
   },
   {
     id: 'finish',

@@ -1,4 +1,4 @@
-import { test, expect, axe, manifest, recorded } from './fixtures'
+import { test, expect, axe, manifest, recorded, skipToFinish } from './fixtures'
 
 type Decision = { id: string; project: string; package: string }
 const rich = recorded<Decision[]>('/api/decisions').find((d) => d.id === manifest.rich)!
@@ -51,7 +51,15 @@ for (const colorScheme of ['light', 'dark'] as const) {
         await expect(page.getByRole('dialog', { name: 'Welcome to Retcon' })).toBeVisible()
         expect(await axe(page)).toEqual([])
         await page.getByRole('button', { name: 'Start' }).click()
-        await expect(page.getByRole('dialog', { name: 'You know your way around' })).toBeVisible()
+        await expect(page.getByRole('dialog', { name: 'Five kinds of belief' })).toBeVisible()
+        await page.getByRole('button', { name: /^Judgment/ }).click()
+        expect(await axe(page)).toEqual([])
+        await page.getByRole('button', { name: 'Skip step' }).click()
+        await page.getByRole('button', { name: /^Downgrade/ }).click()
+        expect(await axe(page)).toEqual([])
+        await page.getByRole('button', { name: 'Back' }).click()
+        await page.getByRole('button', { name: 'Back' }).click()
+        await skipToFinish(page)
         expect(await axe(page)).toEqual([])
       })
     })
