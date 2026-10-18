@@ -125,7 +125,7 @@ export function Orbit({ agents, total, selected, onSelect }: {
           const on = a.id === selected
           const related = active?.related.includes(a.id)
           return (
-            <button key={a.id} type="button" ref={(el) => { nodes.current[i] = el }} aria-pressed={on} aria-label={`${a.id}: ${plural(a.items, 'entry', 'entries')}`}
+            <button key={a.id} type="button" ref={(el) => { nodes.current[i] = el }} aria-pressed={on} data-tour={`agent-${a.id.toLowerCase()}`} aria-label={`${a.id}: ${plural(a.items, 'entry', 'entries')}`}
               onClick={(e) => { e.stopPropagation(); onSelect(on ? null : a.id) }}
               className="group absolute left-1/2 top-1/2 flex min-h-11 flex-col items-center gap-1.5 rounded-2xl p-1 will-change-transform">
               <span className={cn('relative grid size-12 place-items-center rounded-full border-2 transition-all duration-300',

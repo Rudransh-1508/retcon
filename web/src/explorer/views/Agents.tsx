@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button'
 import { Orbit, type OrbitAgent } from './Orbit'
 import { ease } from '@/components/site/motion'
 import { cn } from '@/lib/utils'
+import { emit } from '../tour/signals'
 
 const AGENTS = ['Triage', 'Planner', 'Auditor', 'Fixer'] as const
 type AgentId = (typeof AGENTS)[number]
@@ -42,7 +43,8 @@ const PAGE = 40
 
 export function Agents({ projects, onOpen }: { projects: Project[]; onOpen: (id: string) => void }) {
   const { data: items, error } = useResource('agents', api.agents)
-  const [agent, setAgent] = useState<AgentId | null>(null)
+  const [agent, setAgentState] = useState<AgentId | null>(null)
+  const setAgent = (id: AgentId | null) => { setAgentState(id); if (id) emit('agent-selected', id) }
   const [project, setProject] = useState('all')
   const [limit, setLimit] = useState(PAGE)
 
