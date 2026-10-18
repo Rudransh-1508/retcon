@@ -13,11 +13,18 @@ from .engine import Engine, EventResult
 
 from contextlib import asynccontextmanager
 
+from mcp.server.transport_security import TransportSecuritySettings
+
 from .mcp_server import build as build_mcp
 
 # Remote MCP endpoint: read tools only, stateless, so it works on serverless functions.
 mcp = build_mcp(allow_correct=False)
-mcp_app = mcp.streamable_http_app(streamable_http_path="/mcp", stateless_http=True, json_response=True)
+mcp_app = mcp.streamable_http_app(
+    streamable_http_path="/mcp", stateless_http=True, json_response=True,
+    transport_security=TransportSecuritySettings(
+        enable_dns_rebinding_protection=True,
+        allowed_hosts=["retcon-kappa.vercel.app", "*.vercel.app", "localhost:*", "127.0.0.1:*"],
+        allowed_origins=["https://retcon-kappa.vercel.app", "http://localhost:*", "http://127.0.0.1:*"]))
 
 
 @asynccontextmanager
