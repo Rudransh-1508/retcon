@@ -33,6 +33,17 @@ def seed_fixtures(engine: Engine):
         print(event["at"][:10], event["kind"], event["advisory"]["id"], [(c.decision, c.change) for c in r.changes])
 
 
+def reconciler(engine: Engine):
+    """Reconciler wired to real GitHub, with the Groq Fixer when keys are configured."""
+    from . import config
+    from .actions import Reconciler
+    from .fixer import FixerWriter
+    from .github import RealGitHub
+    from .llm import GroqLLM
+    writer = FixerWriter(GroqLLM()) if config.groq_keys() else None
+    return Reconciler(engine, RealGitHub(), writer=writer)
+
+
 def main():
     parser = argparse.ArgumentParser(prog="retcon")
     sub = parser.add_subparsers(dest="cmd", required=True)
@@ -46,9 +57,7 @@ def main():
     elif args.cmd == "wipe":
         engine.delete_graph()
     elif args.cmd == "reconcile":
-        from .actions import Reconciler
-        from .github import RealGitHub
-        for done in Reconciler(engine, RealGitHub()).reconcile():
+        for done in reconciler(engine).reconcile():
             print(done.kind, done.decision, done.url)
 
 
