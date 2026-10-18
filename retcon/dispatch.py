@@ -77,5 +77,8 @@ def run_if_stale(now: float | None = None) -> dict:
         answer = {"started": False, "why": "the agents ran recently", "age": run["age"]}
     else:
         answer = run_now("the agents had not run for 10 minutes")
+        # Later ticks in the same minute must not report a start they did not make.
+        _last.update(at=now, answer={"started": False, "why": "a run was just started", "age": 0} if answer["started"] else answer)
+        return answer
     _last.update(at=now, answer=answer)
     return answer

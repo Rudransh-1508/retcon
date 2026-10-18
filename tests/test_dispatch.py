@@ -71,3 +71,10 @@ def test_no_token_or_a_refusal_never_breaks_the_site(github, monkeypatch):
     monkeypatch.delenv("RETCON_DISPATCH_TOKEN")
     assert dispatch.run_if_stale(NOW) == {"started": False, "why": "the site has no dispatch token"}
     assert dispatch.run_now("test")["started"] is False
+
+
+def test_a_second_tick_right_after_a_start_does_not_claim_another(github):
+    github.runs = [{"status": "completed", "created_at": iso(25 * 60)}]
+    assert dispatch.run_if_stale(NOW)["started"] is True
+    assert dispatch.run_if_stale(NOW + 20) == {"started": False, "why": "a run was just started", "age": 0}
+    assert len(github.dispatched) == 1
