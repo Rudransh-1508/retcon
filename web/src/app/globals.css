@@ -1,0 +1,160 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/* Design tokens. Teal means "still supported", magenta means "retracted"; nothing else uses them. */
+:root {
+  --paper: #f3f5f2;
+  --panel: #ffffff;
+  --ink: #12201b;
+  --muted: #55655f;
+  --line: #d9e0dc;
+  --held: #0a7058;
+  --retract: #bb1d5c;
+  --on-ink: #f3f5f2;
+  --u0: #a8330a;
+  --u1: #8f4f00;
+  --u2: #665c00;
+  --u3: #55655f;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0b1311;
+    --panel: #131e1b;
+    --ink: #e6eeea;
+    --muted: #97a8a1;
+    --line: #273631;
+    --held: #3fd3b0;
+    --retract: #ff5c93;
+    --on-ink: #0b1311;
+    --u0: #ff8f5c;
+    --u1: #ffb04d;
+    --u2: #e6d06a;
+    --u3: #97a8a1;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-panel: var(--panel);
+  --color-ink: var(--ink);
+  --color-muted: color-mix(in srgb, var(--ink) 6%, var(--paper));
+  --color-line: var(--line);
+  --color-held: var(--held);
+  --color-retract: var(--retract);
+  --color-on-ink: var(--on-ink);
+  --color-u0: var(--u0);
+  --color-u1: var(--u1);
+  --color-u2: var(--u2);
+  --color-u3: var(--u3);
+
+  /* shadcn/ui and 21st.dev components speak these names; they resolve to our palette. */
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
+  --color-card: var(--panel);
+  --color-card-foreground: var(--ink);
+  --color-popover: var(--panel);
+  --color-popover-foreground: var(--ink);
+  --color-primary: var(--ink);
+  --color-primary-foreground: var(--on-ink);
+  --color-secondary: color-mix(in srgb, var(--ink) 6%, var(--paper));
+  --color-secondary-foreground: var(--ink);
+  --color-muted-foreground: var(--muted);
+  --color-accent: color-mix(in srgb, var(--held) 12%, var(--paper));
+  --color-accent-foreground: var(--ink);
+  --color-destructive: var(--retract);
+  --color-border: var(--line);
+  --color-input: var(--line);
+  --color-ring: var(--held);
+  --radius-lg: 0.75rem;
+  --radius-md: 0.5rem;
+  --radius-sm: 0.375rem;
+
+  --font-display: var(--nf-display), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--nf-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--nf-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --container-page: 72rem;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body { @apply bg-paper font-sans text-ink antialiased; }
+  ::selection { background: color-mix(in srgb, var(--held) 25%, transparent); }
+  button:not(:disabled), [role='tab'], summary { cursor: pointer; }
+  :focus-visible { @apply outline-hidden ring-2 ring-held ring-offset-2 ring-offset-paper; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+  }
+}
+
+/* Hero copy rises with CSS rather than Framer Motion so the LCP text paints before hydration. */
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@utility rise { animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* Spotlight card (adapted from 21st.dev, see src/explorer/ui/Glow.tsx). The pointer position is shared on :root. */
+[data-glow] {
+  --radius: 14;
+  --border: 2;
+  --size: 220;
+  --outer: 1;
+  --saturation: 78;
+  --lightness: 52;
+  --bg-spot-opacity: 0.08;
+  --border-size: calc(var(--border) * 1px);
+  --spotlight-size: calc(var(--size) * 1px);
+  --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0)));
+  background-color: color-mix(in srgb, var(--panel) 82%, transparent);
+  background-image: radial-gradient(var(--spotlight-size) var(--spotlight-size) at calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+    hsl(var(--hue) calc(var(--saturation) * 1%) calc(var(--lightness) * 1%) / var(--bg-spot-opacity)), transparent);
+  background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  border: var(--border-size) solid var(--line);
+  box-shadow: 0 1rem 2rem -1.4rem color-mix(in srgb, var(--ink) 55%, transparent);
+  touch-action: pan-y;
+}
+[data-glow]::before, [data-glow]::after {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  inset: calc(var(--border-size) * -1);
+  border: var(--border-size) solid transparent;
+  border-radius: calc(var(--radius) * 1px);
+  background-attachment: fixed;
+  background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+  mask-clip: padding-box, border-box;
+  mask-composite: intersect;
+}
+[data-glow]::before {
+  background-image: radial-gradient(calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+    hsl(var(--hue) calc(var(--saturation) * 1%) calc(var(--lightness) * 1%) / 1), transparent 100%);
+}
+[data-glow]::after {
+  background-image: radial-gradient(calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+    hsl(var(--hue) 90% 80% / 0.9), transparent 100%);
+}
+[data-glow] > [data-glow] {
+  position: absolute;
+  inset: 0;
+  will-change: filter;
+  opacity: var(--outer);
+  border-radius: calc(var(--radius) * 1px);
+  filter: blur(calc(var(--border-size) * 10));
+  background: none;
+  pointer-events: none;
+  border: none;
+  box-shadow: none;
+}
+[data-glow] > [data-glow]::before { inset: -10px; border-width: 10px; }
+@media (prefers-color-scheme: dark) {
+  [data-glow] { --lightness: 62; --bg-spot-opacity: 0.12; }
+  [data-glow]::before { filter: brightness(1.6); }
+}

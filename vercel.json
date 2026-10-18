@@ -1,9 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
+  "cleanUrls": true,
   "installCommand": "cd web && npm ci",
   "buildCommand": "cd web && npm run build",
-  "outputDirectory": "web/dist",
+  "outputDirectory": "web/out",
   "functions": {
     "api/index.py": {
       "includeFiles": "retcon/**",
