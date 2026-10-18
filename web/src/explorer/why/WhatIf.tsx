@@ -56,7 +56,7 @@ export function WhatIf({ target, onClose, onDone, onOpen, onGhost }: {
   }
 
   return (
-    <m.section role="region" aria-label="What if"
+    <m.section role="region" aria-label="What if" data-tour="whatif-result" data-tour-failed={error && !sim ? 'what-if whatif-result' : undefined}
       initial={{ opacity: 0, y: 10, rotateX: -6 }} animate={{ opacity: 1, y: 0, rotateX: 0 }} transition={{ duration: 0.3, ease }}
       className="rounded-xl border border-retract/35 bg-retract/6 p-4 [transform-origin:top] [transform-perspective:900px]">
       <div className="flex items-start gap-3">

@@ -24,6 +24,7 @@ export function WhySheet({ id, decisions, onClose, onOpen, onChanged }: {
     <Sheet open={id !== null} modal={!touring} onOpenChange={(open) => { if (!open) onClose() }}>
       <SheetContent side={wide ? 'right' : 'bottom'}
         onInteractOutside={(e) => { if ((e.target as Element | null)?.closest?.('[data-tour-layer]')) e.preventDefault() }}
+        closeProps={{ 'data-tour': 'why-close' }}
         onOpenAutoFocus={(e) => {
           opener.current = document.activeElement instanceof HTMLElement ? document.activeElement : null
           e.preventDefault()
