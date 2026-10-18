@@ -1,0 +1,4594 @@
+{
+ "nodes": [
+  {
+   "id": "exposure:wiredoor:multer@2.0.1",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "multer",
+   "extra": "2.0.1"
+  },
+  {
+   "id": "decision:wiredoor:multer",
+   "kind": "Decision",
+   "status": "held",
+   "label": "multer",
+   "extra": "P1"
+  },
+  {
+   "id": "plan:wiredoor:multer:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:multer:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:on-headers@1.0.2",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "on-headers",
+   "extra": "1.0.2"
+  },
+  {
+   "id": "decision:wiredoor:on-headers",
+   "kind": "Decision",
+   "status": "held",
+   "label": "on-headers",
+   "extra": "P3"
+  },
+  {
+   "id": "plan:wiredoor:on-headers:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:on-headers:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:@eslint/plugin-kit@0.3.2",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "@eslint/plugin-kit",
+   "extra": "0.3.2"
+  },
+  {
+   "id": "decision:wiredoor:@eslint/plugin-kit",
+   "kind": "Decision",
+   "status": "held",
+   "label": "@eslint/plugin-kit",
+   "extra": "P3"
+  },
+  {
+   "id": "plan:wiredoor:@eslint/plugin-kit:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:@eslint/plugin-kit:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:form-data@4.0.3",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "form-data",
+   "extra": "4.0.3"
+  },
+  {
+   "id": "decision:wiredoor:form-data",
+   "kind": "Decision",
+   "status": "held",
+   "label": "form-data",
+   "extra": "P0"
+  },
+  {
+   "id": "plan:wiredoor:form-data:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:form-data:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:axios@1.10.0",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "axios",
+   "extra": "1.10.0"
+  },
+  {
+   "id": "decision:wiredoor:axios",
+   "kind": "Decision",
+   "status": "held",
+   "label": "axios",
+   "extra": "P1"
+  },
+  {
+   "id": "judgment:triage:wiredoor:axios@1.10.0:GHSA-rm8p-cx58-hcvx",
+   "kind": "Judgment",
+   "status": "retracted",
+   "label": "axios",
+   "extra": "unknown"
+  },
+  {
+   "id": "plan:wiredoor:axios:1",
+   "kind": "Plan",
+   "status": "retracted",
+   "label": "plan:wiredoor:axios:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:koa@2.16.1",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "koa",
+   "extra": "2.16.1"
+  },
+  {
+   "id": "decision:wiredoor:koa",
+   "kind": "Decision",
+   "status": "held",
+   "label": "koa",
+   "extra": "P1"
+  },
+  {
+   "id": "plan:wiredoor:koa:1",
+   "kind": "Plan",
+   "status": "retracted",
+   "label": "plan:wiredoor:koa:1",
+   "extra": null
+  },
+  {
+   "id": "plan:wiredoor:koa:2",
+   "kind": "Plan",
+   "status": "superseded",
+   "label": "plan:wiredoor:koa:2",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:sha.js@2.4.11",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "sha.js",
+   "extra": "2.4.11"
+  },
+  {
+   "id": "decision:wiredoor:sha.js",
+   "kind": "Decision",
+   "status": "held",
+   "label": "sha.js",
+   "extra": "P0"
+  },
+  {
+   "id": "plan:wiredoor:sha.js:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:sha.js:1",
+   "extra": null
+  },
+  {
+   "id": "judgment:triage:wiredoor:axios@1.10.0:GHSA-4hjh-wcwx-xvwj",
+   "kind": "Judgment",
+   "status": "held",
+   "label": "axios",
+   "extra": "unknown"
+  },
+  {
+   "id": "plan:wiredoor:axios:2",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:axios:2",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:tar-fs@2.1.3",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "tar-fs",
+   "extra": "2.1.3"
+  },
+  {
+   "id": "decision:wiredoor:tar-fs",
+   "kind": "Decision",
+   "status": "held",
+   "label": "tar-fs",
+   "extra": "P1"
+  },
+  {
+   "id": "plan:wiredoor:tar-fs:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:tar-fs:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:fast-redact@3.5.0",
+   "kind": "Exposure",
+   "status": "retracted",
+   "label": "fast-redact",
+   "extra": "3.5.0"
+  },
+  {
+   "id": "decision:wiredoor:fast-redact",
+   "kind": "Decision",
+   "status": "retracted",
+   "label": "fast-redact",
+   "extra": "P3"
+  },
+  {
+   "id": "plan:wiredoor:fast-redact:1",
+   "kind": "Plan",
+   "status": "retracted",
+   "label": "plan:wiredoor:fast-redact:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:validator@13.15.15",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "validator",
+   "extra": "13.15.15"
+  },
+  {
+   "id": "decision:wiredoor:validator",
+   "kind": "Decision",
+   "status": "held",
+   "label": "validator",
+   "extra": "P1"
+  },
+  {
+   "id": "plan:wiredoor:validator:1",
+   "kind": "Plan",
+   "status": "superseded",
+   "label": "plan:wiredoor:validator:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:typeorm@0.3.24",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "typeorm",
+   "extra": "0.3.24"
+  },
+  {
+   "id": "decision:wiredoor:typeorm",
+   "kind": "Decision",
+   "status": "held",
+   "label": "typeorm",
+   "extra": "P1"
+  },
+  {
+   "id": "judgment:triage:wiredoor:typeorm@0.3.24:GHSA-q2pj-6v73-8rgj",
+   "kind": "Judgment",
+   "status": "held",
+   "label": "typeorm",
+   "extra": "unknown"
+  },
+  {
+   "id": "plan:wiredoor:typeorm:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:typeorm:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:js-yaml@4.1.0",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "js-yaml",
+   "extra": "4.1.0"
+  },
+  {
+   "id": "decision:wiredoor:js-yaml",
+   "kind": "Decision",
+   "status": "held",
+   "label": "js-yaml",
+   "extra": "P1"
+  },
+  {
+   "id": "exposure:wiredoor:js-yaml@3.14.1",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "js-yaml",
+   "extra": "3.14.1"
+  },
+  {
+   "id": "plan:wiredoor:js-yaml:1",
+   "kind": "Plan",
+   "status": "superseded",
+   "label": "plan:wiredoor:js-yaml:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:glob@10.4.5",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "glob",
+   "extra": "10.4.5"
+  },
+  {
+   "id": "decision:wiredoor:glob",
+   "kind": "Decision",
+   "status": "held",
+   "label": "glob",
+   "extra": "P1"
+  },
+  {
+   "id": "plan:wiredoor:glob:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:glob:1",
+   "extra": null
+  },
+  {
+   "id": "plan:wiredoor:validator:2",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:validator:2",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:express@4.21.2",
+   "kind": "Exposure",
+   "status": "retracted",
+   "label": "express",
+   "extra": "4.21.2"
+  },
+  {
+   "id": "decision:wiredoor:express",
+   "kind": "Decision",
+   "status": "retracted",
+   "label": "express",
+   "extra": "P3"
+  },
+  {
+   "id": "plan:wiredoor:express:1",
+   "kind": "Plan",
+   "status": "retracted",
+   "label": "plan:wiredoor:express:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:jws@3.2.2",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "jws",
+   "extra": "3.2.2"
+  },
+  {
+   "id": "decision:wiredoor:jws",
+   "kind": "Decision",
+   "status": "held",
+   "label": "jws",
+   "extra": "P1"
+  },
+  {
+   "id": "plan:wiredoor:jws:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:jws:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:qs@6.13.0",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "qs",
+   "extra": "6.13.0"
+  },
+  {
+   "id": "decision:wiredoor:qs",
+   "kind": "Decision",
+   "status": "held",
+   "label": "qs",
+   "extra": "P2"
+  },
+  {
+   "id": "plan:wiredoor:qs:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:qs:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:diff@4.0.2",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "diff",
+   "extra": "4.0.2"
+  },
+  {
+   "id": "decision:wiredoor:diff",
+   "kind": "Decision",
+   "status": "held",
+   "label": "diff",
+   "extra": "P3"
+  },
+  {
+   "id": "plan:wiredoor:diff:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:diff:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:tar@6.2.1",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "tar",
+   "extra": "6.2.1"
+  },
+  {
+   "id": "decision:wiredoor:tar",
+   "kind": "Decision",
+   "status": "held",
+   "label": "tar",
+   "extra": "P0"
+  },
+  {
+   "id": "plan:wiredoor:tar:1",
+   "kind": "Plan",
+   "status": "superseded",
+   "label": "plan:wiredoor:tar:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:lodash@4.17.21",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "lodash",
+   "extra": "4.17.21"
+  },
+  {
+   "id": "decision:wiredoor:lodash",
+   "kind": "Decision",
+   "status": "held",
+   "label": "lodash",
+   "extra": "P1"
+  },
+  {
+   "id": "plan:wiredoor:lodash:1",
+   "kind": "Plan",
+   "status": "superseded",
+   "label": "plan:wiredoor:lodash:1",
+   "extra": null
+  },
+  {
+   "id": "judgment:triage:wiredoor:axios@1.10.0:GHSA-43fc-jf86-j433",
+   "kind": "Judgment",
+   "status": "held",
+   "label": "axios",
+   "extra": "unknown"
+  },
+  {
+   "id": "exposure:wiredoor:ajv@6.12.6",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "ajv",
+   "extra": "6.12.6"
+  },
+  {
+   "id": "decision:wiredoor:ajv",
+   "kind": "Decision",
+   "status": "held",
+   "label": "ajv",
+   "extra": "P2"
+  },
+  {
+   "id": "plan:wiredoor:ajv:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:ajv:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:minimatch@3.1.2",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "minimatch",
+   "extra": "3.1.2"
+  },
+  {
+   "id": "decision:wiredoor:minimatch",
+   "kind": "Decision",
+   "status": "held",
+   "label": "minimatch",
+   "extra": "P1"
+  },
+  {
+   "id": "exposure:wiredoor:minimatch@9.0.5",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "minimatch",
+   "extra": "9.0.5"
+  },
+  {
+   "id": "exposure:wiredoor:minimatch@5.1.6",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "minimatch",
+   "extra": "5.1.6"
+  },
+  {
+   "id": "plan:wiredoor:minimatch:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:minimatch:1",
+   "extra": null
+  },
+  {
+   "id": "plan:wiredoor:koa:3",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:koa:3",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:@tootallnate/once@1.1.2",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "@tootallnate/once",
+   "extra": "1.1.2"
+  },
+  {
+   "id": "decision:wiredoor:@tootallnate/once",
+   "kind": "Decision",
+   "status": "held",
+   "label": "@tootallnate/once",
+   "extra": "P3"
+  },
+  {
+   "id": "plan:wiredoor:@tootallnate/once:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:@tootallnate/once:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:flatted@3.3.3",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "flatted",
+   "extra": "3.3.3"
+  },
+  {
+   "id": "decision:wiredoor:flatted",
+   "kind": "Decision",
+   "status": "held",
+   "label": "flatted",
+   "extra": "P1"
+  },
+  {
+   "id": "plan:wiredoor:flatted:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:flatted:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:picomatch@2.3.1",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "picomatch",
+   "extra": "2.3.1"
+  },
+  {
+   "id": "decision:wiredoor:picomatch",
+   "kind": "Decision",
+   "status": "held",
+   "label": "picomatch",
+   "extra": "P1"
+  },
+  {
+   "id": "plan:wiredoor:picomatch:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:picomatch:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:brace-expansion@2.0.2",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "brace-expansion",
+   "extra": "2.0.2"
+  },
+  {
+   "id": "decision:wiredoor:brace-expansion",
+   "kind": "Decision",
+   "status": "held",
+   "label": "brace-expansion",
+   "extra": "P1"
+  },
+  {
+   "id": "exposure:wiredoor:brace-expansion@1.1.12",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "brace-expansion",
+   "extra": "1.1.12"
+  },
+  {
+   "id": "plan:wiredoor:brace-expansion:1",
+   "kind": "Plan",
+   "status": "superseded",
+   "label": "plan:wiredoor:brace-expansion:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:path-to-regexp@0.1.12",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "path-to-regexp",
+   "extra": "0.1.12"
+  },
+  {
+   "id": "decision:wiredoor:path-to-regexp",
+   "kind": "Decision",
+   "status": "held",
+   "label": "path-to-regexp",
+   "extra": "P1"
+  },
+  {
+   "id": "plan:wiredoor:path-to-regexp:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:path-to-regexp:1",
+   "extra": null
+  },
+  {
+   "id": "plan:wiredoor:lodash:2",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:lodash:2",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:follow-redirects@1.15.9",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "follow-redirects",
+   "extra": "1.15.9"
+  },
+  {
+   "id": "decision:wiredoor:follow-redirects",
+   "kind": "Decision",
+   "status": "held",
+   "label": "follow-redirects",
+   "extra": "P2"
+  },
+  {
+   "id": "plan:wiredoor:follow-redirects:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:follow-redirects:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:uuid@11.1.0",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "uuid",
+   "extra": "11.1.0"
+  },
+  {
+   "id": "decision:wiredoor:uuid",
+   "kind": "Decision",
+   "status": "held",
+   "label": "uuid",
+   "extra": "P2"
+  },
+  {
+   "id": "plan:wiredoor:uuid:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:uuid:1",
+   "extra": null
+  },
+  {
+   "id": "judgment:triage:wiredoor:axios@1.10.0:GHSA-q8qp-cvcw-x6jj",
+   "kind": "Judgment",
+   "status": "held",
+   "label": "axios",
+   "extra": "unknown"
+  },
+  {
+   "id": "judgment:triage:wiredoor:axios@1.10.0:GHSA-pmwg-cvhr-8vh7",
+   "kind": "Judgment",
+   "status": "held",
+   "label": "axios",
+   "extra": "unknown"
+  },
+  {
+   "id": "judgment:triage:wiredoor:axios@1.10.0:GHSA-6chq-wfr3-2hj9",
+   "kind": "Judgment",
+   "status": "held",
+   "label": "axios",
+   "extra": "unknown"
+  },
+  {
+   "id": "judgment:triage:wiredoor:axios@1.10.0:GHSA-pf86-5x62-jrwf",
+   "kind": "Judgment",
+   "status": "held",
+   "label": "axios",
+   "extra": "unknown"
+  },
+  {
+   "id": "exposure:wiredoor:ip-address@9.0.5",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "ip-address",
+   "extra": "9.0.5"
+  },
+  {
+   "id": "decision:wiredoor:ip-address",
+   "kind": "Decision",
+   "status": "held",
+   "label": "ip-address",
+   "extra": "P1"
+  },
+  {
+   "id": "plan:wiredoor:ip-address:1",
+   "kind": "Plan",
+   "status": "superseded",
+   "label": "plan:wiredoor:ip-address:1",
+   "extra": null
+  },
+  {
+   "id": "judgment:triage:wiredoor:axios@1.10.0:GHSA-35jp-ww65-95wh",
+   "kind": "Judgment",
+   "status": "held",
+   "label": "axios",
+   "extra": "unknown"
+  },
+  {
+   "id": "judgment:triage:wiredoor:axios@1.10.0:GHSA-3g43-6gmg-66jw",
+   "kind": "Judgment",
+   "status": "held",
+   "label": "axios",
+   "extra": "not_reachable"
+  },
+  {
+   "id": "judgment:triage:wiredoor:axios@1.10.0:GHSA-j5f8-grm9-p9fc",
+   "kind": "Judgment",
+   "status": "held",
+   "label": "axios",
+   "extra": "unknown"
+  },
+  {
+   "id": "judgment:triage:wiredoor:axios@1.10.0:GHSA-p92q-9vqr-4j8v",
+   "kind": "Judgment",
+   "status": "held",
+   "label": "axios",
+   "extra": "unknown"
+  },
+  {
+   "id": "judgment:triage:wiredoor:axios@1.10.0:GHSA-777c-7fjr-54vf",
+   "kind": "Judgment",
+   "status": "held",
+   "label": "axios",
+   "extra": "unknown"
+  },
+  {
+   "id": "judgment:triage:wiredoor:axios@1.10.0:GHSA-hfxv-24rg-xrqf",
+   "kind": "Judgment",
+   "status": "held",
+   "label": "axios",
+   "extra": "not_reachable"
+  },
+  {
+   "id": "exposure:wiredoor:joi@17.13.3",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "joi",
+   "extra": "17.13.3"
+  },
+  {
+   "id": "decision:wiredoor:joi",
+   "kind": "Decision",
+   "status": "held",
+   "label": "joi",
+   "extra": "P1"
+  },
+  {
+   "id": "plan:wiredoor:joi:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:joi:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:@babel/core@7.27.4",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "@babel/core",
+   "extra": "7.27.4"
+  },
+  {
+   "id": "decision:wiredoor:@babel/core",
+   "kind": "Decision",
+   "status": "held",
+   "label": "@babel/core",
+   "extra": "P3"
+  },
+  {
+   "id": "plan:wiredoor:@babel/core:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:@babel/core:1",
+   "extra": null
+  },
+  {
+   "id": "plan:wiredoor:brace-expansion:2",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:brace-expansion:2",
+   "extra": null
+  },
+  {
+   "id": "plan:wiredoor:js-yaml:2",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:js-yaml:2",
+   "extra": null
+  },
+  {
+   "id": "plan:wiredoor:tar:2",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:tar:2",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:body-parser@1.20.3",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "body-parser",
+   "extra": "1.20.3"
+  },
+  {
+   "id": "decision:wiredoor:body-parser",
+   "kind": "Decision",
+   "status": "held",
+   "label": "body-parser",
+   "extra": "P3"
+  },
+  {
+   "id": "plan:wiredoor:body-parser:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:body-parser:1",
+   "extra": null
+  },
+  {
+   "id": "plan:wiredoor:ip-address:2",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:ip-address:2",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:browserslist@4.25.0",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "browserslist",
+   "extra": "4.25.0"
+  },
+  {
+   "id": "decision:wiredoor:browserslist",
+   "kind": "Decision",
+   "status": "held",
+   "label": "browserslist",
+   "extra": "P1"
+  },
+  {
+   "id": "plan:wiredoor:browserslist:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:browserslist:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:@faker-js/faker@9.8.0",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "@faker-js/faker",
+   "extra": "9.8.0"
+  },
+  {
+   "id": "decision:wiredoor:@faker-js/faker",
+   "kind": "Decision",
+   "status": "held",
+   "label": "@faker-js/faker",
+   "extra": "P2"
+  },
+  {
+   "id": "judgment:triage:wiredoor:@faker-js/faker@9.8.0:GHSA-qxc2-j82w-r537",
+   "kind": "Judgment",
+   "status": "held",
+   "label": "@faker-js/faker",
+   "extra": "not_reachable"
+  },
+  {
+   "id": "plan:wiredoor:@faker-js/faker:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:@faker-js/faker:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:@humanfs/node@0.16.6",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "@humanfs/node",
+   "extra": "0.16.6"
+  },
+  {
+   "id": "decision:wiredoor:@humanfs/node",
+   "kind": "Decision",
+   "status": "held",
+   "label": "@humanfs/node",
+   "extra": "P2"
+  },
+  {
+   "id": "plan:wiredoor:@humanfs/node:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:@humanfs/node:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:braces@3.0.3",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "braces",
+   "extra": "3.0.3"
+  },
+  {
+   "id": "decision:wiredoor:braces",
+   "kind": "Decision",
+   "status": "held",
+   "label": "braces",
+   "extra": "P1"
+  },
+  {
+   "id": "plan:wiredoor:braces:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:braces:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:http-cache-semantics@4.2.0",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "http-cache-semantics",
+   "extra": "4.2.0"
+  },
+  {
+   "id": "decision:wiredoor:http-cache-semantics",
+   "kind": "Decision",
+   "status": "held",
+   "label": "http-cache-semantics",
+   "extra": "P1"
+  },
+  {
+   "id": "plan:wiredoor:http-cache-semantics:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:http-cache-semantics:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:sprintf-js@1.0.3",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "sprintf-js",
+   "extra": "1.0.3"
+  },
+  {
+   "id": "decision:wiredoor:sprintf-js",
+   "kind": "Decision",
+   "status": "held",
+   "label": "sprintf-js",
+   "extra": "P2"
+  },
+  {
+   "id": "exposure:wiredoor:sprintf-js@1.1.3",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "sprintf-js",
+   "extra": "1.1.3"
+  },
+  {
+   "id": "plan:wiredoor:sprintf-js:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:sprintf-js:1",
+   "extra": null
+  },
+  {
+   "id": "judgment:triage:wiredoor:joi@17.13.3:GHSA-6h2x-m376-mqjq",
+   "kind": "Judgment",
+   "status": "held",
+   "label": "joi",
+   "extra": "unknown"
+  },
+  {
+   "id": "exposure:wiredoor:fast-copy@3.0.2",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "fast-copy",
+   "extra": "3.0.2"
+  },
+  {
+   "id": "decision:wiredoor:fast-copy",
+   "kind": "Decision",
+   "status": "held",
+   "label": "fast-copy",
+   "extra": "P2"
+  },
+  {
+   "id": "plan:wiredoor:fast-copy:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:fast-copy:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:compression@1.8.0",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "compression",
+   "extra": "1.8.0"
+  },
+  {
+   "id": "decision:wiredoor:compression",
+   "kind": "Decision",
+   "status": "held",
+   "label": "compression",
+   "extra": "P1"
+  },
+  {
+   "id": "judgment:triage:wiredoor:compression@1.8.0:GHSA-vc2v-76pw-4v95",
+   "kind": "Judgment",
+   "status": "held",
+   "label": "compression",
+   "extra": "unknown"
+  },
+  {
+   "id": "plan:wiredoor:compression:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:compression:1",
+   "extra": null
+  },
+  {
+   "id": "exposure:wiredoor:proxy-addr@2.0.7",
+   "kind": "Exposure",
+   "status": "held",
+   "label": "proxy-addr",
+   "extra": "2.0.7"
+  },
+  {
+   "id": "decision:wiredoor:proxy-addr",
+   "kind": "Decision",
+   "status": "held",
+   "label": "proxy-addr",
+   "extra": "P0"
+  },
+  {
+   "id": "plan:wiredoor:proxy-addr:1",
+   "kind": "Plan",
+   "status": "held",
+   "label": "plan:wiredoor:proxy-addr:1",
+   "extra": null
+  },
+  {
+   "id": "GHSA-fjgf-rc76-4x9p",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-fjgf-rc76-4x9p",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-v52c-386h-88mc",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-v52c-386h-88mc",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-xf7r-hgr6-v32p",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-xf7r-hgr6-v32p",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-5528-5vmv-3xc2",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-5528-5vmv-3xc2",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-3p4h-7m6x-2hcm",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-3p4h-7m6x-2hcm",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-72gw-mp4g-v24j",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-72gw-mp4g-v24j",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-535w-7cp7-47q4",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-535w-7cp7-47q4",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-qvfw-j98x-7q72",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-qvfw-j98x-7q72",
+   "extra": "LOW"
+  },
+  {
+   "id": "GHSA-wc9g-mqfw-jrwm",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-wc9g-mqfw-jrwm",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-76c9-3jph-rj3q",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-76c9-3jph-rj3q",
+   "extra": "LOW"
+  },
+  {
+   "id": "GHSA-xffm-g5w8-qvg7",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-xffm-g5w8-qvg7",
+   "extra": "LOW"
+  },
+  {
+   "id": "GHSA-fjxv-7rqg-78g4",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-fjxv-7rqg-78g4",
+   "extra": "CRITICAL"
+  },
+  {
+   "id": "GHSA-hmw2-7cc7-3qxx",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-hmw2-7cc7-3qxx",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-rm8p-cx58-hcvx",
+   "kind": "Advisory",
+   "status": "retracted",
+   "label": "GHSA-rm8p-cx58-hcvx",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-4hjh-wcwx-xvwj",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-4hjh-wcwx-xvwj",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-43fc-jf86-j433",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-43fc-jf86-j433",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-3p68-rc4w-qgx5",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-3p68-rc4w-qgx5",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-fvcv-3m26-pcqx",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-fvcv-3m26-pcqx",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-xhjh-pmcv-23jw",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-xhjh-pmcv-23jw",
+   "extra": "LOW"
+  },
+  {
+   "id": "GHSA-q8qp-cvcw-x6jj",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-q8qp-cvcw-x6jj",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-3w6x-2g7m-8v23",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-3w6x-2g7m-8v23",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-pmwg-cvhr-8vh7",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-pmwg-cvhr-8vh7",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-w9j2-pvgh-6h63",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-w9j2-pvgh-6h63",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-xx6v-rp6x-q39c",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-xx6v-rp6x-q39c",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-6chq-wfr3-2hj9",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-6chq-wfr3-2hj9",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-pf86-5x62-jrwf",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-pf86-5x62-jrwf",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-vf2m-468p-8v99",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-vf2m-468p-8v99",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-5c9x-8gcm-mpgx",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-5c9x-8gcm-mpgx",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-62hf-57xw-28j9",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-62hf-57xw-28j9",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-m7pr-hjqh-92cm",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-m7pr-hjqh-92cm",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-445q-vr5w-6q77",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-445q-vr5w-6q77",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-898c-q2cr-xwhg",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-898c-q2cr-xwhg",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-35jp-ww65-95wh",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-35jp-ww65-95wh",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-3g43-6gmg-66jw",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-3g43-6gmg-66jw",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-j5f8-grm9-p9fc",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-j5f8-grm9-p9fc",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-p92q-9vqr-4j8v",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-p92q-9vqr-4j8v",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-777c-7fjr-54vf",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-777c-7fjr-54vf",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-hfxv-24rg-xrqf",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-hfxv-24rg-xrqf",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-pmv8-rq9r-6j72",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-pmv8-rq9r-6j72",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-42h9-826w-cgv3",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-42h9-826w-cgv3",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-mmx7-hfxf-jppx",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-mmx7-hfxf-jppx",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-jqh4-m9w3-8hp9",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-jqh4-m9w3-8hp9",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-7q8q-rj6j-mhjq",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-7q8q-rj6j-mhjq",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-39j5-w47m-2gmv",
+   "kind": "Advisory",
+   "status": "retracted",
+   "label": "GHSA-39j5-w47m-2gmv",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-4ww2-rjh2-xpv9",
+   "kind": "Advisory",
+   "status": "retracted",
+   "label": "GHSA-4ww2-rjh2-xpv9",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-6hqm-hm2v-3p2p",
+   "kind": "Advisory",
+   "status": "retracted",
+   "label": "GHSA-6hqm-hm2v-3p2p",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-f2r5-pqh9-r8f8",
+   "kind": "Advisory",
+   "status": "retracted",
+   "label": "GHSA-f2r5-pqh9-r8f8",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-fq2j-3j99-rx65",
+   "kind": "Advisory",
+   "status": "retracted",
+   "label": "GHSA-fq2j-3j99-rx65",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-9wx3-p993-35vp",
+   "kind": "Advisory",
+   "status": "retracted",
+   "label": "GHSA-9wx3-p993-35vp",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-9fr6-4gfg-395g",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-9fr6-4gfg-395g",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-vh66-26gq-q6x8",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-vh66-26gq-q6x8",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-j8rh-479h-cp32",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-j8rh-479h-cp32",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-mvw6-62qv-vmqf",
+   "kind": "Advisory",
+   "status": "retracted",
+   "label": "GHSA-mvw6-62qv-vmqf",
+   "extra": "LOW"
+  },
+  {
+   "id": "GHSA-jgmv-j7ww-jx2x",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-jgmv-j7ww-jx2x",
+   "extra": "LOW"
+  },
+  {
+   "id": "GHSA-7gcc-r8m5-44qm",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-7gcc-r8m5-44qm",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-95m3-7q98-8xr5",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-95m3-7q98-8xr5",
+   "extra": "CRITICAL"
+  },
+  {
+   "id": "GHSA-vj76-c3g6-qr5v",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-vj76-c3g6-qr5v",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-ffrw-9mx8-89p8",
+   "kind": "Advisory",
+   "status": "retracted",
+   "label": "GHSA-ffrw-9mx8-89p8",
+   "extra": "LOW"
+  },
+  {
+   "id": "GHSA-9965-vmph-33xx",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-9965-vmph-33xx",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-vghf-hv5q-vc2g",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-vghf-hv5q-vc2g",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-q2pj-6v73-8rgj",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-q2pj-6v73-8rgj",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-9ggv-8w38-r7pm",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-9ggv-8w38-r7pm",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-2rp8-mm9q-fp49",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-2rp8-mm9q-fp49",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-mh29-5h37-fv8m",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-mh29-5h37-fv8m",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-h67p-54hq-rp68",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-h67p-54hq-rp68",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-52cp-r559-cp3m",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-52cp-r559-cp3m",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-5p4m-2wfm-xmqj",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-5p4m-2wfm-xmqj",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-2883-xcg3-v3hh",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-2883-xcg3-v3hh",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-5j98-mcp5-4vw2",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-5j98-mcp5-4vw2",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-pj86-cfqh-vqx6",
+   "kind": "Advisory",
+   "status": "retracted",
+   "label": "GHSA-pj86-cfqh-vqx6",
+   "extra": "LOW"
+  },
+  {
+   "id": "GHSA-869p-cjfg-cm3x",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-869p-cjfg-cm3x",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-6rw7-vpxm-498p",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-6rw7-vpxm-498p",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-w7fw-mjwx-w883",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-w7fw-mjwx-w883",
+   "extra": "LOW"
+  },
+  {
+   "id": "GHSA-q8mj-m7cp-5q26",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-q8mj-m7cp-5q26",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-4mjr-xmp4-gh2g",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-4mjr-xmp4-gh2g",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-73rr-hh4g-fpgx",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-73rr-hh4g-fpgx",
+   "extra": "LOW"
+  },
+  {
+   "id": "GHSA-8qq5-rm4j-mr97",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-8qq5-rm4j-mr97",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-r6q2-hw4h-h46w",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-r6q2-hw4h-h46w",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-34x7-hfp2-rc4v",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-34x7-hfp2-rc4v",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-83g3-92jg-28cx",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-83g3-92jg-28cx",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-qffp-2rhf-9h96",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-qffp-2rhf-9h96",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-9ppj-qmqm-q256",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-9ppj-qmqm-q256",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-vmf3-w455-68vh",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-vmf3-w455-68vh",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-gvwx-54wh-qm9j",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-gvwx-54wh-qm9j",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-8x88-c5mf-7j5w",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-8x88-c5mf-7j5w",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-23hp-3jrh-7fpw",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-23hp-3jrh-7fpw",
+   "extra": "CRITICAL"
+  },
+  {
+   "id": "GHSA-w8wr-v893-vjvp",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-w8wr-v893-vjvp",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-r292-9mhp-454m",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-r292-9mhp-454m",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-xxjr-mmjv-4gpg",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-xxjr-mmjv-4gpg",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-f23m-r3pf-42rh",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-f23m-r3pf-42rh",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-r5fr-rjxr-66jc",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-r5fr-rjxr-66jc",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-2g4f-4pwh-qvx6",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-2g4f-4pwh-qvx6",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-3ppc-4f35-3m26",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-3ppc-4f35-3m26",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-23c5-xmqv-rm74",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-23c5-xmqv-rm74",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-7r86-cg39-jmmj",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-7r86-cg39-jmmj",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-vpq2-c234-7xj6",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-vpq2-c234-7xj6",
+   "extra": "LOW"
+  },
+  {
+   "id": "GHSA-25h7-pfq9-p65f",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-25h7-pfq9-p65f",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-rf6f-7fwh-wjgh",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-rf6f-7fwh-wjgh",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-c2c7-rcm5-vvqj",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-c2c7-rcm5-vvqj",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-3v7f-55p6-f55p",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-3v7f-55p6-f55p",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-f886-m6hf-6m8v",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-f886-m6hf-6m8v",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-3jxr-9vmj-r5cp",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-3jxr-9vmj-r5cp",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-mh99-v99m-4gvg",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-mh99-v99m-4gvg",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-rgw5-rvv9-x895",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-rgw5-rvv9-x895",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-6j4f-fj2g-mc7p",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-6j4f-fj2g-mc7p",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-qhr7-859c-m2p7",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-qhr7-859c-m2p7",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-q2hr-2g5m-vwhr",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-q2hr-2g5m-vwhr",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-37ch-88jc-xwx2",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-37ch-88jc-xwx2",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-r4q5-vmmm-2653",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-r4q5-vmmm-2653",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-w5hq-g745-h8pq",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-w5hq-g745-h8pq",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-qmq6-f8pr-cx5x",
+   "kind": "Advisory",
+   "status": "retracted",
+   "label": "GHSA-qmq6-f8pr-cx5x",
+   "extra": "LOW"
+  },
+  {
+   "id": "GHSA-v2v4-37r5-5v8g",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-v2v4-37r5-5v8g",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-mwp4-54f8-5fhr",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-mwp4-54f8-5fhr",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-rpw4-54j3-4h4q",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-rpw4-54j3-4h4q",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-h3mg-xc3c-68pw",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-h3mg-xc3c-68pw",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-j6r3-76f7-8jcv",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-j6r3-76f7-8jcv",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-q7cg-457f-vx79",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-q7cg-457f-vx79",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-gg4h-3hg2-grpc",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-gg4h-3hg2-grpc",
+   "extra": "LOW"
+  },
+  {
+   "id": "GHSA-6w3j-5fw6-r9vr",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-6w3j-5fw6-r9vr",
+   "extra": "LOW"
+  },
+  {
+   "id": "GHSA-wr44-6hxh-3jwq",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-wr44-6hxh-3jwq",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-6h2x-m376-mqjq",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-6h2x-m376-mqjq",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-4x5r-pxfx-6jf8",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-4x5r-pxfx-6jf8",
+   "extra": "LOW"
+  },
+  {
+   "id": "GHSA-v422-hmwv-36x6",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-v422-hmwv-36x6",
+   "extra": "LOW"
+  },
+  {
+   "id": "GHSA-73wf-gq98-2v4g",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-73wf-gq98-2v4g",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-c83g-rgw3-j3cx",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-c83g-rgw3-j3cx",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-qxc2-j82w-r537",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-qxc2-j82w-r537",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-p498-v437-472g",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-p498-v437-472g",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-vfj7-8cjw-p6xm",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-vfj7-8cjw-p6xm",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-ch52-4w7c-c8xp",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-ch52-4w7c-c8xp",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-hp3w-g68c-fv3c",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-hp3w-g68c-fv3c",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-jggr-w7fw-pc2j",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-jggr-w7fw-pc2j",
+   "extra": "MODERATE"
+  },
+  {
+   "id": "GHSA-vc2v-76pw-4v95",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-vc2v-76pw-4v95",
+   "extra": "HIGH"
+  },
+  {
+   "id": "GHSA-jqcg-44mw-7w3h",
+   "kind": "Advisory",
+   "status": "held",
+   "label": "GHSA-jqcg-44mw-7w3h",
+   "extra": "CRITICAL"
+  }
+ ],
+ "edges": [
+  {
+   "id": "support:affects:GHSA-fjgf-rc76-4x9p:exposure:wiredoor:multer@2.0.1>GHSA-fjgf-rc76-4x9p",
+   "support": "support:affects:GHSA-fjgf-rc76-4x9p:exposure:wiredoor:multer@2.0.1",
+   "source": "GHSA-fjgf-rc76-4x9p",
+   "target": "exposure:wiredoor:multer@2.0.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-v52c-386h-88mc:exposure:wiredoor:multer@2.0.1>GHSA-v52c-386h-88mc",
+   "support": "support:affects:GHSA-v52c-386h-88mc:exposure:wiredoor:multer@2.0.1",
+   "source": "GHSA-v52c-386h-88mc",
+   "target": "exposure:wiredoor:multer@2.0.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-xf7r-hgr6-v32p:exposure:wiredoor:multer@2.0.1>GHSA-xf7r-hgr6-v32p",
+   "support": "support:affects:GHSA-xf7r-hgr6-v32p:exposure:wiredoor:multer@2.0.1",
+   "source": "GHSA-xf7r-hgr6-v32p",
+   "target": "exposure:wiredoor:multer@2.0.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-5528-5vmv-3xc2:exposure:wiredoor:multer@2.0.1>GHSA-5528-5vmv-3xc2",
+   "support": "support:affects:GHSA-5528-5vmv-3xc2:exposure:wiredoor:multer@2.0.1",
+   "source": "GHSA-5528-5vmv-3xc2",
+   "target": "exposure:wiredoor:multer@2.0.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-3p4h-7m6x-2hcm:exposure:wiredoor:multer@2.0.1>GHSA-3p4h-7m6x-2hcm",
+   "support": "support:affects:GHSA-3p4h-7m6x-2hcm:exposure:wiredoor:multer@2.0.1",
+   "source": "GHSA-3p4h-7m6x-2hcm",
+   "target": "exposure:wiredoor:multer@2.0.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-72gw-mp4g-v24j:exposure:wiredoor:multer@2.0.1>GHSA-72gw-mp4g-v24j",
+   "support": "support:affects:GHSA-72gw-mp4g-v24j:exposure:wiredoor:multer@2.0.1",
+   "source": "GHSA-72gw-mp4g-v24j",
+   "target": "exposure:wiredoor:multer@2.0.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-535w-7cp7-47q4:exposure:wiredoor:multer@2.0.1>GHSA-535w-7cp7-47q4",
+   "support": "support:affects:GHSA-535w-7cp7-47q4:exposure:wiredoor:multer@2.0.1",
+   "source": "GHSA-535w-7cp7-47q4",
+   "target": "exposure:wiredoor:multer@2.0.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-qvfw-j98x-7q72:exposure:wiredoor:multer@2.0.1>GHSA-qvfw-j98x-7q72",
+   "support": "support:affects:GHSA-qvfw-j98x-7q72:exposure:wiredoor:multer@2.0.1",
+   "source": "GHSA-qvfw-j98x-7q72",
+   "target": "exposure:wiredoor:multer@2.0.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-wc9g-mqfw-jrwm:exposure:wiredoor:multer@2.0.1>GHSA-wc9g-mqfw-jrwm",
+   "support": "support:affects:GHSA-wc9g-mqfw-jrwm:exposure:wiredoor:multer@2.0.1",
+   "source": "GHSA-wc9g-mqfw-jrwm",
+   "target": "exposure:wiredoor:multer@2.0.1",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:multer@2.0.1>exposure:wiredoor:multer@2.0.1",
+   "support": "support:resolves:exposure:wiredoor:multer@2.0.1",
+   "source": "exposure:wiredoor:multer@2.0.1",
+   "target": "decision:wiredoor:multer",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:multer:1>GHSA-fjgf-rc76-4x9p",
+   "support": "support:planned:plan:wiredoor:multer:1",
+   "source": "GHSA-fjgf-rc76-4x9p",
+   "target": "plan:wiredoor:multer:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:multer:1>decision:wiredoor:multer",
+   "support": "support:planned:plan:wiredoor:multer:1",
+   "source": "decision:wiredoor:multer",
+   "target": "plan:wiredoor:multer:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-76c9-3jph-rj3q:exposure:wiredoor:on-headers@1.0.2>GHSA-76c9-3jph-rj3q",
+   "support": "support:affects:GHSA-76c9-3jph-rj3q:exposure:wiredoor:on-headers@1.0.2",
+   "source": "GHSA-76c9-3jph-rj3q",
+   "target": "exposure:wiredoor:on-headers@1.0.2",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:on-headers@1.0.2>exposure:wiredoor:on-headers@1.0.2",
+   "support": "support:resolves:exposure:wiredoor:on-headers@1.0.2",
+   "source": "exposure:wiredoor:on-headers@1.0.2",
+   "target": "decision:wiredoor:on-headers",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:on-headers:1>GHSA-76c9-3jph-rj3q",
+   "support": "support:planned:plan:wiredoor:on-headers:1",
+   "source": "GHSA-76c9-3jph-rj3q",
+   "target": "plan:wiredoor:on-headers:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:on-headers:1>decision:wiredoor:on-headers",
+   "support": "support:planned:plan:wiredoor:on-headers:1",
+   "source": "decision:wiredoor:on-headers",
+   "target": "plan:wiredoor:on-headers:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-xffm-g5w8-qvg7:exposure:wiredoor:@eslint/plugin-kit@0.3.2>GHSA-xffm-g5w8-qvg7",
+   "support": "support:affects:GHSA-xffm-g5w8-qvg7:exposure:wiredoor:@eslint/plugin-kit@0.3.2",
+   "source": "GHSA-xffm-g5w8-qvg7",
+   "target": "exposure:wiredoor:@eslint/plugin-kit@0.3.2",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:@eslint/plugin-kit@0.3.2>exposure:wiredoor:@eslint/plugin-kit@0.3.2",
+   "support": "support:resolves:exposure:wiredoor:@eslint/plugin-kit@0.3.2",
+   "source": "exposure:wiredoor:@eslint/plugin-kit@0.3.2",
+   "target": "decision:wiredoor:@eslint/plugin-kit",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:@eslint/plugin-kit:1>GHSA-xffm-g5w8-qvg7",
+   "support": "support:planned:plan:wiredoor:@eslint/plugin-kit:1",
+   "source": "GHSA-xffm-g5w8-qvg7",
+   "target": "plan:wiredoor:@eslint/plugin-kit:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:@eslint/plugin-kit:1>decision:wiredoor:@eslint/plugin-kit",
+   "support": "support:planned:plan:wiredoor:@eslint/plugin-kit:1",
+   "source": "decision:wiredoor:@eslint/plugin-kit",
+   "target": "plan:wiredoor:@eslint/plugin-kit:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-fjxv-7rqg-78g4:exposure:wiredoor:form-data@4.0.3>GHSA-fjxv-7rqg-78g4",
+   "support": "support:affects:GHSA-fjxv-7rqg-78g4:exposure:wiredoor:form-data@4.0.3",
+   "source": "GHSA-fjxv-7rqg-78g4",
+   "target": "exposure:wiredoor:form-data@4.0.3",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-hmw2-7cc7-3qxx:exposure:wiredoor:form-data@4.0.3>GHSA-hmw2-7cc7-3qxx",
+   "support": "support:affects:GHSA-hmw2-7cc7-3qxx:exposure:wiredoor:form-data@4.0.3",
+   "source": "GHSA-hmw2-7cc7-3qxx",
+   "target": "exposure:wiredoor:form-data@4.0.3",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:form-data@4.0.3>exposure:wiredoor:form-data@4.0.3",
+   "support": "support:resolves:exposure:wiredoor:form-data@4.0.3",
+   "source": "exposure:wiredoor:form-data@4.0.3",
+   "target": "decision:wiredoor:form-data",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:form-data:1>GHSA-fjxv-7rqg-78g4",
+   "support": "support:planned:plan:wiredoor:form-data:1",
+   "source": "GHSA-fjxv-7rqg-78g4",
+   "target": "plan:wiredoor:form-data:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:form-data:1>decision:wiredoor:form-data",
+   "support": "support:planned:plan:wiredoor:form-data:1",
+   "source": "decision:wiredoor:form-data",
+   "target": "plan:wiredoor:form-data:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-rm8p-cx58-hcvx:exposure:wiredoor:axios@1.10.0>GHSA-rm8p-cx58-hcvx",
+   "support": "support:affects:GHSA-rm8p-cx58-hcvx:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-rm8p-cx58-hcvx",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "retracted"
+  },
+  {
+   "id": "support:affects:GHSA-4hjh-wcwx-xvwj:exposure:wiredoor:axios@1.10.0>GHSA-4hjh-wcwx-xvwj",
+   "support": "support:affects:GHSA-4hjh-wcwx-xvwj:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-4hjh-wcwx-xvwj",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-43fc-jf86-j433:exposure:wiredoor:axios@1.10.0>GHSA-43fc-jf86-j433",
+   "support": "support:affects:GHSA-43fc-jf86-j433:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-43fc-jf86-j433",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-3p68-rc4w-qgx5:exposure:wiredoor:axios@1.10.0>GHSA-3p68-rc4w-qgx5",
+   "support": "support:affects:GHSA-3p68-rc4w-qgx5:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-3p68-rc4w-qgx5",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-fvcv-3m26-pcqx:exposure:wiredoor:axios@1.10.0>GHSA-fvcv-3m26-pcqx",
+   "support": "support:affects:GHSA-fvcv-3m26-pcqx:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-fvcv-3m26-pcqx",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-xhjh-pmcv-23jw:exposure:wiredoor:axios@1.10.0>GHSA-xhjh-pmcv-23jw",
+   "support": "support:affects:GHSA-xhjh-pmcv-23jw:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-xhjh-pmcv-23jw",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-q8qp-cvcw-x6jj:exposure:wiredoor:axios@1.10.0>GHSA-q8qp-cvcw-x6jj",
+   "support": "support:affects:GHSA-q8qp-cvcw-x6jj:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-q8qp-cvcw-x6jj",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-3w6x-2g7m-8v23:exposure:wiredoor:axios@1.10.0>GHSA-3w6x-2g7m-8v23",
+   "support": "support:affects:GHSA-3w6x-2g7m-8v23:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-3w6x-2g7m-8v23",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-pmwg-cvhr-8vh7:exposure:wiredoor:axios@1.10.0>GHSA-pmwg-cvhr-8vh7",
+   "support": "support:affects:GHSA-pmwg-cvhr-8vh7:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-pmwg-cvhr-8vh7",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-w9j2-pvgh-6h63:exposure:wiredoor:axios@1.10.0>GHSA-w9j2-pvgh-6h63",
+   "support": "support:affects:GHSA-w9j2-pvgh-6h63:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-w9j2-pvgh-6h63",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-xx6v-rp6x-q39c:exposure:wiredoor:axios@1.10.0>GHSA-xx6v-rp6x-q39c",
+   "support": "support:affects:GHSA-xx6v-rp6x-q39c:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-xx6v-rp6x-q39c",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-6chq-wfr3-2hj9:exposure:wiredoor:axios@1.10.0>GHSA-6chq-wfr3-2hj9",
+   "support": "support:affects:GHSA-6chq-wfr3-2hj9:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-6chq-wfr3-2hj9",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-pf86-5x62-jrwf:exposure:wiredoor:axios@1.10.0>GHSA-pf86-5x62-jrwf",
+   "support": "support:affects:GHSA-pf86-5x62-jrwf:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-pf86-5x62-jrwf",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-vf2m-468p-8v99:exposure:wiredoor:axios@1.10.0>GHSA-vf2m-468p-8v99",
+   "support": "support:affects:GHSA-vf2m-468p-8v99:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-vf2m-468p-8v99",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-5c9x-8gcm-mpgx:exposure:wiredoor:axios@1.10.0>GHSA-5c9x-8gcm-mpgx",
+   "support": "support:affects:GHSA-5c9x-8gcm-mpgx:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-5c9x-8gcm-mpgx",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-62hf-57xw-28j9:exposure:wiredoor:axios@1.10.0>GHSA-62hf-57xw-28j9",
+   "support": "support:affects:GHSA-62hf-57xw-28j9:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-62hf-57xw-28j9",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-m7pr-hjqh-92cm:exposure:wiredoor:axios@1.10.0>GHSA-m7pr-hjqh-92cm",
+   "support": "support:affects:GHSA-m7pr-hjqh-92cm:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-m7pr-hjqh-92cm",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-445q-vr5w-6q77:exposure:wiredoor:axios@1.10.0>GHSA-445q-vr5w-6q77",
+   "support": "support:affects:GHSA-445q-vr5w-6q77:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-445q-vr5w-6q77",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-898c-q2cr-xwhg:exposure:wiredoor:axios@1.10.0>GHSA-898c-q2cr-xwhg",
+   "support": "support:affects:GHSA-898c-q2cr-xwhg:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-898c-q2cr-xwhg",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-35jp-ww65-95wh:exposure:wiredoor:axios@1.10.0>GHSA-35jp-ww65-95wh",
+   "support": "support:affects:GHSA-35jp-ww65-95wh:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-35jp-ww65-95wh",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-3g43-6gmg-66jw:exposure:wiredoor:axios@1.10.0>GHSA-3g43-6gmg-66jw",
+   "support": "support:affects:GHSA-3g43-6gmg-66jw:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-3g43-6gmg-66jw",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-j5f8-grm9-p9fc:exposure:wiredoor:axios@1.10.0>GHSA-j5f8-grm9-p9fc",
+   "support": "support:affects:GHSA-j5f8-grm9-p9fc:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-j5f8-grm9-p9fc",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-p92q-9vqr-4j8v:exposure:wiredoor:axios@1.10.0>GHSA-p92q-9vqr-4j8v",
+   "support": "support:affects:GHSA-p92q-9vqr-4j8v:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-p92q-9vqr-4j8v",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-777c-7fjr-54vf:exposure:wiredoor:axios@1.10.0>GHSA-777c-7fjr-54vf",
+   "support": "support:affects:GHSA-777c-7fjr-54vf:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-777c-7fjr-54vf",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-hfxv-24rg-xrqf:exposure:wiredoor:axios@1.10.0>GHSA-hfxv-24rg-xrqf",
+   "support": "support:affects:GHSA-hfxv-24rg-xrqf:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-hfxv-24rg-xrqf",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-pmv8-rq9r-6j72:exposure:wiredoor:axios@1.10.0>GHSA-pmv8-rq9r-6j72",
+   "support": "support:affects:GHSA-pmv8-rq9r-6j72:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-pmv8-rq9r-6j72",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-42h9-826w-cgv3:exposure:wiredoor:axios@1.10.0>GHSA-42h9-826w-cgv3",
+   "support": "support:affects:GHSA-42h9-826w-cgv3:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-42h9-826w-cgv3",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-mmx7-hfxf-jppx:exposure:wiredoor:axios@1.10.0>GHSA-mmx7-hfxf-jppx",
+   "support": "support:affects:GHSA-mmx7-hfxf-jppx:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-mmx7-hfxf-jppx",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-jqh4-m9w3-8hp9:exposure:wiredoor:axios@1.10.0>GHSA-jqh4-m9w3-8hp9",
+   "support": "support:affects:GHSA-jqh4-m9w3-8hp9:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-jqh4-m9w3-8hp9",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-7q8q-rj6j-mhjq:exposure:wiredoor:axios@1.10.0>GHSA-7q8q-rj6j-mhjq",
+   "support": "support:affects:GHSA-7q8q-rj6j-mhjq:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-7q8q-rj6j-mhjq",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-39j5-w47m-2gmv:exposure:wiredoor:axios@1.10.0>GHSA-39j5-w47m-2gmv",
+   "support": "support:affects:GHSA-39j5-w47m-2gmv:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-39j5-w47m-2gmv",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "retracted"
+  },
+  {
+   "id": "support:affects:GHSA-4ww2-rjh2-xpv9:exposure:wiredoor:axios@1.10.0>GHSA-4ww2-rjh2-xpv9",
+   "support": "support:affects:GHSA-4ww2-rjh2-xpv9:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-4ww2-rjh2-xpv9",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "retracted"
+  },
+  {
+   "id": "support:affects:GHSA-6hqm-hm2v-3p2p:exposure:wiredoor:axios@1.10.0>GHSA-6hqm-hm2v-3p2p",
+   "support": "support:affects:GHSA-6hqm-hm2v-3p2p:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-6hqm-hm2v-3p2p",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "retracted"
+  },
+  {
+   "id": "support:affects:GHSA-f2r5-pqh9-r8f8:exposure:wiredoor:axios@1.10.0>GHSA-f2r5-pqh9-r8f8",
+   "support": "support:affects:GHSA-f2r5-pqh9-r8f8:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-f2r5-pqh9-r8f8",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "retracted"
+  },
+  {
+   "id": "support:affects:GHSA-fq2j-3j99-rx65:exposure:wiredoor:axios@1.10.0>GHSA-fq2j-3j99-rx65",
+   "support": "support:affects:GHSA-fq2j-3j99-rx65:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-fq2j-3j99-rx65",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "retracted"
+  },
+  {
+   "id": "support:affects:GHSA-9wx3-p993-35vp:exposure:wiredoor:axios@1.10.0>GHSA-9wx3-p993-35vp",
+   "support": "support:affects:GHSA-9wx3-p993-35vp:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-9wx3-p993-35vp",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "retracted"
+  },
+  {
+   "id": "support:affects:GHSA-9fr6-4gfg-395g:exposure:wiredoor:axios@1.10.0>GHSA-9fr6-4gfg-395g",
+   "support": "support:affects:GHSA-9fr6-4gfg-395g:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-9fr6-4gfg-395g",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-vh66-26gq-q6x8:exposure:wiredoor:axios@1.10.0>GHSA-vh66-26gq-q6x8",
+   "support": "support:affects:GHSA-vh66-26gq-q6x8:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-vh66-26gq-q6x8",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-j8rh-479h-cp32:exposure:wiredoor:axios@1.10.0>GHSA-j8rh-479h-cp32",
+   "support": "support:affects:GHSA-j8rh-479h-cp32:exposure:wiredoor:axios@1.10.0",
+   "source": "GHSA-j8rh-479h-cp32",
+   "target": "exposure:wiredoor:axios@1.10.0",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:axios@1.10.0>exposure:wiredoor:axios@1.10.0",
+   "support": "support:resolves:exposure:wiredoor:axios@1.10.0",
+   "source": "exposure:wiredoor:axios@1.10.0",
+   "target": "decision:wiredoor:axios",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-rm8p-cx58-hcvx>GHSA-rm8p-cx58-hcvx",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-rm8p-cx58-hcvx",
+   "source": "GHSA-rm8p-cx58-hcvx",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-rm8p-cx58-hcvx",
+   "status": "retracted"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-rm8p-cx58-hcvx>exposure:wiredoor:axios@1.10.0",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-rm8p-cx58-hcvx",
+   "source": "exposure:wiredoor:axios@1.10.0",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-rm8p-cx58-hcvx",
+   "status": "retracted"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:axios:1>GHSA-rm8p-cx58-hcvx",
+   "support": "support:planned:plan:wiredoor:axios:1",
+   "source": "GHSA-rm8p-cx58-hcvx",
+   "target": "plan:wiredoor:axios:1",
+   "status": "retracted"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:axios:1>decision:wiredoor:axios",
+   "support": "support:planned:plan:wiredoor:axios:1",
+   "source": "decision:wiredoor:axios",
+   "target": "plan:wiredoor:axios:1",
+   "status": "retracted"
+  },
+  {
+   "id": "support:affects:GHSA-mvw6-62qv-vmqf:exposure:wiredoor:koa@2.16.1>GHSA-mvw6-62qv-vmqf",
+   "support": "support:affects:GHSA-mvw6-62qv-vmqf:exposure:wiredoor:koa@2.16.1",
+   "source": "GHSA-mvw6-62qv-vmqf",
+   "target": "exposure:wiredoor:koa@2.16.1",
+   "status": "retracted"
+  },
+  {
+   "id": "support:affects:GHSA-jgmv-j7ww-jx2x:exposure:wiredoor:koa@2.16.1>GHSA-jgmv-j7ww-jx2x",
+   "support": "support:affects:GHSA-jgmv-j7ww-jx2x:exposure:wiredoor:koa@2.16.1",
+   "source": "GHSA-jgmv-j7ww-jx2x",
+   "target": "exposure:wiredoor:koa@2.16.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-7gcc-r8m5-44qm:exposure:wiredoor:koa@2.16.1>GHSA-7gcc-r8m5-44qm",
+   "support": "support:affects:GHSA-7gcc-r8m5-44qm:exposure:wiredoor:koa@2.16.1",
+   "source": "GHSA-7gcc-r8m5-44qm",
+   "target": "exposure:wiredoor:koa@2.16.1",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:koa@2.16.1>exposure:wiredoor:koa@2.16.1",
+   "support": "support:resolves:exposure:wiredoor:koa@2.16.1",
+   "source": "exposure:wiredoor:koa@2.16.1",
+   "target": "decision:wiredoor:koa",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:koa:1>GHSA-mvw6-62qv-vmqf",
+   "support": "support:planned:plan:wiredoor:koa:1",
+   "source": "GHSA-mvw6-62qv-vmqf",
+   "target": "plan:wiredoor:koa:1",
+   "status": "retracted"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:koa:1>decision:wiredoor:koa",
+   "support": "support:planned:plan:wiredoor:koa:1",
+   "source": "decision:wiredoor:koa",
+   "target": "plan:wiredoor:koa:1",
+   "status": "retracted"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:koa:2>decision:wiredoor:koa",
+   "support": "support:planned:plan:wiredoor:koa:2",
+   "source": "decision:wiredoor:koa",
+   "target": "plan:wiredoor:koa:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:koa:2>GHSA-jgmv-j7ww-jx2x",
+   "support": "support:planned:plan:wiredoor:koa:2",
+   "source": "GHSA-jgmv-j7ww-jx2x",
+   "target": "plan:wiredoor:koa:2",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-95m3-7q98-8xr5:exposure:wiredoor:sha.js@2.4.11>GHSA-95m3-7q98-8xr5",
+   "support": "support:affects:GHSA-95m3-7q98-8xr5:exposure:wiredoor:sha.js@2.4.11",
+   "source": "GHSA-95m3-7q98-8xr5",
+   "target": "exposure:wiredoor:sha.js@2.4.11",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:sha.js@2.4.11>exposure:wiredoor:sha.js@2.4.11",
+   "support": "support:resolves:exposure:wiredoor:sha.js@2.4.11",
+   "source": "exposure:wiredoor:sha.js@2.4.11",
+   "target": "decision:wiredoor:sha.js",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:sha.js:1>GHSA-95m3-7q98-8xr5",
+   "support": "support:planned:plan:wiredoor:sha.js:1",
+   "source": "GHSA-95m3-7q98-8xr5",
+   "target": "plan:wiredoor:sha.js:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:sha.js:1>decision:wiredoor:sha.js",
+   "support": "support:planned:plan:wiredoor:sha.js:1",
+   "source": "decision:wiredoor:sha.js",
+   "target": "plan:wiredoor:sha.js:1",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-4hjh-wcwx-xvwj>exposure:wiredoor:axios@1.10.0",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-4hjh-wcwx-xvwj",
+   "source": "exposure:wiredoor:axios@1.10.0",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-4hjh-wcwx-xvwj",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-4hjh-wcwx-xvwj>GHSA-4hjh-wcwx-xvwj",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-4hjh-wcwx-xvwj",
+   "source": "GHSA-4hjh-wcwx-xvwj",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-4hjh-wcwx-xvwj",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:axios:2>decision:wiredoor:axios",
+   "support": "support:planned:plan:wiredoor:axios:2",
+   "source": "decision:wiredoor:axios",
+   "target": "plan:wiredoor:axios:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:axios:2>GHSA-4hjh-wcwx-xvwj",
+   "support": "support:planned:plan:wiredoor:axios:2",
+   "source": "GHSA-4hjh-wcwx-xvwj",
+   "target": "plan:wiredoor:axios:2",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-vj76-c3g6-qr5v:exposure:wiredoor:tar-fs@2.1.3>GHSA-vj76-c3g6-qr5v",
+   "support": "support:affects:GHSA-vj76-c3g6-qr5v:exposure:wiredoor:tar-fs@2.1.3",
+   "source": "GHSA-vj76-c3g6-qr5v",
+   "target": "exposure:wiredoor:tar-fs@2.1.3",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:tar-fs@2.1.3>exposure:wiredoor:tar-fs@2.1.3",
+   "support": "support:resolves:exposure:wiredoor:tar-fs@2.1.3",
+   "source": "exposure:wiredoor:tar-fs@2.1.3",
+   "target": "decision:wiredoor:tar-fs",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:tar-fs:1>GHSA-vj76-c3g6-qr5v",
+   "support": "support:planned:plan:wiredoor:tar-fs:1",
+   "source": "GHSA-vj76-c3g6-qr5v",
+   "target": "plan:wiredoor:tar-fs:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:tar-fs:1>decision:wiredoor:tar-fs",
+   "support": "support:planned:plan:wiredoor:tar-fs:1",
+   "source": "decision:wiredoor:tar-fs",
+   "target": "plan:wiredoor:tar-fs:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-ffrw-9mx8-89p8:exposure:wiredoor:fast-redact@3.5.0>GHSA-ffrw-9mx8-89p8",
+   "support": "support:affects:GHSA-ffrw-9mx8-89p8:exposure:wiredoor:fast-redact@3.5.0",
+   "source": "GHSA-ffrw-9mx8-89p8",
+   "target": "exposure:wiredoor:fast-redact@3.5.0",
+   "status": "retracted"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:fast-redact@3.5.0>exposure:wiredoor:fast-redact@3.5.0",
+   "support": "support:resolves:exposure:wiredoor:fast-redact@3.5.0",
+   "source": "exposure:wiredoor:fast-redact@3.5.0",
+   "target": "decision:wiredoor:fast-redact",
+   "status": "retracted"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:fast-redact:1>GHSA-ffrw-9mx8-89p8",
+   "support": "support:planned:plan:wiredoor:fast-redact:1",
+   "source": "GHSA-ffrw-9mx8-89p8",
+   "target": "plan:wiredoor:fast-redact:1",
+   "status": "retracted"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:fast-redact:1>decision:wiredoor:fast-redact",
+   "support": "support:planned:plan:wiredoor:fast-redact:1",
+   "source": "decision:wiredoor:fast-redact",
+   "target": "plan:wiredoor:fast-redact:1",
+   "status": "retracted"
+  },
+  {
+   "id": "support:affects:GHSA-9965-vmph-33xx:exposure:wiredoor:validator@13.15.15>GHSA-9965-vmph-33xx",
+   "support": "support:affects:GHSA-9965-vmph-33xx:exposure:wiredoor:validator@13.15.15",
+   "source": "GHSA-9965-vmph-33xx",
+   "target": "exposure:wiredoor:validator@13.15.15",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-vghf-hv5q-vc2g:exposure:wiredoor:validator@13.15.15>GHSA-vghf-hv5q-vc2g",
+   "support": "support:affects:GHSA-vghf-hv5q-vc2g:exposure:wiredoor:validator@13.15.15",
+   "source": "GHSA-vghf-hv5q-vc2g",
+   "target": "exposure:wiredoor:validator@13.15.15",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:validator@13.15.15>exposure:wiredoor:validator@13.15.15",
+   "support": "support:resolves:exposure:wiredoor:validator@13.15.15",
+   "source": "exposure:wiredoor:validator@13.15.15",
+   "target": "decision:wiredoor:validator",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:validator:1>GHSA-9965-vmph-33xx",
+   "support": "support:planned:plan:wiredoor:validator:1",
+   "source": "GHSA-9965-vmph-33xx",
+   "target": "plan:wiredoor:validator:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:validator:1>decision:wiredoor:validator",
+   "support": "support:planned:plan:wiredoor:validator:1",
+   "source": "decision:wiredoor:validator",
+   "target": "plan:wiredoor:validator:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-q2pj-6v73-8rgj:exposure:wiredoor:typeorm@0.3.24>GHSA-q2pj-6v73-8rgj",
+   "support": "support:affects:GHSA-q2pj-6v73-8rgj:exposure:wiredoor:typeorm@0.3.24",
+   "source": "GHSA-q2pj-6v73-8rgj",
+   "target": "exposure:wiredoor:typeorm@0.3.24",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-9ggv-8w38-r7pm:exposure:wiredoor:typeorm@0.3.24>GHSA-9ggv-8w38-r7pm",
+   "support": "support:affects:GHSA-9ggv-8w38-r7pm:exposure:wiredoor:typeorm@0.3.24",
+   "source": "GHSA-9ggv-8w38-r7pm",
+   "target": "exposure:wiredoor:typeorm@0.3.24",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-2rp8-mm9q-fp49:exposure:wiredoor:typeorm@0.3.24>GHSA-2rp8-mm9q-fp49",
+   "support": "support:affects:GHSA-2rp8-mm9q-fp49:exposure:wiredoor:typeorm@0.3.24",
+   "source": "GHSA-2rp8-mm9q-fp49",
+   "target": "exposure:wiredoor:typeorm@0.3.24",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:typeorm@0.3.24>exposure:wiredoor:typeorm@0.3.24",
+   "support": "support:resolves:exposure:wiredoor:typeorm@0.3.24",
+   "source": "exposure:wiredoor:typeorm@0.3.24",
+   "target": "decision:wiredoor:typeorm",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:typeorm@0.3.24:GHSA-q2pj-6v73-8rgj>GHSA-q2pj-6v73-8rgj",
+   "support": "support:judged:judgment:triage:wiredoor:typeorm@0.3.24:GHSA-q2pj-6v73-8rgj",
+   "source": "GHSA-q2pj-6v73-8rgj",
+   "target": "judgment:triage:wiredoor:typeorm@0.3.24:GHSA-q2pj-6v73-8rgj",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:typeorm@0.3.24:GHSA-q2pj-6v73-8rgj>exposure:wiredoor:typeorm@0.3.24",
+   "support": "support:judged:judgment:triage:wiredoor:typeorm@0.3.24:GHSA-q2pj-6v73-8rgj",
+   "source": "exposure:wiredoor:typeorm@0.3.24",
+   "target": "judgment:triage:wiredoor:typeorm@0.3.24:GHSA-q2pj-6v73-8rgj",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:typeorm:1>GHSA-q2pj-6v73-8rgj",
+   "support": "support:planned:plan:wiredoor:typeorm:1",
+   "source": "GHSA-q2pj-6v73-8rgj",
+   "target": "plan:wiredoor:typeorm:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:typeorm:1>decision:wiredoor:typeorm",
+   "support": "support:planned:plan:wiredoor:typeorm:1",
+   "source": "decision:wiredoor:typeorm",
+   "target": "plan:wiredoor:typeorm:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-mh29-5h37-fv8m:exposure:wiredoor:js-yaml@4.1.0>GHSA-mh29-5h37-fv8m",
+   "support": "support:affects:GHSA-mh29-5h37-fv8m:exposure:wiredoor:js-yaml@4.1.0",
+   "source": "GHSA-mh29-5h37-fv8m",
+   "target": "exposure:wiredoor:js-yaml@4.1.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-h67p-54hq-rp68:exposure:wiredoor:js-yaml@4.1.0>GHSA-h67p-54hq-rp68",
+   "support": "support:affects:GHSA-h67p-54hq-rp68:exposure:wiredoor:js-yaml@4.1.0",
+   "source": "GHSA-h67p-54hq-rp68",
+   "target": "exposure:wiredoor:js-yaml@4.1.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-52cp-r559-cp3m:exposure:wiredoor:js-yaml@4.1.0>GHSA-52cp-r559-cp3m",
+   "support": "support:affects:GHSA-52cp-r559-cp3m:exposure:wiredoor:js-yaml@4.1.0",
+   "source": "GHSA-52cp-r559-cp3m",
+   "target": "exposure:wiredoor:js-yaml@4.1.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-5p4m-2wfm-xmqj:exposure:wiredoor:js-yaml@4.1.0>GHSA-5p4m-2wfm-xmqj",
+   "support": "support:affects:GHSA-5p4m-2wfm-xmqj:exposure:wiredoor:js-yaml@4.1.0",
+   "source": "GHSA-5p4m-2wfm-xmqj",
+   "target": "exposure:wiredoor:js-yaml@4.1.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-2883-xcg3-v3hh:exposure:wiredoor:js-yaml@4.1.0>GHSA-2883-xcg3-v3hh",
+   "support": "support:affects:GHSA-2883-xcg3-v3hh:exposure:wiredoor:js-yaml@4.1.0",
+   "source": "GHSA-2883-xcg3-v3hh",
+   "target": "exposure:wiredoor:js-yaml@4.1.0",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:js-yaml@4.1.0>exposure:wiredoor:js-yaml@4.1.0",
+   "support": "support:resolves:exposure:wiredoor:js-yaml@4.1.0",
+   "source": "exposure:wiredoor:js-yaml@4.1.0",
+   "target": "decision:wiredoor:js-yaml",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:js-yaml@3.14.1>exposure:wiredoor:js-yaml@3.14.1",
+   "support": "support:resolves:exposure:wiredoor:js-yaml@3.14.1",
+   "source": "exposure:wiredoor:js-yaml@3.14.1",
+   "target": "decision:wiredoor:js-yaml",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-mh29-5h37-fv8m:exposure:wiredoor:js-yaml@3.14.1>GHSA-mh29-5h37-fv8m",
+   "support": "support:affects:GHSA-mh29-5h37-fv8m:exposure:wiredoor:js-yaml@3.14.1",
+   "source": "GHSA-mh29-5h37-fv8m",
+   "target": "exposure:wiredoor:js-yaml@3.14.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-h67p-54hq-rp68:exposure:wiredoor:js-yaml@3.14.1>GHSA-h67p-54hq-rp68",
+   "support": "support:affects:GHSA-h67p-54hq-rp68:exposure:wiredoor:js-yaml@3.14.1",
+   "source": "GHSA-h67p-54hq-rp68",
+   "target": "exposure:wiredoor:js-yaml@3.14.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-52cp-r559-cp3m:exposure:wiredoor:js-yaml@3.14.1>GHSA-52cp-r559-cp3m",
+   "support": "support:affects:GHSA-52cp-r559-cp3m:exposure:wiredoor:js-yaml@3.14.1",
+   "source": "GHSA-52cp-r559-cp3m",
+   "target": "exposure:wiredoor:js-yaml@3.14.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-5p4m-2wfm-xmqj:exposure:wiredoor:js-yaml@3.14.1>GHSA-5p4m-2wfm-xmqj",
+   "support": "support:affects:GHSA-5p4m-2wfm-xmqj:exposure:wiredoor:js-yaml@3.14.1",
+   "source": "GHSA-5p4m-2wfm-xmqj",
+   "target": "exposure:wiredoor:js-yaml@3.14.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-2883-xcg3-v3hh:exposure:wiredoor:js-yaml@3.14.1>GHSA-2883-xcg3-v3hh",
+   "support": "support:affects:GHSA-2883-xcg3-v3hh:exposure:wiredoor:js-yaml@3.14.1",
+   "source": "GHSA-2883-xcg3-v3hh",
+   "target": "exposure:wiredoor:js-yaml@3.14.1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:js-yaml:1>GHSA-mh29-5h37-fv8m",
+   "support": "support:planned:plan:wiredoor:js-yaml:1",
+   "source": "GHSA-mh29-5h37-fv8m",
+   "target": "plan:wiredoor:js-yaml:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:js-yaml:1>decision:wiredoor:js-yaml",
+   "support": "support:planned:plan:wiredoor:js-yaml:1",
+   "source": "decision:wiredoor:js-yaml",
+   "target": "plan:wiredoor:js-yaml:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-5j98-mcp5-4vw2:exposure:wiredoor:glob@10.4.5>GHSA-5j98-mcp5-4vw2",
+   "support": "support:affects:GHSA-5j98-mcp5-4vw2:exposure:wiredoor:glob@10.4.5",
+   "source": "GHSA-5j98-mcp5-4vw2",
+   "target": "exposure:wiredoor:glob@10.4.5",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:glob@10.4.5>exposure:wiredoor:glob@10.4.5",
+   "support": "support:resolves:exposure:wiredoor:glob@10.4.5",
+   "source": "exposure:wiredoor:glob@10.4.5",
+   "target": "decision:wiredoor:glob",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:glob:1>GHSA-5j98-mcp5-4vw2",
+   "support": "support:planned:plan:wiredoor:glob:1",
+   "source": "GHSA-5j98-mcp5-4vw2",
+   "target": "plan:wiredoor:glob:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:glob:1>decision:wiredoor:glob",
+   "support": "support:planned:plan:wiredoor:glob:1",
+   "source": "decision:wiredoor:glob",
+   "target": "plan:wiredoor:glob:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:validator:2>GHSA-9965-vmph-33xx",
+   "support": "support:planned:plan:wiredoor:validator:2",
+   "source": "GHSA-9965-vmph-33xx",
+   "target": "plan:wiredoor:validator:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:validator:2>decision:wiredoor:validator",
+   "support": "support:planned:plan:wiredoor:validator:2",
+   "source": "decision:wiredoor:validator",
+   "target": "plan:wiredoor:validator:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:validator:2>GHSA-vghf-hv5q-vc2g",
+   "support": "support:planned:plan:wiredoor:validator:2",
+   "source": "GHSA-vghf-hv5q-vc2g",
+   "target": "plan:wiredoor:validator:2",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-pj86-cfqh-vqx6:exposure:wiredoor:express@4.21.2>GHSA-pj86-cfqh-vqx6",
+   "support": "support:affects:GHSA-pj86-cfqh-vqx6:exposure:wiredoor:express@4.21.2",
+   "source": "GHSA-pj86-cfqh-vqx6",
+   "target": "exposure:wiredoor:express@4.21.2",
+   "status": "retracted"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:express@4.21.2>exposure:wiredoor:express@4.21.2",
+   "support": "support:resolves:exposure:wiredoor:express@4.21.2",
+   "source": "exposure:wiredoor:express@4.21.2",
+   "target": "decision:wiredoor:express",
+   "status": "retracted"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:express:1>GHSA-pj86-cfqh-vqx6",
+   "support": "support:planned:plan:wiredoor:express:1",
+   "source": "GHSA-pj86-cfqh-vqx6",
+   "target": "plan:wiredoor:express:1",
+   "status": "retracted"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:express:1>decision:wiredoor:express",
+   "support": "support:planned:plan:wiredoor:express:1",
+   "source": "decision:wiredoor:express",
+   "target": "plan:wiredoor:express:1",
+   "status": "retracted"
+  },
+  {
+   "id": "support:affects:GHSA-869p-cjfg-cm3x:exposure:wiredoor:jws@3.2.2>GHSA-869p-cjfg-cm3x",
+   "support": "support:affects:GHSA-869p-cjfg-cm3x:exposure:wiredoor:jws@3.2.2",
+   "source": "GHSA-869p-cjfg-cm3x",
+   "target": "exposure:wiredoor:jws@3.2.2",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:jws@3.2.2>exposure:wiredoor:jws@3.2.2",
+   "support": "support:resolves:exposure:wiredoor:jws@3.2.2",
+   "source": "exposure:wiredoor:jws@3.2.2",
+   "target": "decision:wiredoor:jws",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:jws:1>GHSA-869p-cjfg-cm3x",
+   "support": "support:planned:plan:wiredoor:jws:1",
+   "source": "GHSA-869p-cjfg-cm3x",
+   "target": "plan:wiredoor:jws:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:jws:1>decision:wiredoor:jws",
+   "support": "support:planned:plan:wiredoor:jws:1",
+   "source": "decision:wiredoor:jws",
+   "target": "plan:wiredoor:jws:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-6rw7-vpxm-498p:exposure:wiredoor:qs@6.13.0>GHSA-6rw7-vpxm-498p",
+   "support": "support:affects:GHSA-6rw7-vpxm-498p:exposure:wiredoor:qs@6.13.0",
+   "source": "GHSA-6rw7-vpxm-498p",
+   "target": "exposure:wiredoor:qs@6.13.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-w7fw-mjwx-w883:exposure:wiredoor:qs@6.13.0>GHSA-w7fw-mjwx-w883",
+   "support": "support:affects:GHSA-w7fw-mjwx-w883:exposure:wiredoor:qs@6.13.0",
+   "source": "GHSA-w7fw-mjwx-w883",
+   "target": "exposure:wiredoor:qs@6.13.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-q8mj-m7cp-5q26:exposure:wiredoor:qs@6.13.0>GHSA-q8mj-m7cp-5q26",
+   "support": "support:affects:GHSA-q8mj-m7cp-5q26:exposure:wiredoor:qs@6.13.0",
+   "source": "GHSA-q8mj-m7cp-5q26",
+   "target": "exposure:wiredoor:qs@6.13.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-4mjr-xmp4-gh2g:exposure:wiredoor:qs@6.13.0>GHSA-4mjr-xmp4-gh2g",
+   "support": "support:affects:GHSA-4mjr-xmp4-gh2g:exposure:wiredoor:qs@6.13.0",
+   "source": "GHSA-4mjr-xmp4-gh2g",
+   "target": "exposure:wiredoor:qs@6.13.0",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:qs@6.13.0>exposure:wiredoor:qs@6.13.0",
+   "support": "support:resolves:exposure:wiredoor:qs@6.13.0",
+   "source": "exposure:wiredoor:qs@6.13.0",
+   "target": "decision:wiredoor:qs",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:qs:1>GHSA-6rw7-vpxm-498p",
+   "support": "support:planned:plan:wiredoor:qs:1",
+   "source": "GHSA-6rw7-vpxm-498p",
+   "target": "plan:wiredoor:qs:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:qs:1>decision:wiredoor:qs",
+   "support": "support:planned:plan:wiredoor:qs:1",
+   "source": "decision:wiredoor:qs",
+   "target": "plan:wiredoor:qs:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-73rr-hh4g-fpgx:exposure:wiredoor:diff@4.0.2>GHSA-73rr-hh4g-fpgx",
+   "support": "support:affects:GHSA-73rr-hh4g-fpgx:exposure:wiredoor:diff@4.0.2",
+   "source": "GHSA-73rr-hh4g-fpgx",
+   "target": "exposure:wiredoor:diff@4.0.2",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:diff@4.0.2>exposure:wiredoor:diff@4.0.2",
+   "support": "support:resolves:exposure:wiredoor:diff@4.0.2",
+   "source": "exposure:wiredoor:diff@4.0.2",
+   "target": "decision:wiredoor:diff",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:diff:1>GHSA-73rr-hh4g-fpgx",
+   "support": "support:planned:plan:wiredoor:diff:1",
+   "source": "GHSA-73rr-hh4g-fpgx",
+   "target": "plan:wiredoor:diff:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:diff:1>decision:wiredoor:diff",
+   "support": "support:planned:plan:wiredoor:diff:1",
+   "source": "decision:wiredoor:diff",
+   "target": "plan:wiredoor:diff:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-8qq5-rm4j-mr97:exposure:wiredoor:tar@6.2.1>GHSA-8qq5-rm4j-mr97",
+   "support": "support:affects:GHSA-8qq5-rm4j-mr97:exposure:wiredoor:tar@6.2.1",
+   "source": "GHSA-8qq5-rm4j-mr97",
+   "target": "exposure:wiredoor:tar@6.2.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-r6q2-hw4h-h46w:exposure:wiredoor:tar@6.2.1>GHSA-r6q2-hw4h-h46w",
+   "support": "support:affects:GHSA-r6q2-hw4h-h46w:exposure:wiredoor:tar@6.2.1",
+   "source": "GHSA-r6q2-hw4h-h46w",
+   "target": "exposure:wiredoor:tar@6.2.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-34x7-hfp2-rc4v:exposure:wiredoor:tar@6.2.1>GHSA-34x7-hfp2-rc4v",
+   "support": "support:affects:GHSA-34x7-hfp2-rc4v:exposure:wiredoor:tar@6.2.1",
+   "source": "GHSA-34x7-hfp2-rc4v",
+   "target": "exposure:wiredoor:tar@6.2.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-83g3-92jg-28cx:exposure:wiredoor:tar@6.2.1>GHSA-83g3-92jg-28cx",
+   "support": "support:affects:GHSA-83g3-92jg-28cx:exposure:wiredoor:tar@6.2.1",
+   "source": "GHSA-83g3-92jg-28cx",
+   "target": "exposure:wiredoor:tar@6.2.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-qffp-2rhf-9h96:exposure:wiredoor:tar@6.2.1>GHSA-qffp-2rhf-9h96",
+   "support": "support:affects:GHSA-qffp-2rhf-9h96:exposure:wiredoor:tar@6.2.1",
+   "source": "GHSA-qffp-2rhf-9h96",
+   "target": "exposure:wiredoor:tar@6.2.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-9ppj-qmqm-q256:exposure:wiredoor:tar@6.2.1>GHSA-9ppj-qmqm-q256",
+   "support": "support:affects:GHSA-9ppj-qmqm-q256:exposure:wiredoor:tar@6.2.1",
+   "source": "GHSA-9ppj-qmqm-q256",
+   "target": "exposure:wiredoor:tar@6.2.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-vmf3-w455-68vh:exposure:wiredoor:tar@6.2.1>GHSA-vmf3-w455-68vh",
+   "support": "support:affects:GHSA-vmf3-w455-68vh:exposure:wiredoor:tar@6.2.1",
+   "source": "GHSA-vmf3-w455-68vh",
+   "target": "exposure:wiredoor:tar@6.2.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-gvwx-54wh-qm9j:exposure:wiredoor:tar@6.2.1>GHSA-gvwx-54wh-qm9j",
+   "support": "support:affects:GHSA-gvwx-54wh-qm9j:exposure:wiredoor:tar@6.2.1",
+   "source": "GHSA-gvwx-54wh-qm9j",
+   "target": "exposure:wiredoor:tar@6.2.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-8x88-c5mf-7j5w:exposure:wiredoor:tar@6.2.1>GHSA-8x88-c5mf-7j5w",
+   "support": "support:affects:GHSA-8x88-c5mf-7j5w:exposure:wiredoor:tar@6.2.1",
+   "source": "GHSA-8x88-c5mf-7j5w",
+   "target": "exposure:wiredoor:tar@6.2.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-23hp-3jrh-7fpw:exposure:wiredoor:tar@6.2.1>GHSA-23hp-3jrh-7fpw",
+   "support": "support:affects:GHSA-23hp-3jrh-7fpw:exposure:wiredoor:tar@6.2.1",
+   "source": "GHSA-23hp-3jrh-7fpw",
+   "target": "exposure:wiredoor:tar@6.2.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-w8wr-v893-vjvp:exposure:wiredoor:tar@6.2.1>GHSA-w8wr-v893-vjvp",
+   "support": "support:affects:GHSA-w8wr-v893-vjvp:exposure:wiredoor:tar@6.2.1",
+   "source": "GHSA-w8wr-v893-vjvp",
+   "target": "exposure:wiredoor:tar@6.2.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-r292-9mhp-454m:exposure:wiredoor:tar@6.2.1>GHSA-r292-9mhp-454m",
+   "support": "support:affects:GHSA-r292-9mhp-454m:exposure:wiredoor:tar@6.2.1",
+   "source": "GHSA-r292-9mhp-454m",
+   "target": "exposure:wiredoor:tar@6.2.1",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:tar@6.2.1>exposure:wiredoor:tar@6.2.1",
+   "support": "support:resolves:exposure:wiredoor:tar@6.2.1",
+   "source": "exposure:wiredoor:tar@6.2.1",
+   "target": "decision:wiredoor:tar",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:tar:1>GHSA-8qq5-rm4j-mr97",
+   "support": "support:planned:plan:wiredoor:tar:1",
+   "source": "GHSA-8qq5-rm4j-mr97",
+   "target": "plan:wiredoor:tar:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:tar:1>decision:wiredoor:tar",
+   "support": "support:planned:plan:wiredoor:tar:1",
+   "source": "decision:wiredoor:tar",
+   "target": "plan:wiredoor:tar:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-xxjr-mmjv-4gpg:exposure:wiredoor:lodash@4.17.21>GHSA-xxjr-mmjv-4gpg",
+   "support": "support:affects:GHSA-xxjr-mmjv-4gpg:exposure:wiredoor:lodash@4.17.21",
+   "source": "GHSA-xxjr-mmjv-4gpg",
+   "target": "exposure:wiredoor:lodash@4.17.21",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-f23m-r3pf-42rh:exposure:wiredoor:lodash@4.17.21>GHSA-f23m-r3pf-42rh",
+   "support": "support:affects:GHSA-f23m-r3pf-42rh:exposure:wiredoor:lodash@4.17.21",
+   "source": "GHSA-f23m-r3pf-42rh",
+   "target": "exposure:wiredoor:lodash@4.17.21",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-r5fr-rjxr-66jc:exposure:wiredoor:lodash@4.17.21>GHSA-r5fr-rjxr-66jc",
+   "support": "support:affects:GHSA-r5fr-rjxr-66jc:exposure:wiredoor:lodash@4.17.21",
+   "source": "GHSA-r5fr-rjxr-66jc",
+   "target": "exposure:wiredoor:lodash@4.17.21",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:lodash@4.17.21>exposure:wiredoor:lodash@4.17.21",
+   "support": "support:resolves:exposure:wiredoor:lodash@4.17.21",
+   "source": "exposure:wiredoor:lodash@4.17.21",
+   "target": "decision:wiredoor:lodash",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:lodash:1>GHSA-xxjr-mmjv-4gpg",
+   "support": "support:planned:plan:wiredoor:lodash:1",
+   "source": "GHSA-xxjr-mmjv-4gpg",
+   "target": "plan:wiredoor:lodash:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:lodash:1>decision:wiredoor:lodash",
+   "support": "support:planned:plan:wiredoor:lodash:1",
+   "source": "decision:wiredoor:lodash",
+   "target": "plan:wiredoor:lodash:1",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-43fc-jf86-j433>exposure:wiredoor:axios@1.10.0",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-43fc-jf86-j433",
+   "source": "exposure:wiredoor:axios@1.10.0",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-43fc-jf86-j433",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-43fc-jf86-j433>GHSA-43fc-jf86-j433",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-43fc-jf86-j433",
+   "source": "GHSA-43fc-jf86-j433",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-43fc-jf86-j433",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-2g4f-4pwh-qvx6:exposure:wiredoor:ajv@6.12.6>GHSA-2g4f-4pwh-qvx6",
+   "support": "support:affects:GHSA-2g4f-4pwh-qvx6:exposure:wiredoor:ajv@6.12.6",
+   "source": "GHSA-2g4f-4pwh-qvx6",
+   "target": "exposure:wiredoor:ajv@6.12.6",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:ajv@6.12.6>exposure:wiredoor:ajv@6.12.6",
+   "support": "support:resolves:exposure:wiredoor:ajv@6.12.6",
+   "source": "exposure:wiredoor:ajv@6.12.6",
+   "target": "decision:wiredoor:ajv",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:ajv:1>GHSA-2g4f-4pwh-qvx6",
+   "support": "support:planned:plan:wiredoor:ajv:1",
+   "source": "GHSA-2g4f-4pwh-qvx6",
+   "target": "plan:wiredoor:ajv:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:ajv:1>decision:wiredoor:ajv",
+   "support": "support:planned:plan:wiredoor:ajv:1",
+   "source": "decision:wiredoor:ajv",
+   "target": "plan:wiredoor:ajv:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-3ppc-4f35-3m26:exposure:wiredoor:minimatch@3.1.2>GHSA-3ppc-4f35-3m26",
+   "support": "support:affects:GHSA-3ppc-4f35-3m26:exposure:wiredoor:minimatch@3.1.2",
+   "source": "GHSA-3ppc-4f35-3m26",
+   "target": "exposure:wiredoor:minimatch@3.1.2",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-23c5-xmqv-rm74:exposure:wiredoor:minimatch@3.1.2>GHSA-23c5-xmqv-rm74",
+   "support": "support:affects:GHSA-23c5-xmqv-rm74:exposure:wiredoor:minimatch@3.1.2",
+   "source": "GHSA-23c5-xmqv-rm74",
+   "target": "exposure:wiredoor:minimatch@3.1.2",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-7r86-cg39-jmmj:exposure:wiredoor:minimatch@3.1.2>GHSA-7r86-cg39-jmmj",
+   "support": "support:affects:GHSA-7r86-cg39-jmmj:exposure:wiredoor:minimatch@3.1.2",
+   "source": "GHSA-7r86-cg39-jmmj",
+   "target": "exposure:wiredoor:minimatch@3.1.2",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:minimatch@3.1.2>exposure:wiredoor:minimatch@3.1.2",
+   "support": "support:resolves:exposure:wiredoor:minimatch@3.1.2",
+   "source": "exposure:wiredoor:minimatch@3.1.2",
+   "target": "decision:wiredoor:minimatch",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:minimatch@9.0.5>exposure:wiredoor:minimatch@9.0.5",
+   "support": "support:resolves:exposure:wiredoor:minimatch@9.0.5",
+   "source": "exposure:wiredoor:minimatch@9.0.5",
+   "target": "decision:wiredoor:minimatch",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:minimatch@5.1.6>exposure:wiredoor:minimatch@5.1.6",
+   "support": "support:resolves:exposure:wiredoor:minimatch@5.1.6",
+   "source": "exposure:wiredoor:minimatch@5.1.6",
+   "target": "decision:wiredoor:minimatch",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-3ppc-4f35-3m26:exposure:wiredoor:minimatch@9.0.5>GHSA-3ppc-4f35-3m26",
+   "support": "support:affects:GHSA-3ppc-4f35-3m26:exposure:wiredoor:minimatch@9.0.5",
+   "source": "GHSA-3ppc-4f35-3m26",
+   "target": "exposure:wiredoor:minimatch@9.0.5",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-23c5-xmqv-rm74:exposure:wiredoor:minimatch@9.0.5>GHSA-23c5-xmqv-rm74",
+   "support": "support:affects:GHSA-23c5-xmqv-rm74:exposure:wiredoor:minimatch@9.0.5",
+   "source": "GHSA-23c5-xmqv-rm74",
+   "target": "exposure:wiredoor:minimatch@9.0.5",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-7r86-cg39-jmmj:exposure:wiredoor:minimatch@9.0.5>GHSA-7r86-cg39-jmmj",
+   "support": "support:affects:GHSA-7r86-cg39-jmmj:exposure:wiredoor:minimatch@9.0.5",
+   "source": "GHSA-7r86-cg39-jmmj",
+   "target": "exposure:wiredoor:minimatch@9.0.5",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-3ppc-4f35-3m26:exposure:wiredoor:minimatch@5.1.6>GHSA-3ppc-4f35-3m26",
+   "support": "support:affects:GHSA-3ppc-4f35-3m26:exposure:wiredoor:minimatch@5.1.6",
+   "source": "GHSA-3ppc-4f35-3m26",
+   "target": "exposure:wiredoor:minimatch@5.1.6",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-23c5-xmqv-rm74:exposure:wiredoor:minimatch@5.1.6>GHSA-23c5-xmqv-rm74",
+   "support": "support:affects:GHSA-23c5-xmqv-rm74:exposure:wiredoor:minimatch@5.1.6",
+   "source": "GHSA-23c5-xmqv-rm74",
+   "target": "exposure:wiredoor:minimatch@5.1.6",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-7r86-cg39-jmmj:exposure:wiredoor:minimatch@5.1.6>GHSA-7r86-cg39-jmmj",
+   "support": "support:affects:GHSA-7r86-cg39-jmmj:exposure:wiredoor:minimatch@5.1.6",
+   "source": "GHSA-7r86-cg39-jmmj",
+   "target": "exposure:wiredoor:minimatch@5.1.6",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:minimatch:1>GHSA-3ppc-4f35-3m26",
+   "support": "support:planned:plan:wiredoor:minimatch:1",
+   "source": "GHSA-3ppc-4f35-3m26",
+   "target": "plan:wiredoor:minimatch:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:minimatch:1>decision:wiredoor:minimatch",
+   "support": "support:planned:plan:wiredoor:minimatch:1",
+   "source": "decision:wiredoor:minimatch",
+   "target": "plan:wiredoor:minimatch:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:koa:3>decision:wiredoor:koa",
+   "support": "support:planned:plan:wiredoor:koa:3",
+   "source": "decision:wiredoor:koa",
+   "target": "plan:wiredoor:koa:3",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:koa:3>GHSA-jgmv-j7ww-jx2x",
+   "support": "support:planned:plan:wiredoor:koa:3",
+   "source": "GHSA-jgmv-j7ww-jx2x",
+   "target": "plan:wiredoor:koa:3",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:koa:3>GHSA-7gcc-r8m5-44qm",
+   "support": "support:planned:plan:wiredoor:koa:3",
+   "source": "GHSA-7gcc-r8m5-44qm",
+   "target": "plan:wiredoor:koa:3",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-vpq2-c234-7xj6:exposure:wiredoor:@tootallnate/once@1.1.2>GHSA-vpq2-c234-7xj6",
+   "support": "support:affects:GHSA-vpq2-c234-7xj6:exposure:wiredoor:@tootallnate/once@1.1.2",
+   "source": "GHSA-vpq2-c234-7xj6",
+   "target": "exposure:wiredoor:@tootallnate/once@1.1.2",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:@tootallnate/once@1.1.2>exposure:wiredoor:@tootallnate/once@1.1.2",
+   "support": "support:resolves:exposure:wiredoor:@tootallnate/once@1.1.2",
+   "source": "exposure:wiredoor:@tootallnate/once@1.1.2",
+   "target": "decision:wiredoor:@tootallnate/once",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:@tootallnate/once:1>GHSA-vpq2-c234-7xj6",
+   "support": "support:planned:plan:wiredoor:@tootallnate/once:1",
+   "source": "GHSA-vpq2-c234-7xj6",
+   "target": "plan:wiredoor:@tootallnate/once:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:@tootallnate/once:1>decision:wiredoor:@tootallnate/once",
+   "support": "support:planned:plan:wiredoor:@tootallnate/once:1",
+   "source": "decision:wiredoor:@tootallnate/once",
+   "target": "plan:wiredoor:@tootallnate/once:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-25h7-pfq9-p65f:exposure:wiredoor:flatted@3.3.3>GHSA-25h7-pfq9-p65f",
+   "support": "support:affects:GHSA-25h7-pfq9-p65f:exposure:wiredoor:flatted@3.3.3",
+   "source": "GHSA-25h7-pfq9-p65f",
+   "target": "exposure:wiredoor:flatted@3.3.3",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-rf6f-7fwh-wjgh:exposure:wiredoor:flatted@3.3.3>GHSA-rf6f-7fwh-wjgh",
+   "support": "support:affects:GHSA-rf6f-7fwh-wjgh:exposure:wiredoor:flatted@3.3.3",
+   "source": "GHSA-rf6f-7fwh-wjgh",
+   "target": "exposure:wiredoor:flatted@3.3.3",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:flatted@3.3.3>exposure:wiredoor:flatted@3.3.3",
+   "support": "support:resolves:exposure:wiredoor:flatted@3.3.3",
+   "source": "exposure:wiredoor:flatted@3.3.3",
+   "target": "decision:wiredoor:flatted",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:flatted:1>GHSA-25h7-pfq9-p65f",
+   "support": "support:planned:plan:wiredoor:flatted:1",
+   "source": "GHSA-25h7-pfq9-p65f",
+   "target": "plan:wiredoor:flatted:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:flatted:1>decision:wiredoor:flatted",
+   "support": "support:planned:plan:wiredoor:flatted:1",
+   "source": "decision:wiredoor:flatted",
+   "target": "plan:wiredoor:flatted:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-c2c7-rcm5-vvqj:exposure:wiredoor:picomatch@2.3.1>GHSA-c2c7-rcm5-vvqj",
+   "support": "support:affects:GHSA-c2c7-rcm5-vvqj:exposure:wiredoor:picomatch@2.3.1",
+   "source": "GHSA-c2c7-rcm5-vvqj",
+   "target": "exposure:wiredoor:picomatch@2.3.1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-3v7f-55p6-f55p:exposure:wiredoor:picomatch@2.3.1>GHSA-3v7f-55p6-f55p",
+   "support": "support:affects:GHSA-3v7f-55p6-f55p:exposure:wiredoor:picomatch@2.3.1",
+   "source": "GHSA-3v7f-55p6-f55p",
+   "target": "exposure:wiredoor:picomatch@2.3.1",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:picomatch@2.3.1>exposure:wiredoor:picomatch@2.3.1",
+   "support": "support:resolves:exposure:wiredoor:picomatch@2.3.1",
+   "source": "exposure:wiredoor:picomatch@2.3.1",
+   "target": "decision:wiredoor:picomatch",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:picomatch:1>GHSA-c2c7-rcm5-vvqj",
+   "support": "support:planned:plan:wiredoor:picomatch:1",
+   "source": "GHSA-c2c7-rcm5-vvqj",
+   "target": "plan:wiredoor:picomatch:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:picomatch:1>decision:wiredoor:picomatch",
+   "support": "support:planned:plan:wiredoor:picomatch:1",
+   "source": "decision:wiredoor:picomatch",
+   "target": "plan:wiredoor:picomatch:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-f886-m6hf-6m8v:exposure:wiredoor:brace-expansion@2.0.2>GHSA-f886-m6hf-6m8v",
+   "support": "support:affects:GHSA-f886-m6hf-6m8v:exposure:wiredoor:brace-expansion@2.0.2",
+   "source": "GHSA-f886-m6hf-6m8v",
+   "target": "exposure:wiredoor:brace-expansion@2.0.2",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-3jxr-9vmj-r5cp:exposure:wiredoor:brace-expansion@2.0.2>GHSA-3jxr-9vmj-r5cp",
+   "support": "support:affects:GHSA-3jxr-9vmj-r5cp:exposure:wiredoor:brace-expansion@2.0.2",
+   "source": "GHSA-3jxr-9vmj-r5cp",
+   "target": "exposure:wiredoor:brace-expansion@2.0.2",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-mh99-v99m-4gvg:exposure:wiredoor:brace-expansion@2.0.2>GHSA-mh99-v99m-4gvg",
+   "support": "support:affects:GHSA-mh99-v99m-4gvg:exposure:wiredoor:brace-expansion@2.0.2",
+   "source": "GHSA-mh99-v99m-4gvg",
+   "target": "exposure:wiredoor:brace-expansion@2.0.2",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-rgw5-rvv9-x895:exposure:wiredoor:brace-expansion@2.0.2>GHSA-rgw5-rvv9-x895",
+   "support": "support:affects:GHSA-rgw5-rvv9-x895:exposure:wiredoor:brace-expansion@2.0.2",
+   "source": "GHSA-rgw5-rvv9-x895",
+   "target": "exposure:wiredoor:brace-expansion@2.0.2",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-6j4f-fj2g-mc7p:exposure:wiredoor:brace-expansion@2.0.2>GHSA-6j4f-fj2g-mc7p",
+   "support": "support:affects:GHSA-6j4f-fj2g-mc7p:exposure:wiredoor:brace-expansion@2.0.2",
+   "source": "GHSA-6j4f-fj2g-mc7p",
+   "target": "exposure:wiredoor:brace-expansion@2.0.2",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-qhr7-859c-m2p7:exposure:wiredoor:brace-expansion@2.0.2>GHSA-qhr7-859c-m2p7",
+   "support": "support:affects:GHSA-qhr7-859c-m2p7:exposure:wiredoor:brace-expansion@2.0.2",
+   "source": "GHSA-qhr7-859c-m2p7",
+   "target": "exposure:wiredoor:brace-expansion@2.0.2",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-q2hr-2g5m-vwhr:exposure:wiredoor:brace-expansion@2.0.2>GHSA-q2hr-2g5m-vwhr",
+   "support": "support:affects:GHSA-q2hr-2g5m-vwhr:exposure:wiredoor:brace-expansion@2.0.2",
+   "source": "GHSA-q2hr-2g5m-vwhr",
+   "target": "exposure:wiredoor:brace-expansion@2.0.2",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:brace-expansion@2.0.2>exposure:wiredoor:brace-expansion@2.0.2",
+   "support": "support:resolves:exposure:wiredoor:brace-expansion@2.0.2",
+   "source": "exposure:wiredoor:brace-expansion@2.0.2",
+   "target": "decision:wiredoor:brace-expansion",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:brace-expansion@1.1.12>exposure:wiredoor:brace-expansion@1.1.12",
+   "support": "support:resolves:exposure:wiredoor:brace-expansion@1.1.12",
+   "source": "exposure:wiredoor:brace-expansion@1.1.12",
+   "target": "decision:wiredoor:brace-expansion",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-f886-m6hf-6m8v:exposure:wiredoor:brace-expansion@1.1.12>GHSA-f886-m6hf-6m8v",
+   "support": "support:affects:GHSA-f886-m6hf-6m8v:exposure:wiredoor:brace-expansion@1.1.12",
+   "source": "GHSA-f886-m6hf-6m8v",
+   "target": "exposure:wiredoor:brace-expansion@1.1.12",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-3jxr-9vmj-r5cp:exposure:wiredoor:brace-expansion@1.1.12>GHSA-3jxr-9vmj-r5cp",
+   "support": "support:affects:GHSA-3jxr-9vmj-r5cp:exposure:wiredoor:brace-expansion@1.1.12",
+   "source": "GHSA-3jxr-9vmj-r5cp",
+   "target": "exposure:wiredoor:brace-expansion@1.1.12",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-mh99-v99m-4gvg:exposure:wiredoor:brace-expansion@1.1.12>GHSA-mh99-v99m-4gvg",
+   "support": "support:affects:GHSA-mh99-v99m-4gvg:exposure:wiredoor:brace-expansion@1.1.12",
+   "source": "GHSA-mh99-v99m-4gvg",
+   "target": "exposure:wiredoor:brace-expansion@1.1.12",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-rgw5-rvv9-x895:exposure:wiredoor:brace-expansion@1.1.12>GHSA-rgw5-rvv9-x895",
+   "support": "support:affects:GHSA-rgw5-rvv9-x895:exposure:wiredoor:brace-expansion@1.1.12",
+   "source": "GHSA-rgw5-rvv9-x895",
+   "target": "exposure:wiredoor:brace-expansion@1.1.12",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-6j4f-fj2g-mc7p:exposure:wiredoor:brace-expansion@1.1.12>GHSA-6j4f-fj2g-mc7p",
+   "support": "support:affects:GHSA-6j4f-fj2g-mc7p:exposure:wiredoor:brace-expansion@1.1.12",
+   "source": "GHSA-6j4f-fj2g-mc7p",
+   "target": "exposure:wiredoor:brace-expansion@1.1.12",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-qhr7-859c-m2p7:exposure:wiredoor:brace-expansion@1.1.12>GHSA-qhr7-859c-m2p7",
+   "support": "support:affects:GHSA-qhr7-859c-m2p7:exposure:wiredoor:brace-expansion@1.1.12",
+   "source": "GHSA-qhr7-859c-m2p7",
+   "target": "exposure:wiredoor:brace-expansion@1.1.12",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-q2hr-2g5m-vwhr:exposure:wiredoor:brace-expansion@1.1.12>GHSA-q2hr-2g5m-vwhr",
+   "support": "support:affects:GHSA-q2hr-2g5m-vwhr:exposure:wiredoor:brace-expansion@1.1.12",
+   "source": "GHSA-q2hr-2g5m-vwhr",
+   "target": "exposure:wiredoor:brace-expansion@1.1.12",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:brace-expansion:1>GHSA-f886-m6hf-6m8v",
+   "support": "support:planned:plan:wiredoor:brace-expansion:1",
+   "source": "GHSA-f886-m6hf-6m8v",
+   "target": "plan:wiredoor:brace-expansion:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:brace-expansion:1>decision:wiredoor:brace-expansion",
+   "support": "support:planned:plan:wiredoor:brace-expansion:1",
+   "source": "decision:wiredoor:brace-expansion",
+   "target": "plan:wiredoor:brace-expansion:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-37ch-88jc-xwx2:exposure:wiredoor:path-to-regexp@0.1.12>GHSA-37ch-88jc-xwx2",
+   "support": "support:affects:GHSA-37ch-88jc-xwx2:exposure:wiredoor:path-to-regexp@0.1.12",
+   "source": "GHSA-37ch-88jc-xwx2",
+   "target": "exposure:wiredoor:path-to-regexp@0.1.12",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:path-to-regexp@0.1.12>exposure:wiredoor:path-to-regexp@0.1.12",
+   "support": "support:resolves:exposure:wiredoor:path-to-regexp@0.1.12",
+   "source": "exposure:wiredoor:path-to-regexp@0.1.12",
+   "target": "decision:wiredoor:path-to-regexp",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:path-to-regexp:1>GHSA-37ch-88jc-xwx2",
+   "support": "support:planned:plan:wiredoor:path-to-regexp:1",
+   "source": "GHSA-37ch-88jc-xwx2",
+   "target": "plan:wiredoor:path-to-regexp:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:path-to-regexp:1>decision:wiredoor:path-to-regexp",
+   "support": "support:planned:plan:wiredoor:path-to-regexp:1",
+   "source": "decision:wiredoor:path-to-regexp",
+   "target": "plan:wiredoor:path-to-regexp:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:lodash:2>GHSA-xxjr-mmjv-4gpg",
+   "support": "support:planned:plan:wiredoor:lodash:2",
+   "source": "GHSA-xxjr-mmjv-4gpg",
+   "target": "plan:wiredoor:lodash:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:lodash:2>decision:wiredoor:lodash",
+   "support": "support:planned:plan:wiredoor:lodash:2",
+   "source": "decision:wiredoor:lodash",
+   "target": "plan:wiredoor:lodash:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:lodash:2>GHSA-f23m-r3pf-42rh",
+   "support": "support:planned:plan:wiredoor:lodash:2",
+   "source": "GHSA-f23m-r3pf-42rh",
+   "target": "plan:wiredoor:lodash:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:lodash:2>GHSA-r5fr-rjxr-66jc",
+   "support": "support:planned:plan:wiredoor:lodash:2",
+   "source": "GHSA-r5fr-rjxr-66jc",
+   "target": "plan:wiredoor:lodash:2",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-r4q5-vmmm-2653:exposure:wiredoor:follow-redirects@1.15.9>GHSA-r4q5-vmmm-2653",
+   "support": "support:affects:GHSA-r4q5-vmmm-2653:exposure:wiredoor:follow-redirects@1.15.9",
+   "source": "GHSA-r4q5-vmmm-2653",
+   "target": "exposure:wiredoor:follow-redirects@1.15.9",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:follow-redirects@1.15.9>exposure:wiredoor:follow-redirects@1.15.9",
+   "support": "support:resolves:exposure:wiredoor:follow-redirects@1.15.9",
+   "source": "exposure:wiredoor:follow-redirects@1.15.9",
+   "target": "decision:wiredoor:follow-redirects",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:follow-redirects:1>GHSA-r4q5-vmmm-2653",
+   "support": "support:planned:plan:wiredoor:follow-redirects:1",
+   "source": "GHSA-r4q5-vmmm-2653",
+   "target": "plan:wiredoor:follow-redirects:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:follow-redirects:1>decision:wiredoor:follow-redirects",
+   "support": "support:planned:plan:wiredoor:follow-redirects:1",
+   "source": "decision:wiredoor:follow-redirects",
+   "target": "plan:wiredoor:follow-redirects:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-w5hq-g745-h8pq:exposure:wiredoor:uuid@11.1.0>GHSA-w5hq-g745-h8pq",
+   "support": "support:affects:GHSA-w5hq-g745-h8pq:exposure:wiredoor:uuid@11.1.0",
+   "source": "GHSA-w5hq-g745-h8pq",
+   "target": "exposure:wiredoor:uuid@11.1.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-qmq6-f8pr-cx5x:exposure:wiredoor:uuid@11.1.0>GHSA-qmq6-f8pr-cx5x",
+   "support": "support:affects:GHSA-qmq6-f8pr-cx5x:exposure:wiredoor:uuid@11.1.0",
+   "source": "GHSA-qmq6-f8pr-cx5x",
+   "target": "exposure:wiredoor:uuid@11.1.0",
+   "status": "retracted"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:uuid@11.1.0>exposure:wiredoor:uuid@11.1.0",
+   "support": "support:resolves:exposure:wiredoor:uuid@11.1.0",
+   "source": "exposure:wiredoor:uuid@11.1.0",
+   "target": "decision:wiredoor:uuid",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:uuid:1>GHSA-w5hq-g745-h8pq",
+   "support": "support:planned:plan:wiredoor:uuid:1",
+   "source": "GHSA-w5hq-g745-h8pq",
+   "target": "plan:wiredoor:uuid:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:uuid:1>decision:wiredoor:uuid",
+   "support": "support:planned:plan:wiredoor:uuid:1",
+   "source": "decision:wiredoor:uuid",
+   "target": "plan:wiredoor:uuid:1",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-q8qp-cvcw-x6jj>exposure:wiredoor:axios@1.10.0",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-q8qp-cvcw-x6jj",
+   "source": "exposure:wiredoor:axios@1.10.0",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-q8qp-cvcw-x6jj",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-q8qp-cvcw-x6jj>GHSA-q8qp-cvcw-x6jj",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-q8qp-cvcw-x6jj",
+   "source": "GHSA-q8qp-cvcw-x6jj",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-q8qp-cvcw-x6jj",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-pmwg-cvhr-8vh7>exposure:wiredoor:axios@1.10.0",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-pmwg-cvhr-8vh7",
+   "source": "exposure:wiredoor:axios@1.10.0",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-pmwg-cvhr-8vh7",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-pmwg-cvhr-8vh7>GHSA-pmwg-cvhr-8vh7",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-pmwg-cvhr-8vh7",
+   "source": "GHSA-pmwg-cvhr-8vh7",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-pmwg-cvhr-8vh7",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-6chq-wfr3-2hj9>exposure:wiredoor:axios@1.10.0",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-6chq-wfr3-2hj9",
+   "source": "exposure:wiredoor:axios@1.10.0",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-6chq-wfr3-2hj9",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-6chq-wfr3-2hj9>GHSA-6chq-wfr3-2hj9",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-6chq-wfr3-2hj9",
+   "source": "GHSA-6chq-wfr3-2hj9",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-6chq-wfr3-2hj9",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-pf86-5x62-jrwf>exposure:wiredoor:axios@1.10.0",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-pf86-5x62-jrwf",
+   "source": "exposure:wiredoor:axios@1.10.0",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-pf86-5x62-jrwf",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-pf86-5x62-jrwf>GHSA-pf86-5x62-jrwf",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-pf86-5x62-jrwf",
+   "source": "GHSA-pf86-5x62-jrwf",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-pf86-5x62-jrwf",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-v2v4-37r5-5v8g:exposure:wiredoor:ip-address@9.0.5>GHSA-v2v4-37r5-5v8g",
+   "support": "support:affects:GHSA-v2v4-37r5-5v8g:exposure:wiredoor:ip-address@9.0.5",
+   "source": "GHSA-v2v4-37r5-5v8g",
+   "target": "exposure:wiredoor:ip-address@9.0.5",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-mwp4-54f8-5fhr:exposure:wiredoor:ip-address@9.0.5>GHSA-mwp4-54f8-5fhr",
+   "support": "support:affects:GHSA-mwp4-54f8-5fhr:exposure:wiredoor:ip-address@9.0.5",
+   "source": "GHSA-mwp4-54f8-5fhr",
+   "target": "exposure:wiredoor:ip-address@9.0.5",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-rpw4-54j3-4h4q:exposure:wiredoor:ip-address@9.0.5>GHSA-rpw4-54j3-4h4q",
+   "support": "support:affects:GHSA-rpw4-54j3-4h4q:exposure:wiredoor:ip-address@9.0.5",
+   "source": "GHSA-rpw4-54j3-4h4q",
+   "target": "exposure:wiredoor:ip-address@9.0.5",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-h3mg-xc3c-68pw:exposure:wiredoor:ip-address@9.0.5>GHSA-h3mg-xc3c-68pw",
+   "support": "support:affects:GHSA-h3mg-xc3c-68pw:exposure:wiredoor:ip-address@9.0.5",
+   "source": "GHSA-h3mg-xc3c-68pw",
+   "target": "exposure:wiredoor:ip-address@9.0.5",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-j6r3-76f7-8jcv:exposure:wiredoor:ip-address@9.0.5>GHSA-j6r3-76f7-8jcv",
+   "support": "support:affects:GHSA-j6r3-76f7-8jcv:exposure:wiredoor:ip-address@9.0.5",
+   "source": "GHSA-j6r3-76f7-8jcv",
+   "target": "exposure:wiredoor:ip-address@9.0.5",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:ip-address@9.0.5>exposure:wiredoor:ip-address@9.0.5",
+   "support": "support:resolves:exposure:wiredoor:ip-address@9.0.5",
+   "source": "exposure:wiredoor:ip-address@9.0.5",
+   "target": "decision:wiredoor:ip-address",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:ip-address:1>GHSA-v2v4-37r5-5v8g",
+   "support": "support:planned:plan:wiredoor:ip-address:1",
+   "source": "GHSA-v2v4-37r5-5v8g",
+   "target": "plan:wiredoor:ip-address:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:ip-address:1>decision:wiredoor:ip-address",
+   "support": "support:planned:plan:wiredoor:ip-address:1",
+   "source": "decision:wiredoor:ip-address",
+   "target": "plan:wiredoor:ip-address:1",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-35jp-ww65-95wh>exposure:wiredoor:axios@1.10.0",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-35jp-ww65-95wh",
+   "source": "exposure:wiredoor:axios@1.10.0",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-35jp-ww65-95wh",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-35jp-ww65-95wh>GHSA-35jp-ww65-95wh",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-35jp-ww65-95wh",
+   "source": "GHSA-35jp-ww65-95wh",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-35jp-ww65-95wh",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-3g43-6gmg-66jw>exposure:wiredoor:axios@1.10.0",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-3g43-6gmg-66jw",
+   "source": "exposure:wiredoor:axios@1.10.0",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-3g43-6gmg-66jw",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-3g43-6gmg-66jw>GHSA-3g43-6gmg-66jw",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-3g43-6gmg-66jw",
+   "source": "GHSA-3g43-6gmg-66jw",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-3g43-6gmg-66jw",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-j5f8-grm9-p9fc>exposure:wiredoor:axios@1.10.0",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-j5f8-grm9-p9fc",
+   "source": "exposure:wiredoor:axios@1.10.0",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-j5f8-grm9-p9fc",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-j5f8-grm9-p9fc>GHSA-j5f8-grm9-p9fc",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-j5f8-grm9-p9fc",
+   "source": "GHSA-j5f8-grm9-p9fc",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-j5f8-grm9-p9fc",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-p92q-9vqr-4j8v>exposure:wiredoor:axios@1.10.0",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-p92q-9vqr-4j8v",
+   "source": "exposure:wiredoor:axios@1.10.0",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-p92q-9vqr-4j8v",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-p92q-9vqr-4j8v>GHSA-p92q-9vqr-4j8v",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-p92q-9vqr-4j8v",
+   "source": "GHSA-p92q-9vqr-4j8v",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-p92q-9vqr-4j8v",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-777c-7fjr-54vf>exposure:wiredoor:axios@1.10.0",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-777c-7fjr-54vf",
+   "source": "exposure:wiredoor:axios@1.10.0",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-777c-7fjr-54vf",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-777c-7fjr-54vf>GHSA-777c-7fjr-54vf",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-777c-7fjr-54vf",
+   "source": "GHSA-777c-7fjr-54vf",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-777c-7fjr-54vf",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-hfxv-24rg-xrqf>exposure:wiredoor:axios@1.10.0",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-hfxv-24rg-xrqf",
+   "source": "exposure:wiredoor:axios@1.10.0",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-hfxv-24rg-xrqf",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-hfxv-24rg-xrqf>GHSA-hfxv-24rg-xrqf",
+   "support": "support:judged:judgment:triage:wiredoor:axios@1.10.0:GHSA-hfxv-24rg-xrqf",
+   "source": "GHSA-hfxv-24rg-xrqf",
+   "target": "judgment:triage:wiredoor:axios@1.10.0:GHSA-hfxv-24rg-xrqf",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-q7cg-457f-vx79:exposure:wiredoor:joi@17.13.3>GHSA-q7cg-457f-vx79",
+   "support": "support:affects:GHSA-q7cg-457f-vx79:exposure:wiredoor:joi@17.13.3",
+   "source": "GHSA-q7cg-457f-vx79",
+   "target": "exposure:wiredoor:joi@17.13.3",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-gg4h-3hg2-grpc:exposure:wiredoor:joi@17.13.3>GHSA-gg4h-3hg2-grpc",
+   "support": "support:affects:GHSA-gg4h-3hg2-grpc:exposure:wiredoor:joi@17.13.3",
+   "source": "GHSA-gg4h-3hg2-grpc",
+   "target": "exposure:wiredoor:joi@17.13.3",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-6w3j-5fw6-r9vr:exposure:wiredoor:joi@17.13.3>GHSA-6w3j-5fw6-r9vr",
+   "support": "support:affects:GHSA-6w3j-5fw6-r9vr:exposure:wiredoor:joi@17.13.3",
+   "source": "GHSA-6w3j-5fw6-r9vr",
+   "target": "exposure:wiredoor:joi@17.13.3",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-wr44-6hxh-3jwq:exposure:wiredoor:joi@17.13.3>GHSA-wr44-6hxh-3jwq",
+   "support": "support:affects:GHSA-wr44-6hxh-3jwq:exposure:wiredoor:joi@17.13.3",
+   "source": "GHSA-wr44-6hxh-3jwq",
+   "target": "exposure:wiredoor:joi@17.13.3",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-6h2x-m376-mqjq:exposure:wiredoor:joi@17.13.3>GHSA-6h2x-m376-mqjq",
+   "support": "support:affects:GHSA-6h2x-m376-mqjq:exposure:wiredoor:joi@17.13.3",
+   "source": "GHSA-6h2x-m376-mqjq",
+   "target": "exposure:wiredoor:joi@17.13.3",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:joi@17.13.3>exposure:wiredoor:joi@17.13.3",
+   "support": "support:resolves:exposure:wiredoor:joi@17.13.3",
+   "source": "exposure:wiredoor:joi@17.13.3",
+   "target": "decision:wiredoor:joi",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:joi:1>GHSA-q7cg-457f-vx79",
+   "support": "support:planned:plan:wiredoor:joi:1",
+   "source": "GHSA-q7cg-457f-vx79",
+   "target": "plan:wiredoor:joi:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:joi:1>decision:wiredoor:joi",
+   "support": "support:planned:plan:wiredoor:joi:1",
+   "source": "decision:wiredoor:joi",
+   "target": "plan:wiredoor:joi:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-4x5r-pxfx-6jf8:exposure:wiredoor:@babel/core@7.27.4>GHSA-4x5r-pxfx-6jf8",
+   "support": "support:affects:GHSA-4x5r-pxfx-6jf8:exposure:wiredoor:@babel/core@7.27.4",
+   "source": "GHSA-4x5r-pxfx-6jf8",
+   "target": "exposure:wiredoor:@babel/core@7.27.4",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:@babel/core@7.27.4>exposure:wiredoor:@babel/core@7.27.4",
+   "support": "support:resolves:exposure:wiredoor:@babel/core@7.27.4",
+   "source": "exposure:wiredoor:@babel/core@7.27.4",
+   "target": "decision:wiredoor:@babel/core",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:@babel/core:1>GHSA-4x5r-pxfx-6jf8",
+   "support": "support:planned:plan:wiredoor:@babel/core:1",
+   "source": "GHSA-4x5r-pxfx-6jf8",
+   "target": "plan:wiredoor:@babel/core:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:@babel/core:1>decision:wiredoor:@babel/core",
+   "support": "support:planned:plan:wiredoor:@babel/core:1",
+   "source": "decision:wiredoor:@babel/core",
+   "target": "plan:wiredoor:@babel/core:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:brace-expansion:2>GHSA-f886-m6hf-6m8v",
+   "support": "support:planned:plan:wiredoor:brace-expansion:2",
+   "source": "GHSA-f886-m6hf-6m8v",
+   "target": "plan:wiredoor:brace-expansion:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:brace-expansion:2>decision:wiredoor:brace-expansion",
+   "support": "support:planned:plan:wiredoor:brace-expansion:2",
+   "source": "decision:wiredoor:brace-expansion",
+   "target": "plan:wiredoor:brace-expansion:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:brace-expansion:2>GHSA-3jxr-9vmj-r5cp",
+   "support": "support:planned:plan:wiredoor:brace-expansion:2",
+   "source": "GHSA-3jxr-9vmj-r5cp",
+   "target": "plan:wiredoor:brace-expansion:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:js-yaml:2>GHSA-mh29-5h37-fv8m",
+   "support": "support:planned:plan:wiredoor:js-yaml:2",
+   "source": "GHSA-mh29-5h37-fv8m",
+   "target": "plan:wiredoor:js-yaml:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:js-yaml:2>decision:wiredoor:js-yaml",
+   "support": "support:planned:plan:wiredoor:js-yaml:2",
+   "source": "decision:wiredoor:js-yaml",
+   "target": "plan:wiredoor:js-yaml:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:js-yaml:2>GHSA-h67p-54hq-rp68",
+   "support": "support:planned:plan:wiredoor:js-yaml:2",
+   "source": "GHSA-h67p-54hq-rp68",
+   "target": "plan:wiredoor:js-yaml:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:js-yaml:2>GHSA-52cp-r559-cp3m",
+   "support": "support:planned:plan:wiredoor:js-yaml:2",
+   "source": "GHSA-52cp-r559-cp3m",
+   "target": "plan:wiredoor:js-yaml:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:tar:2>GHSA-8qq5-rm4j-mr97",
+   "support": "support:planned:plan:wiredoor:tar:2",
+   "source": "GHSA-8qq5-rm4j-mr97",
+   "target": "plan:wiredoor:tar:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:tar:2>decision:wiredoor:tar",
+   "support": "support:planned:plan:wiredoor:tar:2",
+   "source": "decision:wiredoor:tar",
+   "target": "plan:wiredoor:tar:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:tar:2>GHSA-r6q2-hw4h-h46w",
+   "support": "support:planned:plan:wiredoor:tar:2",
+   "source": "GHSA-r6q2-hw4h-h46w",
+   "target": "plan:wiredoor:tar:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:tar:2>GHSA-34x7-hfp2-rc4v",
+   "support": "support:planned:plan:wiredoor:tar:2",
+   "source": "GHSA-34x7-hfp2-rc4v",
+   "target": "plan:wiredoor:tar:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:tar:2>GHSA-83g3-92jg-28cx",
+   "support": "support:planned:plan:wiredoor:tar:2",
+   "source": "GHSA-83g3-92jg-28cx",
+   "target": "plan:wiredoor:tar:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:tar:2>GHSA-qffp-2rhf-9h96",
+   "support": "support:planned:plan:wiredoor:tar:2",
+   "source": "GHSA-qffp-2rhf-9h96",
+   "target": "plan:wiredoor:tar:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:tar:2>GHSA-9ppj-qmqm-q256",
+   "support": "support:planned:plan:wiredoor:tar:2",
+   "source": "GHSA-9ppj-qmqm-q256",
+   "target": "plan:wiredoor:tar:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:tar:2>GHSA-vmf3-w455-68vh",
+   "support": "support:planned:plan:wiredoor:tar:2",
+   "source": "GHSA-vmf3-w455-68vh",
+   "target": "plan:wiredoor:tar:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:tar:2>GHSA-gvwx-54wh-qm9j",
+   "support": "support:planned:plan:wiredoor:tar:2",
+   "source": "GHSA-gvwx-54wh-qm9j",
+   "target": "plan:wiredoor:tar:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:tar:2>GHSA-8x88-c5mf-7j5w",
+   "support": "support:planned:plan:wiredoor:tar:2",
+   "source": "GHSA-8x88-c5mf-7j5w",
+   "target": "plan:wiredoor:tar:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:tar:2>GHSA-23hp-3jrh-7fpw",
+   "support": "support:planned:plan:wiredoor:tar:2",
+   "source": "GHSA-23hp-3jrh-7fpw",
+   "target": "plan:wiredoor:tar:2",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-v422-hmwv-36x6:exposure:wiredoor:body-parser@1.20.3>GHSA-v422-hmwv-36x6",
+   "support": "support:affects:GHSA-v422-hmwv-36x6:exposure:wiredoor:body-parser@1.20.3",
+   "source": "GHSA-v422-hmwv-36x6",
+   "target": "exposure:wiredoor:body-parser@1.20.3",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:body-parser@1.20.3>exposure:wiredoor:body-parser@1.20.3",
+   "support": "support:resolves:exposure:wiredoor:body-parser@1.20.3",
+   "source": "exposure:wiredoor:body-parser@1.20.3",
+   "target": "decision:wiredoor:body-parser",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:body-parser:1>GHSA-v422-hmwv-36x6",
+   "support": "support:planned:plan:wiredoor:body-parser:1",
+   "source": "GHSA-v422-hmwv-36x6",
+   "target": "plan:wiredoor:body-parser:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:body-parser:1>decision:wiredoor:body-parser",
+   "support": "support:planned:plan:wiredoor:body-parser:1",
+   "source": "decision:wiredoor:body-parser",
+   "target": "plan:wiredoor:body-parser:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:ip-address:2>GHSA-v2v4-37r5-5v8g",
+   "support": "support:planned:plan:wiredoor:ip-address:2",
+   "source": "GHSA-v2v4-37r5-5v8g",
+   "target": "plan:wiredoor:ip-address:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:ip-address:2>decision:wiredoor:ip-address",
+   "support": "support:planned:plan:wiredoor:ip-address:2",
+   "source": "decision:wiredoor:ip-address",
+   "target": "plan:wiredoor:ip-address:2",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:ip-address:2>GHSA-mwp4-54f8-5fhr",
+   "support": "support:planned:plan:wiredoor:ip-address:2",
+   "source": "GHSA-mwp4-54f8-5fhr",
+   "target": "plan:wiredoor:ip-address:2",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-73wf-gq98-2v4g:exposure:wiredoor:browserslist@4.25.0>GHSA-73wf-gq98-2v4g",
+   "support": "support:affects:GHSA-73wf-gq98-2v4g:exposure:wiredoor:browserslist@4.25.0",
+   "source": "GHSA-73wf-gq98-2v4g",
+   "target": "exposure:wiredoor:browserslist@4.25.0",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-c83g-rgw3-j3cx:exposure:wiredoor:browserslist@4.25.0>GHSA-c83g-rgw3-j3cx",
+   "support": "support:affects:GHSA-c83g-rgw3-j3cx:exposure:wiredoor:browserslist@4.25.0",
+   "source": "GHSA-c83g-rgw3-j3cx",
+   "target": "exposure:wiredoor:browserslist@4.25.0",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:browserslist@4.25.0>exposure:wiredoor:browserslist@4.25.0",
+   "support": "support:resolves:exposure:wiredoor:browserslist@4.25.0",
+   "source": "exposure:wiredoor:browserslist@4.25.0",
+   "target": "decision:wiredoor:browserslist",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:browserslist:1>GHSA-73wf-gq98-2v4g",
+   "support": "support:planned:plan:wiredoor:browserslist:1",
+   "source": "GHSA-73wf-gq98-2v4g",
+   "target": "plan:wiredoor:browserslist:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:browserslist:1>decision:wiredoor:browserslist",
+   "support": "support:planned:plan:wiredoor:browserslist:1",
+   "source": "decision:wiredoor:browserslist",
+   "target": "plan:wiredoor:browserslist:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-qxc2-j82w-r537:exposure:wiredoor:@faker-js/faker@9.8.0>GHSA-qxc2-j82w-r537",
+   "support": "support:affects:GHSA-qxc2-j82w-r537:exposure:wiredoor:@faker-js/faker@9.8.0",
+   "source": "GHSA-qxc2-j82w-r537",
+   "target": "exposure:wiredoor:@faker-js/faker@9.8.0",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:@faker-js/faker@9.8.0>exposure:wiredoor:@faker-js/faker@9.8.0",
+   "support": "support:resolves:exposure:wiredoor:@faker-js/faker@9.8.0",
+   "source": "exposure:wiredoor:@faker-js/faker@9.8.0",
+   "target": "decision:wiredoor:@faker-js/faker",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:@faker-js/faker@9.8.0:GHSA-qxc2-j82w-r537>GHSA-qxc2-j82w-r537",
+   "support": "support:judged:judgment:triage:wiredoor:@faker-js/faker@9.8.0:GHSA-qxc2-j82w-r537",
+   "source": "GHSA-qxc2-j82w-r537",
+   "target": "judgment:triage:wiredoor:@faker-js/faker@9.8.0:GHSA-qxc2-j82w-r537",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:@faker-js/faker@9.8.0:GHSA-qxc2-j82w-r537>exposure:wiredoor:@faker-js/faker@9.8.0",
+   "support": "support:judged:judgment:triage:wiredoor:@faker-js/faker@9.8.0:GHSA-qxc2-j82w-r537",
+   "source": "exposure:wiredoor:@faker-js/faker@9.8.0",
+   "target": "judgment:triage:wiredoor:@faker-js/faker@9.8.0:GHSA-qxc2-j82w-r537",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:@faker-js/faker:1>GHSA-qxc2-j82w-r537",
+   "support": "support:planned:plan:wiredoor:@faker-js/faker:1",
+   "source": "GHSA-qxc2-j82w-r537",
+   "target": "plan:wiredoor:@faker-js/faker:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:@faker-js/faker:1>decision:wiredoor:@faker-js/faker",
+   "support": "support:planned:plan:wiredoor:@faker-js/faker:1",
+   "source": "decision:wiredoor:@faker-js/faker",
+   "target": "plan:wiredoor:@faker-js/faker:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-p498-v437-472g:exposure:wiredoor:@humanfs/node@0.16.6>GHSA-p498-v437-472g",
+   "support": "support:affects:GHSA-p498-v437-472g:exposure:wiredoor:@humanfs/node@0.16.6",
+   "source": "GHSA-p498-v437-472g",
+   "target": "exposure:wiredoor:@humanfs/node@0.16.6",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:@humanfs/node@0.16.6>exposure:wiredoor:@humanfs/node@0.16.6",
+   "support": "support:resolves:exposure:wiredoor:@humanfs/node@0.16.6",
+   "source": "exposure:wiredoor:@humanfs/node@0.16.6",
+   "target": "decision:wiredoor:@humanfs/node",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:@humanfs/node:1>GHSA-p498-v437-472g",
+   "support": "support:planned:plan:wiredoor:@humanfs/node:1",
+   "source": "GHSA-p498-v437-472g",
+   "target": "plan:wiredoor:@humanfs/node:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:@humanfs/node:1>decision:wiredoor:@humanfs/node",
+   "support": "support:planned:plan:wiredoor:@humanfs/node:1",
+   "source": "decision:wiredoor:@humanfs/node",
+   "target": "plan:wiredoor:@humanfs/node:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-vfj7-8cjw-p6xm:exposure:wiredoor:braces@3.0.3>GHSA-vfj7-8cjw-p6xm",
+   "support": "support:affects:GHSA-vfj7-8cjw-p6xm:exposure:wiredoor:braces@3.0.3",
+   "source": "GHSA-vfj7-8cjw-p6xm",
+   "target": "exposure:wiredoor:braces@3.0.3",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:braces@3.0.3>exposure:wiredoor:braces@3.0.3",
+   "support": "support:resolves:exposure:wiredoor:braces@3.0.3",
+   "source": "exposure:wiredoor:braces@3.0.3",
+   "target": "decision:wiredoor:braces",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:braces:1>GHSA-vfj7-8cjw-p6xm",
+   "support": "support:planned:plan:wiredoor:braces:1",
+   "source": "GHSA-vfj7-8cjw-p6xm",
+   "target": "plan:wiredoor:braces:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:braces:1>decision:wiredoor:braces",
+   "support": "support:planned:plan:wiredoor:braces:1",
+   "source": "decision:wiredoor:braces",
+   "target": "plan:wiredoor:braces:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-ch52-4w7c-c8xp:exposure:wiredoor:http-cache-semantics@4.2.0>GHSA-ch52-4w7c-c8xp",
+   "support": "support:affects:GHSA-ch52-4w7c-c8xp:exposure:wiredoor:http-cache-semantics@4.2.0",
+   "source": "GHSA-ch52-4w7c-c8xp",
+   "target": "exposure:wiredoor:http-cache-semantics@4.2.0",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:http-cache-semantics@4.2.0>exposure:wiredoor:http-cache-semantics@4.2.0",
+   "support": "support:resolves:exposure:wiredoor:http-cache-semantics@4.2.0",
+   "source": "exposure:wiredoor:http-cache-semantics@4.2.0",
+   "target": "decision:wiredoor:http-cache-semantics",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:http-cache-semantics:1>GHSA-ch52-4w7c-c8xp",
+   "support": "support:planned:plan:wiredoor:http-cache-semantics:1",
+   "source": "GHSA-ch52-4w7c-c8xp",
+   "target": "plan:wiredoor:http-cache-semantics:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:http-cache-semantics:1>decision:wiredoor:http-cache-semantics",
+   "support": "support:planned:plan:wiredoor:http-cache-semantics:1",
+   "source": "decision:wiredoor:http-cache-semantics",
+   "target": "plan:wiredoor:http-cache-semantics:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-hp3w-g68c-fv3c:exposure:wiredoor:sprintf-js@1.0.3>GHSA-hp3w-g68c-fv3c",
+   "support": "support:affects:GHSA-hp3w-g68c-fv3c:exposure:wiredoor:sprintf-js@1.0.3",
+   "source": "GHSA-hp3w-g68c-fv3c",
+   "target": "exposure:wiredoor:sprintf-js@1.0.3",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:sprintf-js@1.0.3>exposure:wiredoor:sprintf-js@1.0.3",
+   "support": "support:resolves:exposure:wiredoor:sprintf-js@1.0.3",
+   "source": "exposure:wiredoor:sprintf-js@1.0.3",
+   "target": "decision:wiredoor:sprintf-js",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:sprintf-js@1.1.3>exposure:wiredoor:sprintf-js@1.1.3",
+   "support": "support:resolves:exposure:wiredoor:sprintf-js@1.1.3",
+   "source": "exposure:wiredoor:sprintf-js@1.1.3",
+   "target": "decision:wiredoor:sprintf-js",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-hp3w-g68c-fv3c:exposure:wiredoor:sprintf-js@1.1.3>GHSA-hp3w-g68c-fv3c",
+   "support": "support:affects:GHSA-hp3w-g68c-fv3c:exposure:wiredoor:sprintf-js@1.1.3",
+   "source": "GHSA-hp3w-g68c-fv3c",
+   "target": "exposure:wiredoor:sprintf-js@1.1.3",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:sprintf-js:1>GHSA-hp3w-g68c-fv3c",
+   "support": "support:planned:plan:wiredoor:sprintf-js:1",
+   "source": "GHSA-hp3w-g68c-fv3c",
+   "target": "plan:wiredoor:sprintf-js:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:sprintf-js:1>decision:wiredoor:sprintf-js",
+   "support": "support:planned:plan:wiredoor:sprintf-js:1",
+   "source": "decision:wiredoor:sprintf-js",
+   "target": "plan:wiredoor:sprintf-js:1",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:joi@17.13.3:GHSA-6h2x-m376-mqjq>exposure:wiredoor:joi@17.13.3",
+   "support": "support:judged:judgment:triage:wiredoor:joi@17.13.3:GHSA-6h2x-m376-mqjq",
+   "source": "exposure:wiredoor:joi@17.13.3",
+   "target": "judgment:triage:wiredoor:joi@17.13.3:GHSA-6h2x-m376-mqjq",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:joi@17.13.3:GHSA-6h2x-m376-mqjq>GHSA-6h2x-m376-mqjq",
+   "support": "support:judged:judgment:triage:wiredoor:joi@17.13.3:GHSA-6h2x-m376-mqjq",
+   "source": "GHSA-6h2x-m376-mqjq",
+   "target": "judgment:triage:wiredoor:joi@17.13.3:GHSA-6h2x-m376-mqjq",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-jggr-w7fw-pc2j:exposure:wiredoor:fast-copy@3.0.2>GHSA-jggr-w7fw-pc2j",
+   "support": "support:affects:GHSA-jggr-w7fw-pc2j:exposure:wiredoor:fast-copy@3.0.2",
+   "source": "GHSA-jggr-w7fw-pc2j",
+   "target": "exposure:wiredoor:fast-copy@3.0.2",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:fast-copy@3.0.2>exposure:wiredoor:fast-copy@3.0.2",
+   "support": "support:resolves:exposure:wiredoor:fast-copy@3.0.2",
+   "source": "exposure:wiredoor:fast-copy@3.0.2",
+   "target": "decision:wiredoor:fast-copy",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:fast-copy:1>GHSA-jggr-w7fw-pc2j",
+   "support": "support:planned:plan:wiredoor:fast-copy:1",
+   "source": "GHSA-jggr-w7fw-pc2j",
+   "target": "plan:wiredoor:fast-copy:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:fast-copy:1>decision:wiredoor:fast-copy",
+   "support": "support:planned:plan:wiredoor:fast-copy:1",
+   "source": "decision:wiredoor:fast-copy",
+   "target": "plan:wiredoor:fast-copy:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-vc2v-76pw-4v95:exposure:wiredoor:compression@1.8.0>GHSA-vc2v-76pw-4v95",
+   "support": "support:affects:GHSA-vc2v-76pw-4v95:exposure:wiredoor:compression@1.8.0",
+   "source": "GHSA-vc2v-76pw-4v95",
+   "target": "exposure:wiredoor:compression@1.8.0",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:compression@1.8.0>exposure:wiredoor:compression@1.8.0",
+   "support": "support:resolves:exposure:wiredoor:compression@1.8.0",
+   "source": "exposure:wiredoor:compression@1.8.0",
+   "target": "decision:wiredoor:compression",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:compression@1.8.0:GHSA-vc2v-76pw-4v95>GHSA-vc2v-76pw-4v95",
+   "support": "support:judged:judgment:triage:wiredoor:compression@1.8.0:GHSA-vc2v-76pw-4v95",
+   "source": "GHSA-vc2v-76pw-4v95",
+   "target": "judgment:triage:wiredoor:compression@1.8.0:GHSA-vc2v-76pw-4v95",
+   "status": "held"
+  },
+  {
+   "id": "support:judged:judgment:triage:wiredoor:compression@1.8.0:GHSA-vc2v-76pw-4v95>exposure:wiredoor:compression@1.8.0",
+   "support": "support:judged:judgment:triage:wiredoor:compression@1.8.0:GHSA-vc2v-76pw-4v95",
+   "source": "exposure:wiredoor:compression@1.8.0",
+   "target": "judgment:triage:wiredoor:compression@1.8.0:GHSA-vc2v-76pw-4v95",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:compression:1>GHSA-vc2v-76pw-4v95",
+   "support": "support:planned:plan:wiredoor:compression:1",
+   "source": "GHSA-vc2v-76pw-4v95",
+   "target": "plan:wiredoor:compression:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:compression:1>decision:wiredoor:compression",
+   "support": "support:planned:plan:wiredoor:compression:1",
+   "source": "decision:wiredoor:compression",
+   "target": "plan:wiredoor:compression:1",
+   "status": "held"
+  },
+  {
+   "id": "support:affects:GHSA-jqcg-44mw-7w3h:exposure:wiredoor:proxy-addr@2.0.7>GHSA-jqcg-44mw-7w3h",
+   "support": "support:affects:GHSA-jqcg-44mw-7w3h:exposure:wiredoor:proxy-addr@2.0.7",
+   "source": "GHSA-jqcg-44mw-7w3h",
+   "target": "exposure:wiredoor:proxy-addr@2.0.7",
+   "status": "held"
+  },
+  {
+   "id": "support:resolves:exposure:wiredoor:proxy-addr@2.0.7>exposure:wiredoor:proxy-addr@2.0.7",
+   "support": "support:resolves:exposure:wiredoor:proxy-addr@2.0.7",
+   "source": "exposure:wiredoor:proxy-addr@2.0.7",
+   "target": "decision:wiredoor:proxy-addr",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:proxy-addr:1>GHSA-jqcg-44mw-7w3h",
+   "support": "support:planned:plan:wiredoor:proxy-addr:1",
+   "source": "GHSA-jqcg-44mw-7w3h",
+   "target": "plan:wiredoor:proxy-addr:1",
+   "status": "held"
+  },
+  {
+   "id": "support:planned:plan:wiredoor:proxy-addr:1>decision:wiredoor:proxy-addr",
+   "support": "support:planned:plan:wiredoor:proxy-addr:1",
+   "source": "decision:wiredoor:proxy-addr",
+   "target": "plan:wiredoor:proxy-addr:1",
+   "status": "held"
+  },
+  {
+   "id": "adjusts:judgment:triage:wiredoor:axios@1.10.0:GHSA-rm8p-cx58-hcvx",
+   "support": null,
+   "source": "judgment:triage:wiredoor:axios@1.10.0:GHSA-rm8p-cx58-hcvx",
+   "target": "decision:wiredoor:axios",
+   "status": "held",
+   "kind": "adjusts"
+  },
+  {
+   "id": "adjusts:judgment:triage:wiredoor:axios@1.10.0:GHSA-4hjh-wcwx-xvwj",
+   "support": null,
+   "source": "judgment:triage:wiredoor:axios@1.10.0:GHSA-4hjh-wcwx-xvwj",
+   "target": "decision:wiredoor:axios",
+   "status": "held",
+   "kind": "adjusts"
+  },
+  {
+   "id": "adjusts:judgment:triage:wiredoor:typeorm@0.3.24:GHSA-q2pj-6v73-8rgj",
+   "support": null,
+   "source": "judgment:triage:wiredoor:typeorm@0.3.24:GHSA-q2pj-6v73-8rgj",
+   "target": "decision:wiredoor:typeorm",
+   "status": "held",
+   "kind": "adjusts"
+  },
+  {
+   "id": "adjusts:judgment:triage:wiredoor:axios@1.10.0:GHSA-43fc-jf86-j433",
+   "support": null,
+   "source": "judgment:triage:wiredoor:axios@1.10.0:GHSA-43fc-jf86-j433",
+   "target": "decision:wiredoor:axios",
+   "status": "held",
+   "kind": "adjusts"
+  },
+  {
+   "id": "adjusts:judgment:triage:wiredoor:axios@1.10.0:GHSA-q8qp-cvcw-x6jj",
+   "support": null,
+   "source": "judgment:triage:wiredoor:axios@1.10.0:GHSA-q8qp-cvcw-x6jj",
+   "target": "decision:wiredoor:axios",
+   "status": "held",
+   "kind": "adjusts"
+  },
+  {
+   "id": "adjusts:judgment:triage:wiredoor:axios@1.10.0:GHSA-pmwg-cvhr-8vh7",
+   "support": null,
+   "source": "judgment:triage:wiredoor:axios@1.10.0:GHSA-pmwg-cvhr-8vh7",
+   "target": "decision:wiredoor:axios",
+   "status": "held",
+   "kind": "adjusts"
+  },
+  {
+   "id": "adjusts:judgment:triage:wiredoor:axios@1.10.0:GHSA-6chq-wfr3-2hj9",
+   "support": null,
+   "source": "judgment:triage:wiredoor:axios@1.10.0:GHSA-6chq-wfr3-2hj9",
+   "target": "decision:wiredoor:axios",
+   "status": "held",
+   "kind": "adjusts"
+  },
+  {
+   "id": "adjusts:judgment:triage:wiredoor:axios@1.10.0:GHSA-pf86-5x62-jrwf",
+   "support": null,
+   "source": "judgment:triage:wiredoor:axios@1.10.0:GHSA-pf86-5x62-jrwf",
+   "target": "decision:wiredoor:axios",
+   "status": "held",
+   "kind": "adjusts"
+  },
+  {
+   "id": "adjusts:judgment:triage:wiredoor:axios@1.10.0:GHSA-35jp-ww65-95wh",
+   "support": null,
+   "source": "judgment:triage:wiredoor:axios@1.10.0:GHSA-35jp-ww65-95wh",
+   "target": "decision:wiredoor:axios",
+   "status": "held",
+   "kind": "adjusts"
+  },
+  {
+   "id": "adjusts:judgment:triage:wiredoor:axios@1.10.0:GHSA-3g43-6gmg-66jw",
+   "support": null,
+   "source": "judgment:triage:wiredoor:axios@1.10.0:GHSA-3g43-6gmg-66jw",
+   "target": "decision:wiredoor:axios",
+   "status": "held",
+   "kind": "adjusts"
+  },
+  {
+   "id": "adjusts:judgment:triage:wiredoor:axios@1.10.0:GHSA-j5f8-grm9-p9fc",
+   "support": null,
+   "source": "judgment:triage:wiredoor:axios@1.10.0:GHSA-j5f8-grm9-p9fc",
+   "target": "decision:wiredoor:axios",
+   "status": "held",
+   "kind": "adjusts"
+  },
+  {
+   "id": "adjusts:judgment:triage:wiredoor:axios@1.10.0:GHSA-p92q-9vqr-4j8v",
+   "support": null,
+   "source": "judgment:triage:wiredoor:axios@1.10.0:GHSA-p92q-9vqr-4j8v",
+   "target": "decision:wiredoor:axios",
+   "status": "held",
+   "kind": "adjusts"
+  },
+  {
+   "id": "adjusts:judgment:triage:wiredoor:axios@1.10.0:GHSA-777c-7fjr-54vf",
+   "support": null,
+   "source": "judgment:triage:wiredoor:axios@1.10.0:GHSA-777c-7fjr-54vf",
+   "target": "decision:wiredoor:axios",
+   "status": "held",
+   "kind": "adjusts"
+  },
+  {
+   "id": "adjusts:judgment:triage:wiredoor:axios@1.10.0:GHSA-hfxv-24rg-xrqf",
+   "support": null,
+   "source": "judgment:triage:wiredoor:axios@1.10.0:GHSA-hfxv-24rg-xrqf",
+   "target": "decision:wiredoor:axios",
+   "status": "held",
+   "kind": "adjusts"
+  },
+  {
+   "id": "adjusts:judgment:triage:wiredoor:@faker-js/faker@9.8.0:GHSA-qxc2-j82w-r537",
+   "support": null,
+   "source": "judgment:triage:wiredoor:@faker-js/faker@9.8.0:GHSA-qxc2-j82w-r537",
+   "target": "decision:wiredoor:@faker-js/faker",
+   "status": "held",
+   "kind": "adjusts"
+  },
+  {
+   "id": "adjusts:judgment:triage:wiredoor:joi@17.13.3:GHSA-6h2x-m376-mqjq",
+   "support": null,
+   "source": "judgment:triage:wiredoor:joi@17.13.3:GHSA-6h2x-m376-mqjq",
+   "target": "decision:wiredoor:joi",
+   "status": "held",
+   "kind": "adjusts"
+  },
+  {
+   "id": "adjusts:judgment:triage:wiredoor:compression@1.8.0:GHSA-vc2v-76pw-4v95",
+   "support": null,
+   "source": "judgment:triage:wiredoor:compression@1.8.0:GHSA-vc2v-76pw-4v95",
+   "target": "decision:wiredoor:compression",
+   "status": "held",
+   "kind": "adjusts"
+  }
+ ]
+}

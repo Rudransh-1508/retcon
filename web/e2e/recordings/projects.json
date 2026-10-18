@@ -1,0 +1,16 @@
+[
+ {
+  "id": "gladys",
+  "repo": "Rudransh-1508/retcon-target-gladys",
+  "snapshot_sha": "7eb0b2acaa14dd8b38dd8e095642381c9491d457",
+  "snapshot_date": "2022-12-18",
+  "open_decisions": 69
+ },
+ {
+  "id": "wiredoor",
+  "repo": "Rudransh-1508/retcon-target-wiredoor",
+  "snapshot_sha": "e80904fed7a69cc7d4aa34f9c24ce4eba7803f76",
+  "snapshot_date": "2025-07-17",
+  "open_decisions": 39
+ }
+]

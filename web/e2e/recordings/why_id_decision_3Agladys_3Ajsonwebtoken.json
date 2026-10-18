@@ -1,0 +1,412 @@
+{
+ "kind": "Decision",
+ "id": "decision:gladys:jsonwebtoken",
+ "created_at": "2022-12-22T03:31:28Z",
+ "status": "held",
+ "project": "gladys",
+ "package": "jsonwebtoken",
+ "action": "upgrade",
+ "held_at": "2022-12-22T03:31:28Z",
+ "urgency": "P2",
+ "target": "9.0.0",
+ "evidence": [
+  "GHSA-8cf7-32gw-wr33",
+  "GHSA-hjrf-2m68-5959",
+  "GHSA-qwph-4952-7xr6"
+ ],
+ "plan_id": "plan:gladys:jsonwebtoken:1",
+ "reported": true,
+ "acted_status": "held",
+ "acted_urgency": "P2",
+ "acted_target": "9.0.0",
+ "acted_evidence": "[\"GHSA-8cf7-32gw-wr33\", \"GHSA-hjrf-2m68-5959\", \"GHSA-qwph-4952-7xr6\"]",
+ "acted_mode": "report",
+ "acted_at": "2026-10-18T13:29:31Z",
+ "acted_seq": 257,
+ "retracted_by": [],
+ "history": [
+  {
+   "event": "event:published:GHSA-27h2-hvpr-p74q",
+   "kind": "published",
+   "advisory": "GHSA-27h2-hvpr-p74q",
+   "at": "2022-12-22T03:31:28Z",
+   "change": "new",
+   "before": null,
+   "after": "P2",
+   "evidence_before": 0,
+   "evidence_after": 1
+  },
+  {
+   "event": "event:published:GHSA-8cf7-32gw-wr33",
+   "kind": "published",
+   "advisory": "GHSA-8cf7-32gw-wr33",
+   "at": "2022-12-22T03:32:22Z",
+   "change": "updated",
+   "before": "P2",
+   "after": "P2",
+   "evidence_before": 1,
+   "evidence_after": 2
+  },
+  {
+   "event": "event:published:GHSA-qwph-4952-7xr6",
+   "kind": "published",
+   "advisory": "GHSA-qwph-4952-7xr6",
+   "at": "2022-12-22T03:32:59Z",
+   "change": "updated",
+   "before": "P2",
+   "after": "P2",
+   "evidence_before": 2,
+   "evidence_after": 3
+  },
+  {
+   "event": "event:published:GHSA-hjrf-2m68-5959",
+   "kind": "published",
+   "advisory": "GHSA-hjrf-2m68-5959",
+   "at": "2022-12-22T03:33:19Z",
+   "change": "updated",
+   "before": "P2",
+   "after": "P2",
+   "evidence_before": 3,
+   "evidence_after": 4
+  },
+  {
+   "event": "event:withdrawn:GHSA-27h2-hvpr-p74q",
+   "kind": "withdrawn",
+   "advisory": "GHSA-27h2-hvpr-p74q",
+   "at": "2023-01-27T21:51:55Z",
+   "change": "unchanged",
+   "before": "P2",
+   "after": "P2",
+   "evidence_before": 4,
+   "evidence_after": 3
+  }
+ ],
+ "actions": [],
+ "plans": [
+  {
+   "id": "plan:gladys:jsonwebtoken:1",
+   "action": "report",
+   "rationale": "The advisory is held but judged not reachable, urgency is only P2 and the upgrade crosses a major version, so a low‑priority report is preferable to an immediate PR.",
+   "point": "new",
+   "status": "retracted",
+   "at": "2022-12-22T03:31:28Z",
+   "by": "Planner",
+   "actions": []
+  }
+ ],
+ "judgments": [
+  {
+   "kind": "Judgment",
+   "id": "judgment:triage:gladys:jsonwebtoken@8.5.1:GHSA-27h2-hvpr-p74q",
+   "created_at": "2022-12-22T03:31:28Z",
+   "status": "retracted",
+   "project": "gladys",
+   "package": "jsonwebtoken",
+   "version": "8.5.1",
+   "advisory": "GHSA-27h2-hvpr-p74q",
+   "verdict": "not_reachable",
+   "rationale": "The code calls jwt.verify with a server‑side secret (this.jwtSecret) that is not derived from attacker input, so the key retrieval parameter cannot be manipulated by an attacker.",
+   "evidence": "[{\"file\": \"server/lib/session/session.validateAccessToken.js\", \"line\": 15}]",
+   "usages": 3,
+   "held_at": "2022-12-22T03:31:28Z",
+   "retracted_at": "2023-01-27T21:51:55Z",
+   "retracted_by": [
+    {
+     "id": "retraction:event:withdrawn:GHSA-27h2-hvpr-p74q",
+     "at": "2023-01-27T21:51:55Z",
+     "reason": "jsonwebtoken has insecure input validation in jwt.verify function",
+     "trigger": "event:withdrawn:GHSA-27h2-hvpr-p74q",
+     "wave": 1,
+     "classification": "real_retraction",
+     "rationale": "The advisory notes that the risk comes from caller code modifying the key parameter, not from a flaw in jsonwebtoken itself, indicating the claimed vulnerability is not real.",
+     "original": null,
+     "by": "agent:retcon"
+    }
+   ],
+   "repo": "Rudransh-1508/retcon-target-gladys",
+   "supports": [
+    {
+     "id": "support:judged:judgment:triage:gladys:jsonwebtoken@8.5.1:GHSA-27h2-hvpr-p74q",
+     "created_at": "2022-12-22T03:31:28Z",
+     "held_at": "2022-12-22T03:31:28Z",
+     "kind": "judged",
+     "retracted_at": "2023-01-27T21:51:55Z",
+     "status": "retracted",
+     "by": "Triage",
+     "premises": [
+      {
+       "kind": "Advisory",
+       "id": "GHSA-27h2-hvpr-p74q",
+       "status": "retracted",
+       "held_at": "2022-12-22T03:31:28Z",
+       "summary": "jsonwebtoken has insecure input validation in jwt.verify function",
+       "severity": "HIGH",
+       "rank": 3,
+       "aliases": [
+        "CVE-2022-23529"
+       ],
+       "published": "2022-12-22T03:31:28Z",
+       "evidence": "GHSA-27h2-hvpr-p74q",
+       "duplicate": false,
+       "url": "https://github.com/advisories/GHSA-27h2-hvpr-p74q",
+       "withdrawn": "2023-01-27T21:51:55Z",
+       "retracted_at": "2023-01-27T21:51:55Z",
+       "retracted_by": [
+        {
+         "id": "retraction:event:withdrawn:GHSA-27h2-hvpr-p74q",
+         "at": "2023-01-27T21:51:55Z",
+         "reason": "jsonwebtoken has insecure input validation in jwt.verify function",
+         "trigger": "event:withdrawn:GHSA-27h2-hvpr-p74q",
+         "wave": 0,
+         "classification": "real_retraction",
+         "rationale": "The advisory notes that the risk comes from caller code modifying the key parameter, not from a flaw in jsonwebtoken itself, indicating the claimed vulnerability is not real.",
+         "original": null,
+         "by": "agent:retcon"
+        }
+       ]
+      },
+      {
+       "kind": "Exposure",
+       "id": "exposure:gladys:jsonwebtoken@8.5.1",
+       "created_at": "2022-12-22T03:31:28Z",
+       "status": "held",
+       "project": "gladys",
+       "package": "jsonwebtoken",
+       "version": "8.5.1",
+       "held_at": "2022-12-22T03:31:28Z",
+       "retracted_by": [],
+       "direct": true,
+       "paths": [
+        "jsonwebtoken"
+       ],
+       "dev": false
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "Judgment",
+   "id": "judgment:triage:gladys:jsonwebtoken@8.5.1:GHSA-8cf7-32gw-wr33",
+   "created_at": "2022-12-22T03:32:22Z",
+   "status": "held",
+   "project": "gladys",
+   "package": "jsonwebtoken",
+   "version": "8.5.1",
+   "advisory": "GHSA-8cf7-32gw-wr33",
+   "verdict": "not_reachable",
+   "rationale": "The project only uses jwt.verify and jwt.sign with a secret (this.jwtSecret / jwtSecret) and does not configure asymmetric keys or the allowInvalidAsymmetricKeyTypes option, so the unrestricted key type issue does not apply.",
+   "evidence": "[{\"file\": \"server/lib/session/session.validateAccessToken.js\", \"line\": 15}, {\"file\": \"server/utils/accessToken.js\", \"line\": 22}]",
+   "usages": 4,
+   "held_at": "2022-12-22T03:32:22Z",
+   "retracted_by": [],
+   "repo": "Rudransh-1508/retcon-target-gladys",
+   "supports": [
+    {
+     "id": "support:judged:judgment:triage:gladys:jsonwebtoken@8.5.1:GHSA-8cf7-32gw-wr33",
+     "created_at": "2022-12-22T03:32:22Z",
+     "held_at": "2022-12-22T03:32:22Z",
+     "kind": "judged",
+     "status": "held",
+     "by": "Triage",
+     "premises": [
+      {
+       "kind": "Exposure",
+       "id": "exposure:gladys:jsonwebtoken@8.5.1",
+       "created_at": "2022-12-22T03:31:28Z",
+       "status": "held",
+       "project": "gladys",
+       "package": "jsonwebtoken",
+       "version": "8.5.1",
+       "held_at": "2022-12-22T03:31:28Z",
+       "retracted_by": [],
+       "direct": true,
+       "paths": [
+        "jsonwebtoken"
+       ],
+       "dev": false
+      },
+      {
+       "kind": "Advisory",
+       "id": "GHSA-8cf7-32gw-wr33",
+       "status": "held",
+       "held_at": "2022-12-22T03:32:22Z",
+       "summary": "jsonwebtoken unrestricted key type could lead to legacy keys usage ",
+       "severity": "HIGH",
+       "rank": 3,
+       "aliases": [
+        "CVE-2022-23539"
+       ],
+       "published": "2022-12-22T03:32:22Z",
+       "evidence": "GHSA-8cf7-32gw-wr33",
+       "duplicate": false,
+       "url": "https://github.com/advisories/GHSA-8cf7-32gw-wr33",
+       "retracted_by": []
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "supports": [
+  {
+   "id": "support:resolves:exposure:gladys:jsonwebtoken@8.5.1",
+   "created_at": "2022-12-22T03:31:28Z",
+   "held_at": "2022-12-22T03:31:28Z",
+   "kind": "resolves",
+   "status": "held",
+   "by": "Retcon",
+   "premises": [
+    {
+     "kind": "Exposure",
+     "id": "exposure:gladys:jsonwebtoken@8.5.1",
+     "created_at": "2022-12-22T03:31:28Z",
+     "status": "held",
+     "project": "gladys",
+     "package": "jsonwebtoken",
+     "version": "8.5.1",
+     "held_at": "2022-12-22T03:31:28Z",
+     "retracted_by": [],
+     "direct": true,
+     "paths": [
+      "jsonwebtoken"
+     ],
+     "dev": false,
+     "supports": [
+      {
+       "id": "support:affects:GHSA-27h2-hvpr-p74q:exposure:gladys:jsonwebtoken@8.5.1",
+       "created_at": "2022-12-22T03:31:28Z",
+       "fix": "9.0.0",
+       "held_at": "2022-12-22T03:31:28Z",
+       "kind": "affects",
+       "retracted_at": "2023-01-27T21:51:55Z",
+       "status": "retracted",
+       "by": "Retcon",
+       "premises": [
+        {
+         "kind": "Advisory",
+         "id": "GHSA-27h2-hvpr-p74q",
+         "status": "retracted",
+         "held_at": "2022-12-22T03:31:28Z",
+         "summary": "jsonwebtoken has insecure input validation in jwt.verify function",
+         "severity": "HIGH",
+         "rank": 3,
+         "aliases": [
+          "CVE-2022-23529"
+         ],
+         "published": "2022-12-22T03:31:28Z",
+         "evidence": "GHSA-27h2-hvpr-p74q",
+         "duplicate": false,
+         "url": "https://github.com/advisories/GHSA-27h2-hvpr-p74q",
+         "withdrawn": "2023-01-27T21:51:55Z",
+         "retracted_at": "2023-01-27T21:51:55Z",
+         "retracted_by": [
+          {
+           "id": "retraction:event:withdrawn:GHSA-27h2-hvpr-p74q",
+           "at": "2023-01-27T21:51:55Z",
+           "reason": "jsonwebtoken has insecure input validation in jwt.verify function",
+           "trigger": "event:withdrawn:GHSA-27h2-hvpr-p74q",
+           "wave": 0,
+           "classification": "real_retraction",
+           "rationale": "The advisory notes that the risk comes from caller code modifying the key parameter, not from a flaw in jsonwebtoken itself, indicating the claimed vulnerability is not real.",
+           "original": null,
+           "by": "agent:retcon"
+          }
+         ],
+         "supports": []
+        }
+       ]
+      },
+      {
+       "id": "support:affects:GHSA-8cf7-32gw-wr33:exposure:gladys:jsonwebtoken@8.5.1",
+       "created_at": "2022-12-22T03:32:22Z",
+       "fix": "9.0.0",
+       "held_at": "2022-12-22T03:32:22Z",
+       "kind": "affects",
+       "status": "held",
+       "by": "Retcon",
+       "premises": [
+        {
+         "kind": "Advisory",
+         "id": "GHSA-8cf7-32gw-wr33",
+         "status": "held",
+         "held_at": "2022-12-22T03:32:22Z",
+         "summary": "jsonwebtoken unrestricted key type could lead to legacy keys usage ",
+         "severity": "HIGH",
+         "rank": 3,
+         "aliases": [
+          "CVE-2022-23539"
+         ],
+         "published": "2022-12-22T03:32:22Z",
+         "evidence": "GHSA-8cf7-32gw-wr33",
+         "duplicate": false,
+         "url": "https://github.com/advisories/GHSA-8cf7-32gw-wr33",
+         "retracted_by": [],
+         "supports": []
+        }
+       ]
+      },
+      {
+       "id": "support:affects:GHSA-hjrf-2m68-5959:exposure:gladys:jsonwebtoken@8.5.1",
+       "created_at": "2022-12-22T03:33:19Z",
+       "fix": "9.0.0",
+       "held_at": "2022-12-22T03:33:19Z",
+       "kind": "affects",
+       "status": "held",
+       "by": "Retcon",
+       "premises": [
+        {
+         "kind": "Advisory",
+         "id": "GHSA-hjrf-2m68-5959",
+         "status": "held",
+         "held_at": "2022-12-22T03:33:19Z",
+         "summary": "jsonwebtoken's insecure implementation of key retrieval function could lead to Forgeable Public/Private Tokens from RSA to HMAC",
+         "severity": "MODERATE",
+         "rank": 2,
+         "aliases": [
+          "CVE-2022-23541"
+         ],
+         "published": "2022-12-22T03:33:19Z",
+         "evidence": "GHSA-hjrf-2m68-5959",
+         "duplicate": false,
+         "url": "https://github.com/advisories/GHSA-hjrf-2m68-5959",
+         "retracted_by": [],
+         "supports": []
+        }
+       ]
+      },
+      {
+       "id": "support:affects:GHSA-qwph-4952-7xr6:exposure:gladys:jsonwebtoken@8.5.1",
+       "created_at": "2022-12-22T03:32:59Z",
+       "fix": "9.0.0",
+       "held_at": "2022-12-22T03:32:59Z",
+       "kind": "affects",
+       "status": "held",
+       "by": "Retcon",
+       "premises": [
+        {
+         "kind": "Advisory",
+         "id": "GHSA-qwph-4952-7xr6",
+         "status": "held",
+         "held_at": "2022-12-22T03:32:59Z",
+         "summary": "jsonwebtoken vulnerable to signature validation bypass due to insecure default algorithm in jwt.verify()",
+         "severity": "MODERATE",
+         "rank": 2,
+         "aliases": [
+          "CVE-2022-23540"
+         ],
+         "published": "2022-12-22T03:32:59Z",
+         "evidence": "GHSA-qwph-4952-7xr6",
+         "duplicate": false,
+         "url": "https://github.com/advisories/GHSA-qwph-4952-7xr6",
+         "retracted_by": [],
+         "supports": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

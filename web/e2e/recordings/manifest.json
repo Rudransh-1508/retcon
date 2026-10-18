@@ -1,0 +1,19 @@
+{
+ "api": "https://retcon-kappa.vercel.app",
+ "recorded": "2026-10-18T15:22:19.355Z",
+ "first": "decision:gladys:@babel/traverse",
+ "rich": "decision:gladys:jsonwebtoken",
+ "responses": {
+  "/api/projects": "projects.json",
+  "/api/decisions": "decisions.json",
+  "/api/agents?limit=400": "agents_limit_400.json",
+  "/api/events": "events.json",
+  "/api/graph?project=gladys": "graph_project_gladys.json",
+  "/api/graph?project=wiredoor": "graph_project_wiredoor.json",
+  "/api/why?id=decision%3Agladys%3A%40babel%2Ftraverse": "why_id_decision_3Agladys_3A_40babel_2Ftraverse.json",
+  "/api/whatif?id=GHSA-67hx-6x53-jw92": "whatif_id_GHSA_67hx_6x53_jw92.json",
+  "/api/why?id=decision%3Agladys%3Ajsonwebtoken": "why_id_decision_3Agladys_3Ajsonwebtoken.json",
+  "/api/whatif?id=GHSA-8cf7-32gw-wr33": "whatif_id_GHSA_8cf7_32gw_wr33.json",
+  "/api/event?id=event%3Awithdrawn%3AGHSA-9wx3-p993-35vp": "event_id_event_3Awithdrawn_3AGHSA_9wx3_p993_35vp.json"
+ }
+}
