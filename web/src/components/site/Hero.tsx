@@ -1,6 +1,6 @@
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Compass } from 'lucide-react'
 import { HeroStack } from './HeroStack'
-import { APP_URL } from './links'
+import { APP_URL, TOUR_URL } from './links'
 
 export function Hero() {
   return (
@@ -30,6 +30,12 @@ export function Hero() {
             </a>
             <a href="#how" className="inline-flex h-12 items-center justify-center rounded-full border border-line px-6 font-medium text-ink transition-colors duration-200 hover:border-ink/40">
               How it works
+            </a>
+            {/* Quieter than both buttons: a guided way in for anyone who wants it. */}
+            <a href={TOUR_URL}
+              className="group inline-flex h-12 items-center justify-center gap-2 rounded-full px-3 text-sm font-medium text-muted-foreground underline-offset-4 transition-colors duration-200 hover:text-ink hover:underline">
+              <Compass className="h-4 w-4 transition-transform duration-200 group-hover:rotate-45 motion-reduce:transition-none" aria-hidden="true" />
+              Take the tour
             </a>
           </div>
         </div>
