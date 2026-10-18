@@ -1,0 +1,47 @@
+name: worker
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "run (apply new events) or reset (close Retcon's PRs, wipe the graph, replay from scratch)"
+        type: choice
+        options: [run, reset]
+        default: run
+      pause:
+        description: "Seconds between significant events (demo speed); 0 is instant"
+        default: "0"
+
+concurrency:
+  group: retcon-worker
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  worker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      FALKORDB_HOST: ${{ secrets.FALKORDB_HOST }}
+      FALKORDB_PORT: ${{ secrets.FALKORDB_PORT }}
+      FALKORDB_USERNAME: ${{ secrets.FALKORDB_USERNAME }}
+      FALKORDB_PASSWORD: ${{ secrets.FALKORDB_PASSWORD }}
+      GITHUB_TOKEN: ${{ secrets.RETCON_GITHUB_TOKEN }}
+      GROQ_API_KEYS: ${{ secrets.GROQ_API_KEYS }}
+      RETCON_GRAPH: retcon
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --frozen --no-dev
+      - name: Reset
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.command == 'reset' }}
+        run: uv run python -m retcon.cli reset
+      - name: Run
+        run: uv run python -m retcon.cli run --pause "${{ inputs.pause || '0' }}"
