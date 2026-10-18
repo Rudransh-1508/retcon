@@ -42,5 +42,18 @@ for (const colorScheme of ['light', 'dark'] as const) {
       await expect(why.getByRole('heading', { name: 'Planner' })).toBeVisible()
       expect(await axe(page)).toEqual([])
     })
+
+    test.describe('first visit', () => {
+      test.use({ tourSeen: false })
+
+      test('The tour card has no accessibility violations', async ({ page }) => {
+        await page.goto('/app')
+        await expect(page.getByRole('dialog', { name: 'Welcome to Retcon' })).toBeVisible()
+        expect(await axe(page)).toEqual([])
+        await page.getByRole('button', { name: 'Start' }).click()
+        await expect(page.getByRole('dialog', { name: 'You know your way around' })).toBeVisible()
+        expect(await axe(page)).toEqual([])
+      })
+    })
   })
 }
