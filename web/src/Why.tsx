@@ -1,0 +1,131 @@
+import { useEffect, useState } from 'react'
+import { api, type WhyNode, type WhySupport } from './api'
+import { Severity, Urgency } from './bits'
+import { date } from './format'
+
+export function Why({ id, onClose, onOpen }: { id: string; onClose: () => void; onOpen: (id: string) => void }) {
+  const [tree, setTree] = useState<WhyNode | null>(null)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    api.why(id).then(setTree).catch((e) => setError(String(e)))
+  }, [id])
+
+  return (
+    <div className="why">
+      <div className="section-head">
+        <h2>Why?</h2>
+        <button className="ghost" onClick={onClose} aria-label="Close">Close</button>
+      </div>
+      {error && <div className="error">{error}</div>}
+      {!tree && !error && <div className="muted">Loading…</div>}
+      {tree && (
+        <>
+          <Headline node={tree} />
+          <div className="tree">
+            <NodeCard node={tree} root onOpen={onOpen} />
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
+
+function Headline({ node }: { node: WhyNode }) {
+  if (node.kind !== 'Decision') return null
+  const held = node.status === 'held'
+  const evidence = (node.evidence as string[] | undefined) ?? []
+  return (
+    <div className={`headline ${held ? '' : 'retracted'}`}>
+      <div className="headline-title">
+        <Urgency value={held ? (node.urgency as string) : null} />
+        <span>
+          {held ? 'Upgrade' : 'Cancelled: upgrade'} <b>{String(node.package)}</b>
+          {held && node.target && node.target !== 'none' ? <> to <code>{String(node.target)}</code></> : null}
+          {' '}in <b>{String(node.project)}</b>
+        </span>
+      </div>
+      <p className="muted">
+        {held
+          ? `Justified by ${evidence.length} advisor${evidence.length === 1 ? 'y that still holds' : 'ies that still hold'}.`
+          : 'No support is left: every advisory behind it was withdrawn.'}
+      </p>
+    </div>
+  )
+}
+
+function NodeCard({ node, root, onOpen }: { node: WhyNode; root?: boolean; onOpen: (id: string) => void }) {
+  const retracted = node.status === 'retracted'
+  const supports = node.supports ?? []
+  return (
+    <div className={`node ${retracted ? 'retracted' : ''} ${root ? 'root' : ''}`}>
+      <div className="node-head">
+        <span className={`kind kind-${node.kind.toLowerCase()}`}>{node.kind}</span>
+        <NodeTitle node={node} onOpen={onOpen} />
+        <span className={`status ${retracted ? 'off' : 'on'}`}>{retracted ? 'retracted' : 'held'}</span>
+      </div>
+      {retracted && node.retracted_by.length > 0 && (
+        <div className="retraction-note">
+          Retracted {date(node.retracted_by[0].at)}
+          {node.kind === 'Advisory' ? ': withdrawn by its publisher' : ': its support was retracted'}
+        </div>
+      )}
+      {supports.length > 0 && (
+        <ul className="supports">
+          {supports.map((s) => <SupportRow key={s.id} support={s} onOpen={onOpen} />)}
+        </ul>
+      )}
+    </div>
+  )
+}
+
+function SupportRow({ support, onOpen }: { support: WhySupport; onOpen: (id: string) => void }) {
+  const retracted = support.status === 'retracted'
+  const label = support.kind === 'affects' ? 'affected by' : support.kind === 'resolves' ? 'because of' : support.kind
+  return (
+    <li className={`support ${retracted ? 'retracted' : ''}`}>
+      <div className="support-label">
+        <span>{label}</span>
+        {support.kind === 'affects' && support.fix ? (
+          <span className="muted">{support.fix === 'none' ? 'no fixed release yet' : <>fixed in <code>{String(support.fix)}</code></>}</span>
+        ) : null}
+        {support.by && <span className="muted">· recorded by {support.by}</span>}
+      </div>
+      {support.premises.map((p) => <NodeCard key={p.id} node={p} onOpen={onOpen} />)}
+    </li>
+  )
+}
+
+function NodeTitle({ node, onOpen }: { node: WhyNode; onOpen: (id: string) => void }) {
+  switch (node.kind) {
+    case 'Advisory':
+      return (
+        <span className="node-title">
+          <a href={String(node.url)} target="_blank" rel="noreferrer" className="mono">{node.id}</a>
+          <Severity value={node.severity as string} />
+          <span className="summary">{String(node.summary ?? '')}</span>
+        </span>
+      )
+    case 'Exposure':
+      return (
+        <span className="node-title">
+          <code>{String(node.package)}@{String(node.version)}</code>
+          <span className="muted">in {String(node.project)}{node.dev ? ' (dev only)' : ''}</span>
+          {Array.isArray(node.paths) && node.paths.length > 0 && (
+            <span className="summary mono">
+              {node.direct ? 'direct dependency' : `via ${String(node.paths[0])}`}
+            </span>
+          )}
+        </span>
+      )
+    case 'Decision':
+      return (
+        <span className="node-title">
+          <button className="link" onClick={() => onOpen(node.id)}>{String(node.package)}</button>
+          <span className="muted">in {String(node.project)}</span>
+        </span>
+      )
+    default:
+      return <span className="node-title mono">{node.id}</span>
+  }
+}
