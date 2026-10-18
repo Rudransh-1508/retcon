@@ -63,5 +63,10 @@ for (const p of projects) {
   if (path && !manifest[path]) await record(path)
 }
 
+// The console's tick (POST /api/tick) can start the agents' worker, so it is never recorded from a deployment:
+// a fixed answer stands in for it.
+await writeFile(join(OUT, 'tick.json'), JSON.stringify({ started: false, why: 'the agents ran recently', age: 240 }, null, 1) + '\n')
+manifest['/api/tick'] = 'tick.json'
+
 await writeFile(join(OUT, 'manifest.json'), JSON.stringify({ api: API, recorded: new Date().toISOString(), first: first.id, rich: RICH_DECISION, responses: manifest }, null, 1) + '\n')
 console.log(`recorded ${Object.keys(manifest).length} responses from ${API}`)

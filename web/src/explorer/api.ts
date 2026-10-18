@@ -38,7 +38,9 @@ export type AgentItem = {
   links: string[]
 }
 
-export type Simulation = { event: string; waves: string[][]; changes: Change[] }
+/** Whether the site started the agents' worker on GitHub, and why or why not. */
+export type AgentsRun = { started: boolean; why: string; age?: number | null }
+export type Simulation = { event: string; waves: string[][]; changes: Change[]; agents?: AgentsRun }
 
 export const passphrase = {
   get: () => { try { return sessionStorage.getItem('retcon-admin') ?? '' } catch { return '' } },
@@ -54,6 +56,8 @@ export const api = {
   graph: (project: string) => get<GraphData>(`/api/graph?project=${encodeURIComponent(project)}`),
   event: (id: string) => get<EventDetail>(`/api/event?id=${encodeURIComponent(id)}`),
   whatIf: (id: string) => get<Simulation>(`/api/whatif?id=${encodeURIComponent(id)}`),
+  /** Starts the agents' worker if it has not run for 10 minutes. Best effort: failures are ignored. */
+  tick: (): Promise<AgentsRun | null> => fetch('/api/tick', { method: 'POST' }).then((r) => (r.ok ? r.json() : null)).catch(() => null),
   correct: async (id: string, reason: string): Promise<Simulation> => {
     const res = await fetch('/api/correct', {
       method: 'POST', headers: { 'content-type': 'application/json', 'x-retcon-passphrase': passphrase.get() },

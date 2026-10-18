@@ -76,7 +76,9 @@ export function WhatIf({ target, onClose, onDone, onOpen, onGhost }: {
           <p className="text-sm text-muted-foreground">
             {applied ? 'Done. ' : 'Simulated on a temporary copy; nothing was written. '}
             {plural(retracted, 'belief')} {applied ? 'were' : 'would be'} retracted across {plural(sim.waves.length, 'wave')}.
-            {applied && ' GitHub catches up on the worker’s next run.'}
+            {applied && (sim.agents?.started
+              ? ' The agents are on it: GitHub updates within about a minute.'
+              : ' GitHub catches up on the worker’s next run.')}
           </p>
           {sim.changes.length === 0 && <p className="text-sm">No decision would change.</p>}
           <ul className="grid gap-1.5">

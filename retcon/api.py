@@ -8,7 +8,7 @@ import json
 from fastapi import FastAPI, Header, HTTPException
 from pydantic import BaseModel
 
-from . import config
+from . import config, dispatch
 from .engine import Engine, EventResult
 
 from contextlib import asynccontextmanager
@@ -93,6 +93,12 @@ def what_if(id: str):
         raise HTTPException(400, str(e))
 
 
+@app.post("/api/tick")
+def tick():
+    """Called when the console opens: starts the agents' worker if it has not run for 10 minutes."""
+    return dispatch.run_if_stale()
+
+
 class Correction(BaseModel):
     id: str
     reason: str
@@ -100,18 +106,20 @@ class Correction(BaseModel):
 
 @app.post("/api/correct")
 def correct(body: Correction, x_retcon_passphrase: str = Header(default="")):
-    """Retract a belief for real. GitHub catches up on the worker's next run."""
+    """Retract a belief for real, then start the agents' worker so GitHub catches up within about a minute."""
     expected = config.env("RETCON_ADMIN_PASSPHRASE") or ""
     if not expected or not hmac.compare_digest(x_retcon_passphrase.encode(), expected.encode()):
         raise HTTPException(403, "admin passphrase required")
     if not body.reason.strip():
         raise HTTPException(400, "a correction needs a reason")
     try:
-        return _result(engine().correct(body.id, body.reason.strip(), by="person:admin"))
+        result = _result(engine().correct(body.id, body.reason.strip(), by="person:admin"))
     except KeyError:
         raise HTTPException(404, f"no node {body.id}")
     except ValueError as e:
         raise HTTPException(400, str(e))
+    result["agents"] = dispatch.run_now("a belief was corrected on the site")
+    return result
 
 
 @app.get("/api/graph")

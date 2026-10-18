@@ -301,7 +301,7 @@ flowchart TB
 ```
 
 - **Graph:** FalkorDB Cloud. The graph can always be rebuilt from the feed, so a restart of the free instance is harmless.
-- **Worker:** a scheduled GitHub Actions workflow, every 10 minutes, plus manual `run` and `reset`.
+- **Worker:** a GitHub Actions workflow that runs the agents. GitHub's 10-minute schedule is best effort, so the site also starts it: right after an admin correction, and whenever the console opens and the agents have not run for 10 minutes (`POST /api/tick`). The site does this with a token that can only start this workflow; the Groq and GitHub keys stay in the worker.
 - **Advisory feed:** the public OSV bucket (the npm archive on rebuild, the modified-id index after that). OSV's query API omits withdrawn advisories, so it is not used.
 - **LLMs:** Groq, with a key pool, rotation, backoff and a fallback model.
 - **API and UI:** FastAPI serverless functions plus a Next.js static export in `web/` (landing page at `/`, console at `/app`, 3D graph in three.js), all on Vercel.
@@ -358,6 +358,7 @@ Settings are read from the environment or a local `.env` file.
 | `GITHUB_TOKEN` | Fine-grained token for the two target repositories |
 | `RETCON_ADMIN_PASSPHRASE` | Required to retract a belief for real |
 | `RETCON_PUBLIC_URL` | Public URL used in links written to GitHub |
+| `RETCON_DISPATCH_TOKEN` | On Vercel only: a fine-grained token on this repository with Actions read and write, so the site can start the worker |
 
 ### Tests
 

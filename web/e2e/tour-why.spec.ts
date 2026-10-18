@@ -23,7 +23,8 @@ async function openFirstDecision(page: Page) {
 
 test('Steps 6 to 10 inside the Why panel, with real pointer and clicks', async ({ page }) => {
   const writes: string[] = []
-  page.on('request', (r) => { if (r.url().includes('/api/') && (r.method() !== 'GET' || r.url().includes('/api/correct'))) writes.push(r.url()) })
+  // The console's own freshness ping (POST /api/tick, sent once when it opens) is not the tour's and writes no belief.
+  page.on('request', (r) => { if (r.url().includes('/api/') && !r.url().includes('/api/tick') && (r.method() !== 'GET' || r.url().includes('/api/correct'))) writes.push(r.url()) })
   await openFirstDecision(page)
 
   await expect(card(page, 'The chain of support')).toBeVisible()

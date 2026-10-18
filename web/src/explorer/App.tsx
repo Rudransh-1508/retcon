@@ -39,6 +39,8 @@ const isView = (v: string): v is View => VIEWS.some((x) => x.id === v)
 
 export default function App() {
   usePointerGlow()
+  // Opening the console keeps the agents fresh: the server starts the worker if it has not run for 10 minutes.
+  useEffect(() => { void api.tick() }, [])
   const [rawView, setViewParam] = useUrlParam('view', 'decisions')
   const setView = (next: View) => { setViewParam(next); emit('view-changed', next) }
   const view: View = isView(rawView) ? rawView : 'decisions'

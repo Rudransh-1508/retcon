@@ -35,7 +35,8 @@ async function clickABelief(page: Page) {
 test('The whole tour, steps 0 to 17 in order, with real clicks, a real drag and a real selection', async ({ page }) => {
   test.setTimeout(240_000)
   const writes: string[] = []
-  page.on('request', (r) => { if (r.url().includes('/api/') && (r.method() !== 'GET' || r.url().includes('/api/correct'))) writes.push(r.url()) })
+  // The console's own freshness ping (POST /api/tick, sent once when it opens) is not the tour's and writes no belief.
+  page.on('request', (r) => { if (r.url().includes('/api/') && !r.url().includes('/api/tick') && (r.method() !== 'GET' || r.url().includes('/api/correct'))) writes.push(r.url()) })
   await page.goto('/app')
 
   // 0. Welcome

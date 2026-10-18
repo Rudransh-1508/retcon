@@ -6,6 +6,7 @@ from tests.conftest import add, published
 
 def client(engine, monkeypatch, passphrase="correct horse"):
     monkeypatch.setattr(api, "_engine", engine)
+    monkeypatch.delenv("RETCON_DISPATCH_TOKEN", raising=False)
     monkeypatch.setenv("RETCON_ADMIN_PASSPHRASE", passphrase)
     return TestClient(api.app)
 
@@ -35,6 +36,8 @@ def test_what_if_is_public_and_correct_needs_the_passphrase(engine, monkeypatch)
     ok = c.post("/api/correct", json=body, headers={"x-retcon-passphrase": "correct horse"})
     assert ok.status_code == 200 and ok.json()["changes"][0]["change"] == "cancel"
     assert engine.node("decision:wiredoor:form-data")["status"] == "retracted"
+    # Without a dispatch token the correction still lands; the reply says the agents were not started.
+    assert ok.json()["agents"] == {"started": False, "why": "the site has no dispatch token"}
 
 
 def test_graph_returns_beliefs_with_supports_as_edges(engine, monkeypatch):
@@ -53,3 +56,8 @@ def test_graph_returns_beliefs_with_supports_as_edges(engine, monkeypatch):
         ("exposure:wiredoor:express@4.21.2", "decision:wiredoor:express")}
     ev = c.get("/api/event", params={"id": "event:withdrawn:GHSA-pj86-cfqh-vqx6"}).json()
     assert ev["waves"][0] == ["GHSA-pj86-cfqh-vqx6"]
+
+
+def test_tick_reports_without_a_token(engine, monkeypatch):
+    c = client(engine, monkeypatch)
+    assert c.post("/api/tick").json() == {"started": False, "why": "the site has no dispatch token"}
