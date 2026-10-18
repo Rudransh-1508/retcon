@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 }
 
 // Links in pull requests and MCP answers predate the landing page and point at /?why=...; send them to the app.
-const legacyRedirect = `if(location.pathname==='/'&&/[?&](why|view|project)=/.test(location.search))location.replace('/app'+location.search)`
+const legacyRedirect = `if(location.pathname==='/'&&/[?&](why|view|project)=/.test(location.search))location.replace('/app'+location.search);else{var h=document.documentElement;h.classList.add('reveal-ready');setTimeout(function(){h.classList.remove('reveal-ready')},6000)}`
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
