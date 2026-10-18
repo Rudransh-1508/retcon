@@ -82,3 +82,11 @@ class FakeGitHub:
 
     def prs(self, repo):
         return [i for i in self.items.get(repo, {}).values() if i.is_pr]
+
+    def retcon_items(self, repo):
+        check_target(repo)
+        return [i for i in self.items.get(repo, {}).values() if "<!-- retcon:" in i.body]
+
+    def delete_branches(self, repo, prefix):
+        check_target(repo)
+        self.log.append(("delete_branches", repo, 0))

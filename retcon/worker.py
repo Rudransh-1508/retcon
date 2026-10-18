@@ -61,3 +61,22 @@ def run(engine: Engine, reconciler: Reconciler | None, github, archive=None, pau
         report.actions += reconciler.reconcile()
     feed.set_cursor(engine, cursor_after)
     return report
+
+
+RESET_NOTE = ("**Retcon reset.** History is being replayed from scratch; this item is archived and a fresh one "
+              "will follow if it is still needed.")
+
+
+def reset(engine: Engine, github, repos) -> list[tuple[str, int]]:
+    """Archive every Retcon item (close it and neutralise its marker), delete Retcon branches, wipe the graph."""
+    archived = []
+    for repo in repos:
+        for item in github.retcon_items(repo):
+            body = item.body.replace("<!-- retcon:", "<!-- retcon-archived:")
+            if item.state == "open":
+                github.comment(repo, item.number, RESET_NOTE)
+            github.update(repo, item.number, body=body, state="closed")
+            archived.append((repo, item.number))
+        github.delete_branches(repo, "retcon/")
+    engine.delete_graph()
+    return archived

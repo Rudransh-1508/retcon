@@ -92,19 +92,10 @@ def main():
                          pause=args.pause)
         print(f"rebuilt={rep.rebuilt} events={rep.events} skipped={rep.skipped} actions={len(rep.actions)}")
     elif args.cmd == "reset":
-        from . import config
+        from . import config, worker
         from .github import RealGitHub
-        gh = RealGitHub()
-        for repo in config.TARGET_REPOS:
-            for item in gh.retcon_items(repo):
-                body = item.body.replace("<!-- retcon:", "<!-- retcon-archived:")
-                if item.state == "open":
-                    gh.comment(repo, item.number, "**Retcon reset.** History is being replayed from scratch; "
-                                                  "this item is archived and a fresh one will follow if needed.")
-                gh.update(repo, item.number, body=body, state="closed")
-                print("archived", repo, item.number)
-            gh.delete_branches(repo, "retcon/")
-        engine.delete_graph()
+        for repo, number in worker.reset(engine, RealGitHub(), config.TARGET_REPOS):
+            print("archived", repo, number)
         print("graph wiped")
     elif args.cmd == "reconcile":
         for done in reconciler(engine).reconcile():

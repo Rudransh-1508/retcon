@@ -63,3 +63,41 @@ def test_incremental_run_applies_a_new_withdrawal(engine, tmp_path):
 
     assert report.events == 1
     assert engine.node("decision:wiredoor:express")["status"] == "retracted"
+
+
+def test_reset_archives_retcon_items_and_a_fresh_replay_opens_new_ones(engine, tmp_path):
+    from retcon.config import TARGET_REPOS
+    gh = FakeGitHub()
+    worker.run(engine, Reconciler(engine, gh, builder=no_lock_builder), gh, archive=archive(tmp_path))
+    first = {(repo, i.number) for repo in gh.items for i in gh.items[repo].values()}
+    assert first
+
+    archived = worker.reset(engine, gh, TARGET_REPOS)
+
+    assert set(archived) == first
+    assert all(i.state == "closed" and "<!-- retcon:" not in i.body for r in gh.items for i in gh.items[r].values())
+    engine.g = engine.db.select_graph(engine.graph_name)
+    engine._ensure_indexes()
+    worker.run(engine, Reconciler(engine, gh, builder=no_lock_builder), gh, archive=archive(tmp_path))
+    fresh = {(repo, i.number) for repo in gh.items for i in gh.items[repo].values()} - first
+    assert len(fresh) == len(first)
+    assert all(gh.items[repo][n].body.count("<!-- retcon:") == 1 for repo, n in fresh)
+
+
+def test_rebuild_on_an_empty_graph_reproduces_decisions_and_relinks_prs(engine, tmp_path):
+    import uuid
+    from falkordb import FalkorDB
+    from retcon.engine import Engine
+    from tests.conftest import LOCAL
+    gh = FakeGitHub()
+    worker.run(engine, Reconciler(engine, gh, builder=no_lock_builder), gh, archive=archive(tmp_path))
+    before = sorted((d["id"], d["status"], d["urgency"]) for d in engine.decisions())
+    prs = len([i for r in gh.items for i in gh.items[r].values() if i.is_pr])
+
+    fresh = Engine(graph_name=f"test_{uuid.uuid4().hex[:10]}", db=FalkorDB(**LOCAL))
+    try:
+        worker.run(fresh, Reconciler(fresh, gh, builder=no_lock_builder), gh, archive=archive(tmp_path))
+        assert sorted((d["id"], d["status"], d["urgency"]) for d in fresh.decisions()) == before
+        assert len([i for r in gh.items for i in gh.items[r].values() if i.is_pr]) == prs
+    finally:
+        fresh.delete_graph()
