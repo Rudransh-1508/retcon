@@ -118,7 +118,7 @@ export function TourCard({ step, index, total, target, onNext, onBack, onSkipTou
       )}
 
       <p role="status" aria-live="polite" className="mt-2 text-xs text-muted-foreground empty:hidden">
-        {degraded && target.failed ? 'That part of the page could not load just now, so here is what it would show. Press Next to carry on.'
+        {degraded && target.failed ? 'That part of the page is not available right now, so here is what it would show. Press Next to carry on.'
           : degraded ? 'That part of the page did not appear, so here is what it would show. Press Next to carry on.'
           : step.target && target.waiting ? 'Waiting for this part of the page to load. You can skip this step.' : ''}
       </p>

@@ -39,7 +39,8 @@ const isView = (v: string): v is View => VIEWS.some((x) => x.id === v)
 
 export default function App() {
   usePointerGlow()
-  const [rawView, setView] = useUrlParam('view', 'decisions')
+  const [rawView, setViewParam] = useUrlParam('view', 'decisions')
+  const setView = (next: View) => { setViewParam(next); emit('view-changed', next) }
   const view: View = isView(rawView) ? rawView : 'decisions'
   const [why, setWhyParam] = useUrlParam('why', '')
   const setWhy = (id: string) => {
@@ -68,7 +69,7 @@ export default function App() {
   const onChanged = () => { invalidate('decisions'); invalidate('projects'); projects.reload(); decisions.reload() }
 
   return (
-    <TourProvider ready={decisions.data !== null} failed={!!decisions.error && decisions.data === null} onView={setView}
+    <TourProvider ready={decisions.data !== null} failed={!!decisions.error && decisions.data === null} onView={setViewParam}
       // The tour opening or closing the panel is not something the visitor did, so it sends no signal.
       onCloseWhy={() => setWhyParam('')}
       onOpenWhy={() => { const d = !why && firstDecision(projects.data ?? [], decisions.data ?? []); if (d) setWhyParam(d.id) }}>
@@ -144,7 +145,7 @@ function NavPills({ view, onChange }: { view: View; onChange: (v: View) => void 
         {pill && <m.span aria-hidden="true" className="absolute bottom-1 left-0 top-1 rounded-full bg-ink" initial={false} animate={{ x: pill.x, width: pill.w }} transition={{ duration: 0.28, ease }} />}
         {VIEWS.map(({ id, label, Icon }) => (
           <li key={id} className="relative z-10">
-            <button type="button" onClick={() => onChange(id)} aria-current={view === id ? 'page' : undefined}
+            <button type="button" onClick={() => onChange(id)} aria-current={view === id ? 'page' : undefined} data-tour={`tab-${id}`}
               className={cn('flex h-9 items-center gap-2 rounded-full px-4 text-sm font-medium transition-colors duration-200', view === id ? 'text-on-ink' : 'text-muted-foreground hover:text-ink')}>
               <Icon className="size-4" aria-hidden="true" />{label}
             </button>
@@ -163,7 +164,7 @@ function MobileDock({ view, onChange }: { view: View; onChange: (v: View) => voi
           const on = view === id
           return (
             <li key={id}>
-              <button type="button" onClick={() => onChange(id)} aria-current={on ? 'page' : undefined}
+              <button type="button" onClick={() => onChange(id)} aria-current={on ? 'page' : undefined} data-tour={`tab-${id}`}
                 className={cn('relative flex min-h-14 w-full flex-col items-center justify-center gap-1 rounded-xl text-[11px] font-medium transition-colors duration-200', on ? 'text-on-ink' : 'text-muted-foreground')}>
                 <m.span aria-hidden="true" className="absolute inset-0 rounded-xl bg-ink" initial={false} animate={{ opacity: on ? 1 : 0, scale: on ? 1 : 0.9 }} transition={{ duration: 0.22, ease }} />
                 <Icon className="relative size-5" aria-hidden="true" />

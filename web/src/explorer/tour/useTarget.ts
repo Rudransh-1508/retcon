@@ -26,9 +26,14 @@ export function useTarget(name: string | undefined, timeoutMs = 25_000): Target 
     let scrolled = false
     let last = ''
     const tick = () => {
-      const el = document.querySelector<HTMLElement>(targetSelector(name))
-      const r = el?.getBoundingClientRect()
-      const box = r && r.width > 0 && r.height > 0 ? { x: r.left, y: r.top, w: r.width, h: r.height } : null
+      // The first marked element that is actually shown: the header tabs and the phone dock share markers.
+      let el: HTMLElement | undefined
+      let r: DOMRect | undefined
+      for (const candidate of document.querySelectorAll<HTMLElement>(targetSelector(name))) {
+        const rect = candidate.getBoundingClientRect()
+        if (rect.width > 0 && rect.height > 0) { el = candidate; r = rect; break }
+      }
+      const box = r ? { x: r.left, y: r.top, w: r.width, h: r.height } : null
       if (el && box && !scrolled) {
         scrolled = true
         if (box.y < 72 || box.y + box.h > window.innerHeight - 24) el.scrollIntoView({ block: 'center', behavior: reduce ? 'auto' : 'smooth' })

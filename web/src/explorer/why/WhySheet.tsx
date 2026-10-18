@@ -17,13 +17,17 @@ export function WhySheet({ id, decisions, onClose, onOpen, onChanged }: {
   const wide = useMediaQuery('(min-width: 768px)')
   // The sheet is controlled (no Radix trigger), so remember what opened it and give focus back on close.
   const opener = useRef<HTMLElement | null>(null)
-  // While the tour runs the sheet is not modal, so the tour's card and highlight above it stay usable; clicks on
-  // them are not "outside" clicks that would close it.
+  // While the tour runs the sheet is not modal, so the tour's card and highlight above it stay usable, and nothing
+  // outside it closes it: the dim layer already blocks the page, and the tour's own buttons may be gone from the
+  // DOM by the time Radix checks a deferred outside click, so their position cannot be tested.
   const touring = useTour().status === 'running'
   return (
     <Sheet open={id !== null} modal={!touring} onOpenChange={(open) => { if (!open) onClose() }}>
       <SheetContent side={wide ? 'right' : 'bottom'}
-        onInteractOutside={(e) => { if ((e.target as Element | null)?.closest?.('[data-tour-layer]')) e.preventDefault() }}
+        onInteractOutside={(e) => { if (touring) e.preventDefault() }}
+        // Focus leaving never closes the panel: modal, it cannot leave; during the tour it moves to the tour's card,
+        // and when the tour ends that card disappears and focus falls to the page.
+        onFocusOutside={(e) => e.preventDefault()}
         closeProps={{ 'data-tour': 'why-close' }}
         onOpenAutoFocus={(e) => {
           opener.current = document.activeElement instanceof HTMLElement ? document.activeElement : null
