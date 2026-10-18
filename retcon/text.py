@@ -102,6 +102,13 @@ class TemplateWriter:
             return (f"**Retcon: downgraded from {last[1]} to {d['urgency']}.** The upgrade is still justified by "
                     f"{n} advisor{'y' if n == 1 else 'ies'}, so this stays open at lower priority.{because}\n\n"
                     f"Trail: {ctx['ui']}")
+        if change == "move_to_report":
+            fell = (f", downgraded from {last[1]} to {d['urgency']}"
+                    if last and last[1] and last[1] != d["urgency"] else f" at {d['urgency']}")
+            return (f"**Retcon: moved to the report{fell}.** The upgrade is still justified by "
+                    f"{n} advisor{'y' if n == 1 else 'ies'}, but at this priority it is tracked in the project's "
+                    f"report issue instead of a pull request. Closing this pull request.{because}\n\n"
+                    f"Trail: {ctx['ui']}")
         if change == "escalate":
             new = [h for h in ctx.get("new_history", []) if h["kind"] == "published"]
             added = "".join(f"\n- [{h['advisory']}](https://github.com/advisories/{h['advisory']}) was published"

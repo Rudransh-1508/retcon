@@ -95,6 +95,37 @@ def test_cancel_closes_without_consulting_the_planner(engine):
     assert pr.state == "closed"
 
 
+def test_a_downgrade_can_move_the_pull_request_to_the_report(engine, tmp_path):
+    from retcon.triage import TriageAgent
+    from tests.test_triage import VerdictLLM, project_code
+
+    # Triage makes jsonwebtoken P0; withdrawing the RCE claim drops it to P1 while its pull request is open.
+    engine.triage = TriageAgent(VerdictLLM({"GHSA-27h2-hvpr-p74q": "exploitable"}), project_code(tmp_path))
+    gh = FakeGitHub()
+    r, llm = reconciler(engine, gh, {"new": "open_pr", "downgrade": "move_to_report"})
+    add(engine, "gladys")
+    for ghsa in JWT_2022:
+        engine.process_event(published(ghsa))
+    r.reconcile()
+
+    engine.process_event(withdrawn("GHSA-27h2-hvpr-p74q"))
+    r.reconcile()
+
+    assert [p["decision_point"] for p in llm.prompts] == ["new", "downgrade"]
+    [pr] = [p for p in gh.prs(GLADYS) if "jsonwebtoken" in p.title]
+    assert pr.state == "closed"
+    [(_, _, comment)] = [c for c in gh.comments if c[1] == pr.number]
+    assert "moved to the report, downgraded from P0 to P1" in comment
+    assert "scripted move_to_report at downgrade" in comment
+    [report] = [i for i in gh.items[GLADYS].values() if not i.is_pr]
+    assert "jsonwebtoken" in report.body
+    plans = engine.why("decision:gladys:jsonwebtoken")["plans"]
+    assert [(p["action"], p["point"], p["status"]) for p in plans] == [
+        ("open_pr", "new", "retracted"), ("move_to_report", "downgrade", "held")]
+    [action] = plans[1]["actions"]
+    assert f"/issues/{pr.number}#comment-" in action
+
+
 def test_every_action_at_a_decision_point_is_linked_to_its_plan(engine):
     gh = FakeGitHub()
     r, _ = reconciler(engine, gh, {})

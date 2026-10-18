@@ -129,7 +129,7 @@ class Reconciler:
         elif choice.action == REPORT:
             mode = "report"
         elif choice.action == MOVE_TO_REPORT:
-            done += self._close(d, ctx, "move_to_report")
+            done += self._close(d, ctx, "move_to_report", last)
             mode = "report"
         elif choice.action == KEEP_PR:
             done += self._update(d, ctx, last)
@@ -275,9 +275,9 @@ class Reconciler:
             done.append(Done(d["id"], "comment", url))
         return done
 
-    def _close(self, d: dict, ctx: dict, why: str = "cancel") -> list[Done]:
+    def _close(self, d: dict, ctx: dict, why: str = "cancel", last: tuple | None = None) -> list[Done]:
         repo, number = d["repo"], d["pr_number"]
-        url = self.gh.comment(repo, number, self.writer.comment(why, ctx, None))
+        url = self.gh.comment(repo, number, self.writer.comment(why, ctx, last))
         title, body = self.writer.pr(ctx)
         self.gh.update(repo, number, title=title, body=body, labels=self._labels(d), state="closed")
         self.engine.record_action(d["id"], "close" if why == "cancel" else why, url, self._event_time(d), plan=self._plan_id)
