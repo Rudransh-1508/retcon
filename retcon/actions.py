@@ -115,7 +115,7 @@ class Reconciler:
         s.facts = self._facts(d, ctx, last)
         choice = self.planner.choose(s)
         plan_id = self.engine.write_plan(d["id"], choice.action, choice.rationale, point, s.allowed, choice,
-                                         premises=self._plan_premises(d, ctx))
+                                         premises=self._plan_premises(d, ctx), at=self._event_time(d))
         ctx["plan"] = {"id": plan_id, "action": choice.action, "rationale": choice.rationale, "by": choice.by}
         self._plan_id = plan_id
         done: list[Done] = []
@@ -151,6 +151,11 @@ class Reconciler:
         if last[1] and urgency_rank(d.get("urgency")) > urgency_rank(last[1]):
             return "downgrade"
         return "replan" if plan_retracted else None
+
+    def _event_time(self, d: dict) -> str:
+        """When, in the history, this decision last changed: plans and actions are dated to the event they answer."""
+        rows = self.engine.q("MATCH (e:Event)-[:CHANGED]->(:Decision {id: $id}) RETURN max(e.at)", {"id": d["id"]})
+        return rows[0][0] if rows and rows[0][0] else now()
 
     def _plan_status(self, d: dict) -> str | None:
         rows = self.engine.q("MATCH (p:Plan {id: $id}) RETURN p.status", {"id": d.get("plan_id") or ""})
@@ -242,7 +247,7 @@ class Reconciler:
                                f"Upgrade {d['package']} (Retcon {d['urgency']})")
         self._remember_pr(d, item.number, item.url, "pr")
         d.update(pr_number=item.number, pr_url=item.url)
-        self.engine.record_action(d["id"], "open_pr", item.url, now(), plan=self._plan_id)
+        self.engine.record_action(d["id"], "open_pr", item.url, self._event_time(d), plan=self._plan_id)
         return Done(d["id"], "open_pr", item.url)
 
     def _update(self, d: dict, ctx: dict, last: tuple) -> list[Done]:
@@ -266,7 +271,7 @@ class Reconciler:
             change = "unchanged"
         if change:
             url = self.gh.comment(repo, number, self.writer.comment(change, ctx, last))
-            self.engine.record_action(d["id"], f"comment:{change}", url, now(), plan=self._plan_id)
+            self.engine.record_action(d["id"], f"comment:{change}", url, self._event_time(d), plan=self._plan_id)
             done.append(Done(d["id"], "comment", url))
         return done
 
@@ -275,7 +280,7 @@ class Reconciler:
         url = self.gh.comment(repo, number, self.writer.comment(why, ctx, None))
         title, body = self.writer.pr(ctx)
         self.gh.update(repo, number, title=title, body=body, labels=self._labels(d), state="closed")
-        self.engine.record_action(d["id"], "close" if why == "cancel" else why, url, now(), plan=self._plan_id)
+        self.engine.record_action(d["id"], "close" if why == "cancel" else why, url, self._event_time(d), plan=self._plan_id)
         return [Done(d["id"], "comment", url), Done(d["id"], "close", d["pr_url"])]
 
     def _reopen(self, d: dict, ctx: dict) -> list[Done]:
@@ -283,7 +288,7 @@ class Reconciler:
         title, body = self.writer.pr(ctx)
         self.gh.update(repo, number, title=title, body=body, labels=self._labels(d), state="open")
         url = self.gh.comment(repo, number, self.writer.comment("reopen", ctx, None))
-        self.engine.record_action(d["id"], "reopen", url, now(), plan=self._plan_id)
+        self.engine.record_action(d["id"], "reopen", url, self._event_time(d), plan=self._plan_id)
         return [Done(d["id"], "reopen", d["pr_url"]), Done(d["id"], "comment", url)]
 
     def _update_report(self, project: str) -> list[Done]:

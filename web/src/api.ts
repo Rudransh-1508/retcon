@@ -32,6 +32,12 @@ export type GraphEdge = { id: string; support: string | null; source: string; ta
 export type GraphData = { nodes: GraphNode[]; edges: GraphEdge[] }
 export type EventDetail = { id: string; kind: string; at: string; advisory: string | null; target: string | null; waves: string[][]; changes: Change[] }
 
+export type AgentItem = {
+  agent: string; kind: 'judgment' | 'plan' | 'audit' | 'action'; id: string; project: string | null; decision: string | null
+  status: string; title: string | null; detail: string | null; at: string | null; advisory?: string | null; point?: string | null
+  links: string[]
+}
+
 export type Simulation = { event: string; waves: string[][]; changes: Change[] }
 
 export const passphrase = {
@@ -44,6 +50,7 @@ export const api = {
   decisions: () => get<Decision[]>('/api/decisions'),
   why: (id: string) => get<WhyNode>(`/api/why?id=${encodeURIComponent(id)}`),
   events: () => get<Event[]>('/api/events'),
+  agents: () => get<AgentItem[]>('/api/agents?limit=400'),
   graph: (project: string) => get<GraphData>(`/api/graph?project=${encodeURIComponent(project)}`),
   event: (id: string) => get<EventDetail>(`/api/event?id=${encodeURIComponent(id)}`),
   whatIf: (id: string) => get<Simulation>(`/api/whatif?id=${encodeURIComponent(id)}`),

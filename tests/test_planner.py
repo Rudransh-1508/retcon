@@ -114,3 +114,31 @@ def test_the_planner_rationale_reaches_the_pull_request(engine):
     r.reconcile()
     [pr] = gh.prs(WIREDOOR)
     assert "scripted open_pr at new" in pr.body
+
+
+def test_agent_activity_lists_every_agent_in_time_order(engine, tmp_path):
+    from retcon.auditor import AuditorAgent
+    from retcon.triage import TriageAgent
+    from tests.test_triage import VerdictLLM, project_code
+
+    class AuditLLM:
+        def json(self, system, user, max_tokens=800):
+            return {"classification": "real_retraction", "original": None, "rationale": "not a real flaw"}
+
+    engine.triage = TriageAgent(VerdictLLM({"GHSA-27h2-hvpr-p74q": "not_reachable"}), project_code(tmp_path))
+    engine.auditor = AuditorAgent(AuditLLM())
+    gh = FakeGitHub()
+    r, _ = reconciler(engine, gh, {"new": "open_pr", "replan": "keep_pr"})
+    add(engine, "gladys")
+    for ghsa in JWT_2022:
+        engine.process_event(published(ghsa))
+    r.reconcile()
+    engine.process_event(withdrawn("GHSA-27h2-hvpr-p74q"))
+    r.reconcile()
+
+    feed = engine.agent_activity(project="gladys")
+    assert {i["agent"] for i in feed} == {"Triage", "Planner", "Auditor", "Fixer"}
+    assert [i["at"] for i in feed] == sorted((i["at"] for i in feed), reverse=True)
+    plan = next(i for i in feed if i["kind"] == "plan" and i["title"] == "open_pr")
+    assert plan["at"].startswith("2022-12-22") and plan["links"] == [gh.prs(GLADYS)[0].url]
+    assert [i["agent"] for i in engine.agent_activity(agent="auditor")] == ["Auditor"]

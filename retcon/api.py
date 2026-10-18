@@ -152,5 +152,10 @@ def event(id: str):
             "waves": json.loads(waves or "[]"), "changes": json.loads(changes or "[]")}
 
 
+@app.get("/api/agents")
+def agents(agent: str | None = None, project: str | None = None, limit: int = 200):
+    return engine().agent_activity(agent, project, limit)
+
+
 # Mounted last so every API route above takes precedence; the MCP app answers at /mcp.
 app.mount("/", mcp_app)

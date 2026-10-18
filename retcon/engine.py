@@ -491,9 +491,9 @@ class Engine:
         seq = self.q("MATCH (a:Action) RETURN count(a)")[0][0] + 1
         aid = f"action:{seq}:{decision}"
         self.q("""MATCH (d:Decision {id: $d})
-                  CREATE (a:Action:Node {id: $id, kind: $kind, url: $url, at: $at, plan: $plan})
+                  CREATE (a:Action:Node {id: $id, kind: $kind, url: $url, at: $at, plan: $plan, recorded_at: $now})
                   CREATE (d)-[:CAUSED]->(a)""",
-               {"d": decision, "id": aid, "kind": kind, "url": url, "at": at, "plan": plan})
+               {"d": decision, "id": aid, "kind": kind, "url": url, "at": at, "plan": plan, "now": now()})
         if plan:
             self.q("MATCH (p:Plan {id: $p}), (a:Action {id: $a}) MERGE (p)-[:CAUSED]->(a)", {"p": plan, "a": aid})
 
@@ -539,6 +539,43 @@ class Engine:
                          ORDER BY d.project, d.package""", {"project": project})
         return [{"id": r[0], "project": r[1], "package": r[2], "status": r[3], "urgency": r[4],
                  "target": r[5], "evidence": r[6] or [], "pr_url": r[7], "mode": r[8]} for r in rows]
+
+    def agent_activity(self, agent: str | None = None, project: str | None = None, limit: int = 200) -> list[dict]:
+        """Everything the agents did, newest first: judgments, plans, Auditor rationales and the actions taken."""
+        p = {"project": project}
+        items = []
+        for r in self.q("""MATCH (a:Agent)-[:WROTE]->(:Support)-[:SUPPORTS]->(j:Judgment)
+                           WHERE $project IS NULL OR j.project = $project
+                           OPTIONAL MATCH (j)-[:ADJUSTS]->(d:Decision)
+                           RETURN a.name, j.id, j.project, d.id, j.status, j.verdict, j.rationale, j.created_at,
+                                  j.advisory""", p):
+            items.append({"agent": r[0], "kind": "judgment", "id": r[1], "project": r[2], "decision": r[3],
+                          "status": r[4], "title": r[5], "detail": r[6], "at": r[7], "advisory": r[8], "links": []})
+        for r in self.q("""MATCH (a:Agent)-[:WROTE]->(:Support)-[:SUPPORTS]->(pl:Plan)
+                           WHERE $project IS NULL OR pl.project = $project
+                           OPTIONAL MATCH (pl)-[:CAUSED]->(x:Action)
+                           RETURN a.name, pl.id, pl.project, pl.decision, pl.status, pl.action, pl.rationale,
+                                  pl.created_at, pl.point, collect(x.url)""", p):
+            items.append({"agent": r[0], "kind": "plan", "id": r[1], "project": r[2], "decision": r[3],
+                          "status": r[4], "title": r[5], "detail": r[6], "at": r[7], "point": r[8],
+                          "links": [u for u in r[9] if u]})
+        for r in self.q("""MATCH (a:Agent {id: 'agent:auditor'})-[:WROTE]->(r:Retraction)<-[:TRIGGERED]-(e:Event)
+                           OPTIONAL MATCH (e)-[:CHANGED]->(d:Decision)
+                           WITH a, r, e, collect(d.id) AS ds
+                           WHERE $project IS NULL OR any(x IN ds WHERE x STARTS WITH ('decision:' + $project + ':'))
+                           RETURN a.name, r.id, r.classification, r.rationale, r.at, e.advisory, ds""", p):
+            items.append({"agent": r[0], "kind": "audit", "id": r[1], "project": project, "decision": (r[6] or [None])[0],
+                          "status": "held", "title": r[2], "detail": r[3], "at": r[4], "advisory": r[5],
+                          "decisions": r[6], "links": []})
+        for r in self.q("""MATCH (d:Decision)-[:CAUSED]->(x:Action)
+                           WHERE $project IS NULL OR d.project = $project
+                           RETURN x.id, d.project, d.id, x.kind, x.url, x.at, x.plan""", p):
+            items.append({"agent": "Fixer", "kind": "action", "id": r[0], "project": r[1], "decision": r[2],
+                          "status": "done", "title": r[3], "detail": None, "at": r[5], "plan": r[6], "links": [r[4]]})
+        if agent:
+            items = [i for i in items if i["agent"].lower() == agent.lower()]
+        items.sort(key=lambda i: (i["at"] or "", i["id"]), reverse=True)
+        return items[:limit]
 
     def events(self, limit: int = 200) -> list[dict]:
         rows = self.q("""MATCH (e:Event) OPTIONAL MATCH (e)-[:ABOUT]->(a:Advisory)
