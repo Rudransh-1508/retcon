@@ -30,3 +30,7 @@ next-env.d.ts
 *.tsbuildinfo
 AGENTS.md
 .next-dev
+
+# Browser tests
+e2e/.results
+playwright-report
