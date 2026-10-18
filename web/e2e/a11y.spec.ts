@@ -1,4 +1,4 @@
-import { test, expect, axe, manifest, recorded, skipToFinish } from './fixtures'
+import { test, expect, axe, manifest, recorded, skipTo, skipToFinish } from './fixtures'
 
 type Decision = { id: string; project: string; package: string }
 const rich = recorded<Decision[]>('/api/decisions').find((d) => d.id === manifest.rich)!
@@ -60,6 +60,19 @@ for (const colorScheme of ['light', 'dark'] as const) {
         await page.getByRole('button', { name: 'Back' }).click()
         await page.getByRole('button', { name: 'Back' }).click()
         await skipToFinish(page)
+        expect(await axe(page)).toEqual([])
+      })
+
+      test('A hands-on step has no accessibility violations', async ({ page }) => {
+        await page.goto('/app')
+        await skipTo(page, 'Narrow the list')
+        expect(await axe(page)).toEqual([])
+      })
+
+      test('A step with the Why panel open has no accessibility violations', async ({ page }) => {
+        await page.goto('/app')
+        await skipTo(page, 'The chain of support')
+        await expect(page.getByRole('dialog', { name: 'Why' }).getByRole('img', { name: /^Chain of support:/ })).toBeVisible()
         expect(await axe(page)).toEqual([])
       })
     })

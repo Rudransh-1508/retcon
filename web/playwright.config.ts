@@ -10,8 +10,8 @@ export default defineConfig({
   fullyParallel: true,
   // The tour tests drive WebGL and long multi-step flows; under parallel load they need more than the defaults.
   workers: process.env.CI ? 2 : '50%',
-  timeout: 60_000,
-  expect: { timeout: 10_000 },
+  timeout: 90_000,
+  expect: { timeout: 15_000 },
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? 'github' : 'list',
