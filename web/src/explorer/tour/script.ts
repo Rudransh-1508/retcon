@@ -16,6 +16,8 @@ export type Step = {
   target?: string
   /** The view this step needs; the tour switches to it on entry, and again when going back. */
   view?: View
+  /** 'closed': the Why panel must be shut for this step, so the tour closes it on entry. */
+  why?: 'closed'
   done: Done
   /** Label of the button that moves on from a 'next' step. */
   cta?: string
@@ -53,10 +55,40 @@ export const STEPS: Step[] = [
     done: 'next',
   },
   {
+    id: 'tiles',
+    title: 'The numbers at a glance',
+    body: 'Open decisions are the upgrades Retcon holds now, and Urgent now counts the P0 and P1 ones. Real pull requests are open on GitHub, in two real projects. Taken back counts decisions that a retraction cancelled.',
+    target: 'summary',
+    view: 'decisions',
+    why: 'closed',
+    done: 'next',
+  },
+  {
+    id: 'filter',
+    title: 'Narrow the list',
+    body: 'P0 is the most urgent: a critical advisory still holds the upgrade. Filters only narrow the list; they never change anything.',
+    action: 'Click P0.',
+    target: 'urgency-p0',
+    view: 'decisions',
+    why: 'closed',
+    done: { signal: 'filter-changed', detail: 'P0' },
+  },
+  {
+    id: 'first-decision',
+    title: 'Open a decision',
+    body: 'Each card is one upgrade: the package, the version that fixes it, its urgency, the real pull request, and how many advisories hold it. The list is sorted by urgency, so this card is among the most urgent.',
+    action: 'Click the card to see why it exists.',
+    target: 'first-decision',
+    view: 'decisions',
+    why: 'closed',
+    done: { signal: 'why-opened' },
+  },
+  {
     id: 'finish',
     title: 'You know your way around',
     body: 'Admin is for the project owner, who can retract a belief for real; the tour never needs it. Replay this tour any time from the Tour button. To ask Retcon from your own agent, add it over MCP:',
     target: 'tour-button',
+    why: 'closed',
     code: MCP_COMMAND,
     done: 'next',
     cta: 'Finish',

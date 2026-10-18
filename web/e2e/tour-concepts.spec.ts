@@ -53,14 +53,16 @@ test('Step 2 moves on only once all three outcomes have been seen, each changing
     await expect(status).toContainText(`Plates that change: ${plates}`)
   }
   await card.getByRole('button', { name: 'Next' }).click()
-  await expect(page.getByRole('dialog', { name: 'You know your way around' })).toBeVisible()
+  await expect(outcomes(page)).toBeHidden()
+  await expect(page.getByRole('dialog', { name: 'The numbers at a glance' })).toBeVisible()
 })
 
 test('Skip step moves past both concept steps', async ({ page }) => {
   await toBeliefs(page)
   await beliefs(page).getByRole('button', { name: 'Skip step' }).click()
   await outcomes(page).getByRole('button', { name: 'Skip step' }).click()
-  await expect(page.getByRole('dialog', { name: 'You know your way around' })).toBeVisible()
+  await expect(outcomes(page)).toBeHidden()
+  await expect(page.getByRole('dialog', { name: 'The numbers at a glance' })).toBeVisible()
 })
 
 test('The diagram can be completed from the keyboard', async ({ page }) => {

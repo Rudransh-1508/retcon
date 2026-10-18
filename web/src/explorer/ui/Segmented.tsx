@@ -6,7 +6,7 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { cn } from '@/lib/utils'
 import { ease } from '@/components/site/motion'
 
-export type Option<T extends string> = { value: T; label: string; count?: number }
+export type Option<T extends string> = { value: T; label: string; count?: number; /** A `data-tour` marker for the tour. */ tour?: string }
 
 /** shadcn Tabs as a filter: a pill slides under the active option. */
 export function Segmented<T extends string>({ value, onValueChange, options, label, className }: {
@@ -37,7 +37,7 @@ export function Segmented<T extends string>({ value, onValueChange, options, lab
         )}
         {options.map((o) => (
           // These tabs filter one list, so there is no panel for aria-controls to point at.
-          <TabsTrigger key={o.value} value={o.value} aria-controls={undefined}
+          <TabsTrigger key={o.value} value={o.value} aria-controls={undefined} data-tour={o.tour}
             className={cn('relative z-10 h-8 flex-none rounded-full border-0 px-3.5 text-[13px] font-medium capitalize shadow-none transition-colors duration-200 data-[state=active]:bg-transparent data-[state=active]:text-on-ink data-[state=active]:shadow-none',
               'text-muted-foreground hover:text-ink data-[state=active]:hover:text-on-ink',
               // shadcn's own dark: variants would otherwise win in dark mode.

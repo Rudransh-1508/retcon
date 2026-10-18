@@ -15,6 +15,7 @@ import { Timeline } from './views/Timeline'
 import { Skeleton } from './ui/States'
 import { WhySheet } from './why/WhySheet'
 import { TourProvider, useTour } from './tour/TourProvider'
+import { emit } from './tour/signals'
 import { LogoMark } from '@/components/site/Logo'
 import { ease } from '@/components/site/motion'
 import { Button } from '@/components/ui/button'
@@ -40,7 +41,13 @@ export default function App() {
   usePointerGlow()
   const [rawView, setView] = useUrlParam('view', 'decisions')
   const view: View = isView(rawView) ? rawView : 'decisions'
-  const [why, setWhy] = useUrlParam('why', '')
+  const [why, setWhyParam] = useUrlParam('why', '')
+  const setWhy = (id: string) => {
+    if (id === why) return
+    setWhyParam(id)
+    if (id) emit('why-opened', id)
+    else emit('why-closed')
+  }
   const [project, setProject] = useState('all')
   const [admin, setAdmin] = useState(() => passphrase.get() !== '')
 
@@ -61,7 +68,7 @@ export default function App() {
   const onChanged = () => { invalidate('decisions'); invalidate('projects'); projects.reload(); decisions.reload() }
 
   return (
-    <TourProvider ready={decisions.data !== null} failed={!!decisions.error && decisions.data === null} onView={setView}>
+    <TourProvider ready={decisions.data !== null} failed={!!decisions.error && decisions.data === null} onView={setView} onCloseWhy={() => setWhy('')}>
     <div className="min-h-dvh">
       <a href="#console" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-md focus:bg-ink focus:px-3 focus:py-2 focus:text-on-ink">Skip to content</a>
       <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-md">
