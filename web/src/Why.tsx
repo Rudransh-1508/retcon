@@ -22,12 +22,45 @@ export function Why({ id, onClose, onOpen }: { id: string; onClose: () => void; 
       {tree && (
         <>
           <Headline node={tree} />
+          {Array.isArray(tree.history) && tree.history.length > 0 && <History items={tree.history as HistoryItem[]} />}
           <div className="tree">
             <NodeCard node={tree} root onOpen={onOpen} />
           </div>
         </>
       )}
     </div>
+  )
+}
+
+type HistoryItem = {
+  event: string; kind: string; advisory: string; at: string; change: string
+  before: string | null; after: string | null; evidence_before: number; evidence_after: number
+}
+
+const CHANGE_LABEL: Record<string, string> = {
+  new: 'opened', updated: 'more evidence', escalate: 'escalated', unchanged: 'support changed',
+  downgrade: 'downgraded', cancel: 'cancelled',
+}
+
+function History({ items }: { items: HistoryItem[] }) {
+  return (
+    <ol className="history" aria-label="History">
+      {items.map((h) => (
+        <li key={h.event} className={`history-item ${h.change}`}>
+          <span className="history-date mono">{date(h.at)}</span>
+          <span className={`history-change ${h.change}`}>{CHANGE_LABEL[h.change] ?? h.change}</span>
+          <span className="history-detail">
+            <span className="muted">{h.kind}</span>{' '}
+            <a href={`https://github.com/advisories/${h.advisory}`} target="_blank" rel="noreferrer" className="mono">{h.advisory}</a>
+          </span>
+          <span className="history-urgency">
+            {h.before && h.before !== h.after && <><Urgency value={h.before} /><span className="muted">→</span></>}
+            <Urgency value={h.after} />
+            <span className="muted mono">{h.evidence_after} adv.</span>
+          </span>
+        </li>
+      ))}
+    </ol>
   )
 }
 

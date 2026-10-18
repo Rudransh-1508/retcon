@@ -346,13 +346,25 @@ class Engine:
                {"id": event_id, "kind": kind, "adv": adv.id, "at": at, "processed": now(),
                 "changes": json.dumps(changes), "waves": json.dumps(result.waves)})
         self.q("MATCH (e:Event {id: $e}), (a:Advisory {id: $a}) MERGE (e)-[:ABOUT]->(a)", {"e": event_id, "a": adv.id})
-        if kind == "withdrawn":
-            for c in result.changes:
-                self.q("""MATCH (r:Retraction {id: $r}), (d:Decision {id: $d})
-                          MERGE (r)-[x:CHANGED]->(d)
-                          SET x.outcome = $outcome, x.before = $before, x.after = $after""",
-                       {"r": f"retraction:{event_id}", "d": c.decision, "outcome": c.change,
-                        "before": c.before.get("urgency") if c.before else None, "after": c.after.get("urgency")})
+        for c in result.changes:
+            self.q("""MATCH (e:Event {id: $e}), (d:Decision {id: $d})
+                      MERGE (e)-[x:CHANGED]->(d)
+                      SET x.change = $change, x.at = $at, x.before = $before, x.after = $after,
+                          x.evidence_before = $eb, x.evidence_after = $ea""",
+                   {"e": event_id, "d": c.decision, "change": c.change, "at": at,
+                    "before": (c.before or {}).get("urgency") if c.before and c.before.get("status") == "held" else None,
+                    "after": c.after.get("urgency") if c.after.get("status") == "held" else None,
+                    "eb": len((c.before or {}).get("evidence") or []) if c.before and c.before.get("status") == "held" else 0,
+                    "ea": len(c.after.get("evidence") or []) if c.after.get("status") == "held" else 0})
+
+    def history(self, decision: str) -> list[dict]:
+        """Every event that changed a decision, oldest first."""
+        rows = self.q("""MATCH (e:Event)-[x:CHANGED]->(d:Decision {id: $id})
+                         RETURN e.id, e.kind, e.advisory, x.at, x.change, x.before, x.after,
+                                x.evidence_before, x.evidence_after
+                         ORDER BY x.at, e.id""", {"id": decision})
+        return [{"event": r[0], "kind": r[1], "advisory": r[2], "at": r[3], "change": r[4], "before": r[5],
+                 "after": r[6], "evidence_before": r[7], "evidence_after": r[8]} for r in rows]
 
     # ------------------------------------------------------------------ reads
 
@@ -381,6 +393,8 @@ class Engine:
                                 RETURN r.id, r.at, r.reason, r.trigger, x.wave""", {"id": node_id})
         node["retracted_by"] = [{"id": r[0], "at": r[1], "reason": r[2], "trigger": r[3], "wave": r[4]}
                                 for r in retractions]
+        if node["kind"] == "Decision":
+            node["history"] = self.history(node_id)
         if node["kind"] == "Exposure":
             dep = self.q("""MATCH (e:Exposure {id: $id})-[:OF]->(v:PackageVersion)<-[d:DEPENDS_ON]-(p:Project)
                             WHERE p.id = e.project RETURN d.direct, d.paths, d.dev""", {"id": node_id})
