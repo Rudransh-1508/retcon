@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { api, type Decision, type Project } from './api'
 import { Why } from './Why'
+import { Timeline } from './Timeline'
 import { Urgency } from './bits'
 import './app.css'
 
@@ -9,6 +10,7 @@ export default function App() {
   const [decisions, setDecisions] = useState<Decision[]>([])
   const [selected, setSelected] = useState<string | null>(() => new URLSearchParams(location.search).get('why'))
   const [showRetracted, setShowRetracted] = useState(true)
+  const [view, setView] = useState<View>(() => (new URLSearchParams(location.search).get('view') as View) || 'decisions')
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -21,8 +23,10 @@ export default function App() {
     const url = new URL(location.href)
     if (selected) url.searchParams.set('why', selected)
     else url.searchParams.delete('why')
+    if (view !== 'decisions') url.searchParams.set('view', view)
+    else url.searchParams.delete('view')
     history.replaceState(null, '', url)
-  }, [selected])
+  }, [selected, view])
 
   const byProject = useMemo(() => {
     const groups = new Map<string, Decision[]>()
@@ -44,12 +48,19 @@ export default function App() {
             <p>Agent memory that can take things back.</p>
           </div>
         </div>
+        <nav className="tabs" aria-label="Views">
+          {VIEWS.map(([id, label]) => (
+            <button key={id} className={view === id ? 'on' : ''} aria-current={view === id ? 'page' : undefined}
+              onClick={() => setView(id)}>{label}</button>
+          ))}
+        </nav>
       </header>
 
       {error && <div className="error">Could not load data: {error}</div>}
 
       <main className={`layout ${selected ? 'has-why' : ''}`}>
-        <section className="decisions" aria-label="Decisions">
+        {view === 'timeline' && <Timeline onOpen={setSelected} />}
+        {view === 'decisions' && <section className="decisions panel" aria-label="Decisions">
           <div className="section-head">
             <h2>Decisions</h2>
             <label className="toggle">
@@ -77,12 +88,17 @@ export default function App() {
                       </span>
                       <span className="count muted">{d.status === 'held' ? `${d.evidence.length} adv.` : ''}</span>
                     </button>
+                    {d.pr_url && (
+                      <a className="pr-link mono" href={d.pr_url} target="_blank" rel="noreferrer"
+                        title="Open the real pull request on GitHub">#{d.pr_url.split('/').pop()}</a>
+                    )}
                   </li>
                 ))}
               </ul>
             </div>
           ))}
-        </section>
+          {projects.length === 0 && !error && <div className="muted">No projects yet.</div>}
+        </section>}
 
         {selected && (
           <section className="why-panel" aria-label="Why">
@@ -93,6 +109,9 @@ export default function App() {
     </div>
   )
 }
+
+type View = 'decisions' | 'timeline'
+const VIEWS: [View, string][] = [['decisions', 'Decisions'], ['timeline', 'Timeline']]
 
 function byUrgency(a: Decision, b: Decision) {
   const rank = (d: Decision) => (d.status === 'retracted' ? 9 : Number((d.urgency ?? 'P9').slice(1)))

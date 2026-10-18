@@ -33,7 +33,7 @@ def seed_fixtures(engine: Engine):
         print(event["at"][:10], event["kind"], event["advisory"]["id"], [(c.decision, c.change) for c in r.changes])
 
 
-def reconciler(engine: Engine):
+def reconciler(engine: Engine, gh=None):
     """Reconciler wired to real GitHub, with the Groq Fixer when keys are configured."""
     from . import config
     from .actions import Reconciler
@@ -41,7 +41,7 @@ def reconciler(engine: Engine):
     from .github import RealGitHub
     from .llm import GroqLLM
     writer = FixerWriter(GroqLLM()) if config.groq_keys() else None
-    return Reconciler(engine, RealGitHub(), writer=writer)
+    return Reconciler(engine, gh or RealGitHub(), writer=writer)
 
 
 def main():
@@ -50,12 +50,45 @@ def main():
     sub.add_parser("seed-fixtures")
     sub.add_parser("wipe")
     sub.add_parser("reconcile")
+    sub.add_parser("reset", help="close Retcon's open items, archive their markers, delete branches, wipe graph")
+    run = sub.add_parser("run", help="load projects if needed, apply new advisory events, reconcile GitHub")
+    run.add_argument("--archive", help="path or URL of the OSV npm archive (rebuild only)")
+    run.add_argument("--pause", type=float, default=0.0, help="seconds between significant events (demo speed)")
+    run.add_argument("--dry-run", action="store_true", help="do not touch GitHub")
     args = parser.parse_args()
     engine = Engine()
     if args.cmd == "seed-fixtures":
         seed_fixtures(engine)
     elif args.cmd == "wipe":
         engine.delete_graph()
+    elif args.cmd == "run":
+        import logging
+        from . import worker
+        from .github import RealGitHub
+        logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(message)s")
+        from . import config
+        gh = RealGitHub()
+        act = not args.dry_run and all(gh.can_write(repo) for repo in config.TARGET_REPOS)
+        if not act and not args.dry_run:
+            logging.warning("GitHub token cannot write to the target repos: updating the graph only")
+        rep = worker.run(engine, reconciler(engine, gh) if act else None, gh, archive=args.archive,
+                         pause=args.pause)
+        print(f"rebuilt={rep.rebuilt} events={rep.events} skipped={rep.skipped} actions={len(rep.actions)}")
+    elif args.cmd == "reset":
+        from . import config
+        from .github import RealGitHub
+        gh = RealGitHub()
+        for repo in config.TARGET_REPOS:
+            for item in gh.retcon_items(repo):
+                body = item.body.replace("<!-- retcon:", "<!-- retcon-archived:")
+                if item.state == "open":
+                    gh.comment(repo, item.number, "**Retcon reset.** History is being replayed from scratch; "
+                                                  "this item is archived and a fresh one will follow if needed.")
+                gh.update(repo, item.number, body=body, state="closed")
+                print("archived", repo, item.number)
+            gh.delete_branches(repo, "retcon/")
+        engine.delete_graph()
+        print("graph wiped")
     elif args.cmd == "reconcile":
         for done in reconciler(engine).reconcile():
             print(done.kind, done.decision, done.url)

@@ -84,6 +84,24 @@ class RealGitHub:
         check_target(repo)
         return self._req("GET", f"/repos/{repo}")["default_branch"]
 
+    def can_write(self, repo) -> bool:
+        """Whether the token may push content (probed with an unreferenced blob, which is harmless)."""
+        check_target(repo)
+        r = self.s.post(f"https://api.github.com/repos/{repo}/git/blobs", json={"content": "probe", "encoding": "utf-8"},
+                        timeout=30)
+        return r.status_code == 201
+
+    def retcon_items(self, repo) -> list[Item]:
+        check_target(repo)
+        self._items.pop(repo, None)
+        return [i for i in self._all_items(repo) if "<!-- retcon:" in i.body]
+
+    def delete_branches(self, repo, prefix: str):
+        check_target(repo)
+        refs = self._req("GET", f"/repos/{repo}/git/matching-refs/heads/{prefix}") or []
+        for ref in refs:
+            self._req("DELETE", f"/repos/{repo}/git/{ref['ref']}", write=True)
+
     def read_file(self, repo, path, ref):
         check_target(repo)
         meta = self._req("GET", f"/repos/{repo}/contents/{path}", params={"ref": ref})

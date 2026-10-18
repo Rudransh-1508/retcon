@@ -1,6 +1,7 @@
 export type Decision = {
   id: string; project: string; package: string; status: 'held' | 'retracted'
   urgency: string | null; target: string | null; evidence: string[]
+  pr_url: string | null; mode: string | null
 }
 export type Project = { id: string; repo: string; snapshot_sha: string; snapshot_date: string; open_decisions: number }
 export type RetractedBy = { id: string; at: string; reason: string; trigger: string; wave: number }

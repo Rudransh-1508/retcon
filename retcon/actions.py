@@ -51,17 +51,20 @@ class Reconciler:
 
     # ------------------------------------------------------------------ public
 
-    def reconcile(self, project: str | None = None) -> list[Done]:
+    def reconcile(self, project: str | None = None, report: bool = True) -> list[Done]:
+        """Bring GitHub in line with the graph. With report=False, report issues are left for a later pass."""
         done: list[Done] = []
         projects = [project] if project else [r[0] for r in self.engine.q("MATCH (p:Project) RETURN p.id")]
         for pid in projects:
-            report_dirty = False
             for d in self._decisions(pid):
                 actions, dirty = self._reconcile_decision(d)
                 done += actions
-                report_dirty = report_dirty or dirty
-            if report_dirty:
+                if dirty:
+                    self.engine.q("MATCH (p:Project {id: $p}) SET p.report_dirty = true", {"p": pid})
+            if report and self.engine.q("MATCH (p:Project {id: $p}) RETURN coalesce(p.report_dirty, false)",
+                                        {"p": pid})[0][0]:
                 done += self._update_report(pid)
+                self.engine.q("MATCH (p:Project {id: $p}) SET p.report_dirty = false", {"p": pid})
         return done
 
     # ------------------------------------------------------------------ per decision
