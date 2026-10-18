@@ -59,7 +59,7 @@ class TemplateWriter:
             title = f"[{d['urgency']}] Upgrade {d['package']}" + (f" to {target}" if target and target != "none" else "")
             lead = (f"Retcon recommends upgrading **{d['package']}**"
                     + (f" to **{target}**" if target and target != "none" else "")
-                    + f". It is justified by **{n} advisor{'y' if n == 1 else 'ies'}** that still hold"
+                    + f". It is justified by **{n} advisor{'y' if n == 1 else 'ies'}** that still hold{'s' if n == 1 else ''}"
                     + f", and its urgency is **{d['urgency']}** (from the most severe of them).")
         else:
             title = f"[cancelled] Upgrade {d['package']}"
@@ -100,7 +100,7 @@ class TemplateWriter:
             return (f"**Retcon: reopened.** New evidence supports this upgrade again "
                     f"({n} advisor{'y' if n == 1 else 'ies'}, {d['urgency']}). Trail: {ctx['ui']}")
         return (f"**Retcon: support changed, priority unchanged ({d['urgency']}).** "
-                f"{n} advisor{'y' if n == 1 else 'ies'} still justify this upgrade.{because}\n\nTrail: {ctx['ui']}")
+                f"{n} advisor{'y still justifies' if n == 1 else 'ies still justify'} this upgrade.{because}\n\nTrail: {ctx['ui']}")
 
     def report(self, project: str, decisions: list[dict], marker: str, ui: str) -> tuple[str, str]:
         held = [d for d in decisions if d["status"] == "held"]

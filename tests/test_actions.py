@@ -149,3 +149,11 @@ def test_only_target_repositories_can_be_acted_on():
     with pytest.raises(NotATarget):
         check_target("GladysAssistant/Gladys")
     check_target(GLADYS)
+
+
+def test_pull_request_text_agrees_in_number(engine, gh):
+    add(engine, "wiredoor")
+    engine.process_event(published("GHSA-fjxv-7rqg-78g4"))
+    reconciler(engine, gh).reconcile()
+    [pr] = gh.prs(WIREDOOR)
+    assert "**1 advisory** that still holds" in pr.body
