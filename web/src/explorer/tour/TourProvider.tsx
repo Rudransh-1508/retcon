@@ -19,23 +19,26 @@ export const useTour = () => useContext(TourContext)
  * Decisions list has loaded, never on a deep link, and always with the forced-start parameter. Finishing and
  * skipping both mark it done for this browser.
  */
-export function TourProvider({ ready, failed, onView, children }: {
+export function TourProvider({ ready, failed, onView, onCloseWhy, children }: {
   /** The Decisions list has loaded, so every step has something real to point at. */
   ready: boolean
   /** The Decisions list failed: the tour stays out of the way of the error. */
   failed: boolean
   onView: (view: View) => void
+  onCloseWhy: () => void
   children: React.ReactNode
 }) {
   const [status, setStatus] = useState<Status>('idle')
   const [index, setIndex] = useState(0)
   const step = status === 'running' ? STEPS[index] : null
   const view = useRef(onView)
-  useEffect(() => { view.current = onView })
+  const closeWhy = useRef(onCloseWhy)
+  useEffect(() => { view.current = onView; closeWhy.current = onCloseWhy })
 
   const go = useCallback((i: number) => {
     const next = STEPS[i]
     if (next.view) view.current(next.view)
+    if (next.why === 'closed') closeWhy.current()
     setIndex(i)
   }, [])
   const start = useCallback(() => { setStatus('running'); go(0) }, [go])

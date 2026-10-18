@@ -6,6 +6,7 @@ import { Sheet, SheetContent, SheetDescription, SheetTitle } from '@/components/
 import { useMediaQuery } from '../useMediaQuery'
 import type { Decision } from '../api'
 import { Why } from './Why'
+import { useTour } from '../tour/TourProvider'
 import { ease } from '@/components/site/motion'
 import { cn } from '@/lib/utils'
 
@@ -16,9 +17,13 @@ export function WhySheet({ id, decisions, onClose, onOpen, onChanged }: {
   const wide = useMediaQuery('(min-width: 768px)')
   // The sheet is controlled (no Radix trigger), so remember what opened it and give focus back on close.
   const opener = useRef<HTMLElement | null>(null)
+  // While the tour runs the sheet is not modal, so the tour's card and highlight above it stay usable; clicks on
+  // them are not "outside" clicks that would close it.
+  const touring = useTour().status === 'running'
   return (
-    <Sheet open={id !== null} onOpenChange={(open) => { if (!open) onClose() }}>
+    <Sheet open={id !== null} modal={!touring} onOpenChange={(open) => { if (!open) onClose() }}>
       <SheetContent side={wide ? 'right' : 'bottom'}
+        onInteractOutside={(e) => { if ((e.target as Element | null)?.closest?.('[data-tour-layer]')) e.preventDefault() }}
         onOpenAutoFocus={(e) => {
           opener.current = document.activeElement instanceof HTMLElement ? document.activeElement : null
           e.preventDefault()
