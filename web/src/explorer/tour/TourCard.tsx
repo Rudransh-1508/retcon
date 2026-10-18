@@ -8,6 +8,7 @@ import { ease } from '@/components/site/motion'
 import { cn } from '@/lib/utils'
 import type { Step } from './script'
 import type { Target } from './useTarget'
+import { WordsDiagram } from './WordsDiagram'
 
 const GAP = 14
 const MARGIN = 12
@@ -38,6 +39,8 @@ export function TourCard({ step, index, total, target, onNext, onBack, onSkipTou
   const [size, setSize] = useState({ w: 400, h: 240 })
   const [phone, setPhone] = useState(() => window.matchMedia('(max-width: 639px)').matches)
   const [copied, setCopied] = useState(false)
+  // A diagram step moves on only once every part of the diagram has been clicked (Skip step always works).
+  const [explored, setExplored] = useState(!step.diagram)
 
   // A step whose target never appeared is explained in place, with a Next button, instead of waiting forever.
   const degraded = !!step.target && target.missing
@@ -82,7 +85,8 @@ export function TourCard({ step, index, total, target, onNext, onBack, onSkipTou
     <m.div ref={card} role="dialog" aria-modal="false" aria-labelledby={ids.title} aria-describedby={ids.body} tabIndex={-1}
       data-tour-layer="card"
       className={cn('fixed z-[70] rounded-2xl border border-line bg-paper p-5 text-ink shadow-[0_24px_60px_-20px_rgb(0_0_0/0.55)] outline-none',
-        phone ? 'max-h-[60dvh] overflow-y-auto' : 'w-[min(26rem,calc(100vw-24px))]')}
+        // On a phone the card must leave the highlighted control visible; with no target it can use the screen.
+        phone ? cn('overflow-y-auto', step.target ? 'max-h-[60dvh]' : 'max-h-[85dvh]') : step.diagram ? 'w-[min(32rem,calc(100vw-24px))]' : 'w-[min(26rem,calc(100vw-24px))]')}
       style={place(target.box, size, phone)}
       initial={reduce ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={reduce ? { duration: 0 } : { duration: 0.25, ease }}>
       <div className="flex items-center gap-3">
@@ -102,6 +106,8 @@ export function TourCard({ step, index, total, target, onNext, onBack, onSkipTou
           </p>
         )}
       </div>
+
+      {step.diagram && <WordsDiagram mode={step.diagram} onComplete={() => setExplored(true)} />}
 
       {step.code && (
         <div className="mt-3 flex items-start gap-2 rounded-xl border border-line bg-panel p-2.5">
@@ -129,9 +135,8 @@ export function TourCard({ step, index, total, target, onNext, onBack, onSkipTou
           {index > 0 && <Button variant="ghost" size="sm" onClick={onBack}><ArrowLeft />Back</Button>}
           <span className="flex-1" />
           <Button variant="ghost" size="sm" className="text-muted-foreground" onClick={() => setConfirming(true)}><X />Skip tour</Button>
-          {handsOn
-            ? <Button variant="outline" size="sm" onClick={onNext}>Skip step</Button>
-            : <Button size="sm" onClick={onNext}>{degraded ? 'Next' : step.cta ?? 'Next'}</Button>}
+          {(handsOn || !explored) && <Button variant="outline" size="sm" onClick={onNext}>Skip step</Button>}
+          {!handsOn && explored && <Button size="sm" onClick={onNext}>{degraded ? 'Next' : step.cta ?? 'Next'}</Button>}
         </div>
       )}
     </m.div>
