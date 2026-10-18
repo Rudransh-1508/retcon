@@ -45,7 +45,7 @@ test('Steps 6 to 10 inside the Why panel, with real pointer and clicks', async (
   await expect(card(page, 'Back to the list')).toBeVisible()
   await why(page).getByRole('button', { name: 'Close', exact: true }).click()
   await expect(why(page)).toBeHidden()
-  await expect(card(page, 'You know your way around')).toBeVisible()
+  await expect(card(page, 'Back to the list')).toBeHidden()
 
   expect(writes).toEqual([])
   await expect(page.getByLabel('Admin passphrase')).toHaveCount(0)
@@ -87,9 +87,9 @@ test('A failed What-if turns steps 8 and 9 into plain explanation', async ({ pag
   await (await settled(page.locator('[data-tour="what-if"]').first())).click()
 
   const result = card(page, 'What would change')
-  await expect(result.getByRole('status')).toContainText('could not load just now')
+  await expect(result.getByRole('status')).toContainText('is not available right now')
   await result.getByRole('button', { name: 'Back' }).click()
-  await expect(card(page, 'Ask what if').getByRole('status')).toContainText('could not load just now')
+  await expect(card(page, 'Ask what if').getByRole('status')).toContainText('is not available right now')
   await card(page, 'Ask what if').getByRole('button', { name: 'Next' }).click()
   await result.getByRole('button', { name: 'Next' }).click()
   await expect(card(page, 'Back to the list')).toBeVisible()

@@ -19,7 +19,8 @@ test('A first visit starts the tour, and finishing it is remembered', async ({ p
   await expect(finish(page)).toBeHidden()
   expect(await page.evaluate(() => localStorage.getItem('retcon-tour'))).toBe('done')
 
-  await page.reload()
+  // A second visit to the console (the tour may have left this page on another view).
+  await page.goto('/app')
   await expect(firstDecision(page)).toBeVisible()
   await expect(page.getByRole('dialog')).toHaveCount(0)
 })

@@ -81,9 +81,14 @@ export async function settled(locator: Locator) {
 }
 
 /** From the welcome card, skip every step until the finish card shows. Independent of how many steps there are. */
-export async function skipToFinish(page: Page) {
+export function skipToFinish(page: Page) {
+  return skipTo(page, 'You know your way around')
+}
+
+/** From the welcome card, skip steps until the card with this title shows. */
+export async function skipTo(page: Page, title: string) {
   await page.getByRole('dialog', { name: 'Welcome to Retcon' }).getByRole('button', { name: 'Start' }).click()
-  const finish = page.getByRole('dialog', { name: 'You know your way around' })
+  const finish = page.getByRole('dialog', { name: title })
   for (let i = 0; i < 40 && !(await finish.isVisible()); i++) {
     const card = page.locator('[data-tour-layer="card"]')
     const title = await card.getByRole('heading').textContent()
