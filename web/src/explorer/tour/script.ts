@@ -21,6 +21,8 @@ export type Step = {
   /** Whether the Why panel must be shut, or open on the first Decision, for this step; the tour sees to it on entry. */
   why?: 'open' | 'closed'
   done: Done
+  /** Going Back to this step goes to that step instead, when this one only makes sense right after it. */
+  backTo?: string
   /** Label of the button that moves on from a 'next' step. */
   cta?: string
   /** A command to show and copy, for the finish step. */
@@ -91,6 +93,7 @@ export const STEPS: Step[] = [
     body: 'These plates are the beliefs this decision rests on, one plate per kind, with advisories at the bottom. A green square still holds; a magenta one has been retracted.',
     action: 'Move your pointer over the plates.',
     target: 'support-stack',
+    view: 'decisions',
     why: 'open',
     done: { signal: 'chain-hovered' },
   },
@@ -99,6 +102,7 @@ export const STEPS: Step[] = [
     title: 'What the Planner decided',
     body: 'The Planner recorded what it chose to do on GitHub and why: open a pull request now, or only list the upgrade in a report. Below it, the history lists every change to this decision and the advisory behind it.',
     target: 'planner',
+    view: 'decisions',
     why: 'open',
     done: 'next',
   },
@@ -108,6 +112,7 @@ export const STEPS: Step[] = [
     body: 'What if wrong? simulates retracting one belief, on a copy of the memory. It writes nothing, so it is always safe to press.',
     action: 'Click What if wrong? on an advisory.',
     target: 'what-if',
+    view: 'decisions',
     why: 'open',
     done: { signal: 'whatif-opened' },
   },
@@ -117,7 +122,10 @@ export const STEPS: Step[] = [
     body: 'The result lists which decisions would be cancelled, downgraded or left unchanged, and the beliefs that would fall pulse magenta on the plates. The project owner can then retract it for real from Admin; the tour never does.',
     action: 'Close the What-if.',
     target: 'whatif-result',
+    view: 'decisions',
     why: 'open',
+    // Its result is gone once the What-if is closed; going back means asking again.
+    backTo: 'what-if',
     done: { signal: 'whatif-closed' },
   },
   {
@@ -126,6 +134,7 @@ export const STEPS: Step[] = [
     body: 'Everything in this panel comes from the memory, and every belief in it links to what it rests on.',
     action: 'Close the panel.',
     target: 'why-close',
+    view: 'decisions',
     why: 'open',
     done: { signal: 'why-closed' },
   },
