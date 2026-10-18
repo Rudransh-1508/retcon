@@ -1,0 +1,1654 @@
+[
+ {
+  "id": "decision:gladys:@babel/core",
+  "project": "gladys",
+  "package": "@babel/core",
+  "status": "held",
+  "urgency": "P3",
+  "target": "7.29.6",
+  "evidence": [
+   "GHSA-4x5r-pxfx-6jf8"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:@babel/helpers",
+  "project": "gladys",
+  "package": "@babel/helpers",
+  "status": "held",
+  "urgency": "P2",
+  "target": "7.26.10",
+  "evidence": [
+   "GHSA-968p-4wvh-cqc8"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:@babel/runtime",
+  "project": "gladys",
+  "package": "@babel/runtime",
+  "status": "held",
+  "urgency": "P2",
+  "target": "7.26.10",
+  "evidence": [
+   "GHSA-968p-4wvh-cqc8"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:@babel/runtime-corejs3",
+  "project": "gladys",
+  "package": "@babel/runtime-corejs3",
+  "status": "held",
+  "urgency": "P2",
+  "target": "7.26.10",
+  "evidence": [
+   "GHSA-968p-4wvh-cqc8"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:@babel/traverse",
+  "project": "gladys",
+  "package": "@babel/traverse",
+  "status": "held",
+  "urgency": "P0",
+  "target": "7.23.2",
+  "evidence": [
+   "GHSA-67hx-6x53-jw92"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/51",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:gladys:@hapi/joi",
+  "project": "gladys",
+  "package": "@hapi/joi",
+  "status": "held",
+  "urgency": "P3",
+  "target": "none",
+  "evidence": [
+   "GHSA-6w3j-5fw6-r9vr"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:@sideway/formula",
+  "project": "gladys",
+  "package": "@sideway/formula",
+  "status": "held",
+  "urgency": "P2",
+  "target": "3.0.1",
+  "evidence": [
+   "GHSA-c2jc-4fpr-4vhg"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:@tootallnate/once",
+  "project": "gladys",
+  "package": "@tootallnate/once",
+  "status": "held",
+  "urgency": "P3",
+  "target": "2.0.1",
+  "evidence": [
+   "GHSA-vpq2-c234-7xj6"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:ajv",
+  "project": "gladys",
+  "package": "ajv",
+  "status": "held",
+  "urgency": "P2",
+  "target": "6.14.0",
+  "evidence": [
+   "GHSA-2g4f-4pwh-qvx6"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/52",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:gladys:axios",
+  "project": "gladys",
+  "package": "axios",
+  "status": "held",
+  "urgency": "P1",
+  "target": "1.20.0",
+  "evidence": [
+   "GHSA-35jp-ww65-95wh",
+   "GHSA-3g43-6gmg-66jw",
+   "GHSA-3p68-rc4w-qgx5",
+   "GHSA-3w6x-2g7m-8v23",
+   "GHSA-42h9-826w-cgv3",
+   "GHSA-43fc-jf86-j433",
+   "GHSA-445q-vr5w-6q77",
+   "GHSA-4hjh-wcwx-xvwj",
+   "GHSA-5c9x-8gcm-mpgx",
+   "GHSA-62hf-57xw-28j9",
+   "GHSA-6chq-wfr3-2hj9",
+   "GHSA-7q8q-rj6j-mhjq",
+   "GHSA-898c-q2cr-xwhg",
+   "GHSA-9fr6-4gfg-395g",
+   "GHSA-fvcv-3m26-pcqx",
+   "GHSA-hfxv-24rg-xrqf",
+   "GHSA-j5f8-grm9-p9fc",
+   "GHSA-j8rh-479h-cp32",
+   "GHSA-jr5f-v2jv-69x6",
+   "GHSA-m7pr-hjqh-92cm",
+   "GHSA-mmx7-hfxf-jppx",
+   "GHSA-p92q-9vqr-4j8v",
+   "GHSA-pf86-5x62-jrwf",
+   "GHSA-pjwm-pj3p-43mv",
+   "GHSA-pmv8-rq9r-6j72",
+   "GHSA-pmwg-cvhr-8vh7",
+   "GHSA-q8qp-cvcw-x6jj",
+   "GHSA-vf2m-468p-8v99",
+   "GHSA-w9j2-pvgh-6h63",
+   "GHSA-wf5p-g6vw-rhxx",
+   "GHSA-xhjh-pmcv-23jw",
+   "GHSA-xx6v-rp6x-q39c"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:body-parser",
+  "project": "gladys",
+  "package": "body-parser",
+  "status": "held",
+  "urgency": "P1",
+  "target": "1.20.6",
+  "evidence": [
+   "GHSA-qwcr-r2fm-qrc7",
+   "GHSA-v422-hmwv-36x6"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:bootstrap",
+  "project": "gladys",
+  "package": "bootstrap",
+  "status": "held",
+  "urgency": "P2",
+  "target": "none",
+  "evidence": [
+   "GHSA-vxmc-5x29-h64v"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:brace-expansion",
+  "project": "gladys",
+  "package": "brace-expansion",
+  "status": "held",
+  "urgency": "P1",
+  "target": "2.1.7",
+  "evidence": [
+   "GHSA-3jxr-9vmj-r5cp",
+   "GHSA-6j4f-fj2g-mc7p",
+   "GHSA-f886-m6hf-6m8v",
+   "GHSA-mh99-v99m-4gvg",
+   "GHSA-q2hr-2g5m-vwhr",
+   "GHSA-qhr7-859c-m2p7",
+   "GHSA-rgw5-rvv9-x895",
+   "GHSA-v6h2-p8h4-qcjw"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:braces",
+  "project": "gladys",
+  "package": "braces",
+  "status": "held",
+  "urgency": "P1",
+  "target": "none",
+  "evidence": [
+   "GHSA-grv7-fg5c-xmjg",
+   "GHSA-vfj7-8cjw-p6xm"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:browserslist",
+  "project": "gladys",
+  "package": "browserslist",
+  "status": "held",
+  "urgency": "P1",
+  "target": "4.28.7",
+  "evidence": [
+   "GHSA-73wf-gq98-2v4g",
+   "GHSA-c83g-rgw3-j3cx"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:compression",
+  "project": "gladys",
+  "package": "compression",
+  "status": "held",
+  "urgency": "P1",
+  "target": "1.8.2",
+  "evidence": [
+   "GHSA-vc2v-76pw-4v95"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:cookie",
+  "project": "gladys",
+  "package": "cookie",
+  "status": "held",
+  "urgency": "P3",
+  "target": "0.7.0",
+  "evidence": [
+   "GHSA-pxg6-pf52-xh8x"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:cookiejar",
+  "project": "gladys",
+  "package": "cookiejar",
+  "status": "held",
+  "urgency": "P2",
+  "target": "2.1.4",
+  "evidence": [
+   "GHSA-h452-7996-h45h"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:cross-spawn",
+  "project": "gladys",
+  "package": "cross-spawn",
+  "status": "held",
+  "urgency": "P1",
+  "target": "7.0.5",
+  "evidence": [
+   "GHSA-3xgq-45jj-v275"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:diff",
+  "project": "gladys",
+  "package": "diff",
+  "status": "held",
+  "urgency": "P3",
+  "target": "5.2.2",
+  "evidence": [
+   "GHSA-73rr-hh4g-fpgx"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:dottie",
+  "project": "gladys",
+  "package": "dottie",
+  "status": "held",
+  "urgency": "P1",
+  "target": "2.0.4",
+  "evidence": [
+   "GHSA-4gxf-g5gf-22h4"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:es5-ext",
+  "project": "gladys",
+  "package": "es5-ext",
+  "status": "held",
+  "urgency": "P3",
+  "target": "0.10.63",
+  "evidence": [
+   "GHSA-4gmj-3p3h-gm8h"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:esbuild",
+  "project": "gladys",
+  "package": "esbuild",
+  "status": "held",
+  "urgency": "P2",
+  "target": "0.25.0",
+  "evidence": [
+   "GHSA-67mh-4wv8-2f99"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:eslint",
+  "project": "gladys",
+  "package": "eslint",
+  "status": "retracted",
+  "urgency": "P2",
+  "target": "9.26.0",
+  "evidence": [
+   "GHSA-p5wg-g6qr-c7cg"
+  ],
+  "pr_url": null,
+  "mode": "closed"
+ },
+ {
+  "id": "decision:gladys:express",
+  "project": "gladys",
+  "package": "express",
+  "status": "held",
+  "urgency": "P2",
+  "target": "4.20.0",
+  "evidence": [
+   "GHSA-qw6h-vgh9-j6wx",
+   "GHSA-rv95-896h-c2vc"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:flatted",
+  "project": "gladys",
+  "package": "flatted",
+  "status": "held",
+  "urgency": "P1",
+  "target": "3.4.2",
+  "evidence": [
+   "GHSA-25h7-pfq9-p65f",
+   "GHSA-rf6f-7fwh-wjgh"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/53",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:gladys:follow-redirects",
+  "project": "gladys",
+  "package": "follow-redirects",
+  "status": "held",
+  "urgency": "P2",
+  "target": "1.16.0",
+  "evidence": [
+   "GHSA-cxjh-pqwp-8mfp",
+   "GHSA-jchw-25xp-jwwc",
+   "GHSA-r4q5-vmmm-2653"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:form-data",
+  "project": "gladys",
+  "package": "form-data",
+  "status": "held",
+  "urgency": "P1",
+  "target": "4.0.6",
+  "evidence": [
+   "GHSA-fjxv-7rqg-78g4",
+   "GHSA-hmw2-7cc7-3qxx"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:formidable",
+  "project": "gladys",
+  "package": "formidable",
+  "status": "retracted",
+  "urgency": "P0",
+  "target": "3.2.4",
+  "evidence": [
+   "GHSA-8cp3-66vr-3r4c"
+  ],
+  "pr_url": null,
+  "mode": "closed"
+ },
+ {
+  "id": "decision:gladys:get-func-name",
+  "project": "gladys",
+  "package": "get-func-name",
+  "status": "held",
+  "urgency": "P1",
+  "target": "2.0.1",
+  "evidence": [
+   "GHSA-4q6p-r6v2-jvc5"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:handlebars",
+  "project": "gladys",
+  "package": "handlebars",
+  "status": "held",
+  "urgency": "P0",
+  "target": "4.7.10",
+  "evidence": [
+   "GHSA-2qvq-rjwj-gvw9",
+   "GHSA-2w6w-674q-4c4q",
+   "GHSA-3mfm-83xf-c92r",
+   "GHSA-442j-39wm-28r2",
+   "GHSA-7rx3-28cr-v5wh",
+   "GHSA-8r5x-fm3f-whwj",
+   "GHSA-9cx6-37pm-9jff",
+   "GHSA-p8wg-vrv2-v86f",
+   "GHSA-xhpv-hc6g-r9c6",
+   "GHSA-xjpj-3mr7-gcpf",
+   "GHSA-xw65-4hp5-5hc7"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/56",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:gladys:http-cache-semantics",
+  "project": "gladys",
+  "package": "http-cache-semantics",
+  "status": "held",
+  "urgency": "P1",
+  "target": "none",
+  "evidence": [
+   "GHSA-ch52-4w7c-c8xp",
+   "GHSA-rc47-6667-2j5j"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/47",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:gladys:ip",
+  "project": "gladys",
+  "package": "ip",
+  "status": "held",
+  "urgency": "P1",
+  "target": "none",
+  "evidence": [
+   "GHSA-2p57-rm9w-gvfp",
+   "GHSA-78xj-cgh5-2h22"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:joi",
+  "project": "gladys",
+  "package": "joi",
+  "status": "held",
+  "urgency": "P1",
+  "target": "17.13.8",
+  "evidence": [
+   "GHSA-6h2x-m376-mqjq",
+   "GHSA-6w3j-5fw6-r9vr",
+   "GHSA-gg4h-3hg2-grpc",
+   "GHSA-q7cg-457f-vx79",
+   "GHSA-wr44-6hxh-3jwq"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/61",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:gladys:js-yaml",
+  "project": "gladys",
+  "package": "js-yaml",
+  "status": "held",
+  "urgency": "P1",
+  "target": "4.3.2",
+  "evidence": [
+   "GHSA-2883-xcg3-v3hh",
+   "GHSA-52cp-r559-cp3m",
+   "GHSA-5p4m-2wfm-xmqj",
+   "GHSA-h67p-54hq-rp68",
+   "GHSA-mh29-5h37-fv8m"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:json5",
+  "project": "gladys",
+  "package": "json5",
+  "status": "held",
+  "urgency": "P1",
+  "target": "2.2.2",
+  "evidence": [
+   "GHSA-9c47-m6qq-7p4h"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:jsonwebtoken",
+  "project": "gladys",
+  "package": "jsonwebtoken",
+  "status": "held",
+  "urgency": "P2",
+  "target": "9.0.0",
+  "evidence": [
+   "GHSA-8cf7-32gw-wr33",
+   "GHSA-hjrf-2m68-5959",
+   "GHSA-qwph-4952-7xr6"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:jws",
+  "project": "gladys",
+  "package": "jws",
+  "status": "held",
+  "urgency": "P1",
+  "target": "3.2.3",
+  "evidence": [
+   "GHSA-869p-cjfg-cm3x"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:linkify-it",
+  "project": "gladys",
+  "package": "linkify-it",
+  "status": "held",
+  "urgency": "P1",
+  "target": "5.0.2",
+  "evidence": [
+   "GHSA-22p9-wv53-3rq4",
+   "GHSA-v245-v573-v5vm"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:lodash",
+  "project": "gladys",
+  "package": "lodash",
+  "status": "held",
+  "urgency": "P1",
+  "target": "4.18.0",
+  "evidence": [
+   "GHSA-f23m-r3pf-42rh",
+   "GHSA-r5fr-rjxr-66jc",
+   "GHSA-xxjr-mmjv-4gpg"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:lodash.trimend",
+  "project": "gladys",
+  "package": "lodash.trimend",
+  "status": "held",
+  "urgency": "P2",
+  "target": "none",
+  "evidence": [
+   "GHSA-29mw-wpgm-hmr9"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:luxon",
+  "project": "gladys",
+  "package": "luxon",
+  "status": "held",
+  "urgency": "P1",
+  "target": "1.28.1",
+  "evidence": [
+   "GHSA-3xq5-wjfh-ppjc"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/46",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:gladys:markdown-it",
+  "project": "gladys",
+  "package": "markdown-it",
+  "status": "held",
+  "urgency": "P2",
+  "target": "14.3.1",
+  "evidence": [
+   "GHSA-253c-mchw-3w2r",
+   "GHSA-6v5v-wf23-fmfq"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:minimatch",
+  "project": "gladys",
+  "package": "minimatch",
+  "status": "held",
+  "urgency": "P1",
+  "target": "5.1.8",
+  "evidence": [
+   "GHSA-23c5-xmqv-rm74",
+   "GHSA-3ppc-4f35-3m26",
+   "GHSA-7r86-cg39-jmmj",
+   "GHSA-f8q6-p94x-37v3"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/45",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:gladys:moment",
+  "project": "gladys",
+  "package": "moment",
+  "status": "held",
+  "urgency": "P2",
+  "target": "2.31.0",
+  "evidence": [
+   "GHSA-4p3w-j4w9-5jqw"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:nanoid",
+  "project": "gladys",
+  "package": "nanoid",
+  "status": "held",
+  "urgency": "P1",
+  "target": "3.3.18",
+  "evidence": [
+   "GHSA-28wg-ghj8-5hjv",
+   "GHSA-2v37-7h3g-55p8",
+   "GHSA-mwcw-c2x4-8c55",
+   "GHSA-qrpm-p2h7-hrv2",
+   "GHSA-xwg4-73v4-xw9w"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/60",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:gladys:on-headers",
+  "project": "gladys",
+  "package": "on-headers",
+  "status": "held",
+  "urgency": "P3",
+  "target": "1.1.0",
+  "evidence": [
+   "GHSA-76c9-3jph-rj3q"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:path-to-regexp",
+  "project": "gladys",
+  "package": "path-to-regexp",
+  "status": "held",
+  "urgency": "P1",
+  "target": "6.3.0",
+  "evidence": [
+   "GHSA-9wv6-86v2-598j",
+   "GHSA-rhx6-c78j-4q9w"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:picomatch",
+  "project": "gladys",
+  "package": "picomatch",
+  "status": "held",
+  "urgency": "P1",
+  "target": "2.3.2",
+  "evidence": [
+   "GHSA-3v7f-55p6-f55p",
+   "GHSA-c2c7-rcm5-vvqj"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/55",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:gladys:prismjs",
+  "project": "gladys",
+  "package": "prismjs",
+  "status": "held",
+  "urgency": "P2",
+  "target": "1.30.0",
+  "evidence": [
+   "GHSA-x7hr-w5r2-h6wg"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:proxy-addr",
+  "project": "gladys",
+  "package": "proxy-addr",
+  "status": "held",
+  "urgency": "P0",
+  "target": "2.0.8",
+  "evidence": [
+   "GHSA-jqcg-44mw-7w3h"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/62",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:gladys:qs",
+  "project": "gladys",
+  "package": "qs",
+  "status": "held",
+  "urgency": "P2",
+  "target": "6.16.0",
+  "evidence": [
+   "GHSA-4mjr-xmp4-gh2g",
+   "GHSA-6rw7-vpxm-498p",
+   "GHSA-w7fw-mjwx-w883"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:semver",
+  "project": "gladys",
+  "package": "semver",
+  "status": "held",
+  "urgency": "P1",
+  "target": "7.5.2",
+  "evidence": [
+   "GHSA-c2qf-rxjj-qqgw"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:send",
+  "project": "gladys",
+  "package": "send",
+  "status": "held",
+  "urgency": "P3",
+  "target": "0.19.0",
+  "evidence": [
+   "GHSA-m6fv-jmcg-4jfg"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:sequelize",
+  "project": "gladys",
+  "package": "sequelize",
+  "status": "held",
+  "urgency": "P0",
+  "target": "6.37.8",
+  "evidence": [
+   "GHSA-6457-6jrx-69cr",
+   "GHSA-8c25-f3mj-v6h8",
+   "GHSA-f598-mfpv-gmfx",
+   "GHSA-v8fg-2rw7-q452",
+   "GHSA-vqfx-gj96-3w95"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/48",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:gladys:serialize-javascript",
+  "project": "gladys",
+  "package": "serialize-javascript",
+  "status": "held",
+  "urgency": "P1",
+  "target": "7.0.5",
+  "evidence": [
+   "GHSA-5c6j-r48x-rmvq",
+   "GHSA-76p7-773f-r4q5",
+   "GHSA-qj8w-gfj5-8c6v"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:serve-static",
+  "project": "gladys",
+  "package": "serve-static",
+  "status": "held",
+  "urgency": "P3",
+  "target": "1.16.0",
+  "evidence": [
+   "GHSA-cm22-4g7w-348p"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:shell-quote",
+  "project": "gladys",
+  "package": "shell-quote",
+  "status": "held",
+  "urgency": "P0",
+  "target": "1.9.0",
+  "evidence": [
+   "GHSA-395f-4hp3-45gv",
+   "GHSA-w7jw-789q-3m8p"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/57",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:gladys:socket.io-parser",
+  "project": "gladys",
+  "package": "socket.io-parser",
+  "status": "held",
+  "urgency": "P1",
+  "target": "4.2.7",
+  "evidence": [
+   "GHSA-2m8v-j782-fhvr",
+   "GHSA-677m-j7p3-52f9",
+   "GHSA-cqmj-92xf-r6r9"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/54",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:gladys:sprintf-js",
+  "project": "gladys",
+  "package": "sprintf-js",
+  "status": "held",
+  "urgency": "P2",
+  "target": "none",
+  "evidence": [
+   "GHSA-hp3w-g68c-fv3c"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:sqlite3",
+  "project": "gladys",
+  "package": "sqlite3",
+  "status": "held",
+  "urgency": "P1",
+  "target": "5.1.5",
+  "evidence": [
+   "GHSA-jqv5-7xpx-qj74"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/50",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:gladys:taffydb",
+  "project": "gladys",
+  "package": "taffydb",
+  "status": "held",
+  "urgency": "P1",
+  "target": "none",
+  "evidence": [
+   "GHSA-mxhp-79qh-mcx6"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:tar",
+  "project": "gladys",
+  "package": "tar",
+  "status": "held",
+  "urgency": "P0",
+  "target": "7.5.21",
+  "evidence": [
+   "GHSA-23hp-3jrh-7fpw",
+   "GHSA-34x7-hfp2-rc4v",
+   "GHSA-83g3-92jg-28cx",
+   "GHSA-8qq5-rm4j-mr97",
+   "GHSA-8x88-c5mf-7j5w",
+   "GHSA-9ppj-qmqm-q256",
+   "GHSA-f5x3-32g6-xq36",
+   "GHSA-gvwx-54wh-qm9j",
+   "GHSA-qffp-2rhf-9h96",
+   "GHSA-r292-9mhp-454m",
+   "GHSA-r6q2-hw4h-h46w",
+   "GHSA-vmf3-w455-68vh",
+   "GHSA-w8wr-v893-vjvp"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/59",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:gladys:tar-fs",
+  "project": "gladys",
+  "package": "tar-fs",
+  "status": "held",
+  "urgency": "P1",
+  "target": "2.1.4",
+  "evidence": [
+   "GHSA-8cj5-5rvv-wf4v",
+   "GHSA-pq67-2wwv-3xjx",
+   "GHSA-vj76-c3g6-qr5v"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:underscore",
+  "project": "gladys",
+  "package": "underscore",
+  "status": "held",
+  "urgency": "P1",
+  "target": "1.13.8",
+  "evidence": [
+   "GHSA-qpx9-hpmf-5gmw"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:uuid",
+  "project": "gladys",
+  "package": "uuid",
+  "status": "held",
+  "urgency": "P2",
+  "target": "11.1.1",
+  "evidence": [
+   "GHSA-w5hq-g745-h8pq"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:validator",
+  "project": "gladys",
+  "package": "validator",
+  "status": "held",
+  "urgency": "P1",
+  "target": "13.15.22",
+  "evidence": [
+   "GHSA-9965-vmph-33xx",
+   "GHSA-vghf-hv5q-vc2g"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:webpack",
+  "project": "gladys",
+  "package": "webpack",
+  "status": "held",
+  "urgency": "P0",
+  "target": "5.104.1",
+  "evidence": [
+   "GHSA-38r7-794h-5758",
+   "GHSA-4vvj-4cpr-p986",
+   "GHSA-8fgc-7cc6-rx7x",
+   "GHSA-hc6q-2mpp-qw7j"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/49",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:gladys:word-wrap",
+  "project": "gladys",
+  "package": "word-wrap",
+  "status": "held",
+  "urgency": "P2",
+  "target": "1.2.4",
+  "evidence": [
+   "GHSA-j8xg-fqg3-53r7"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:gladys:ws",
+  "project": "gladys",
+  "package": "ws",
+  "status": "held",
+  "urgency": "P0",
+  "target": "8.21.0",
+  "evidence": [
+   "GHSA-3h5v-q93c-6h6q",
+   "GHSA-58qx-3vcg-4xpx",
+   "GHSA-96hv-2xvq-fx4p"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/58",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:gladys:xlsx",
+  "project": "gladys",
+  "package": "xlsx",
+  "status": "held",
+  "urgency": "P1",
+  "target": "none",
+  "evidence": [
+   "GHSA-4r6h-8v6p-xvw6",
+   "GHSA-5pgg-2g8v-p4x9"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:@babel/core",
+  "project": "wiredoor",
+  "package": "@babel/core",
+  "status": "held",
+  "urgency": "P3",
+  "target": "7.29.6",
+  "evidence": [
+   "GHSA-4x5r-pxfx-6jf8"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:@eslint/plugin-kit",
+  "project": "wiredoor",
+  "package": "@eslint/plugin-kit",
+  "status": "held",
+  "urgency": "P3",
+  "target": "0.3.4",
+  "evidence": [
+   "GHSA-xffm-g5w8-qvg7"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:@faker-js/faker",
+  "project": "wiredoor",
+  "package": "@faker-js/faker",
+  "status": "held",
+  "urgency": "P2",
+  "target": "10.5.0",
+  "evidence": [
+   "GHSA-qxc2-j82w-r537"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:@humanfs/node",
+  "project": "wiredoor",
+  "package": "@humanfs/node",
+  "status": "held",
+  "urgency": "P2",
+  "target": "0.16.8",
+  "evidence": [
+   "GHSA-p498-v437-472g"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:@tootallnate/once",
+  "project": "wiredoor",
+  "package": "@tootallnate/once",
+  "status": "held",
+  "urgency": "P3",
+  "target": "2.0.1",
+  "evidence": [
+   "GHSA-vpq2-c234-7xj6"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:ajv",
+  "project": "wiredoor",
+  "package": "ajv",
+  "status": "held",
+  "urgency": "P2",
+  "target": "6.14.0",
+  "evidence": [
+   "GHSA-2g4f-4pwh-qvx6"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:axios",
+  "project": "wiredoor",
+  "package": "axios",
+  "status": "held",
+  "urgency": "P1",
+  "target": "1.20.0",
+  "evidence": [
+   "GHSA-35jp-ww65-95wh",
+   "GHSA-3g43-6gmg-66jw",
+   "GHSA-3p68-rc4w-qgx5",
+   "GHSA-3w6x-2g7m-8v23",
+   "GHSA-42h9-826w-cgv3",
+   "GHSA-43fc-jf86-j433",
+   "GHSA-445q-vr5w-6q77",
+   "GHSA-4hjh-wcwx-xvwj",
+   "GHSA-5c9x-8gcm-mpgx",
+   "GHSA-62hf-57xw-28j9",
+   "GHSA-6chq-wfr3-2hj9",
+   "GHSA-777c-7fjr-54vf",
+   "GHSA-7q8q-rj6j-mhjq",
+   "GHSA-898c-q2cr-xwhg",
+   "GHSA-9fr6-4gfg-395g",
+   "GHSA-fvcv-3m26-pcqx",
+   "GHSA-hfxv-24rg-xrqf",
+   "GHSA-j5f8-grm9-p9fc",
+   "GHSA-j8rh-479h-cp32",
+   "GHSA-jqh4-m9w3-8hp9",
+   "GHSA-m7pr-hjqh-92cm",
+   "GHSA-mmx7-hfxf-jppx",
+   "GHSA-p92q-9vqr-4j8v",
+   "GHSA-pf86-5x62-jrwf",
+   "GHSA-pmv8-rq9r-6j72",
+   "GHSA-pmwg-cvhr-8vh7",
+   "GHSA-q8qp-cvcw-x6jj",
+   "GHSA-vf2m-468p-8v99",
+   "GHSA-vh66-26gq-q6x8",
+   "GHSA-w9j2-pvgh-6h63",
+   "GHSA-xhjh-pmcv-23jw",
+   "GHSA-xx6v-rp6x-q39c"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-wiredoor/pull/29",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:wiredoor:body-parser",
+  "project": "wiredoor",
+  "package": "body-parser",
+  "status": "held",
+  "urgency": "P3",
+  "target": "1.20.6",
+  "evidence": [
+   "GHSA-v422-hmwv-36x6"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:brace-expansion",
+  "project": "wiredoor",
+  "package": "brace-expansion",
+  "status": "held",
+  "urgency": "P1",
+  "target": "2.1.7",
+  "evidence": [
+   "GHSA-3jxr-9vmj-r5cp",
+   "GHSA-6j4f-fj2g-mc7p",
+   "GHSA-f886-m6hf-6m8v",
+   "GHSA-mh99-v99m-4gvg",
+   "GHSA-q2hr-2g5m-vwhr",
+   "GHSA-qhr7-859c-m2p7",
+   "GHSA-rgw5-rvv9-x895"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-wiredoor/pull/35",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:wiredoor:braces",
+  "project": "wiredoor",
+  "package": "braces",
+  "status": "held",
+  "urgency": "P1",
+  "target": "none",
+  "evidence": [
+   "GHSA-vfj7-8cjw-p6xm"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:browserslist",
+  "project": "wiredoor",
+  "package": "browserslist",
+  "status": "held",
+  "urgency": "P1",
+  "target": "4.28.7",
+  "evidence": [
+   "GHSA-73wf-gq98-2v4g",
+   "GHSA-c83g-rgw3-j3cx"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:compression",
+  "project": "wiredoor",
+  "package": "compression",
+  "status": "held",
+  "urgency": "P1",
+  "target": "1.8.2",
+  "evidence": [
+   "GHSA-vc2v-76pw-4v95"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-wiredoor/pull/37",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:wiredoor:diff",
+  "project": "wiredoor",
+  "package": "diff",
+  "status": "held",
+  "urgency": "P3",
+  "target": "4.0.4",
+  "evidence": [
+   "GHSA-73rr-hh4g-fpgx"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:express",
+  "project": "wiredoor",
+  "package": "express",
+  "status": "retracted",
+  "urgency": "P3",
+  "target": "4.22.0",
+  "evidence": [
+   "GHSA-pj86-cfqh-vqx6"
+  ],
+  "pr_url": null,
+  "mode": "closed"
+ },
+ {
+  "id": "decision:wiredoor:fast-copy",
+  "project": "wiredoor",
+  "package": "fast-copy",
+  "status": "held",
+  "urgency": "P2",
+  "target": "3.1.0",
+  "evidence": [
+   "GHSA-jggr-w7fw-pc2j"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:fast-redact",
+  "project": "wiredoor",
+  "package": "fast-redact",
+  "status": "retracted",
+  "urgency": "P3",
+  "target": "none",
+  "evidence": [
+   "GHSA-ffrw-9mx8-89p8"
+  ],
+  "pr_url": null,
+  "mode": "closed"
+ },
+ {
+  "id": "decision:wiredoor:flatted",
+  "project": "wiredoor",
+  "package": "flatted",
+  "status": "held",
+  "urgency": "P1",
+  "target": "3.4.2",
+  "evidence": [
+   "GHSA-25h7-pfq9-p65f",
+   "GHSA-rf6f-7fwh-wjgh"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:follow-redirects",
+  "project": "wiredoor",
+  "package": "follow-redirects",
+  "status": "held",
+  "urgency": "P2",
+  "target": "1.16.0",
+  "evidence": [
+   "GHSA-r4q5-vmmm-2653"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:form-data",
+  "project": "wiredoor",
+  "package": "form-data",
+  "status": "held",
+  "urgency": "P0",
+  "target": "4.0.6",
+  "evidence": [
+   "GHSA-fjxv-7rqg-78g4",
+   "GHSA-hmw2-7cc7-3qxx"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-wiredoor/pull/27",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:wiredoor:glob",
+  "project": "wiredoor",
+  "package": "glob",
+  "status": "held",
+  "urgency": "P1",
+  "target": "10.5.0",
+  "evidence": [
+   "GHSA-5j98-mcp5-4vw2"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:http-cache-semantics",
+  "project": "wiredoor",
+  "package": "http-cache-semantics",
+  "status": "held",
+  "urgency": "P1",
+  "target": "none",
+  "evidence": [
+   "GHSA-ch52-4w7c-c8xp"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:ip-address",
+  "project": "wiredoor",
+  "package": "ip-address",
+  "status": "held",
+  "urgency": "P1",
+  "target": "10.7.1",
+  "evidence": [
+   "GHSA-h3mg-xc3c-68pw",
+   "GHSA-j6r3-76f7-8jcv",
+   "GHSA-mwp4-54f8-5fhr",
+   "GHSA-rpw4-54j3-4h4q",
+   "GHSA-v2v4-37r5-5v8g"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:joi",
+  "project": "wiredoor",
+  "package": "joi",
+  "status": "held",
+  "urgency": "P1",
+  "target": "17.13.8",
+  "evidence": [
+   "GHSA-6h2x-m376-mqjq",
+   "GHSA-6w3j-5fw6-r9vr",
+   "GHSA-gg4h-3hg2-grpc",
+   "GHSA-q7cg-457f-vx79",
+   "GHSA-wr44-6hxh-3jwq"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-wiredoor/pull/34",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:wiredoor:js-yaml",
+  "project": "wiredoor",
+  "package": "js-yaml",
+  "status": "held",
+  "urgency": "P1",
+  "target": "4.3.2",
+  "evidence": [
+   "GHSA-2883-xcg3-v3hh",
+   "GHSA-52cp-r559-cp3m",
+   "GHSA-5p4m-2wfm-xmqj",
+   "GHSA-h67p-54hq-rp68",
+   "GHSA-mh29-5h37-fv8m"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:jws",
+  "project": "wiredoor",
+  "package": "jws",
+  "status": "held",
+  "urgency": "P1",
+  "target": "3.2.3",
+  "evidence": [
+   "GHSA-869p-cjfg-cm3x"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:koa",
+  "project": "wiredoor",
+  "package": "koa",
+  "status": "held",
+  "urgency": "P1",
+  "target": "2.16.4",
+  "evidence": [
+   "GHSA-7gcc-r8m5-44qm",
+   "GHSA-jgmv-j7ww-jx2x"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-wiredoor/pull/32",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:wiredoor:lodash",
+  "project": "wiredoor",
+  "package": "lodash",
+  "status": "held",
+  "urgency": "P1",
+  "target": "4.18.0",
+  "evidence": [
+   "GHSA-f23m-r3pf-42rh",
+   "GHSA-r5fr-rjxr-66jc",
+   "GHSA-xxjr-mmjv-4gpg"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-wiredoor/pull/33",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:wiredoor:minimatch",
+  "project": "wiredoor",
+  "package": "minimatch",
+  "status": "held",
+  "urgency": "P1",
+  "target": "9.0.7",
+  "evidence": [
+   "GHSA-23c5-xmqv-rm74",
+   "GHSA-3ppc-4f35-3m26",
+   "GHSA-7r86-cg39-jmmj"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:multer",
+  "project": "wiredoor",
+  "package": "multer",
+  "status": "held",
+  "urgency": "P1",
+  "target": "2.3.0",
+  "evidence": [
+   "GHSA-3p4h-7m6x-2hcm",
+   "GHSA-535w-7cp7-47q4",
+   "GHSA-5528-5vmv-3xc2",
+   "GHSA-72gw-mp4g-v24j",
+   "GHSA-fjgf-rc76-4x9p",
+   "GHSA-qvfw-j98x-7q72",
+   "GHSA-v52c-386h-88mc",
+   "GHSA-wc9g-mqfw-jrwm",
+   "GHSA-xf7r-hgr6-v32p"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:on-headers",
+  "project": "wiredoor",
+  "package": "on-headers",
+  "status": "held",
+  "urgency": "P3",
+  "target": "1.1.0",
+  "evidence": [
+   "GHSA-76c9-3jph-rj3q"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:path-to-regexp",
+  "project": "wiredoor",
+  "package": "path-to-regexp",
+  "status": "held",
+  "urgency": "P1",
+  "target": "0.1.13",
+  "evidence": [
+   "GHSA-9wv6-86v2-598j"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:picomatch",
+  "project": "wiredoor",
+  "package": "picomatch",
+  "status": "held",
+  "urgency": "P1",
+  "target": "2.3.2",
+  "evidence": [
+   "GHSA-3v7f-55p6-f55p",
+   "GHSA-c2c7-rcm5-vvqj"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:proxy-addr",
+  "project": "wiredoor",
+  "package": "proxy-addr",
+  "status": "held",
+  "urgency": "P0",
+  "target": "2.0.8",
+  "evidence": [
+   "GHSA-jqcg-44mw-7w3h"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-wiredoor/pull/38",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:wiredoor:qs",
+  "project": "wiredoor",
+  "package": "qs",
+  "status": "held",
+  "urgency": "P2",
+  "target": "6.16.0",
+  "evidence": [
+   "GHSA-4mjr-xmp4-gh2g",
+   "GHSA-6rw7-vpxm-498p",
+   "GHSA-q8mj-m7cp-5q26",
+   "GHSA-w7fw-mjwx-w883"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:sha.js",
+  "project": "wiredoor",
+  "package": "sha.js",
+  "status": "held",
+  "urgency": "P0",
+  "target": "2.4.12",
+  "evidence": [
+   "GHSA-95m3-7q98-8xr5"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-wiredoor/pull/28",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:wiredoor:sprintf-js",
+  "project": "wiredoor",
+  "package": "sprintf-js",
+  "status": "held",
+  "urgency": "P2",
+  "target": "none",
+  "evidence": [
+   "GHSA-hp3w-g68c-fv3c"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:tar",
+  "project": "wiredoor",
+  "package": "tar",
+  "status": "held",
+  "urgency": "P0",
+  "target": "7.5.21",
+  "evidence": [
+   "GHSA-23hp-3jrh-7fpw",
+   "GHSA-34x7-hfp2-rc4v",
+   "GHSA-83g3-92jg-28cx",
+   "GHSA-8qq5-rm4j-mr97",
+   "GHSA-8x88-c5mf-7j5w",
+   "GHSA-9ppj-qmqm-q256",
+   "GHSA-gvwx-54wh-qm9j",
+   "GHSA-qffp-2rhf-9h96",
+   "GHSA-r292-9mhp-454m",
+   "GHSA-r6q2-hw4h-h46w",
+   "GHSA-vmf3-w455-68vh",
+   "GHSA-w8wr-v893-vjvp"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-wiredoor/pull/36",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:wiredoor:tar-fs",
+  "project": "wiredoor",
+  "package": "tar-fs",
+  "status": "held",
+  "urgency": "P1",
+  "target": "2.1.4",
+  "evidence": [
+   "GHSA-vj76-c3g6-qr5v"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:typeorm",
+  "project": "wiredoor",
+  "package": "typeorm",
+  "status": "held",
+  "urgency": "P1",
+  "target": "0.3.31",
+  "evidence": [
+   "GHSA-2rp8-mm9q-fp49",
+   "GHSA-9ggv-8w38-r7pm",
+   "GHSA-q2pj-6v73-8rgj"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-wiredoor/pull/30",
+  "mode": "pr"
+ },
+ {
+  "id": "decision:wiredoor:uuid",
+  "project": "wiredoor",
+  "package": "uuid",
+  "status": "held",
+  "urgency": "P2",
+  "target": "11.1.1",
+  "evidence": [
+   "GHSA-w5hq-g745-h8pq"
+  ],
+  "pr_url": null,
+  "mode": "report"
+ },
+ {
+  "id": "decision:wiredoor:validator",
+  "project": "wiredoor",
+  "package": "validator",
+  "status": "held",
+  "urgency": "P1",
+  "target": "13.15.22",
+  "evidence": [
+   "GHSA-9965-vmph-33xx",
+   "GHSA-vghf-hv5q-vc2g"
+  ],
+  "pr_url": "https://github.com/Rudransh-1508/retcon-target-wiredoor/pull/31",
+  "mode": "pr"
+ }
+]

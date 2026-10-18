@@ -1,0 +1,121 @@
+{
+ "kind": "Decision",
+ "id": "decision:gladys:@babel/traverse",
+ "created_at": "2023-10-16T13:55:36Z",
+ "status": "held",
+ "project": "gladys",
+ "package": "@babel/traverse",
+ "action": "upgrade",
+ "held_at": "2023-10-16T13:55:36Z",
+ "urgency": "P0",
+ "target": "7.23.2",
+ "evidence": [
+  "GHSA-67hx-6x53-jw92"
+ ],
+ "plan_id": "plan:gladys:@babel/traverse:1",
+ "pr_number": 51,
+ "pr_url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/51",
+ "acted_mode": "pr",
+ "reported": false,
+ "acted_status": "held",
+ "acted_urgency": "P0",
+ "acted_target": "7.23.2",
+ "acted_evidence": "[\"GHSA-67hx-6x53-jw92\"]",
+ "acted_at": "2026-10-18T13:32:09Z",
+ "acted_seq": 277,
+ "retracted_by": [],
+ "history": [
+  {
+   "event": "event:published:GHSA-67hx-6x53-jw92",
+   "kind": "published",
+   "advisory": "GHSA-67hx-6x53-jw92",
+   "at": "2023-10-16T13:55:36Z",
+   "change": "new",
+   "before": null,
+   "after": "P0",
+   "evidence_before": 0,
+   "evidence_after": 1
+  }
+ ],
+ "actions": [
+  {
+   "kind": "open_pr",
+   "url": "https://github.com/Rudransh-1508/retcon-target-gladys/pull/51",
+   "at": "2023-10-16T13:55:36Z"
+  }
+ ],
+ "plans": [
+  {
+   "id": "plan:gladys:@babel/traverse:1",
+   "action": "open_pr",
+   "rationale": "The advisory is critical (P0) and the upgrade fixes it without a major version change, and no PR exists yet, so an immediate pull request is warranted.",
+   "point": "new",
+   "status": "held",
+   "at": "2023-10-16T13:55:36Z",
+   "by": "Planner",
+   "actions": [
+    "https://github.com/Rudransh-1508/retcon-target-gladys/pull/51"
+   ]
+  }
+ ],
+ "judgments": [],
+ "supports": [
+  {
+   "id": "support:resolves:exposure:gladys:@babel/traverse@7.20.1",
+   "created_at": "2023-10-16T13:55:36Z",
+   "held_at": "2023-10-16T13:55:36Z",
+   "kind": "resolves",
+   "status": "held",
+   "by": "Retcon",
+   "premises": [
+    {
+     "kind": "Exposure",
+     "id": "exposure:gladys:@babel/traverse@7.20.1",
+     "created_at": "2023-10-16T13:55:36Z",
+     "status": "held",
+     "project": "gladys",
+     "package": "@babel/traverse",
+     "version": "7.20.1",
+     "held_at": "2023-10-16T13:55:36Z",
+     "retracted_by": [],
+     "direct": false,
+     "paths": [
+      "nyc > istanbul-lib-instrument > @babel/core > @babel/traverse"
+     ],
+     "dev": true,
+     "supports": [
+      {
+       "id": "support:affects:GHSA-67hx-6x53-jw92:exposure:gladys:@babel/traverse@7.20.1",
+       "created_at": "2023-10-16T13:55:36Z",
+       "fix": "7.23.2",
+       "held_at": "2023-10-16T13:55:36Z",
+       "kind": "affects",
+       "status": "held",
+       "by": "Retcon",
+       "premises": [
+        {
+         "kind": "Advisory",
+         "id": "GHSA-67hx-6x53-jw92",
+         "status": "held",
+         "held_at": "2023-10-16T13:55:36Z",
+         "summary": "Babel vulnerable to arbitrary code execution when compiling specifically crafted malicious code",
+         "severity": "CRITICAL",
+         "rank": 4,
+         "aliases": [
+          "CVE-2023-45133"
+         ],
+         "published": "2023-10-16T13:55:36Z",
+         "evidence": "GHSA-67hx-6x53-jw92",
+         "duplicate": false,
+         "url": "https://github.com/advisories/GHSA-67hx-6x53-jw92",
+         "retracted_by": [],
+         "supports": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

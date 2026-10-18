@@ -1,0 +1,40 @@
+{
+ "event": "event:correction:1",
+ "waves": [
+  [
+   "GHSA-67hx-6x53-jw92"
+  ],
+  [
+   "support:affects:GHSA-67hx-6x53-jw92:exposure:gladys:@babel/traverse@7.20.1",
+   "support:planned:plan:gladys:@babel/traverse:1",
+   "plan:gladys:@babel/traverse:1",
+   "exposure:gladys:@babel/traverse@7.20.1"
+  ],
+  [
+   "support:resolves:exposure:gladys:@babel/traverse@7.20.1",
+   "decision:gladys:@babel/traverse"
+  ]
+ ],
+ "changes": [
+  {
+   "decision": "decision:gladys:@babel/traverse",
+   "change": "cancel",
+   "before": {
+    "status": "held",
+    "urgency": "P0",
+    "target": "7.23.2",
+    "evidence": [
+     "GHSA-67hx-6x53-jw92"
+    ]
+   },
+   "after": {
+    "status": "retracted",
+    "urgency": "P0",
+    "target": "7.23.2",
+    "evidence": [
+     "GHSA-67hx-6x53-jw92"
+    ]
+   }
+  }
+ ]
+}

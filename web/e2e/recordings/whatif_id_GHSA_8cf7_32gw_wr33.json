@@ -1,0 +1,38 @@
+{
+ "event": "event:correction:1",
+ "waves": [
+  [
+   "GHSA-8cf7-32gw-wr33"
+  ],
+  [
+   "support:affects:GHSA-8cf7-32gw-wr33:exposure:gladys:jsonwebtoken@8.5.1",
+   "support:judged:judgment:triage:gladys:jsonwebtoken@8.5.1:GHSA-8cf7-32gw-wr33",
+   "judgment:triage:gladys:jsonwebtoken@8.5.1:GHSA-8cf7-32gw-wr33"
+  ]
+ ],
+ "changes": [
+  {
+   "decision": "decision:gladys:jsonwebtoken",
+   "change": "unchanged",
+   "before": {
+    "status": "held",
+    "urgency": "P2",
+    "target": "9.0.0",
+    "evidence": [
+     "GHSA-8cf7-32gw-wr33",
+     "GHSA-hjrf-2m68-5959",
+     "GHSA-qwph-4952-7xr6"
+    ]
+   },
+   "after": {
+    "status": "held",
+    "urgency": "P2",
+    "target": "9.0.0",
+    "evidence": [
+     "GHSA-hjrf-2m68-5959",
+     "GHSA-qwph-4952-7xr6"
+    ]
+   }
+  }
+ ]
+}
