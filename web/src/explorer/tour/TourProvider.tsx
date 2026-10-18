@@ -19,12 +19,14 @@ export const useTour = () => useContext(TourContext)
  * Decisions list has loaded, never on a deep link, and always with the forced-start parameter. Finishing and
  * skipping both mark it done for this browser.
  */
-export function TourProvider({ ready, failed, onView, onCloseWhy, children }: {
+export function TourProvider({ ready, failed, onView, onOpenWhy, onCloseWhy, children }: {
   /** The Decisions list has loaded, so every step has something real to point at. */
   ready: boolean
   /** The Decisions list failed: the tour stays out of the way of the error. */
   failed: boolean
   onView: (view: View) => void
+  /** Open the Why panel on the first Decision, unless it is already open. */
+  onOpenWhy: () => void
   onCloseWhy: () => void
   children: React.ReactNode
 }) {
@@ -32,13 +34,15 @@ export function TourProvider({ ready, failed, onView, onCloseWhy, children }: {
   const [index, setIndex] = useState(0)
   const step = status === 'running' ? STEPS[index] : null
   const view = useRef(onView)
+  const openWhy = useRef(onOpenWhy)
   const closeWhy = useRef(onCloseWhy)
-  useEffect(() => { view.current = onView; closeWhy.current = onCloseWhy })
+  useEffect(() => { view.current = onView; openWhy.current = onOpenWhy; closeWhy.current = onCloseWhy })
 
   const go = useCallback((i: number) => {
     const next = STEPS[i]
     if (next.view) view.current(next.view)
     if (next.why === 'closed') closeWhy.current()
+    if (next.why === 'open') openWhy.current()
     setIndex(i)
   }, [])
   const start = useCallback(() => { setStatus('running'); go(0) }, [go])
@@ -69,7 +73,13 @@ export function TourProvider({ ready, failed, onView, onCloseWhy, children }: {
   useEffect(() => {
     if (!step || step.done === 'next') return
     const want = step.done
-    return listen((signal, detail) => { if (signal === want.signal && (!want.detail || want.detail === detail)) next() })
+    // Once per step: moving on can make the console emit again (the next step may open or close the Why panel).
+    let fired = false
+    return listen((signal, detail) => {
+      if (fired || signal !== want.signal || (want.detail && want.detail !== detail)) return
+      fired = true
+      next()
+    })
   }, [step, next])
 
   const value = useMemo(() => ({ status, index, step, start }), [status, index, step, start])

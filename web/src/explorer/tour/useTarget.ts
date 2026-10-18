@@ -3,9 +3,10 @@
 import { useEffect, useState } from 'react'
 
 export type Box = { x: number; y: number; w: number; h: number }
-export type Target = { box: Box | null; missing: boolean; waiting: boolean }
+/** `failed`: the part of the page this step points at reported an error, so the step is explained instead. */
+export type Target = { box: Box | null; missing: boolean; waiting: boolean; failed: boolean }
 
-const EMPTY: Target = { box: null, missing: false, waiting: false }
+const EMPTY: Target = { box: null, missing: false, waiting: false, failed: false }
 
 export const targetSelector = (name: string) => `[data-tour~="${name}"]`
 
@@ -33,8 +34,9 @@ export function useTarget(name: string | undefined, timeoutMs = 25_000): Target 
         if (box.y < 72 || box.y + box.h > window.innerHeight - 24) el.scrollIntoView({ block: 'center', behavior: reduce ? 'auto' : 'smooth' })
       }
       const elapsed = performance.now() - started
-      const next: Target = { box, missing: !box && elapsed > timeoutMs, waiting: !box && elapsed > 1200 }
-      const key = box ? `${Math.round(box.x)},${Math.round(box.y)},${Math.round(box.w)},${Math.round(box.h)}` : `${next.missing}${next.waiting}`
+      const failed = !!document.querySelector(`[data-tour-failed~="${name}"]`)
+      const next: Target = { box, missing: !box && elapsed > timeoutMs, waiting: !box && elapsed > 1200, failed }
+      const key = `${box ? `${Math.round(box.x)},${Math.round(box.y)},${Math.round(box.w)},${Math.round(box.h)}` : `${next.missing}${next.waiting}`}${failed}`
       if (key !== last) { last = key; setState({ ...next, name }) }
       if (!next.missing) frame = requestAnimationFrame(tick)
     }

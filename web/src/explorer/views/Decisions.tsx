@@ -20,6 +20,11 @@ type UrgencyFilter = 'all' | 'P0' | 'P1' | 'P2' | 'P3'
 const rank = (d: Decision) => (d.status === 'retracted' ? 9 : Number((d.urgency ?? 'P9').slice(1)))
 const byUrgency = (a: Decision, b: Decision) => rank(a) - rank(b) || a.package.localeCompare(b.package)
 
+/** The first card in the unfiltered list: the most urgent Decision of the first project. */
+export function firstDecision(projects: Project[], decisions: Decision[]): Decision | undefined {
+  return decisions.filter((d) => d.project === projects[0]?.id).sort(byUrgency)[0]
+}
+
 export function Decisions({ projects, decisions, error, selected, onOpen, project, onProject }: {
   projects: Project[]; decisions: Decision[] | null; error: string | null; selected: string | null
   onOpen: (id: string) => void; project: string; onProject: (p: string) => void
