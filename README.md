@@ -107,6 +107,45 @@ claude mcp add retcon -- uv --directory /path/to/retcon run python -m retcon.mcp
 
 Then ask, for example: *"Using retcon, why is there an open pull request for jsonwebtoken in gladys, and what would change if GHSA-8cf7-32gw-wr33 were wrong?"*
 
+## Graph data model and the queries Retcon depends on
+
+**Nodes:** `Project`, `PackageVersion`, `Advisory`, `Exposure`, `Judgment`, `Decision`, `Plan`, `Action`, `Support`, `Event`, `Retraction`, `Agent`. The beliefs (`Advisory`, `Exposure`, `Judgment`, `Decision`, `Plan`) also carry the `Belief` label.
+
+**Relationships:** `(Support)-[:PREMISE]->(node)` and `(Support)-[:SUPPORTS]->(belief)` carry the reasons. `(Agent)-[:WROTE]->(Support)` records who wrote a reason. `(Retraction)-[:RETRACTED {wave}]->(node)` records every retraction wave. Others: `DEPENDS_ON`, `DUPLICATE_OF`, `ALIAS_OF`, `ADJUSTS`, `TRIGGERED`, `ABOUT`, `CHANGED`, `CAUSED`.
+
+**The rule:** a belief is held while at least one of its Supports is held, and a Support is held while all of its premises are held. A write that names no premises is rejected.
+
+**Retraction (the core algorithm).** Mark the withdrawn advisory retracted, then repeat these two queries until neither changes anything. Each round is one wave:
+
+```cypher
+// 1. A Support dies when any of its premises is retracted
+MATCH (s:Support {status: 'held'})-[:PREMISE]->(p:Node {status: 'retracted'})
+WITH DISTINCT s SET s.status = 'retracted', s.retracted_at = $at RETURN s.id
+
+// 2. A belief dies when no held Support is left
+MATCH (b:Belief {status: 'held'})
+OPTIONAL MATCH (b)<-[:SUPPORTS]-(s:Support {status: 'held'})
+WITH b, count(s) AS held WHERE held = 0
+SET b.status = 'retracted', b.retracted_at = $at RETURN b.id
+```
+
+**Recomputing every held decision (urgency, evidence, target version)** from the advisories that still hold, in one traversal and one batched write:
+
+```cypher
+MATCH (d:Decision {status: 'held'})<-[:SUPPORTS]-(:Support {status: 'held'})
+      -[:PREMISE]->(e:Exposure {status: 'held'})<-[:SUPPORTS]-(s:Support {status: 'held'})
+      -[:PREMISE]->(a:Advisory {status: 'held'})
+RETURN d.id, collect(DISTINCT [a.evidence, a.rank, s.fix, a.id])
+```
+
+**What-if** runs the real retraction on a throwaway clone and deletes it, so the live graph is never written: `GRAPH.COPY <graph> <scratch>`, retract on `<scratch>`, diff the decisions, then delete `<scratch>`.
+
+**Why?** walks `PREMISE` and `SUPPORTS` from a decision back to its advisories, including retracted nodes, because nothing is ever deleted. Writes are idempotent (`MERGE`, with an index on `id` per label), so the graph can be rebuilt from the advisory feed. The code is in `retcon/engine.py`.
+
+## Built with AI assistance
+
+Retcon was built with Claude Code (Anthropic) as a coding assistant, for implementation, tests and the web UI, as the hackathon rules allow when disclosed.
+
 ## Architecture (all free tier)
 
 | Piece | Where |
