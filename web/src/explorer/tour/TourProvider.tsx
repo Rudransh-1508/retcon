@@ -113,7 +113,7 @@ function useFocusLoop(target: string | undefined) {
       if (e.key !== 'Tab') return
       const card = document.querySelector<HTMLElement>('[data-tour-layer="card"]')
       if (!card) return
-      const spot = target ? document.querySelector<HTMLElement>(targetSelector(target)) : null
+      const spot = target ? [...document.querySelectorAll<HTMLElement>(targetSelector(target))].find((el) => el.getClientRects().length > 0) ?? null : null
       const inside = (el: HTMLElement) => [...el.querySelectorAll<HTMLElement>(FOCUSABLE)].filter((x) => x.getClientRects().length > 0)
       const order = [...(spot ? (spot.matches(FOCUSABLE) ? [spot, ...inside(spot)] : inside(spot)) : []), ...inside(card)]
       if (order.length === 0) return
