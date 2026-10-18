@@ -11,7 +11,22 @@ from pydantic import BaseModel
 from . import config
 from .engine import Engine, EventResult
 
-app = FastAPI(title="Retcon")
+from contextlib import asynccontextmanager
+
+from .mcp_server import build as build_mcp
+
+# Remote MCP endpoint: read tools only, stateless, so it works on serverless functions.
+mcp = build_mcp(allow_correct=False)
+mcp_app = mcp.streamable_http_app(streamable_http_path="/mcp", stateless_http=True, json_response=True)
+
+
+@asynccontextmanager
+async def lifespan(_):
+    async with mcp.session_manager.run():
+        yield
+
+
+app = FastAPI(title="Retcon", lifespan=lifespan)
 _engine: Engine | None = None
 
 
@@ -51,14 +66,7 @@ def why(id: str):
 
 @app.get("/api/events")
 def events(limit: int = 200):
-    rows = engine().q("""MATCH (e:Event) OPTIONAL MATCH (e)-[:ABOUT]->(a:Advisory)
-                         OPTIONAL MATCH (e)-[:TRIGGERED]->(r:Retraction)
-                         RETURN e.id, e.kind, e.at, e.advisory, a.summary, a.severity, e.changes, e.target, e.reason,
-                                e.by, r.classification, r.rationale
-                         ORDER BY e.at DESC, e.seq DESC LIMIT $limit""", {"limit": limit})
-    return [{"id": r[0], "kind": r[1], "at": r[2], "advisory": r[3], "summary": r[4], "severity": r[5],
-             "changes": json.loads(r[6] or "[]"), "target": r[7], "reason": r[8], "by": r[9],
-             "classification": r[10], "rationale": r[11]} for r in rows]
+    return engine().events(limit)
 
 
 def _result(r: EventResult) -> dict:
@@ -135,3 +143,7 @@ def event(id: str):
     kind, at, advisory, target, waves, changes = rows[0]
     return {"id": id, "kind": kind, "at": at, "advisory": advisory, "target": target,
             "waves": json.loads(waves or "[]"), "changes": json.loads(changes or "[]")}
+
+
+# Mounted last so every API route above takes precedence; the MCP app answers at /mcp.
+app.mount("/", mcp_app)

@@ -40,8 +40,11 @@ def reconciler(engine: Engine, gh=None):
     from .fixer import FixerWriter
     from .github import RealGitHub
     from .llm import GroqLLM
-    writer = FixerWriter(GroqLLM()) if config.groq_keys() else None
-    return Reconciler(engine, gh or RealGitHub(), writer=writer)
+    from .planner import PlannerAgent
+    keyed = bool(config.groq_keys())
+    writer = FixerWriter(GroqLLM()) if keyed else None
+    planner = PlannerAgent(GroqLLM()) if keyed else None
+    return Reconciler(engine, gh or RealGitHub(), writer=writer, planner=planner)
 
 
 def triage_agent():

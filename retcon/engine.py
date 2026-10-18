@@ -540,6 +540,16 @@ class Engine:
         return [{"id": r[0], "project": r[1], "package": r[2], "status": r[3], "urgency": r[4],
                  "target": r[5], "evidence": r[6] or [], "pr_url": r[7], "mode": r[8]} for r in rows]
 
+    def events(self, limit: int = 200) -> list[dict]:
+        rows = self.q("""MATCH (e:Event) OPTIONAL MATCH (e)-[:ABOUT]->(a:Advisory)
+                         OPTIONAL MATCH (e)-[:TRIGGERED]->(r:Retraction)
+                         RETURN e.id, e.kind, e.at, e.advisory, a.summary, a.severity, e.changes, e.target, e.reason,
+                                e.by, r.classification, r.rationale
+                         ORDER BY e.at DESC, e.seq DESC LIMIT $limit""", {"limit": limit})
+        return [{"id": r[0], "kind": r[1], "at": r[2], "advisory": r[3], "summary": r[4], "severity": r[5],
+                 "changes": json.loads(r[6] or "[]"), "target": r[7], "reason": r[8], "by": r[9],
+                 "classification": r[10], "rationale": r[11]} for r in rows]
+
     def node(self, node_id: str) -> dict | None:
         rows = self.q("MATCH (n:Node {id: $id}) RETURN labels(n), properties(n)", {"id": node_id})
         if not rows:
