@@ -48,7 +48,11 @@ export function TourProvider({ ready, failed, onView, onOpenWhy, onCloseWhy, chi
   const start = useCallback(() => { setStatus('running'); go(0) }, [go])
   const stop = useCallback(() => { tourMemory.remember(); setStatus('done'); setIndex(0) }, [])
   const next = useCallback(() => { if (index + 1 < STEPS.length) go(index + 1); else stop() }, [index, go, stop])
-  const back = useCallback(() => { if (index > 0) go(index - 1) }, [index, go])
+  const back = useCallback(() => {
+    if (index === 0) return
+    const to = STEPS[index - 1].backTo
+    go(to ? STEPS.findIndex((s) => s.id === to) : index - 1)
+  }, [index, go])
 
   // How this visit arrived, read once: forced by the landing page link, or sent to something specific.
   const [entry] = useState(() => {
