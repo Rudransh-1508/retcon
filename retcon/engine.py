@@ -360,15 +360,17 @@ class Engine:
         adjust = {(did, aid): {"exploitable": 1, "not_reachable": -1}.get(verdict, 0)
                   for did, aid, verdict in self.q("""MATCH (j:Judgment {status: 'held'})-[:ADJUSTS]->(d:Decision)
                                                      RETURN d.id, j.advisory, j.verdict""")}
+        updates = []
         for did, items in rows:
             evidence = sorted({e for e, _, _, _ in items})
             top = max(max(1, min(4, rank + adjust.get((did, aid), 0))) for _, rank, _, aid in items)
             # A linked duplicate or alias is the same evidence as its original: the original's ranges decide.
             fixes = [fix for e, _, fix, aid in items if e == aid] or [fix for _, _, fix, _ in items]
-            target = semver.max_version(fixes)
-            self.q("""MATCH (d:Decision {id: $id})
-                      SET d.urgency = $urgency, d.target = $target, d.evidence = $evidence""",
-                   {"id": did, "urgency": URGENCY_BY_RANK[top], "target": target, "evidence": evidence})
+            updates.append({"id": did, "urgency": URGENCY_BY_RANK[top], "target": semver.max_version(fixes),
+                            "evidence": evidence})
+        if updates:
+            self.q("""UNWIND $rows AS r MATCH (d:Decision {id: r.id})
+                      SET d.urgency = r.urgency, d.target = r.target, d.evidence = r.evidence""", {"rows": updates})
 
     def _decision_states(self) -> dict[str, DecisionState]:
         return {row[0]: DecisionState(row[0], row[1], row[2], row[3], tuple(row[4] or ()))
