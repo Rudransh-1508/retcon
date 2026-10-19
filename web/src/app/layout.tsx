@@ -27,8 +27,9 @@ export const viewport: Viewport = {
 const legacyRedirect = `if(location.pathname==='/'&&/[?&](why|view|project)=/.test(location.search))location.replace('/app'+location.search);else{var h=document.documentElement;h.classList.add('reveal-ready');setTimeout(function(){h.classList.remove('reveal-ready')},6000)}`
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // suppressHydrationWarning: the inline script adds a class to <html> before React loads (scroll reveals).
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
+    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: legacyRedirect }} />
       </head>

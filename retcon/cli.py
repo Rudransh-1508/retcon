@@ -65,6 +65,8 @@ def main():
     sub.add_parser("wipe")
     sub.add_parser("reconcile")
     sub.add_parser("reset", help="close Retcon's open items, archive their markers, delete branches, wipe graph")
+    ev = sub.add_parser("evaluate", help="score Retcon against strategies without reasons on the graph's real withdrawals")
+    ev.add_argument("--out", help="write the full report as JSON here (and a Markdown table beside it)")
     run = sub.add_parser("run", help="load projects if needed, apply new advisory events, reconcile GitHub")
     run.add_argument("--archive", help="path or URL of the OSV npm archive (rebuild only)")
     run.add_argument("--pause", type=float, default=0.0, help="seconds between significant events (demo speed)")
@@ -100,6 +102,18 @@ def main():
         for repo, number in worker.reset(engine, RealGitHub(), config.TARGET_REPOS):
             print("archived", repo, number)
         print("graph wiped")
+    elif args.cmd == "evaluate":
+        import json
+        from pathlib import Path
+        from .evaluate import as_markdown, evaluate, report_dict
+        data = report_dict(evaluate(engine))
+        table = as_markdown(data["summary"], f"graph '{engine.graph_name}'")
+        print(table)
+        if args.out:
+            out = Path(args.out)
+            out.parent.mkdir(parents=True, exist_ok=True)
+            out.write_text(json.dumps(data, indent=1) + "\n")
+            out.with_suffix(".md").write_text(table + "\n")
     elif args.cmd == "reconcile":
         for done in reconciler(engine).reconcile():
             print(done.kind, done.decision, done.url)

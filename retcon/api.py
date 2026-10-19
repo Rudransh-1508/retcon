@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hmac
 import json
+import time
 
 from fastapi import FastAPI, Header, HTTPException
 from pydantic import BaseModel
@@ -91,6 +92,21 @@ def what_if(id: str):
         raise HTTPException(404, f"no node {id}")
     except ValueError as e:
         raise HTTPException(400, str(e))
+
+
+_load_bearing: dict = {}
+
+
+@app.get("/api/loadbearing")
+def load_bearing(project: str | None = None, limit: int = 8):
+    """Held advisories ranked by FalkorDB's PageRank over what rests on what. Cached for a minute per instance."""
+    key = (project, min(max(limit, 1), 25))
+    hit = _load_bearing.get(key)
+    if hit and time.time() - hit[0] < 60:
+        return hit[1]
+    result = {"advisories": engine().load_bearing(*key), "algorithm": "algo.pageRank('Node', 'RESTS_ON')"}
+    _load_bearing[key] = (time.time(), result)
+    return result
 
 
 @app.post("/api/tick")

@@ -1,0 +1,87 @@
+{
+ "advisories": [
+  {
+   "id": "GHSA-968p-4wvh-cqc8",
+   "rank": 1,
+   "score": 0.001845,
+   "summary": "Babel has inefficient RegExp complexity in generated code with .replace when transpiling named capturing groups",
+   "severity": "MODERATE",
+   "decisions": [
+    "decision:gladys:@babel/runtime-corejs3",
+    "decision:gladys:@babel/runtime",
+    "decision:gladys:@babel/helpers"
+   ]
+  },
+  {
+   "id": "GHSA-vc2v-76pw-4v95",
+   "rank": 2,
+   "score": 0.001675,
+   "summary": "compression vulnerable to Denial of Service via memory leak on premature response close",
+   "severity": "HIGH",
+   "decisions": [
+    "decision:gladys:compression"
+   ]
+  },
+  {
+   "id": "GHSA-c2qf-rxjj-qqgw",
+   "rank": 3,
+   "score": 0.001549,
+   "summary": "semver vulnerable to Regular Expression Denial of Service",
+   "severity": "HIGH",
+   "decisions": [
+    "decision:gladys:semver"
+   ]
+  },
+  {
+   "id": "GHSA-73rr-hh4g-fpgx",
+   "rank": 4,
+   "score": 0.001506,
+   "summary": "jsdiff has a Denial of Service vulnerability in parsePatch and applyPatch",
+   "severity": "LOW",
+   "decisions": [
+    "decision:gladys:diff"
+   ]
+  },
+  {
+   "id": "GHSA-vpq2-c234-7xj6",
+   "rank": 5,
+   "score": 0.001506,
+   "summary": "@tootallnate/once vulnerable to Incorrect Control Flow Scoping",
+   "severity": "LOW",
+   "decisions": [
+    "decision:gladys:@tootallnate/once"
+   ]
+  },
+  {
+   "id": "GHSA-w5hq-g745-h8pq",
+   "rank": 6,
+   "score": 0.001506,
+   "summary": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+   "severity": "MODERATE",
+   "decisions": [
+    "decision:gladys:uuid"
+   ]
+  },
+  {
+   "id": "GHSA-hp3w-g68c-fv3c",
+   "rank": 7,
+   "score": 0.001506,
+   "summary": "sprintf-js vulnerable to denial of service through unbounded precision specifiers",
+   "severity": "MODERATE",
+   "decisions": [
+    "decision:gladys:sprintf-js"
+   ]
+  },
+  {
+   "id": "GHSA-76c9-3jph-rj3q",
+   "rank": 8,
+   "score": 0.001308,
+   "summary": "on-headers is vulnerable to http response header manipulation",
+   "severity": "LOW",
+   "decisions": [
+    "decision:gladys:on-headers"
+   ]
+  }
+ ],
+ "algorithm": "algo.pageRank('Node', 'RESTS_ON')"
+}

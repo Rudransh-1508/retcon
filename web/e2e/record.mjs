@@ -56,6 +56,9 @@ for (const id of new Set([first.id, RICH_DECISION])) {
   if (advisory) await record(`/api/whatif?id=${encodeURIComponent(advisory)}`)
 }
 
+// The Graph view's load-bearing panel (PageRank on a throwaway copy; the live graph is not changed).
+for (const p of projects) await record(`/api/loadbearing?project=${encodeURIComponent(p.id)}`)
+
 // One withdrawal per project, for replaying a retraction in the Graph view.
 for (const p of projects) {
   const ev = events.find((e) => e.kind !== 'published' && e.changes.some((c) => c.decision.includes(`:${p.id}:`)))

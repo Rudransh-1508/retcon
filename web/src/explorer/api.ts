@@ -29,6 +29,8 @@ async function get<T>(path: string): Promise<T> {
 
 export type GraphNode = { id: string; kind: string; status: string; label: string; extra: string | null }
 export type GraphEdge = { id: string; support: string | null; source: string; target: string; status: string; kind?: string }
+/** Held advisories ranked by FalkorDB's PageRank over what rests on what. */
+export type LoadBearing = { algorithm: string; advisories: { id: string; rank: number; score: number; summary: string | null; severity: string | null; decisions: string[] }[] }
 export type GraphData = { nodes: GraphNode[]; edges: GraphEdge[] }
 export type EventDetail = { id: string; kind: string; at: string; advisory: string | null; target: string | null; waves: string[][]; changes: Change[] }
 
@@ -54,6 +56,7 @@ export const api = {
   events: () => get<Event[]>('/api/events'),
   agents: () => get<AgentItem[]>('/api/agents?limit=400'),
   graph: (project: string) => get<GraphData>(`/api/graph?project=${encodeURIComponent(project)}`),
+  loadBearing: (project: string) => get<LoadBearing>(`/api/loadbearing?project=${encodeURIComponent(project)}`),
   event: (id: string) => get<EventDetail>(`/api/event?id=${encodeURIComponent(id)}`),
   whatIf: (id: string) => get<Simulation>(`/api/whatif?id=${encodeURIComponent(id)}`),
   /** Starts the agents' worker if it has not run for 10 minutes. Best effort: failures are ignored. */

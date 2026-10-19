@@ -92,6 +92,12 @@ class Tools:
                            | {"changes": [{"decision": c["decision"], "change": c["change"]} for c in e["changes"]]}
                            for e in events]}
 
+    def load_bearing(self, project: str | None = None, limit: int = 10) -> dict:
+        """The held advisories the most work rests on, ranked by FalkorDB's PageRank over what rests on what:
+        the claims worth double-checking first. Follow up with what_if(id) to see exactly what one would undo."""
+        ranked = self.engine.load_bearing(project, max(1, min(limit, 25)))
+        return {"advisories": [{k: r[k] for k in ("id", "rank", "severity", "summary", "decisions")} for r in ranked]}
+
     def correct(self, id: str, reason: str) -> dict:
         """Retract an advisory, exposure or judgment for real, with a reason. Everything resting only on it is
         retracted too; GitHub catches up on the worker's next run. This writes."""
@@ -104,7 +110,7 @@ class Tools:
         return {"corrected": id, "decisions": [{"decision": c.decision, "outcome": c.change} for c in r.changes]}
 
 
-READ_TOOLS = ("why", "what_if", "decisions", "timeline")
+READ_TOOLS = ("why", "what_if", "decisions", "timeline", "load_bearing")
 
 
 def build(engine: Engine | None = None, allow_correct: bool = False):
@@ -115,8 +121,8 @@ def build(engine: Engine | None = None, allow_correct: bool = False):
         instructions=("Retcon is provenance-tracked memory for security advisories and the dependency upgrades they "
                       "justify in two real projects (gladys, wiredoor). Every belief records what supports it. Use "
                       "decisions() to see what to upgrade, why(id) to see the evidence and agent reasoning behind any "
-                      "decision, what_if(id) to test what would change if an advisory or judgment were wrong, and "
-                      "timeline() for what happened recently."))
+                      "decision, what_if(id) to test what would change if an advisory or judgment were wrong, "
+                      "load_bearing() for the advisories most work rests on, and timeline() for what happened recently."))
     for name in READ_TOOLS:
         server.add_tool(getattr(tools, name), name=name)
     if allow_correct and config.env("RETCON_ADMIN_PASSPHRASE"):

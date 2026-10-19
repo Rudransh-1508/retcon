@@ -453,6 +453,42 @@ class Engine:
         finally:
             self.db.select_graph(scratch).delete()
 
+    def load_bearing(self, project: str | None = None, limit: int = 10) -> list[dict]:
+        """The held advisories most work rests on, ranked by FalkorDB's PageRank: the claims to double-check first.
+
+        PageRank needs one relationship type, so it runs on a throwaway copy of the graph where every held belief
+        gets a RESTS_ON edge to each premise of its held supports; importance flows from the work (decisions,
+        plans, judgments) down to the evidence. On the real history its top 20 matches the exact What-if damage
+        top 20 in 16 cases, against 4 for a plain count of decisions (results/load_bearing_2026-10-19.json).
+        """
+        scratch = f"{self.graph_name}__pagerank_{uuid.uuid4().hex[:8]}"
+        self.db.connection.execute_command("GRAPH.COPY", self.graph_name, scratch)
+        try:
+            copy = Engine(graph_name=scratch, db=self.db)
+            copy.q("""MATCH (b:Node {status: 'held'})<-[:SUPPORTS]-(:Support {status: 'held'})-[:PREMISE]->(p:Node {status: 'held'})
+                      MERGE (b)-[:RESTS_ON]->(p)""")
+            ranked = copy.q("""CALL algo.pageRank('Node', 'RESTS_ON') YIELD node, score
+                               WITH node, score WHERE node:Advisory AND node.status = 'held'
+                               RETURN node.id, score ORDER BY score DESC""")
+        finally:
+            self.db.select_graph(scratch).delete()
+        rows = self.q("""MATCH (a:Advisory {status: 'held'})<-[:PREMISE]-(:Support {kind: 'affects', status: 'held'})
+                                -[:SUPPORTS]->(x:Exposure {status: 'held'})
+                         WHERE $project IS NULL OR x.project = $project
+                         OPTIONAL MATCH (x)<-[:PREMISE]-(:Support {kind: 'resolves', status: 'held'})-[:SUPPORTS]->(d:Decision {status: 'held'})
+                         RETURN a.id, a.summary, a.severity, collect(DISTINCT d.id)""", {"project": project})
+        info = {r[0]: r[1:] for r in rows}
+        out = []
+        for i, (aid, score) in enumerate(ranked, 1):
+            if aid not in info:
+                continue
+            summary, severity, decisions = info[aid]
+            out.append({"id": aid, "rank": i, "score": round(score, 6), "summary": summary, "severity": severity,
+                        "decisions": decisions})
+            if len(out) >= limit:
+                break
+        return out
+
     def _record_changes(self, event_id: str, at: str, result: EventResult):
         for c in result.changes:
             self.q("""MATCH (e:Event {id: $e}), (d:Decision {id: $d})

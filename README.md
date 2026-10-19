@@ -9,7 +9,7 @@
 
 ![Withdrawn advisories](https://shieldcn.dev/badge/advisories%20withdrawn-635-bb1d5c.svg) ![Withdrawn for other reasons](https://shieldcn.dev/badge/not%20duplicates-131-bb1d5c.svg) ![Events replayed](https://shieldcn.dev/badge/real%20events%20replayed-568-0a7058.svg) ![Worker](https://shieldcn.dev/badge/worker-every%2010%20min.svg?logo=githubactions)
 
-[![Live app](https://shieldcn.dev/badge/Live%20app-open-0a7058.svg?variant=branded)](https://retcon-kappa.vercel.app) [![Real PRs](https://shieldcn.dev/badge/Real%20PRs-on%20GitHub.svg?logo=github&variant=secondary)](https://github.com/Rudransh-1508/retcon-target-wiredoor/pulls?q=is%3Apr) [![How it works](https://shieldcn.dev/badge/How%20it-works.svg?variant=secondary)](#how-it-works) [![Real runs](https://shieldcn.dev/badge/Real-runs.svg?variant=secondary)](#real-runs) [![Try it](https://shieldcn.dev/badge/Try-it.svg?variant=secondary)](#try-it) [![MCP](https://shieldcn.dev/badge/Use%20over-MCP.svg?logo=modelcontextprotocol&variant=secondary)](#use-retcon-from-your-own-agent-mcp) [![Data model](https://shieldcn.dev/badge/Data%20model-Cypher.svg?variant=secondary)](#graph-data-model-and-the-queries-retcon-depends-on) [![Architecture](https://shieldcn.dev/badge/System-architecture.svg?variant=secondary)](#architecture) [![Run locally](https://shieldcn.dev/badge/Run-locally.svg?logo=docker&variant=secondary)](#getting-started)
+[![Live app](https://shieldcn.dev/badge/Live%20app-open-0a7058.svg?variant=branded)](https://retcon-kappa.vercel.app) [![Real PRs](https://shieldcn.dev/badge/Real%20PRs-on%20GitHub.svg?logo=github&variant=secondary)](https://github.com/Rudransh-1508/retcon-target-wiredoor/pulls?q=is%3Apr) [![How it works](https://shieldcn.dev/badge/How%20it-works.svg?variant=secondary)](#how-it-works) [![Real runs](https://shieldcn.dev/badge/Real-runs.svg?variant=secondary)](#real-runs) [![Measured](https://shieldcn.dev/badge/Measured-23%2F23.svg?variant=secondary)](#measured-with-and-without-the-reasons) [![Try it](https://shieldcn.dev/badge/Try-it.svg?variant=secondary)](#try-it) [![MCP](https://shieldcn.dev/badge/Use%20over-MCP.svg?logo=modelcontextprotocol&variant=secondary)](#use-retcon-from-your-own-agent-mcp) [![Data model](https://shieldcn.dev/badge/Data%20model-Cypher.svg?variant=secondary)](#graph-data-model-and-the-queries-retcon-depends-on) [![Architecture](https://shieldcn.dev/badge/System-architecture.svg?variant=secondary)](#architecture) [![Run locally](https://shieldcn.dev/badge/Run-locally.svg?logo=docker&variant=secondary)](#getting-started)
 
 </div>
 
@@ -25,6 +25,9 @@ Retcon is a team of LLM agents whose shared memory is a [FalkorDB](https://www.f
 > [!IMPORTANT]
 > What holds and what is retracted is decided by the graph, never by an LLM. Agents write beliefs, and the engine rejects any belief that does not name its support.
 
+> [!TIP]
+> **Measured on 42 real withdrawals:** Retcon handled **23 / 23** affected decisions correctly. Undoing everything linked to a withdrawn advisory, as a memory without reasons would, wrongly cancelled 17 of them and closed 7 real pull requests. [See the comparison](#measured-with-and-without-the-reasons).
+
 ## The problem
 
 Advisories are not final. In GitHub's npm and PyPI advisory data, 635 have been withdrawn, 131 of them for reasons other than being a duplicate:
@@ -38,10 +41,11 @@ Teams act on advisories fast: hotfixes, upgrade PRs, blocked releases. When a cl
 ## Features
 
 - **Every belief keeps its reasons.** Nothing is written to memory without the evidence it rests on.
-- **Exact retraction.** A withdrawal revises only the work that depended on it, and every affected decision gets an outcome: Cancel, Downgrade or Unchanged.
+- **Exact retraction.** A withdrawal revises only the work that depended on it, and every affected decision gets an outcome: Cancel, Downgrade or Unchanged. On the real history that was right for 23 of 23 decisions.
 - **Agents whose own choices can be taken back.** Triage's judgments and the Planner's plans are beliefs too, so they fall when their evidence does.
 - **Real pull requests** on two demo repositories: opened, rewritten, relabelled and closed with an explanation.
 - **What if?** Simulate any belief being wrong on a throwaway copy of the graph, without writing anything.
+- **Load-bearing advisories.** FalkorDB's PageRank ranks the claims the most work rests on, so you know which to double-check first.
 - **A 3D console and an MCP server** to ask why and what if, with a guided tour on your first visit.
 
 ## How it works
@@ -142,6 +146,22 @@ Replaying the real 2019 to 2026 advisory history against two projects (568 event
 - **wiredoor, express:** published on 2025-12-01 and listed in the report. The advisory is withdrawn the next day, nothing else holds the decision up, and it is cancelled.
 - **Duplicates** (about 80% of withdrawals) count as the same evidence as their original, so withdrawing one changes nothing and touches nothing on GitHub.
 
+### Measured: with and without the reasons
+
+What should happen to a decision when an advisory is withdrawn is a fact, not Retcon's opinion: it should be cancelled only if no other advisory behind it still stands. Scoring three ways of handling the same **42 real withdrawals** (16 of them touched a held decision) against those facts:
+
+| Strategy | Decisions handled correctly | Wrongly cancelled | Kept with no support left | Real open PRs wrongly closed |
+|---|---|---|---|---|
+| **Retcon** (follows the reasons) | **23 / 23** | 0 | 0 | 0 |
+| Undo without reasons | 6 / 23 | 17 | 0 | 7 |
+| Ignore withdrawals | 17 / 23 | 0 | 6 | 0 |
+
+The same retractions also took back **3 Triage judgments and 9 Planner plans** whose evidence was withdrawn. A memory that stores conclusions without their reasons would have kept every one of them. Full per-decision data is in [`results/withdrawals_2026-10-19.json`](results/withdrawals_2026-10-19.json). Re-run it against any graph:
+
+```bash
+uv run python -m retcon.cli evaluate --out results/withdrawals.json
+```
+
 > [!NOTE]
 > The demo targets are snapshot copies (not forks, so nothing can reach upstream) of [GladysAssistant/Gladys](https://github.com/GladysAssistant/Gladys) at `7eb0b2a` and [wiredoor/wiredoor](https://github.com/wiredoor/wiredoor) at `e80904f`, both Apache-2.0. The GitHub token is limited to those two repositories, and the code refuses any other.
 
@@ -151,13 +171,18 @@ Open the [live console](https://retcon-kappa.vercel.app/app). The first time, a 
 
 1. Pick a decision. The **Why?** panel shows its chain of support, the Planner's reasoning and the decision's history.
 2. Press **What if wrong?** on any advisory, exposure or judgment. Retcon copies the graph, applies the retraction to the copy, shows what would change, and deletes the copy.
-3. Open **Graph** and **replay a retraction**. The recorded waves travel up through the plates.
+3. Open **Graph** and **replay a retraction**. The recorded waves travel up through the plates. Below the graph, **Load-bearing advisories** lists the claims the most work rests on; **Show in graph** selects one so you can ask what if it were wrong.
 4. Open **Agents** for one feed of everything each agent did, and **Timeline** for every withdrawal and correction with the Auditor's explanation.
 
 <p align="center">
   <img src="docs/images/graph-3d.png" alt="The 3D graph: five plates for advisories, exposures, judgments, decisions and plans, with the links between them" width="100%">
 </p>
 <p align="center"><sub>The Graph view: one plate per kind of belief, each resting on the plates below it.</sub></p>
+
+<p align="center">
+  <img src="docs/images/load-bearing.png" alt="Load-bearing advisories: five held advisories ranked by FalkorDB PageRank, each with its severity, summary, how many upgrades rest on it, and a Show in graph button" width="100%">
+</p>
+<p align="center"><sub>Load-bearing advisories, ranked by FalkorDB's PageRank: the claims to double-check first.</sub></p>
 
 ## Use Retcon from your own agent (MCP)
 
@@ -169,6 +194,7 @@ Retcon's memory is an MCP server, so any agent can ask it why, and what if.
 | `why(id)` | The chain of support behind a decision, judgment, plan or advisory, including what was retracted |
 | `what_if(id)` | What would change if a belief were wrong; runs on a copy of the graph and writes nothing |
 | `timeline(limit?, only_retractions?)` | Recent withdrawals and corrections, with what each changed |
+| `load_bearing(project?, limit?)` | The held advisories the most work rests on, ranked by FalkorDB's PageRank |
 | `correct(id, reason)` | Retract a belief for real (local server only, needs the admin passphrase) |
 
 ```bash
@@ -243,6 +269,19 @@ MATCH (d:Decision {status: 'held'})<-[:SUPPORTS]-(:Support {status: 'held'})
       -[:PREMISE]->(a:Advisory {status: 'held'})
 RETURN d.id, collect(DISTINCT [a.evidence, a.rank, s.fix, a.id])
 ```
+
+**Load-bearing advisories (FalkorDB PageRank).** Which advisory, if wrong, would undo the most work? Answering that exactly takes a What-if per advisory: 424 seconds for the 484 held advisories in production. PageRank answers it in one call. It needs a single relationship type, so it runs on a throwaway copy where every held belief gets a `RESTS_ON` edge to each premise of its held supports; importance flows from the work (decisions, plans, judgments) down to the evidence:
+
+```cypher
+MATCH (b:Node {status: 'held'})<-[:SUPPORTS]-(:Support {status: 'held'})-[:PREMISE]->(p:Node {status: 'held'})
+MERGE (b)-[:RESTS_ON]->(p);
+
+CALL algo.pageRank('Node', 'RESTS_ON') YIELD node, score
+WITH node, score WHERE node:Advisory AND node.status = 'held'
+RETURN node.id, score ORDER BY score DESC
+```
+
+Checked against the exact What-if damage of every held advisory, its top 20 matches the true top 20 in **16 cases** (rank correlation 0.83), against **4** for a plain count of the decisions resting on each advisory (0.69), because PageRank also counts the plans and judgments that rest on those decisions. It runs in 0.03 seconds. Data: [`results/load_bearing_2026-10-19.json`](results/load_bearing_2026-10-19.json).
 
 **What-if** runs the real retraction on a throwaway clone, so the live graph is never written: `GRAPH.COPY <graph> <scratch>`, retract on `<scratch>`, diff the decisions, then delete `<scratch>`.
 
@@ -362,12 +401,13 @@ Settings are read from the environment or a local `.env` file.
 
 ### Tests
 
-- **Engine (Python):** the tests drive one seam, the engine, exactly as the worker and API do, against **real FalkorDB** with **real advisory and lockfile fixtures**. Only the LLM (a stub) and GitHub (an in-memory fake) are replaced. Scenarios include the real jsonwebtoken, axios, express and duplicate withdrawals, corrections, what-if, the write rule, rebuild with re-linking, and aliases.
+- **Engine (Python):** the tests drive one seam, the engine, exactly as the worker and API do, against **real FalkorDB** with **real advisory and lockfile fixtures**. Only the LLM (a stub) and GitHub (an in-memory fake) are replaced. Scenarios include the real jsonwebtoken, axios, express and duplicate withdrawals, corrections, what-if, the write rule, rebuild with re-linking, aliases, the with-and-without-reasons comparison, and the PageRank ranking (which must never change the live graph).
 - **Console (browser):** `cd web && npm run test:e2e` runs Playwright against the static export, answering every `/api` request from recorded responses. It covers the views, the guided tour and accessibility. See [`web/e2e/README.md`](web/e2e/README.md).
 
 ## Resources
 
 - [Glossary](CONTEXT.md): the words Retcon uses, from Advisory to Retraction
+- [Results](results/): the with-and-without-reasons comparison and the PageRank check, with per-item data
 - [Spec and tickets](https://github.com/Rudransh-1508/retcon/issues/1): how Retcon was planned and built
 - [A Truth Maintenance System](https://doi.org/10.1016/0004-3702(79)90008-0) (Doyle, 1979): the idea Retcon is built on
 - [FalkorDB documentation](https://docs.falkordb.com/) and the [OSV data](https://osv.dev/) Retcon reads

@@ -1,0 +1,289 @@
+{
+ "summary": {
+  "withdrawals": 42,
+  "withdrawals_touching_held_work": 16,
+  "retcon": {
+   "correct": 23,
+   "decisions": 23,
+   "wrongly_cancelled": 0,
+   "stale_kept": 0,
+   "open_prs_wrongly_closed": 0,
+   "open_prs_left_stale": 0
+  },
+  "undo_without_reasons": {
+   "correct": 6,
+   "decisions": 23,
+   "wrongly_cancelled": 17,
+   "stale_kept": 0,
+   "open_prs_wrongly_closed": 7,
+   "open_prs_left_stale": 0
+  },
+  "ignore_withdrawals": {
+   "correct": 17,
+   "decisions": 23,
+   "wrongly_cancelled": 0,
+   "stale_kept": 6,
+   "open_prs_wrongly_closed": 0,
+   "open_prs_left_stale": 0
+  },
+  "agent_beliefs_taken_back": {
+   "planner_plans": 9,
+   "triage_judgments": 3
+  }
+ },
+ "cases": [
+  {
+   "event": "event:withdrawn:GHSA-27h2-hvpr-p74q",
+   "advisory": "GHSA-27h2-hvpr-p74q",
+   "at": "2023-01-27T21:51:55Z",
+   "decision": "decision:gladys:jsonwebtoken",
+   "should_cancel": false,
+   "retcon_cancelled": false,
+   "retcon_change": "unchanged",
+   "others_still_standing": 3,
+   "had_open_pr": false
+  },
+  {
+   "event": "event:withdrawn:GHSA-8mwq-mj73-qv68",
+   "advisory": "GHSA-8mwq-mj73-qv68",
+   "at": "2023-02-24T18:48:34Z",
+   "decision": "decision:gladys:sequelize",
+   "should_cancel": false,
+   "retcon_cancelled": false,
+   "retcon_change": "unchanged",
+   "others_still_standing": 2,
+   "had_open_pr": true
+  },
+  {
+   "event": "event:withdrawn:GHSA-8cp3-66vr-3r4c",
+   "advisory": "GHSA-8cp3-66vr-3r4c",
+   "at": "2024-04-25T16:59:44Z",
+   "decision": "decision:gladys:formidable",
+   "should_cancel": true,
+   "retcon_cancelled": true,
+   "retcon_change": "cancel",
+   "others_still_standing": 0,
+   "had_open_pr": false
+  },
+  {
+   "event": "event:withdrawn:GHSA-rm8p-cx58-hcvx",
+   "advisory": "GHSA-rm8p-cx58-hcvx",
+   "at": "2025-07-24T13:35:30Z",
+   "decision": "decision:wiredoor:axios",
+   "should_cancel": true,
+   "retcon_cancelled": true,
+   "retcon_change": "cancel",
+   "others_still_standing": 0,
+   "had_open_pr": false
+  },
+  {
+   "event": "event:withdrawn:GHSA-mvw6-62qv-vmqf",
+   "advisory": "GHSA-mvw6-62qv-vmqf",
+   "at": "2025-07-29T19:06:04Z",
+   "decision": "decision:wiredoor:koa",
+   "should_cancel": true,
+   "retcon_cancelled": true,
+   "retcon_change": "cancel",
+   "others_still_standing": 0,
+   "had_open_pr": false
+  },
+  {
+   "event": "event:withdrawn:GHSA-9mvj-f7w8-pvh2",
+   "advisory": "GHSA-9mvj-f7w8-pvh2",
+   "at": "2025-09-11T16:19:47Z",
+   "decision": "decision:gladys:bootstrap",
+   "should_cancel": false,
+   "retcon_cancelled": false,
+   "retcon_change": "unchanged",
+   "others_still_standing": 1,
+   "had_open_pr": false
+  },
+  {
+   "event": "event:withdrawn:GHSA-ffrw-9mx8-89p8",
+   "advisory": "GHSA-ffrw-9mx8-89p8",
+   "at": "2025-11-20T17:27:56Z",
+   "decision": "decision:wiredoor:fast-redact",
+   "should_cancel": true,
+   "retcon_cancelled": true,
+   "retcon_change": "cancel",
+   "others_still_standing": 0,
+   "had_open_pr": false
+  },
+  {
+   "event": "event:withdrawn:GHSA-pj86-cfqh-vqx6",
+   "advisory": "GHSA-pj86-cfqh-vqx6",
+   "at": "2025-12-02T15:11:19Z",
+   "decision": "decision:gladys:express",
+   "should_cancel": false,
+   "retcon_cancelled": false,
+   "retcon_change": "unchanged",
+   "others_still_standing": 2,
+   "had_open_pr": false
+  },
+  {
+   "event": "event:withdrawn:GHSA-pj86-cfqh-vqx6",
+   "advisory": "GHSA-pj86-cfqh-vqx6",
+   "at": "2025-12-02T15:11:19Z",
+   "decision": "decision:wiredoor:express",
+   "should_cancel": true,
+   "retcon_cancelled": true,
+   "retcon_change": "cancel",
+   "others_still_standing": 0,
+   "had_open_pr": false
+  },
+  {
+   "event": "event:withdrawn:GHSA-p5wg-g6qr-c7cg",
+   "advisory": "GHSA-p5wg-g6qr-c7cg",
+   "at": "2026-02-03T17:43:56Z",
+   "decision": "decision:gladys:eslint",
+   "should_cancel": true,
+   "retcon_cancelled": true,
+   "retcon_change": "cancel",
+   "others_still_standing": 0,
+   "had_open_pr": false
+  },
+  {
+   "event": "event:withdrawn:GHSA-qmq6-f8pr-cx5x",
+   "advisory": "GHSA-qmq6-f8pr-cx5x",
+   "at": "2026-05-05T12:59:17Z",
+   "decision": "decision:gladys:uuid",
+   "should_cancel": false,
+   "retcon_cancelled": false,
+   "retcon_change": "unchanged",
+   "others_still_standing": 1,
+   "had_open_pr": false
+  },
+  {
+   "event": "event:withdrawn:GHSA-qmq6-f8pr-cx5x",
+   "advisory": "GHSA-qmq6-f8pr-cx5x",
+   "at": "2026-05-05T12:59:17Z",
+   "decision": "decision:wiredoor:uuid",
+   "should_cancel": false,
+   "retcon_cancelled": false,
+   "retcon_change": "unchanged",
+   "others_still_standing": 1,
+   "had_open_pr": false
+  },
+  {
+   "event": "event:withdrawn:GHSA-f2r5-pqh9-r8f8",
+   "advisory": "GHSA-f2r5-pqh9-r8f8",
+   "at": "2026-08-31T19:51:19Z",
+   "decision": "decision:gladys:axios",
+   "should_cancel": false,
+   "retcon_cancelled": false,
+   "retcon_change": "unchanged",
+   "others_still_standing": 34,
+   "had_open_pr": false
+  },
+  {
+   "event": "event:withdrawn:GHSA-f2r5-pqh9-r8f8",
+   "advisory": "GHSA-f2r5-pqh9-r8f8",
+   "at": "2026-08-31T19:51:19Z",
+   "decision": "decision:wiredoor:axios",
+   "should_cancel": false,
+   "retcon_cancelled": false,
+   "retcon_change": "unchanged",
+   "others_still_standing": 34,
+   "had_open_pr": true
+  },
+  {
+   "event": "event:withdrawn:GHSA-4ww2-rjh2-xpv9",
+   "advisory": "GHSA-4ww2-rjh2-xpv9",
+   "at": "2026-08-31T20:02:56Z",
+   "decision": "decision:gladys:axios",
+   "should_cancel": false,
+   "retcon_cancelled": false,
+   "retcon_change": "unchanged",
+   "others_still_standing": 33,
+   "had_open_pr": false
+  },
+  {
+   "event": "event:withdrawn:GHSA-4ww2-rjh2-xpv9",
+   "advisory": "GHSA-4ww2-rjh2-xpv9",
+   "at": "2026-08-31T20:02:56Z",
+   "decision": "decision:wiredoor:axios",
+   "should_cancel": false,
+   "retcon_cancelled": false,
+   "retcon_change": "unchanged",
+   "others_still_standing": 33,
+   "had_open_pr": true
+  },
+  {
+   "event": "event:withdrawn:GHSA-39j5-w47m-2gmv",
+   "advisory": "GHSA-39j5-w47m-2gmv",
+   "at": "2026-09-01T18:37:49Z",
+   "decision": "decision:wiredoor:axios",
+   "should_cancel": false,
+   "retcon_cancelled": false,
+   "retcon_change": "unchanged",
+   "others_still_standing": 32,
+   "had_open_pr": true
+  },
+  {
+   "event": "event:withdrawn:GHSA-6hqm-hm2v-3p2p",
+   "advisory": "GHSA-6hqm-hm2v-3p2p",
+   "at": "2026-09-01T18:38:42Z",
+   "decision": "decision:gladys:axios",
+   "should_cancel": false,
+   "retcon_cancelled": false,
+   "retcon_change": "unchanged",
+   "others_still_standing": 32,
+   "had_open_pr": false
+  },
+  {
+   "event": "event:withdrawn:GHSA-6hqm-hm2v-3p2p",
+   "advisory": "GHSA-6hqm-hm2v-3p2p",
+   "at": "2026-09-01T18:38:42Z",
+   "decision": "decision:wiredoor:axios",
+   "should_cancel": false,
+   "retcon_cancelled": false,
+   "retcon_change": "unchanged",
+   "others_still_standing": 31,
+   "had_open_pr": true
+  },
+  {
+   "event": "event:withdrawn:GHSA-fq2j-3j99-rx65",
+   "advisory": "GHSA-fq2j-3j99-rx65",
+   "at": "2026-09-01T18:40:20Z",
+   "decision": "decision:gladys:axios",
+   "should_cancel": false,
+   "retcon_cancelled": false,
+   "retcon_change": "unchanged",
+   "others_still_standing": 31,
+   "had_open_pr": false
+  },
+  {
+   "event": "event:withdrawn:GHSA-fq2j-3j99-rx65",
+   "advisory": "GHSA-fq2j-3j99-rx65",
+   "at": "2026-09-01T18:40:20Z",
+   "decision": "decision:wiredoor:axios",
+   "should_cancel": false,
+   "retcon_cancelled": false,
+   "retcon_change": "unchanged",
+   "others_still_standing": 30,
+   "had_open_pr": true
+  },
+  {
+   "event": "event:withdrawn:GHSA-9wx3-p993-35vp",
+   "advisory": "GHSA-9wx3-p993-35vp",
+   "at": "2026-09-01T18:41:21Z",
+   "decision": "decision:gladys:axios",
+   "should_cancel": false,
+   "retcon_cancelled": false,
+   "retcon_change": "unchanged",
+   "others_still_standing": 30,
+   "had_open_pr": false
+  },
+  {
+   "event": "event:withdrawn:GHSA-9wx3-p993-35vp",
+   "advisory": "GHSA-9wx3-p993-35vp",
+   "at": "2026-09-01T18:41:21Z",
+   "decision": "decision:wiredoor:axios",
+   "should_cancel": false,
+   "retcon_cancelled": false,
+   "retcon_change": "unchanged",
+   "others_still_standing": 29,
+   "had_open_pr": true
+  }
+ ]
+}

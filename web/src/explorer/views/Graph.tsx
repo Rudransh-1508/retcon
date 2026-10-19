@@ -9,7 +9,7 @@ import { date } from '../format'
 import { KindChip } from '../ui/Kind'
 import { Segmented } from '../ui/Segmented'
 import { ErrorNote, Skeleton } from '../ui/States'
-import { StatusPill } from '../ui/Urgency'
+import { Severity, StatusPill } from '../ui/Urgency'
 import { Button } from '@/components/ui/button'
 import { ease } from '@/components/site/motion'
 import { GraphScene, type Palette, type Picked } from '../graph/scene'
@@ -48,6 +48,7 @@ export function Graph({ projects, onOpen }: { projects: Project[]; onOpen: (id: 
   const active = projects.some((p) => p.id === project) ? project : projects[0]?.id ?? project
   const { data, error } = useResource(`graph:${active}`, () => api.graph(active))
   const { data: events } = useResource('events', api.events)
+  const { data: bearing } = useResource(`loadbearing:${active}`, () => api.loadBearing(active))
 
   const host = useRef<HTMLDivElement>(null)
   const scene = useRef<GraphScene | null>(null)
@@ -205,6 +206,38 @@ export function Graph({ projects, onOpen }: { projects: Project[]; onOpen: (id: 
           )}
         </AnimatePresence>
       </div>
+
+      {bearing && bearing.advisories.length > 0 && (
+        <section aria-labelledby="load-bearing-title" className="rounded-3xl border border-line bg-panel/60 p-4 sm:p-5">
+          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <h2 id="load-bearing-title" className="font-display text-lg font-semibold tracking-tight">Load-bearing advisories</h2>
+            <code className="font-mono text-[11px] text-muted-foreground">{bearing.algorithm}</code>
+          </div>
+          <p className="mt-1 max-w-3xl text-sm text-muted-foreground">
+            The claims the most work rests on, ranked by FalkorDB's PageRank over what rests on what. If one of these
+            were wrong it would undo the most, so check them first; What if wrong? shows exactly what it would change.
+          </p>
+          <ol className="mt-3 grid gap-2">
+            {bearing.advisories.slice(0, 5).map((a, i) => (
+              <li key={a.id} className="grid gap-1.5 rounded-xl border border-line bg-paper px-3 py-2.5 md:flex md:items-center md:gap-3">
+                <span className="flex items-center gap-2">
+                  <span className="w-4 font-mono text-xs text-muted-foreground">{i + 1}</span>
+                  <a href={`https://github.com/advisories/${a.id}`} target="_blank" rel="noreferrer" className="font-mono text-xs font-medium underline-offset-2 hover:underline">{a.id}</a>
+                  <Severity value={a.severity} />
+                </span>
+                <span className="line-clamp-2 text-sm text-muted-foreground md:min-w-0 md:flex-1 md:truncate" title={a.summary ?? undefined}>{a.summary}</span>
+                <span className="flex items-center justify-between gap-3 md:shrink-0">
+                  <span className="text-xs text-muted-foreground">{a.decisions.length} {a.decisions.length === 1 ? 'upgrade rests' : 'upgrades rest'} on it</span>
+                  <Button size="sm" variant="outline" className="rounded-full border-line" disabled={!data || !!failure}
+                    onClick={() => { scene.current?.select(a.id); host.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }) }}>
+                    Show in graph
+                  </Button>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
     </div>
   )
 }

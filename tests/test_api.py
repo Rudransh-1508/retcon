@@ -61,3 +61,12 @@ def test_graph_returns_beliefs_with_supports_as_edges(engine, monkeypatch):
 def test_tick_reports_without_a_token(engine, monkeypatch):
     c = client(engine, monkeypatch)
     assert c.post("/api/tick").json() == {"started": False, "why": "the site has no dispatch token"}
+
+
+def test_load_bearing_ranks_held_advisories(engine, monkeypatch):
+    add(engine, "wiredoor")
+    engine.process_event(published("GHSA-fjxv-7rqg-78g4"))
+    api._load_bearing.clear()
+    body = client(engine, monkeypatch).get("/api/loadbearing", params={"project": "wiredoor"}).json()
+    assert body["advisories"][0]["id"] == "GHSA-fjxv-7rqg-78g4"
+    assert body["advisories"][0]["decisions"] == ["decision:wiredoor:form-data"]

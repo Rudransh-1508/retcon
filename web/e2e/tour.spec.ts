@@ -9,6 +9,8 @@ const finish = (page: Page) => page.getByRole('dialog', { name: 'You know your w
 const firstDecision = (page: Page) => page.getByRole('button', { name: /^Why: upgrade / }).first()
 
 test('A first visit starts the tour, and finishing it is remembered', async ({ page }) => {
+  // Walks every step of the tour, including the WebGL graph steps: give it room under parallel load.
+  test.slow()
   await page.goto('/app')
   await expect(card(page)).toBeVisible()
   await expect(card(page)).toContainText(/1 of (\d+)/)
@@ -75,6 +77,8 @@ test('The forced-start parameter starts the tour after it was finished, then lea
 })
 
 test('The Tour button replays the tour from the welcome card', async ({ page }) => {
+  // Walks every step of the tour, including the WebGL graph steps: give it room under parallel load.
+  test.slow()
   await page.goto('/app')
   await skipToFinish(page)
   await finish(page).getByRole('button', { name: 'Finish' }).click()
@@ -85,6 +89,8 @@ test('The Tour button replays the tour from the welcome card', async ({ page }) 
 })
 
 test('The finish step points at the Tour button', async ({ page }) => {
+  // Walks every step of the tour, including the WebGL graph steps: give it room under parallel load.
+  test.slow()
   await page.goto('/app')
   await skipToFinish(page)
   await expect(finish(page)).toContainText('claude mcp add --transport http retcon')
@@ -94,6 +100,8 @@ test('The finish step points at the Tour button', async ({ page }) => {
 })
 
 test('Each step takes focus and the page behind the dim layer cannot be clicked', async ({ page }) => {
+  // Walks every step of the tour, including the WebGL graph steps: give it room under parallel load.
+  test.slow()
   await page.goto('/app')
   await expect(card(page)).toBeFocused()
   const box = (await firstDecision(page).boundingBox())!

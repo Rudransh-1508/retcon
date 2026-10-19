@@ -1,0 +1,3894 @@
+{
+ "question": "Which held advisories would undo the most work if they were wrong?",
+ "ground_truth": "exact What-if for every held advisory: beliefs retracted (GRAPH.COPY + the real retraction on the copy)",
+ "graph": "production graph 'retcon', 2026-10-19",
+ "held_advisories": 484,
+ "exact_whatif_seconds": 424,
+ "signals": {
+  "pagerank": {
+   "how": "algo.pageRank('Node','RESTS_ON') on a copy",
+   "spearman_vs_exact": 0.83,
+   "top20_overlap_with_exact": 16,
+   "seconds": 0.034
+  },
+  "decisions_resting": {
+   "how": "count of held decisions resting on the advisory",
+   "spearman_vs_exact": 0.69,
+   "top20_overlap_with_exact": 4
+  }
+ },
+ "rows": [
+  {
+   "id": "GHSA-22h7-7wwg-qmgg",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-22jq-vg5j-6vgg",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-22p9-wv53-3rq4",
+   "pagerank": 0.000551424571312964,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-23c5-xmqv-rm74",
+   "pagerank": 0.000766470155213028,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-23hp-3jrh-7fpw",
+   "pagerank": 0.000328524212818593,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 2,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-253c-mchw-3w2r",
+   "pagerank": 0.000452304200734943,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-257v-vj4p-3w2h",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-2598-2f59-rmhq",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-25h7-pfq9-p65f",
+   "pagerank": 0.000869635317940265,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-2777-2vq8-c4v4",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-27v5-c462-wpq7",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-286p-vc9p-p5qv",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-2883-xcg3-v3hh",
+   "pagerank": 0.000513138948008418,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-28wg-ghj8-5hjv",
+   "pagerank": 0.000363264320185408,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-29mw-wpgm-hmr9",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-29xp-372q-xqph",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-2cf5-4w76-r9qv",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-2g4f-4pwh-qvx6",
+   "pagerank": 0.00130781601183116,
+   "decisions_resting": 2,
+   "cancel": 2,
+   "downgrade": 0,
+   "beliefs_retracted": 7
+  },
+  {
+   "id": "GHSA-2j2x-2gpw-g8fm",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-2m8v-j782-fhvr",
+   "pagerank": 0.000371334259398282,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-2m96-9w4j-wgv7",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-2mhh-w6q8-5hxw",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-2p57-rm9w-gvfp",
+   "pagerank": 0.000506474752910435,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 1,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-2pqj-h3vj-pqgw",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-2pr6-76vf-7546",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-2qvq-rjwj-gvw9",
+   "pagerank": 0.00039057110552676,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-2rp8-mm9q-fp49",
+   "pagerank": 0.000407354382332414,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-2v37-7h3g-55p8",
+   "pagerank": 0.000313704134896398,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-2v7q-2xqx-f4q5",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-2vr4-cq9g-pvrc",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-2w6w-674q-4c4q",
+   "pagerank": 0.000489691505208611,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-325j-24f4-qv5x",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-332q-7ff2-57h2",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-333w-rxj3-f55r",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-34r7-q49f-h37c",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-34x7-hfp2-rc4v",
+   "pagerank": 0.000328524212818593,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-35jh-r3h4-6jhm",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-35jp-ww65-95wh",
+   "pagerank": 0.000519228109624237,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-37ch-88jc-xwx2",
+   "pagerank": 0.00086325517622754,
+   "decisions_resting": 2,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-38c4-r59v-3vqw",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-38r7-794h-5758",
+   "pagerank": 0.000342759012710303,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-3949-f494-cm99",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-395f-4hp3-45gv",
+   "pagerank": 0.000452304200734943,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-3cqr-58rm-57f8",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-3fx5-fwvr-xrjg",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-3g43-6gmg-66jw",
+   "pagerank": 0.000532545556779951,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-3gx7-xhv7-5mx3",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-3h5v-q93c-6h6q",
+   "pagerank": 0.000716423732228577,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-3jfq-g458-7qm9",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-3jxr-9vmj-r5cp",
+   "pagerank": 0.000511455349624157,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-3mfm-83xf-c92r",
+   "pagerank": 0.000423611229052767,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-3mgp-fx93-9xv5",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-3p4h-7m6x-2hcm",
+   "pagerank": 0.000281900574918836,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-3p68-rc4w-qgx5",
+   "pagerank": 0.000334304815623909,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-3ppc-4f35-3m26",
+   "pagerank": 0.000865590525791049,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-3pph-fpjx-jg34",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-3pq3-5fj3-cg6v",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-3rfm-jhwj-7488",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-3v7f-55p6-f55p",
+   "pagerank": 0.000671394576784223,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-3w5v-p54c-f74x",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-3w6x-2g7m-8v23",
+   "pagerank": 0.000320987368468195,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-3wqf-4x89-9g79",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-3x9f-74h4-2fqr",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-3xc7-xg67-pw99",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-3xgq-45jj-v275",
+   "pagerank": 0.000968755630310625,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 5
+  },
+  {
+   "id": "GHSA-3xq5-wjfh-ppjc",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-42h9-826w-cgv3",
+   "pagerank": 0.000320987368468195,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-42xw-2xvc-qx8m",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-43f8-2h32-f4cj",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-43fc-jf86-j433",
+   "pagerank": 0.000532545556779951,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-442j-39wm-28r2",
+   "pagerank": 0.000324490858474746,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-445q-vr5w-6q77",
+   "pagerank": 0.000320987368468195,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-446m-mv8f-q348",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-44fp-w29j-9vj5",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-44g4-m2mj-wpvx",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-46wh-pxpv-q5gq",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-47p6-69vm-vw6v",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-4g88-fppr-53pp",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-4gmj-3p3h-gm8h",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-4gxf-g5gf-22h4",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-4hjh-wcwx-xvwj",
+   "pagerank": 0.000618348480202258,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-4hqw-qxg8-jxx2",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-4jqc-8m5r-9rpr",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-4mjr-xmp4-gh2g",
+   "pagerank": 0.000488819263409823,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-4p24-vmcr-4gqj",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-4p3w-j4w9-5jqw",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-4pg4-qvpc-4q3h",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-4q6p-r6v2-jvc5",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-4r4m-hjwj-43p8",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-4r62-v4vq-hr96",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-4r6h-8v6p-xvw6",
+   "pagerank": 0.000551424571312964,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-4rq4-32rv-6wp6",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-4vvj-4cpr-p986",
+   "pagerank": 0.000342759012710303,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-4w2v-q235-vp99",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-4wf5-vphf-c2xc",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-4x49-vf9v-38px",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-4x5r-pxfx-6jf8",
+   "pagerank": 0.00130781601183116,
+   "decisions_resting": 2,
+   "cancel": 2,
+   "downgrade": 0,
+   "beliefs_retracted": 7
+  },
+  {
+   "id": "GHSA-4xc9-xhrj-v574",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-4xrf-jv44-h6hh",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-52cp-r559-cp3m",
+   "pagerank": 0.0006122593767941,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-535w-7cp7-47q4",
+   "pagerank": 0.000281900574918836,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-542g-h47m-68v8",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-5528-5vmv-3xc2",
+   "pagerank": 0.000281900574918836,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-552w-rqg8-gxxm",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-56x4-j7p9-fcf9",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-579v-mp3v-rrw5",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-58qx-3vcg-4xpx",
+   "pagerank": 0.000382889411412179,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-593f-38f6-jp5m",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-5955-9wpr-37jh",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-5c6j-r48x-rmvq",
+   "pagerank": 0.000554544967599213,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 1,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-5c9x-8gcm-mpgx",
+   "pagerank": 0.000334304815623909,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-5f7m-mmpc-qhh4",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-5fvm-p68v-5wmh",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-5j98-mcp5-4vw2",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-5p4m-2wfm-xmqj",
+   "pagerank": 0.000513138948008418,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-5pgg-2g8v-p4x9",
+   "pagerank": 0.000452304200734943,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-5rqg-jm4f-cqx7",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-5v2h-r2cx-5xgj",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-5v72-xg48-5rpm",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-5v9h-q3gj-c32x",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-5wg4-74h6-q47v",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-62gr-4qp9-h98f",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-62hf-57xw-28j9",
+   "pagerank": 0.000334304815623909,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-6457-6jrx-69cr",
+   "pagerank": 0.00048259916366078,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-64g7-mvw6-v9qj",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-652h-xwhf-q4h6",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-654m-c8p4-x5fp",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-6663-c963-2gqg",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-675m-85rw-j3w4",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-677m-j7p3-52f9",
+   "pagerank": 0.000437414506450295,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-67hx-6x53-jw92",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-67mh-4wv8-2f99",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-6c3j-c64m-qhgq",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-6c8f-qphg-qjgp",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-6chq-wfr3-2hj9",
+   "pagerank": 0.000532545556779951,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-6chw-6frg-f759",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-6fc8-4gx4-v693",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-6gp3-h3jj-prx4",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-6h2x-m376-mqjq",
+   "pagerank": 0.000663935556076467,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 2,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-6j4f-fj2g-mc7p",
+   "pagerank": 0.000395814946386963,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-6jp5-hh4c-8c5h",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-6rw7-vpxm-498p",
+   "pagerank": 0.000687060004565865,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-6v5v-wf23-fmfq",
+   "pagerank": 0.000551424571312964,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-6v9c-7cg6-27q7",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-6vfc-qv3f-vr6c",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-6w3j-5fw6-r9vr",
+   "pagerank": 0.00100299587938935,
+   "decisions_resting": 3,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 5
+  },
+  {
+   "id": "GHSA-6x77-rpqf-j6mw",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-724g-mxrg-4qvm",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-72gw-mp4g-v24j",
+   "pagerank": 0.000281900574918836,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-72mh-269x-7mh5",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-73rr-hh4g-fpgx",
+   "pagerank": 0.00150605686940253,
+   "decisions_resting": 2,
+   "cancel": 2,
+   "downgrade": 0,
+   "beliefs_retracted": 8
+  },
+  {
+   "id": "GHSA-73wf-gq98-2v4g",
+   "pagerank": 0.000869635317940265,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-74fj-2j2h-c42q",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-75v8-2h7p-7m2m",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-765h-qjxv-5f44",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-76c9-3jph-rj3q",
+   "pagerank": 0.00130781601183116,
+   "decisions_resting": 2,
+   "cancel": 2,
+   "downgrade": 0,
+   "beliefs_retracted": 7
+  },
+  {
+   "id": "GHSA-76p3-8jx3-jpfq",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-76p7-773f-r4q5",
+   "pagerank": 0.000401394412619993,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-777c-7fjr-54vf",
+   "pagerank": 0.000377617689082399,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-78xj-cgh5-2h22",
+   "pagerank": 0.000506474752910435,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-79mx-88w7-8f7q",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-7gcc-r8m5-44qm",
+   "pagerank": 0.000506474752910435,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 1,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-7mc5-chhp-fmc3",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-7mvr-5x2g-wfc8",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-7px7-7xjx-hxm8",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-7q7g-4xm8-89cq",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-7q8q-rj6j-mhjq",
+   "pagerank": 0.000334304815623909,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-7r86-cg39-jmmj",
+   "pagerank": 0.000766470155213028,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-7rx3-28cr-v5wh",
+   "pagerank": 0.000324490858474746,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-8225-6cvr-8pqp",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-832h-xg76-4gv6",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-83g3-92jg-28cx",
+   "pagerank": 0.000328524212818593,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-869p-cjfg-cm3x",
+   "pagerank": 0.00130781601183116,
+   "decisions_resting": 2,
+   "cancel": 2,
+   "downgrade": 0,
+   "beliefs_retracted": 7
+  },
+  {
+   "id": "GHSA-86wf-436m-h424",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-87vv-r9j6-g5qv",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-898c-q2cr-xwhg",
+   "pagerank": 0.000334304815623909,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-8c25-f3mj-v6h8",
+   "pagerank": 0.000449559040134773,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-8cf7-32gw-wr33",
+   "pagerank": 0.000482655304949731,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-8cj5-5rvv-wf4v",
+   "pagerank": 0.000379274075385183,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-8fgc-7cc6-rx7x",
+   "pagerank": 0.000342759012710303,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-8g7p-74h8-hg48",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-8hc4-vh64-cxmj",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-8hfj-j24r-96c4",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-8j8c-7jfh-h6hx",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-8qq5-rm4j-mr97",
+   "pagerank": 0.000328524212818593,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-8r5x-fm3f-whwj",
+   "pagerank": 0.000423611229052767,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-8r6j-v8pm-fqw3",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-8vcr-vxm8-293m",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-8w57-jfpm-945m",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-8x88-c5mf-7j5w",
+   "pagerank": 0.000328524212818593,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-92vm-wfm5-mxvv",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-93q8-gq69-wqmw",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-952p-6rrq-rcjv",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-95m3-7q98-8xr5",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-968p-4wvh-cqc8",
+   "pagerank": 0.00184511719271541,
+   "decisions_resting": 3,
+   "cancel": 3,
+   "downgrade": 0,
+   "beliefs_retracted": 10
+  },
+  {
+   "id": "GHSA-96hv-2xvq-fx4p",
+   "pagerank": 0.000716423732228577,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 1,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-98pq-pmw9-4gpm",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-9965-vmph-33xx",
+   "pagerank": 0.000779735622927547,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-9c2p-jw8p-f84v",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-9c47-m6qq-7p4h",
+   "pagerank": 0.000968755630310625,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 5
+  },
+  {
+   "id": "GHSA-9cw2-jqp5-7x39",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-9cx6-37pm-9jff",
+   "pagerank": 0.000423611229052767,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-9fr6-4gfg-395g",
+   "pagerank": 0.000320987368468195,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-9g9j-rggx-7fmg",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-9ggv-8w38-r7pm",
+   "pagerank": 0.000407354382332414,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-9ppj-qmqm-q256",
+   "pagerank": 0.000328524212818593,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-9prh-257w-9277",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-9qj9-36jm-prpv",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-9qrh-qjmc-5w2p",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-9r2w-394v-53qc",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-9v3m-8fp8-mj99",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-9vvw-cc9w-f27h",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-9wv6-86v2-598j",
+   "pagerank": 0.00116487708874047,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 5
+  },
+  {
+   "id": "GHSA-c29m-xwm3-cm6r",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-c2c7-rcm5-vvqj",
+   "pagerank": 0.000869635317940265,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 2,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-c2jc-4fpr-4vhg",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-c2qf-rxjj-qqgw",
+   "pagerank": 0.00154859852045774,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 8
+  },
+  {
+   "id": "GHSA-c3x7-gjmx-r2ff",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-c429-5p7v-vgjp",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-c4w7-xm78-47vh",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-c6rq-rjc2-86v2",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-c7hr-j4mj-j2w6",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-c83g-rgw3-j3cx",
+   "pagerank": 0.000671394576784223,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-c9f4-xj24-8jqx",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-cf4h-3jhx-xvhq",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-cfjh-p3g4-3q2f",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-ch52-4w7c-c8xp",
+   "pagerank": 0.000989605206996202,
+   "decisions_resting": 2,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-ch52-vgq2-943f",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-cj88-88mr-972w",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-cm22-4g7w-348p",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-cm5g-3pgc-8rg4",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-cph5-m8f7-6c5x",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-cqmj-92xf-r6r9",
+   "pagerank": 0.000437414506450295,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-cwfw-4gq5-mrqx",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-cxjh-pqwp-8mfp",
+   "pagerank": 0.000379274075385183,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-f23m-r3pf-42rh",
+   "pagerank": 0.00060063530690968,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-f29h-pxvx-f335",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-f2jv-r9rf-7988",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-f4gw-2p7v-4548",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-f52g-6jhx-586p",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-f598-mfpv-gmfx",
+   "pagerank": 0.00048259916366078,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-f5w6-r7rg-mcgq",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-f5x3-32g6-xq36",
+   "pagerank": 0.000278859428362921,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-f886-m6hf-6m8v",
+   "pagerank": 0.000511455349624157,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-f8q6-p94x-37v3",
+   "pagerank": 0.000401889381464571,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-f982-mxwc-3mrx",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-f9cm-p3w6-xvr3",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-fj58-h2fr-3pp2",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-fjgf-rc76-4x9p",
+   "pagerank": 0.000381020945496857,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-fjxv-7rqg-78g4",
+   "pagerank": 0.00115211703814566,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 2,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-frh7-2f84-v9mw",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-fvcv-3m26-pcqx",
+   "pagerank": 0.000334304815623909,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-fvq6-55gv-jx9f",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-fvqr-27wr-82fm",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-fw4p-36j9-rrj3",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-fwr7-v2mv-hh25",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-fx4w-v43j-vc45",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-g2q5-5433-rhrf",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-g4rg-993r-mgx7",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-g5hg-p3ph-g8qg",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-g6ww-v8xp-vmwg",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-g74r-ffvr-5q9f",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-g796-fgmg-93mv",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-g7r4-m6w7-qqqr",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-g8mr-fgfg-5qpc",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-g973-978j-2c3p",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-g9r4-xpmj-mj65",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-gcfj-64vw-6mp9",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-gfhx-hw2g-v5hg",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-gfjr-3jmm-4g9v",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-gg4h-3hg2-grpc",
+   "pagerank": 0.000465694814920425,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-gh88-3pxp-6fm8",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-ghr5-ch3p-vcr6",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-gj77-59wh-66hg",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-gjcw-v447-2w7q",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-gpvr-g6gh-9mc2",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-gqgv-6jq5-jjj9",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-grv7-fg5c-xmjg",
+   "pagerank": 0.000551424571312964,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-gvwx-54wh-qm9j",
+   "pagerank": 0.000328524212818593,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-gxpj-cx7g-858c",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-gxr4-xjj5-5px2",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-h3mg-xc3c-68pw",
+   "pagerank": 0.000316086079692468,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-h452-7996-h45h",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-h4hr-7fg3-h35w",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-h4j5-c7cj-74xg",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-h67p-54hq-rp68",
+   "pagerank": 0.0006122593767941,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-h6ch-v84p-w6p9",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-h726-x36v-rx45",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-h9rv-jmmf-4pgx",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-hc6q-2mpp-qw7j",
+   "pagerank": 0.000441879383288324,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 1,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-hcpx-6fm6-wx23",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-hfxv-24rg-xrqf",
+   "pagerank": 0.000532545556779951,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-hhq3-ff78-jv3g",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-hj48-42vr-x3v9",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-hjcp-j389-59ff",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-hjrf-2m68-5959",
+   "pagerank": 0.00038353493437171,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-hmw2-7cc7-3qxx",
+   "pagerank": 0.000953876180574298,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-hp3w-g68c-fv3c",
+   "pagerank": 0.00150605663657188,
+   "decisions_resting": 2,
+   "cancel": 2,
+   "downgrade": 0,
+   "beliefs_retracted": 8
+  },
+  {
+   "id": "GHSA-hqhp-5p83-hx96",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-hr2v-3952-633q",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-hrpp-h998-j3pp",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-hwcf-pp87-7x6p",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-hxcc-f52p-wc94",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-hxm2-r34f-qmc5",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-hxxf-q3w9-4xgw",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-j3q9-mxjg-w52f",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-j44m-qm6p-hp7m",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-j5f8-grm9-p9fc",
+   "pagerank": 0.000532545556779951,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-j5p7-jf4q-742q",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-j6r3-76f7-8jcv",
+   "pagerank": 0.000316086079692468,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-j8rh-479h-cp32",
+   "pagerank": 0.000320987368468195,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-j8xg-fqg3-53r7",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-j9xp-92vc-559j",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-jchw-25xp-jwwc",
+   "pagerank": 0.000478394445963204,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-jf85-cpcp-j695",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-jggr-w7fw-pc2j",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-jgmv-j7ww-jx2x",
+   "pagerank": 0.000506474752910435,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-jgqf-hwc5-hh37",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-jgrx-mgxx-jf9v",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-jj78-5fmv-mv28",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-jjv7-qpx3-h62q",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-jpcq-cgw6-v4j6",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-jqcg-44mw-7w3h",
+   "pagerank": 0.00130781601183116,
+   "decisions_resting": 2,
+   "cancel": 2,
+   "downgrade": 0,
+   "beliefs_retracted": 7
+  },
+  {
+   "id": "GHSA-jqh4-m9w3-8hp9",
+   "pagerank": 0.000278497318504378,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-jqv5-7xpx-qj74",
+   "pagerank": 0.000953876180574298,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 5
+  },
+  {
+   "id": "GHSA-jr5f-v2jv-69x6",
+   "pagerank": 0.000454221939435229,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-jxxr-4gwj-5jf2",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-m6fv-jmcg-4jfg",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-m7pr-hjqh-92cm",
+   "pagerank": 0.000334304815623909,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-m8m8-qj5v-23w3",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-m9jw-237r-gvfv",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-mghh-pgcx-3jjj",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-mh29-5h37-fv8m",
+   "pagerank": 0.0006122593767941,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-mh99-v99m-4gvg",
+   "pagerank": 0.000395814946386963,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-mhpp-875w-9cpv",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-mmx7-hfxf-jppx",
+   "pagerank": 0.000334304815623909,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-mpcf-4gmh-23w8",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-mwcw-c2x4-8c55",
+   "pagerank": 0.000363264320185408,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-mwf2-3pr3-8698",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-mwp4-54f8-5fhr",
+   "pagerank": 0.000382166326744482,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 1,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-mxhp-79qh-mcx6",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-p498-v437-472g",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-p6mc-m468-83gw",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-p8wg-vrv2-v86f",
+   "pagerank": 0.000423611229052767,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-p92q-9vqr-4j8v",
+   "pagerank": 0.000532545556779951,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-p9pc-299p-vxgp",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-p9wx-2529-fp83",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-pc5p-h8pf-mvwp",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-pf2j-9qmp-jqr2",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-pf86-5x62-jrwf",
+   "pagerank": 0.000532545556779951,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-ph58-4vrj-w6hr",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-phwq-j96m-2c2q",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-pj7m-g53m-7638",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-pjwm-pj3p-43mv",
+   "pagerank": 0.000246531271841377,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-pm4m-ph32-ghv5",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-pmv8-rq9r-6j72",
+   "pagerank": 0.000320987368468195,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-pmwg-cvhr-8vh7",
+   "pagerank": 0.000532545556779951,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-pp7h-53gx-mx7r",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-pq67-2wwv-3xjx",
+   "pagerank": 0.000478394445963204,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-pqg4-j6r4-53mv",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-pw2r-vq6v-hr8c",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-pxg6-pf52-xh8x",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-pxx3-g568-hxr4",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-q2c6-c6pm-g3gh",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-q2hr-2g5m-vwhr",
+   "pagerank": 0.000395814946386963,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-q2pj-6v73-8rgj",
+   "pagerank": 0.000605595123488456,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 1,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-q42p-pg8m-cqh6",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-q4m3-2j7h-f7xw",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-q4qq-fm7q-cwp5",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-q58r-hwc8-rm9j",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-q5c4-39f5-m68j",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-q7cg-457f-vx79",
+   "pagerank": 0.000564815185498446,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-q8mj-m7cp-5q26",
+   "pagerank": 0.000342759012710303,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-q8qp-cvcw-x6jj",
+   "pagerank": 0.000519228109624237,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-qffp-2rhf-9h96",
+   "pagerank": 0.000328524212818593,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-qfvm-cv95-jqjf",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-qg8p-v9q4-gh34",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-qgmg-gppg-76g5",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-qh2h-chj9-jffq",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-qhr7-859c-m2p7",
+   "pagerank": 0.000395814946386963,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-qj83-cq47-w5f8",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-qj8w-gfj5-8c6v",
+   "pagerank": 0.000488464720547199,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-qm95-pgcg-qqfq",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-qpjp-7rp2-9c3f",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-qpx9-hpmf-5gmw",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-qq89-hq3f-393p",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-qqgx-2p2h-9c37",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-qrmc-fj45-qfc2",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-qrmh-qg46-72pp",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-qrpm-p2h7-hrv2",
+   "pagerank": 0.000363264320185408,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-qvfw-j98x-7q72",
+   "pagerank": 0.000281900574918836,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-qw6h-vgh9-j6wx",
+   "pagerank": 0.000452304200734943,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-qwcr-r2fm-qrc7",
+   "pagerank": 0.000551424571312964,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 1,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-qwph-4952-7xr6",
+   "pagerank": 0.00038353493437171,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-qxc2-j82w-r537",
+   "pagerank": 0.000953876180574298,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 5
+  },
+  {
+   "id": "GHSA-r292-9mhp-454m",
+   "pagerank": 0.000293982273433357,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-r3ph-w7gj-g6xm",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-r4gj-5m52-g5wh",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-r4q5-vmmm-2653",
+   "pagerank": 0.000916575139854103,
+   "decisions_resting": 2,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-r5fr-rjxr-66jc",
+   "pagerank": 0.00060063530690968,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 2,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-r5mx-6wc6-7h9w",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-r628-mhmh-qjhw",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-r683-j2x4-v87g",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-r6q2-hw4h-h46w",
+   "pagerank": 0.000328524212818593,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-rc47-6667-2j5j",
+   "pagerank": 0.000551424571312964,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-rf6f-7fwh-wjgh",
+   "pagerank": 0.000671394576784223,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-rgw5-rvv9-x895",
+   "pagerank": 0.000395814946386963,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-rh6c-q938-3r9q",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-rhx6-c78j-4q9w",
+   "pagerank": 0.000325954053550959,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-rmxg-73gg-4p98",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-rpw4-54j3-4h4q",
+   "pagerank": 0.000316086079692468,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-rrrm-qjm4-v8hf",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-rv95-896h-c2vc",
+   "pagerank": 0.000551424571312964,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 1,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-v245-v573-v5vm",
+   "pagerank": 0.000452304200734943,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-v2v4-37r5-5v8g",
+   "pagerank": 0.000382166326744482,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-v422-hmwv-36x6",
+   "pagerank": 0.000989605206996202,
+   "decisions_resting": 2,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-v52c-386h-88mc",
+   "pagerank": 0.000281900574918836,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-v6h2-p8h4-qcjw",
+   "pagerank": 0.000357860553776845,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-v78c-4p63-2j6c",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-v88g-cgmw-v5xw",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-v8fg-2rw7-q452",
+   "pagerank": 0.00048259916366078,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-vc2v-76pw-4v95",
+   "pagerank": 0.00167453871108592,
+   "decisions_resting": 2,
+   "cancel": 2,
+   "downgrade": 0,
+   "beliefs_retracted": 9
+  },
+  {
+   "id": "GHSA-vf2m-468p-8v99",
+   "pagerank": 0.000334304815623909,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-vfj7-8cjw-p6xm",
+   "pagerank": 0.000989605206996202,
+   "decisions_resting": 2,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-vfvf-mqq8-rwqc",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-vghf-hv5q-vc2g",
+   "pagerank": 0.000779735622927547,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 2,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-vh66-26gq-q6x8",
+   "pagerank": 0.000278497318504378,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-vh95-rmgr-6w4m",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-vj76-c3g6-qr5v",
+   "pagerank": 0.000916575139854103,
+   "decisions_resting": 2,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-vmf3-w455-68vh",
+   "pagerank": 0.000328524212818593,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-vp56-6g26-6827",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-vpq2-c234-7xj6",
+   "pagerank": 0.00150605686940253,
+   "decisions_resting": 2,
+   "cancel": 2,
+   "downgrade": 0,
+   "beliefs_retracted": 8
+  },
+  {
+   "id": "GHSA-vqfx-gj96-3w95",
+   "pagerank": 0.000548679381608963,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-vx3p-948g-6vhq",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-vxmc-5x29-h64v",
+   "pagerank": 0.000599936349317431,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-w457-6q6x-cgp9",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-w5hq-g745-h8pq",
+   "pagerank": 0.00150605686940253,
+   "decisions_resting": 2,
+   "cancel": 2,
+   "downgrade": 0,
+   "beliefs_retracted": 8
+  },
+  {
+   "id": "GHSA-w7fw-mjwx-w883",
+   "pagerank": 0.000488819263409823,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-w7jw-789q-3m8p",
+   "pagerank": 0.000551424571312964,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 1,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-w7q7-vjp8-7jv4",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-w7rc-rwvf-8q5r",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-w8qv-6jwh-64r5",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-w8wr-v893-vjvp",
+   "pagerank": 0.000293982273433357,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-w9j2-pvgh-6h63",
+   "pagerank": 0.000334304815623909,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-w9mr-4mfr-499f",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-wc69-rhjr-hc9g",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-wc9g-mqfw-jrwm",
+   "pagerank": 0.000281900574918836,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-wf5p-g6vw-rhxx",
+   "pagerank": 0.000355101568857208,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-wfp9-vr4j-f49j",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-wpg7-2c88-r8xv",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-wqch-xfxh-vrr4",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-wr44-6hxh-3jwq",
+   "pagerank": 0.000465694814920425,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-wrh9-cjv3-2hpw",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-wrvr-8mpx-r7pp",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-wrw9-m778-g6mc",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-wvhm-4hhf-97x9",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-ww39-953v-wcq6",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-x2jc-pwfj-h9p3",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-x2mc-8fgj-3wmr",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-x2rg-q646-7m2v",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-x5fp-wj9c-mxmx",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-x5pg-88wf-qq4p",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-x5rq-j2xg-h7qm",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-x6fg-f45m-jf5q",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-x7hr-w5r2-h6wg",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-x97p-jq2g-jp4f",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-xc7v-wxcw-j472",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-xf5p-87ch-gxw2",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-xf7r-hgr6-v32p",
+   "pagerank": 0.000281900574918836,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-xffm-g5w8-qvg7",
+   "pagerank": 0.000770514889154583,
+   "decisions_resting": 1,
+   "cancel": 1,
+   "downgrade": 0,
+   "beliefs_retracted": 4
+  },
+  {
+   "id": "GHSA-xfhh-g9f5-x4m4",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-xhjh-pmcv-23jw",
+   "pagerank": 0.000334304815623909,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-xhpv-hc6g-r9c6",
+   "pagerank": 0.000423611229052767,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-xj6q-8x83-jv6g",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-xjpj-3mr7-gcpf",
+   "pagerank": 0.000423611229052767,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 2
+  },
+  {
+   "id": "GHSA-xqg8-cv3h-xppv",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-xvch-5gv4-984h",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-xw65-4hp5-5hc7",
+   "pagerank": 0.000324490858474746,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-xwg4-73v4-xw9w",
+   "pagerank": 0.000313704134896398,
+   "decisions_resting": 1,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-xwg4-93c6-3h42",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-xx4c-jj58-r7x6",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-xx6v-rp6x-q39c",
+   "pagerank": 0.000334304815623909,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  },
+  {
+   "id": "GHSA-xxjr-mmjv-4gpg",
+   "pagerank": 0.00060063530690968,
+   "decisions_resting": 2,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 3
+  },
+  {
+   "id": "GHSA-xxvw-45rp-3mj2",
+   "pagerank": 0.000233213824685663,
+   "decisions_resting": 0,
+   "cancel": 0,
+   "downgrade": 0,
+   "beliefs_retracted": 1
+  }
+ ]
+}

@@ -47,6 +47,8 @@ for (const colorScheme of ['light', 'dark'] as const) {
       test.use({ tourSeen: false })
 
       test('The tour card has no accessibility violations', async ({ page }) => {
+        // Ends by walking every step of the tour: give it room under parallel load.
+        test.slow()
         await page.goto('/app')
         await expect(page.getByRole('dialog', { name: 'Welcome to Retcon' })).toBeVisible()
         expect(await axe(page)).toEqual([])

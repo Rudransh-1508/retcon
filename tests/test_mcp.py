@@ -55,7 +55,7 @@ def test_correct_is_offered_only_with_a_passphrase_and_retracts(engine, monkeypa
     seeded(engine)
     monkeypatch.delenv("RETCON_ADMIN_PASSPHRASE", raising=False)
     names = lambda s: [t.name for t in asyncio.run(s.list_tools())]
-    assert names(build(engine, allow_correct=True)) == ["why", "what_if", "decisions", "timeline"]
+    assert names(build(engine, allow_correct=True)) == ["why", "what_if", "decisions", "timeline", "load_bearing"]
     monkeypatch.setenv("RETCON_ADMIN_PASSPHRASE", "x")
     assert "correct" in names(build(engine, allow_correct=True))
     assert "correct" not in names(build(engine, allow_correct=False))
@@ -63,3 +63,9 @@ def test_correct_is_offered_only_with_a_passphrase_and_retracts(engine, monkeypa
     out = Tools(engine).correct("GHSA-fjxv-7rqg-78g4", "test")
     assert out["decisions"] == [{"decision": "decision:wiredoor:form-data", "outcome": "cancel"}]
     assert engine.node("decision:wiredoor:form-data")["status"] == "retracted"
+
+
+def test_load_bearing_names_the_advisory_the_upgrade_rests_on(engine):
+    tools = seeded(engine)
+    top = tools.load_bearing()["advisories"]
+    assert top and top[0]["decisions"]
